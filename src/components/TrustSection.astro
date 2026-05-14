@@ -1,9 +1,7 @@
 ---
 const logos = [
-  { id: 1, alt: 'Kundenlogo 1', src: '/logos/kunde-1.svg' },
-  { id: 2, alt: 'Kundenlogo 2', src: '/logos/kunde-2.svg' },
-  { id: 3, alt: 'Kundenlogo 3', src: '/logos/kunde-3.svg' },
-  { id: 4, alt: 'Kundenlogo 4', src: '/logos/kunde-4.svg' },
+  { id: 1, alt: 'Kundenlogo 1', src: '/assets/kunden/kundenlogo-1.webp' },
+  { id: 2, alt: 'Kundenlogo 2', src: '/assets/kunden/kundenlogo-2.webp' },
 ];
 ---
 
@@ -14,7 +12,7 @@ const logos = [
         Entwickelt mit echten Hotelbetrieben
       </p>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-3xl mx-auto">
+    <div class="flex flex-row gap-12 items-center justify-center max-w-xl mx-auto">
       {logos.map(logo => (
         <div class="flex items-center justify-center h-12">
           <img
