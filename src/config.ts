@@ -4,6 +4,6 @@ export const SITE = {
   description: 'Moderne Betriebssoftware für inhabergeführte Hotels',
 };
 
-export const DEMO_URL = 'https://dashboard.zimmero.app/demo';
+export const DEMO_URL = 'https://dashboard.zimmero.app';
 export const CONTACT_EMAIL = 'info@bavarianbits.de';
 export const FORM_ENDPOINT = ''; // Later configurable external form endpoint
