@@ -41,6 +41,8 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, SITE.url).toString
 
     <title>{title}</title>
 
+    <script defer data-domain="zimmero.app" src="https://analytics.bavarianbits.de/js/script.js"></script>
+
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
