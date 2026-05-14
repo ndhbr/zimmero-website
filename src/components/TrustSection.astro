@@ -1,0 +1,36 @@
+---
+const logos = [
+  { id: 1, alt: 'Kundenlogo 1', src: '/logos/kunde-1.svg' },
+  { id: 2, alt: 'Kundenlogo 2', src: '/logos/kunde-2.svg' },
+  { id: 3, alt: 'Kundenlogo 3', src: '/logos/kunde-3.svg' },
+  { id: 4, alt: 'Kundenlogo 4', src: '/logos/kunde-4.svg' },
+];
+---
+
+<section class="py-12 md:py-16 border-t border-secondary-100">
+  <div class="section-container">
+    <div class="text-center mb-8">
+      <p class="text-sm font-medium text-secondary-500 uppercase tracking-wide">
+        Entwickelt mit echten Hotelbetrieben
+      </p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center max-w-3xl mx-auto">
+      {logos.map(logo => (
+        <div class="flex items-center justify-center h-12">
+          <img
+            src={logo.src}
+            alt={logo.alt}
+            width="120"
+            height="48"
+            class="max-h-10 w-auto opacity-50 grayscale hover:opacity-80 hover:grayscale-0 transition-all duration-300"
+            loading="lazy"
+            onerror="this.parentElement.innerHTML='<div class=\'w-24 h-10 rounded bg-secondary-100\'></div>'"
+          />
+        </div>
+      ))}
+    </div>
+    <p class="text-center text-sm text-secondary-500 mt-6 max-w-lg mx-auto">
+      Zimmero wird gemeinsam mit echten Hotelbetrieben weiterentwickelt. Bereits zum Release arbeiten erste Kunden mit Zimmero.
+    </p>
+  </div>
+</section>

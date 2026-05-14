@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CONTACT_EMAIL, DEMO_URL } from '../config';
+
+const plans = [
+  {
+    name: 'Starter',
+    pilot: '69',
+    regular: '99',
+    target: '1 Haus bis 20 Zimmer',
+    suited: 'Pensionen, kleine Hotels, Garni-Hotels',
+    features: [
+      'Zimmerplan',
+      'Buchungen',
+      'Preischeck',
+      'Rechnungen',
+      'Housekeeping',
+      'Online-Buchungsstrecke',
+      'Meldeschein vorbereitet',
+      'Gästekommunikation',
+      'Demo- und Onboarding-Unterstützung',
+    ],
+    highlighted: false,
+  },
+  {
+    name: 'Professional',
+    pilot: '149',
+    regular: '199',
+    target: 'Mehrere Häuser oder bis 50 Zimmer',
+    suited: 'Familienhotels, Aparthotels, kleinere Gruppen',
+    features: [
+      'Alles aus Starter',
+      'Multi-Property Verwaltung',
+      'Erweiterte Rollen',
+      'Eigentümerabrechnung',
+      'Gastronomie-Buchungen per Tablet',
+      'Mehr operative Workflows',
+    ],
+    highlighted: true,
+  },
+  {
+    name: 'Multi Property',
+    pilot: '249',
+    regular: '299',
+    target: 'Bis 100 Zimmer',
+    suited: 'Hotelgruppen, Appartementhäuser, komplexere Betriebe',
+    features: [
+      'Alles aus Professional',
+      'Mehrere Häuser und größere Strukturen',
+      'Eigentümergemeinschaften',
+      'Erweiterte Abrechnungsszenarien',
+      'Priorisierte Pilotbetreuung',
+    ],
+    highlighted: false,
+  },
+];
+---
+
+<Layout
+  title="Zimmero Preise – Hotelsoftware ab 69 € in der Pilotphase"
+  description="Transparente Pilotpreise für Zimmero: moderne Hotelsoftware für inhabergeführte Hotels, Pensionen, Aparthotels und kleine Hotelgruppen."
+>
+  <section class="pt-16 md:pt-24 pb-16 md:pb-24">
+    <div class="section-container">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">
+          Transparente Pilotpreise für die ersten Hotels.
+        </h1>
+        <p class="text-secondary-600 leading-relaxed">
+          Zimmero startet mit einer begleiteten Pilotphase für ausgewählte Hotels. Pilotkunden erhalten einen vergünstigten Einstiegspreis und direkten Einfluss auf die Weiterentwicklung.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
+        {plans.map(plan => (
+          <div class={`rounded-xl p-6 border shadow-sm flex flex-col ${plan.highlighted ? 'border-primary-300 bg-primary-50 ring-1 ring-primary-200' : 'border-secondary-200 bg-white'}`}>
+            <div class="mb-4">
+              <h2 class="text-lg font-semibold text-secondary-900">{plan.name}</h2>
+              <p class="text-sm text-secondary-500 mt-1">{plan.suited}</p>
+            </div>
+            <div class="mb-4">
+              <div class="flex items-baseline gap-1">
+                <span class="text-3xl font-bold text-secondary-900">{plan.pilot} &euro;</span>
+                <span class="text-sm text-secondary-500">/ Monat</span>
+              </div>
+              <p class="text-xs text-secondary-500 mt-1">Pilotpreis &middot; regulär später {plan.regular} &euro; / Monat</p>
+            </div>
+            <p class="text-sm text-secondary-600 mb-4 pb-4 border-b border-secondary-200">{plan.target}</p>
+            <ul class="space-y-2 flex-1">
+              {plan.features.map(f => (
+                <li class="flex items-start gap-2 text-sm text-secondary-700">
+                  <svg class="w-4 h-4 text-primary-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a href={`mailto:${CONTACT_EMAIL}?subject=Pilotphase%20anfragen%20–%20${plan.name}`} class={`mt-6 text-center py-2.5 rounded-full font-semibold text-sm transition-colors ${plan.highlighted ? 'bg-primary-500 text-white shadow-[0_10px_24px_rgba(74,111,227,0.35)] hover:bg-primary-500/90' : 'border border-secondary-300 text-secondary-700 hover:bg-secondary-50'}`}>
+              Pilotphase anfragen
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Individual plan -->
+      <div class="max-w-5xl mx-auto">
+        <div class="rounded-xl p-6 border border-secondary-200 bg-white shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-semibold text-secondary-900">Individuell</h2>
+            <p class="text-sm text-secondary-600 mt-1">
+              Für größere Hotels ab 100 Zimmer, besondere Schnittstellen oder individuelle Prozesse erstellen wir ein passendes Angebot.
+            </p>
+          </div>
+          <a href={`mailto:${CONTACT_EMAIL}?subject=Individuelles%20Angebot`} class="btn-secondary shrink-0">
+            Angebot anfragen
+          </a>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-8 text-center">
+        <p class="text-sm text-secondary-500 leading-relaxed">
+          Channel Manager, Booking.com-Sync, Online Payments und weitere externe Schnittstellen können später als separate Add-ons angeboten werden, da hierfür externe Anbieter und laufende Integrationskosten entstehen können.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

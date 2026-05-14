@@ -1,0 +1,67 @@
+---
+import { DEMO_URL, CONTACT_EMAIL } from '../config';
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-secondary-100">
+  <nav class="section-container flex items-center justify-between h-16 md:h-18">
+    <a href="/" class="flex items-center gap-2 shrink-0">
+      <img src="/logo.svg" alt="Zimmero Logo" width="32" height="32" class="w-8 h-8" />
+      <span class="text-xl font-semibold text-secondary-900">Zimmero</span>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-8">
+      <a href="/#funktionen" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Funktionen</a>
+      <a href="/#zielgruppe" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Für wen</a>
+      <a href="/preise" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Preise</a>
+      <a href="/#roadmap" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Roadmap</a>
+      <a href="/#faq" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">FAQ</a>
+    </div>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <a href={`mailto:${CONTACT_EMAIL}?subject=Pilotphase%20anfragen`} class="btn-secondary text-sm py-2 px-4">Pilotphase anfragen</a>
+      <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary text-sm py-2 px-4">Demo öffnen</a>
+    </div>
+
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden p-2 -mr-2 text-secondary-600 hover:text-secondary-900"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-secondary-100 bg-white">
+    <div class="section-container py-4 space-y-3">
+      <a href="/#funktionen" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Funktionen</a>
+      <a href="/#zielgruppe" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Für wen</a>
+      <a href="/preise" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Preise</a>
+      <a href="/#roadmap" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Roadmap</a>
+      <a href="/#faq" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">FAQ</a>
+      <div class="pt-3 border-t border-secondary-100 flex flex-col gap-2">
+        <a href={`mailto:${CONTACT_EMAIL}?subject=Pilotphase%20anfragen`} class="btn-secondary text-sm text-center">Pilotphase anfragen</a>
+        <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary text-sm text-center">Demo öffnen</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu?.classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

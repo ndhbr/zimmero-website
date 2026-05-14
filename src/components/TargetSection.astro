@@ -1,0 +1,46 @@
+---
+const targets = [
+  'Familienhotels',
+  'Pensionen und Garni-Hotels',
+  'Aparthotels und Appartementhäuser',
+  'Kurhotels und Thermenregionen',
+  'Kleine Hotelgruppen mit mehreren Häusern',
+  'Betriebe mit Eigentümern oder Eigentümergemeinschaften',
+];
+---
+
+<section id="zielgruppe" class="py-16 md:py-24">
+  <div class="section-container">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold mb-4">
+            Für Hotels, die nah am Gast arbeiten.
+          </h2>
+          <p class="text-secondary-600 leading-relaxed mb-6">
+            Zimmero richtet sich an Betriebe, die überschaubar bleiben wollen, aber professionelle Abläufe brauchen.
+          </p>
+          <ul class="space-y-3">
+            {targets.map(target => (
+              <li class="flex items-center gap-3 text-secondary-700">
+                <svg class="w-5 h-5 text-primary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{target}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-secondary-50 rounded-xl p-8 border border-secondary-200">
+          <p class="text-secondary-600 leading-relaxed text-sm">
+            Zimmero ist nicht als Konzernsoftware für internationale Hotelketten gedacht, sondern als moderne Betriebssoftware für Häuser, in denen Rezeption, Geschäftsführung, Housekeeping und Backoffice eng zusammenarbeiten.
+          </p>
+          <div class="mt-6 pt-6 border-t border-secondary-200">
+            <p class="text-sm font-medium text-secondary-900 mb-1">Ideale Betriebsgröße</p>
+            <p class="text-2xl font-bold text-primary-600">10 – 100 Zimmer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

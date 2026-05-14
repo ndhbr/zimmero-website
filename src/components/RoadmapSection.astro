@@ -1,0 +1,92 @@
+---
+const coreFeatures = [
+  'Zimmerplan', 'Buchungen', 'Preischeck', 'Rechnungen', 'Housekeeping',
+  'Meldeschein', 'Eigentümerabrechnung', 'Mehrere Häuser', 'Online-Buchungsstrecke',
+  'Gastronomie-Buchungen',
+];
+
+const soonFeatures = [
+  'Facility Management für Mängel und Hausmeister-Aufgaben',
+  'Tagespost für Zimmer und Rezeption',
+  'Online Check-in',
+  'Gastportal',
+  'Wallbox-Nutzung über das Gastportal',
+];
+
+const laterFeatures = [
+  'Channel Manager Sync',
+  'Booking.com Anbindung',
+  'OTA-Anbindung über möglichen Partner',
+  'Online Payments',
+  'Dynamic Pricing Erweiterungen',
+];
+---
+
+<section id="roadmap" class="py-16 md:py-24">
+  <div class="section-container">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">
+        Bewusst schlank gestartet. Klar weiterentwickelt.
+      </h2>
+      <p class="text-secondary-600 leading-relaxed">
+        Zimmero wächst entlang echter Hotelprozesse. Einige Funktionen sind bereits enthalten, andere folgen in den ersten Wochen nach Release oder als separates Modul.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <div class="bg-white rounded-xl p-6 border border-primary-200 shadow-sm">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-3 h-3 rounded-full bg-primary-500"></div>
+          <h3 class="font-semibold text-secondary-900">Bereits im Kern</h3>
+        </div>
+        <ul class="space-y-2">
+          {coreFeatures.map(f => (
+            <li class="text-sm text-secondary-600 flex items-center gap-2">
+              <svg class="w-4 h-4 text-primary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 border border-accent-200 shadow-sm">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-3 h-3 rounded-full bg-accent-500"></div>
+          <h3 class="font-semibold text-secondary-900">In Kürze</h3>
+        </div>
+        <ul class="space-y-2">
+          {soonFeatures.map(f => (
+            <li class="text-sm text-secondary-600 flex items-center gap-2">
+              <svg class="w-4 h-4 text-accent-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-xl p-6 border border-secondary-200 shadow-sm">
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-3 h-3 rounded-full bg-secondary-400"></div>
+          <h3 class="font-semibold text-secondary-900">Später / Add-on</h3>
+        </div>
+        <ul class="space-y-2">
+          {laterFeatures.map(f => (
+            <li class="text-sm text-secondary-600 flex items-center gap-2">
+              <svg class="w-4 h-4 text-secondary-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              {f}
+            </li>
+          ))}
+        </ul>
+        <p class="text-xs text-secondary-500 mt-4 leading-relaxed">
+          Die OTA- und Channel-Manager-Anbindung ist als separates Add-on geplant. Aktuell wird eine Integration über einen spezialisierten Partner geprüft.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

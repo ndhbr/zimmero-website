@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { DEMO_URL, CONTACT_EMAIL } from '../config';
+---
+
+<Layout
+  title="Zimmero Demo – Hotelsoftware selbst ausprobieren"
+  description="Öffnen Sie die Zimmero Demo und erleben Sie Zimmerplan, Buchungen, Preischeck, Rechnungen und Hotelabläufe in einer modernen Betriebssoftware."
+>
+  <section class="pt-16 md:pt-24 pb-16 md:pb-24">
+    <div class="section-container">
+      <div class="max-w-2xl mx-auto text-center">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">
+          Zimmero selbst ausprobieren.
+        </h1>
+        <p class="text-secondary-600 leading-relaxed mb-8">
+          Die beste Hotelsoftware erklärt sich nicht nur über Funktionslisten. Öffnen Sie die Demo und sehen Sie, wie Zimmerplan, Buchungen, Preischeck und Rechnungen in Zimmero zusammenspielen.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+          <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary px-8 py-3.5">
+            Demo öffnen
+          </a>
+          <a href={`mailto:${CONTACT_EMAIL}?subject=Fragen%20zur%20Pilotphase`} class="btn-secondary px-8 py-3.5">
+            Fragen zur Pilotphase stellen
+          </a>
+        </div>
+
+        <p class="text-sm text-secondary-500">
+          Die Demo ist eine Testumgebung mit Beispieldaten.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

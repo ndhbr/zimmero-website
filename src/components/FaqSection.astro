@@ -1,0 +1,82 @@
+---
+const faqs = [
+  {
+    q: 'Ist Zimmero schon vollständig fertig?',
+    a: 'Zimmero befindet sich aktuell in einer begleiteten Pilotphase. Die Kernfunktionen rund um Zimmerplan, Buchungen, Rechnungen, Housekeeping, Meldeschein und Eigentümerabrechnung werden Schritt für Schritt mit echten Hotelbetrieben weiterentwickelt.',
+  },
+  {
+    q: 'Für welche Hotels ist Zimmero geeignet?',
+    a: 'Zimmero eignet sich besonders für inhabergeführte Hotels, Pensionen, Aparthotels, Kurhotels, Appartementhäuser und kleinere Hotelgruppen mit ungefähr 10 bis 100 Zimmern.',
+  },
+  {
+    q: 'Gibt es eine Booking.com Anbindung?',
+    a: 'Die Channel-Manager- und Booking.com-Anbindung ist als separates Add-on geplant. Aktuell wird eine Integration über einen spezialisierten Anbieter geprüft, damit der Sync später stabil und professionell umgesetzt werden kann.',
+  },
+  {
+    q: 'Kann Zimmero mehrere Häuser verwalten?',
+    a: 'Ja. Zimmero ist für mehrere Properties innerhalb einer Organisation ausgelegt. Das ist ideal für Betriebe mit Hotel, Gästehaus, Appartements oder mehreren Standorten.',
+  },
+  {
+    q: 'Unterstützt Zimmero Meldeschein, Kurkarte und Ortstaxe?',
+    a: 'Zimmero ist für Abläufe in Kurorten vorbereitet. Dazu gehören Meldeschein, Kurkarte, Ortstaxe, Gastklassen und touristische Meldungen.',
+  },
+  {
+    q: 'Gibt es Online Check-in?',
+    a: 'Online Check-in und ein Gastportal sind geplant. Gäste sollen künftig vor der Anreise Daten erfassen, Meldedaten ergänzen und ausgewählte Leistungen digital nutzen können.',
+  },
+  {
+    q: 'Kann Zimmero Wallbox-Nutzung abrechnen?',
+    a: 'Die Wallbox-Nutzung ist als Erweiterung über das Gastportal geplant. Gäste sollen perspektivisch eine Wallbox freischalten können, wobei die Nutzung der Buchung beziehungsweise dem Zimmer zugeordnet wird.',
+  },
+  {
+    q: 'Was kostet Zimmero?',
+    a: 'In der Pilotphase startet Zimmero ab 69\u00A0\u20AC pro Monat. Die regulären Preise beginnen später bei 99\u00A0\u20AC pro Monat. Größere Betriebe erhalten ein individuelles Angebot.',
+  },
+  {
+    q: 'Kann Zimmero Speisen und Getränke aufs Zimmer buchen?',
+    a: 'Ja. Zimmero enthält eine Tablet-Ansicht für Gastronomie-Buchungen. Das Personal kann ein Zimmer auswählen, Speisen, Getränke oder Zusatzleistungen antippen und direkt auf den aktiven Aufenthalt buchen. Die Leistungen bleiben nachvollziehbar und können später auf der Zimmerrechnung erscheinen.',
+  },
+  {
+    q: 'Ist Zimmero eine Restaurantkasse?',
+    a: 'Nein. Zimmero ersetzt keine vollwertige Restaurantkasse oder komplexes POS-System. Das Gastronomie-Feature ist für Hotelbetriebe gedacht, die Frühstück, Barartikel, Getränke oder Zusatzleistungen einfach aufs Zimmer buchen möchten.',
+  },
+  {
+    q: 'Kann ich Zimmero in meine Hotelwebsite integrieren?',
+    a: 'Ja. Zimmero bietet eine Online-Buchungsstrecke, die Hotels über ihre eigene Website nutzen können. Gäste wählen Zeitraum, Belegung und Zimmerkategorie aus und die Buchung landet anschließend im Zimmero Backoffice.',
+  },
+  {
+    q: 'Ist das dasselbe wie ein Channel Manager?',
+    a: 'Nein. Die Online-Buchung über die eigene Hotelwebsite ist eine Direktbuchungslösung. Die Anbindung an externe Portale wie Booking.com ist als separates Channel-Manager-Add-on geplant.',
+  },
+  {
+    q: 'Speichert die Website Anfragen in einer Datenbank?',
+    a: 'Nein. Die Marketing-Website ist als statische Website aufgebaut. Anfragen zur Pilotphase laufen über E-Mail oder einen später konfigurierbaren externen Formular-Endpunkt.',
+  },
+];
+---
+
+<section id="faq" class="py-16 md:py-24">
+  <div class="section-container">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">
+        Häufig gestellte Fragen
+      </h2>
+
+      <div class="space-y-4">
+        {faqs.map((faq, i) => (
+          <details class="group bg-white rounded-xl border border-secondary-200 shadow-sm overflow-hidden">
+            <summary class="flex items-center justify-between cursor-pointer p-5 text-left font-medium text-secondary-900 hover:bg-secondary-50 transition-colors">
+              <span>{faq.q}</span>
+              <svg class="w-5 h-5 text-secondary-400 shrink-0 ml-4 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="px-5 pb-5 text-secondary-600 leading-relaxed text-sm">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

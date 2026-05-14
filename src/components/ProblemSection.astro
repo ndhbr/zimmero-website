@@ -1,0 +1,46 @@
+---
+const problems = [
+  {
+    title: 'Zu viele einzelne Tools',
+    text: 'Zimmerplan, Rechnungen, Housekeeping, Meldeschein und Gästekommunikation liegen oft in getrennten Systemen.',
+    icon: 'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+  },
+  {
+    title: 'Fehleranfällige Abläufe',
+    text: 'Zimmerwechsel, Split-Rechnungen, Ortstaxe oder Eigentümerabrechnung werden schnell unübersichtlich.',
+    icon: 'M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z',
+  },
+  {
+    title: 'Software, die nicht zum Betrieb passt',
+    text: 'Viele Systeme sind entweder zu groß für Familienhotels oder zu klein für echte operative Abläufe.',
+    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+  },
+];
+---
+
+<section class="py-16 md:py-24 bg-surface">
+  <div class="section-container">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">
+        Hotelsoftware sollte den Alltag einfacher machen, nicht komplizierter.
+      </h2>
+      <p class="text-secondary-600 leading-relaxed">
+        Viele kleine und mittlere Hotels arbeiten mit einer Mischung aus altem PMS, Excel, Papierlisten, E-Mail-Postfach und separaten Tools. Dadurch entstehen doppelte Pflege, unklare Zuständigkeiten und Fehler bei Verfügbarkeit, Abrechnung oder Gästedaten.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      {problems.map(problem => (
+        <div class="bg-white rounded-xl p-6 border border-secondary-200 shadow-sm">
+          <div class="w-10 h-10 rounded-lg bg-error-50 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-error-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={problem.icon} />
+            </svg>
+          </div>
+          <h3 class="font-semibold text-secondary-900 mb-2">{problem.title}</h3>
+          <p class="text-sm text-secondary-600 leading-relaxed">{problem.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

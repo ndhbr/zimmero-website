@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply text-secondary-800 leading-relaxed;
+    background-color: #ffffff;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-secondary-900 leading-tight font-semibold;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-[0.01em]
+           transition focus:outline-none focus:ring-4 focus:ring-primary-500/20
+           bg-primary-500 text-white shadow-[0_10px_24px_rgba(74,111,227,0.35)]
+           hover:bg-primary-500/90 px-6 py-3 text-sm;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-[0.01em]
+           transition focus:outline-none focus:ring-4 focus:ring-primary-500/20
+           border border-secondary-300 text-secondary-700
+           hover:bg-secondary-50 hover:border-secondary-400 px-6 py-3 text-sm;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .bg-surface {
+    background-color: oklch(98.4% .003 247.858);
+  }
+}

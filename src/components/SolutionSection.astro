@@ -1,0 +1,43 @@
+---
+const benefits = [
+  'Zimmerplan mit Aufenthalten, Zimmerwechseln und Sperrzeiten',
+  'Buchungen mit mehreren Zimmern, Gästen und Firmen',
+  'Direktbuchung über die eigene Hotelwebsite',
+  'Preischeck für schnelle telefonische Angebote',
+  'Gastronomie-Buchungen per Tablet direkt aufs Zimmer',
+  'Housekeeping und Facility Management',
+  'Rechnungen, Split Billing und PDF-Archivierung',
+  'Meldeschein, Kurkarte, Ortstaxe und touristische Meldungen',
+  'Eigentümerabrechnung für Appartements und Eigentümergemeinschaften',
+  'Online Check-in und Gastportal',
+  'Wallbox-Nutzung über das Gastportal',
+  'Tagespost für Zimmer und Rezeption',
+  'Mehrere Häuser in einer Organisation',
+];
+---
+
+<section class="py-16 md:py-24">
+  <div class="section-container">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">
+        Ein System für den gesamten Hotelalltag.
+      </h2>
+      <p class="text-secondary-600 leading-relaxed">
+        Zimmero verbindet die wichtigsten Abläufe eines inhabergeführten Hotels in einer modernen Oberfläche. Von der telefonischen Anfrage über den Zimmerplan bis zur Rechnung und Nachbereitung bleibt alles nachvollziehbar an einem Ort.
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {benefits.map(benefit => (
+          <li class="flex items-start gap-3 text-sm text-secondary-700">
+            <svg class="w-5 h-5 text-primary-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>{benefit}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
