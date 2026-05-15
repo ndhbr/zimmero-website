@@ -4,6 +4,6 @@ export const SITE = {
   description: 'Moderne Betriebssoftware für inhabergeführte Hotels',
 };
 
-export const DEMO_URL = 'https://dashboard.zimmero.app';
+export const DEMO_URL = 'https://dashboard.zimmero.app/demo';
 export const CONTACT_EMAIL = 'info@zimmero.app';
 export const FORM_ENDPOINT = ''; // Later configurable external form endpoint
