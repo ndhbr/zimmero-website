@@ -66,9 +66,15 @@ const plans = [
         <h1 class="text-3xl md:text-4xl font-bold mb-4">
           Transparente Pilotpreise für die ersten Hotels.
         </h1>
-        <p class="text-secondary-600 leading-relaxed">
-          Zimmero startet mit einer begleiteten Pilotphase für ausgewählte Hotels. Pilotkunden erhalten einen vergünstigten Einstiegspreis und direkten Einfluss auf die Weiterentwicklung.
+        <p class="text-secondary-600 leading-relaxed mb-4">
+          Zimmero startet mit einer begleiteten Pilotphase für ausgewählte Hotels. Pilotkunden erhalten direkten Einfluss auf die Weiterentwicklung.
         </p>
+        <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-4 py-2">
+          <svg class="w-4 h-4 text-green-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+          <span class="text-sm font-medium text-green-700">Wer jetzt einsteigt, behält den Pilotpreis dauerhaft. Der reguläre Preis gilt nur für spätere Neukunden.</span>
+        </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
@@ -83,7 +89,8 @@ const plans = [
                 <span class="text-3xl font-bold text-secondary-900">{plan.pilot} &euro;</span>
                 <span class="text-sm text-secondary-500">/ Monat</span>
               </div>
-              <p class="text-xs text-secondary-500 mt-1">Pilotpreis &middot; regulär später {plan.regular} &euro; / Monat</p>
+              <p class="text-xs text-green-600 font-medium mt-1">Ihr dauerhafter Preis als Pilotkunde</p>
+              <p class="text-xs text-secondary-400 mt-0.5">Für spätere Neukunden: {plan.regular} &euro; / Monat</p>
             </div>
             <p class="text-sm text-secondary-600 mb-4 pb-4 border-b border-secondary-200">{plan.target}</p>
             <ul class="space-y-2 flex-1">
