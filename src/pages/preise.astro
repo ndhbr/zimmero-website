@@ -57,7 +57,7 @@ const plans = [
 ---
 
 <Layout
-  title="Zimmero Preise – Hotelsoftware ab 69 € in der Pilotphase"
+  title="Zimmero Preise – Hotelsoftware ab 79 € in der Pilotphase"
   description="Transparente Pilotpreise für Zimmero: moderne Hotelsoftware für inhabergeführte Hotels, Pensionen, Aparthotels und kleine Hotelgruppen."
 >
   <section class="pt-16 md:pt-24 pb-16 md:pb-24">
@@ -125,9 +125,29 @@ const plans = [
         </div>
       </div>
 
-      <div class="max-w-3xl mx-auto mt-8 text-center">
+      <!-- Add-ons note -->
+      <div class="max-w-5xl mx-auto mt-6">
+        <div class="rounded-xl border border-secondary-200 bg-white shadow-sm p-6 flex flex-col md:flex-row md:items-center gap-4">
+          <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-secondary-900 text-sm mb-1">Zusatzmodule</p>
+            <p class="text-sm text-secondary-600 leading-relaxed">
+              Optionale Erweiterungen wie die <strong>myOBS-Anbindung</strong> (10 € / Monat) können flexibel zum jeweiligen Plan hinzugebucht werden. Channel Manager, Booking.com-Sync und weitere externe Schnittstellen folgen als separate Module.
+            </p>
+          </div>
+          <a href="/#zusatzmodule" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-secondary-300 text-secondary-700 font-semibold text-sm hover:bg-secondary-50 transition-colors shrink-0">
+            Zu den Modulen
+          </a>
+        </div>
+      </div>
+
+      <div class="max-w-3xl mx-auto mt-6 text-center">
         <p class="text-sm text-secondary-500 leading-relaxed">
-          Channel Manager, Booking.com-Sync, Online Payments und weitere externe Schnittstellen können später als separate Add-ons angeboten werden, da hierfür externe Anbieter und laufende Integrationskosten entstehen können.
+          Alle genannten Preise zzgl. MwSt. Externe Schnittstellen und Add-ons können zusätzliche Kosten durch externe Anbieter verursachen.
         </p>
       </div>
     </div>

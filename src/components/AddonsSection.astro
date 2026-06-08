@@ -1,0 +1,94 @@
+---
+import { CONTACT_EMAIL } from '../config';
+
+const addons = [
+  {
+    title: 'myOBS-Anbindung',
+    price: '10 € / Monat',
+    description: 'Mit dem myOBS-Zusatzmodul verbindet Zimmero Ihre Hotelverwaltung direkt mit dem Online Buchung Service von Ostbayern Tourismus. Verfügbarkeiten, Preise und Buchungsregeln werden aus Zimmero heraus synchronisiert und können so auf regionalen Tourismusseiten sowie – bei entsprechender myOBS-Nutzung – auch auf Portalen wie Booking.com, Airbnb oder Expedia ausgespielt werden.',
+    bullets: [
+      'Synchronisation von Verfügbarkeiten',
+      'Preise und Buchungsregeln aus Zimmero übertragen',
+      'Anbindung an OBS und regionale Tourismusseiten',
+      'Optionaler Vertrieb über angeschlossene Portale bei Nutzung von myOBS als Channel Manager',
+    ],
+    icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
+    learnMoreUrl: 'https://online-buchung-service.de/',
+  },
+];
+---
+
+<section id="zusatzmodule" class="py-16 md:py-24 bg-surface">
+  <div class="section-container">
+    <div class="max-w-3xl mx-auto text-center mb-10">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">
+        Zusatzmodule für noch mehr Möglichkeiten.
+      </h2>
+      <p class="text-secondary-600 leading-relaxed">
+        Zimmero bleibt schlank im Kern und kann bei Bedarf um zusätzliche Funktionen erweitert werden. Weitere Module sind in Planung.
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto grid grid-cols-1 gap-6">
+      {addons.map(addon => (
+        <div class="bg-white rounded-xl border border-secondary-200 shadow-sm p-6 md:p-8">
+          <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
+            <div class="flex items-start gap-4">
+              <div class="w-11 h-11 rounded-lg bg-primary-50 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={addon.icon} />
+                </svg>
+              </div>
+              <div>
+                <div class="flex items-center gap-2 flex-wrap">
+                  <h3 class="font-semibold text-secondary-900 text-lg">{addon.title}</h3>
+                  <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-accent-100 text-accent-700">Zusatzmodul</span>
+                </div>
+                <p class="text-primary-600 font-semibold text-sm mt-1">{addon.price}</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-secondary-600 leading-relaxed text-sm mb-5">
+            {addon.description}
+          </p>
+
+          <ul class="space-y-2 mb-6">
+            {addon.bullets.map(bullet => (
+              <li class="flex items-start gap-2 text-sm text-secondary-700">
+                <svg class="w-4 h-4 text-primary-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {bullet}
+              </li>
+            ))}
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-5 border-t border-secondary-100">
+            <a
+              href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%3A%20myOBS-Anbindung`}
+              class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-primary-500 text-white font-semibold text-sm hover:bg-primary-500/90 transition-colors shadow-sm"
+            >
+              Modul anfragen
+            </a>
+            <a
+              href={addon.learnMoreUrl}
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-full border border-secondary-300 text-secondary-700 font-semibold text-sm hover:bg-secondary-50 transition-colors"
+            >
+              Mehr zu myOBS
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center text-sm text-secondary-400 mt-8">
+      Weitere Zusatzmodule sind in Planung und werden laufend ergänzt.
+    </p>
+  </div>
+</section>
