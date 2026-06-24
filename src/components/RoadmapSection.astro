@@ -1,8 +1,21 @@
 ---
 const coreFeatures = [
-  'Zimmerplan', 'Buchungen', 'Preischeck', 'Rechnungen', 'Housekeeping',
-  'Meldeschein', 'Eigentümerabrechnung', 'Mehrere Häuser', 'Online-Buchungsstrecke',
-  'Gastronomie-Buchungen', 'DATEV-EXTF Export',
+  'Zimmerplan',
+  'Buchungen',
+  'Preischeck',
+  'Rechnungen',
+  'Housekeeping',
+  'Meldeschein',
+  'Eigentümerabrechnung',
+  'Mehrere Häuser',
+  'Online-Buchungsstrecke',
+  'Gastronomie-Buchungen',
+  'DATEV-EXTF Export',
+  'SumUp Bezahlterminals',
+  'myOBS-Anbindung (Channel Manager)',
+  'Angebote schreiben & schicken',
+  'Pauschalangebote',
+  'E-Mail-Versand mit konfigurierbaren Vorlagen',
 ];
 
 const soonFeatures = [
@@ -10,14 +23,11 @@ const soonFeatures = [
   'Tagespost für Zimmer und Rezeption',
   'Online Check-in',
   'Gastportal',
-  'Wallbox-Nutzung über das Gastportal',
+  'Entwicklung eigener Channel Manager',
 ];
 
 const laterFeatures = [
-  'myOBS-Anbindung (Zusatzmodul, 5 € / Monat)',
-  'Channel Manager Sync',
-  'Booking.com Anbindung',
-  'OTA-Anbindung über möglichen Partner',
+  'Wallbox-Nutzung über das Gastportal',
   'Online Payments',
   'Dynamic Pricing Erweiterungen',
 ];
@@ -72,7 +82,7 @@ const laterFeatures = [
       <div class="bg-white rounded-xl p-6 border border-secondary-200 shadow-sm">
         <div class="flex items-center gap-2 mb-4">
           <div class="w-3 h-3 rounded-full bg-secondary-400"></div>
-          <h3 class="font-semibold text-secondary-900">Später / Add-on</h3>
+          <h3 class="font-semibold text-secondary-900">Später</h3>
         </div>
         <ul class="space-y-2">
           {laterFeatures.map(f => (
@@ -84,9 +94,6 @@ const laterFeatures = [
             </li>
           ))}
         </ul>
-        <p class="text-xs text-secondary-500 mt-4 leading-relaxed">
-          Die myOBS-Anbindung ist als erstes Zusatzmodul verfügbar. Weitere Module und OTA-Anbindungen folgen laufend.
-        </p>
       </div>
     </div>
   </div>
