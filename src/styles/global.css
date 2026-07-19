@@ -41,4 +41,17 @@
   .bg-surface {
     background-color: oklch(98.4% .003 247.858);
   }
+
+  @keyframes bell-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  .animate-bell-float {
+    animation: bell-float 3s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-bell-float { animation: none; }
 }
