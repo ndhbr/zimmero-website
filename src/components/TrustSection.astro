@@ -2,7 +2,8 @@
 const logos = [
   { id: 1, alt: 'Hotel Fortuna', src: '/assets/kunden/kundenlogo-1.webp' },
   { id: 2, alt: 'Das Schneider / Pension Schneider', src: '/assets/kunden/kundenlogo-2.webp' },
-  { id: 3, alt: 'Zimmer im Hotel Centurio', src: '/assets/kunden/kundenlogo-3.webp' }
+  { id: 3, alt: 'Zimmer im Hotel Centurio', src: '/assets/kunden/kundenlogo-3.webp' },
+  { id: 4, alt: "Nero's Hotel", src: '/assets/kunden/IMG_3668.webp' },
 ];
 ---
 
@@ -13,7 +14,7 @@ const logos = [
         Entwickelt mit echten Hotelbetrieben
       </p>
     </div>
-    <div class="flex flex-row gap-12 items-center justify-center max-w-xl mx-auto">
+    <div class="flex flex-row flex-wrap gap-10 items-center justify-center max-w-2xl mx-auto">
       {logos.map(logo => (
         <div class="flex items-center justify-center h-12">
           <img
@@ -31,5 +32,24 @@ const logos = [
     <p class="text-center text-sm text-secondary-500 mt-6 max-w-lg mx-auto">
       Zimmero wird gemeinsam mit echten Hotelbetrieben weiterentwickelt. Bereits zum Release arbeiten erste Kunden mit Zimmero.
     </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-5 bg-primary-50 rounded-2xl px-6 py-6 max-w-xl mx-auto border border-primary-100">
+      <img
+        src="/assets/kunden/632157933_17845815831685930_1049408061216013170_n.webp"
+        alt="Gründer und Entwickler von Zimmero"
+        width="72"
+        height="72"
+        class="w-18 h-18 rounded-full object-cover object-top shrink-0 ring-2 ring-primary-200"
+        loading="lazy"
+      />
+      <div class="text-center sm:text-left">
+        <p class="text-secondary-800 text-sm leading-relaxed">
+          Zimmero wird von mir als Gründer und Entwickler persönlich betreut. Jedes Feature entsteht im direkten Austausch mit echten Hotelbetrieben – nah an der Praxis, nicht am Schreibtisch.
+        </p>
+        <p class="mt-2 text-xs font-semibold text-primary-600 uppercase tracking-wide">
+          Gründer &amp; Entwickler, Zimmero
+        </p>
+      </div>
+    </div>
   </div>
 </section>
