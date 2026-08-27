@@ -9,22 +9,23 @@ import { DASHBOARD_URL, CONTACT_EMAIL } from '../config';
       <span class="text-xl font-semibold text-secondary-900">Zimmero</span>
     </a>
 
-    <div class="hidden lg:flex items-center gap-8">
+    <div class="hidden xl:flex items-center gap-8">
       <a href="/#funktionen" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Funktionen</a>
+      <a href="/#channel-manager" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Channel Manager</a>
       <a href="/#zielgruppe" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Für wen</a>
       <a href="/preise" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Preise</a>
       <a href="/#roadmap" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Roadmap</a>
       <a href="/#faq" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">FAQ</a>
     </div>
 
-    <div class="hidden lg:flex items-center gap-3">
+    <div class="hidden xl:flex items-center gap-3">
       <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%3A%20Zimmero%20bekommen`} class="btn-secondary text-sm py-2 px-4">Pilotphase anfragen</a>
       <a href={DASHBOARD_URL} target="_blank" rel="noopener" class="btn-primary text-sm py-2 px-4">Dashboard öffnen</a>
     </div>
 
     <button
       id="mobile-menu-btn"
-      class="lg:hidden p-2 -mr-2 text-secondary-600 hover:text-secondary-900"
+      class="xl:hidden p-2 -mr-2 text-secondary-600 hover:text-secondary-900"
       aria-label="Menü öffnen"
       aria-expanded="false"
     >
@@ -34,9 +35,10 @@ import { DASHBOARD_URL, CONTACT_EMAIL } from '../config';
     </button>
   </nav>
 
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-secondary-100 bg-white">
+  <div id="mobile-menu" class="hidden xl:hidden border-t border-secondary-100 bg-white">
     <div class="section-container py-4 space-y-3">
       <a href="/#funktionen" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Funktionen</a>
+      <a href="/#channel-manager" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Channel Manager</a>
       <a href="/#zielgruppe" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Für wen</a>
       <a href="/preise" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Preise</a>
       <a href="/#roadmap" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Roadmap</a>
