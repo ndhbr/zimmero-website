@@ -1,0 +1,200 @@
+---
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import Layout from '../layouts/Layout.astro';
+import { CONTACT_EMAIL, DEMO_URL } from '../config';
+import { landingPages, type LandingPage } from '../data/landingPages';
+
+export function getStaticPaths() {
+  return landingPages.map(page => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+interface Props {
+  page: LandingPage;
+}
+
+const { page } = Astro.props;
+const relatedPages = page.related
+  .map(slug => landingPages.find(candidate => candidate.slug === slug))
+  .filter((candidate): candidate is LandingPage => Boolean(candidate));
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: page.faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+
+const breadcrumbs = [
+  { name: 'Startseite', href: '/' },
+  { name: page.eyebrow, href: `/${page.slug}/` },
+];
+---
+
+<Layout
+  title={page.title}
+  description={page.description}
+  ogImage={`/assets/og/${page.slug}.png`}
+  structuredData={faqSchema}
+>
+  <section class="py-12 md:py-20">
+    <div class="section-container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="mx-auto max-w-5xl text-center">
+        <p class="mb-3 text-sm font-semibold text-primary-700">{page.eyebrow}</p>
+        <h1 class="mx-auto mb-6 max-w-4xl text-3xl font-bold md:text-5xl">{page.heading}</h1>
+        <div class="mx-auto max-w-3xl space-y-4 text-lg leading-relaxed text-secondary-600">
+          {page.intro.map(paragraph => <p>{paragraph}</p>)}
+        </div>
+        <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary">Demo öffnen</a>
+          <a href="/kontakt/" class="btn-secondary">Zimmero anfragen</a>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-3">
+        {page.benefits.map(benefit => (
+          <article class="rounded-xl border border-secondary-200 bg-white p-5 shadow-sm">
+            <h2 class="mb-2 text-lg font-semibold">{benefit.title}</h2>
+            <p class="text-sm leading-relaxed text-secondary-600">{benefit.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-16 md:py-24">
+    <div class="section-container">
+      <div class="mx-auto max-w-4xl">
+        <p class="mb-3 text-sm font-semibold text-primary-700">Das Problem</p>
+        <h2 class="mb-7 text-2xl font-bold md:text-3xl">{page.problemTitle}</h2>
+        <div class="space-y-5 leading-relaxed text-secondary-700">
+          {page.problem.map(paragraph => <p>{paragraph}</p>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="section-container">
+      <div class="mx-auto max-w-5xl">
+        <div class="mx-auto mb-10 max-w-3xl text-center">
+          <p class="mb-3 text-sm font-semibold text-primary-700">So löst Zimmero das</p>
+          <h2 class="text-2xl font-bold md:text-3xl">Ein klarer Ablauf vom ersten Datensatz bis zum fertigen Vorgang.</h2>
+        </div>
+
+        <ol class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5">
+          {page.steps.map((step, index) => (
+            <li class="rounded-xl border border-secondary-200 bg-white p-5 shadow-sm">
+              <span class="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-primary-500 text-sm font-bold text-white" aria-hidden="true">{index + 1}</span>
+              <h3 class="mb-2 font-semibold">{step.title}</h3>
+              <p class="text-sm leading-relaxed text-secondary-600">{step.text}</p>
+            </li>
+          ))}
+        </ol>
+
+        <figure class="mt-10 overflow-hidden rounded-2xl border border-secondary-200 bg-white shadow-sm">
+          <img src={page.image} alt={page.imageAlt} width="1600" height="900" class="aspect-video h-auto w-full object-cover object-top" loading="lazy" />
+          <figcaption class="border-t border-secondary-200 px-5 py-4 text-sm leading-relaxed text-secondary-600">{page.imageCaption}</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-16 md:py-24">
+    <div class="section-container">
+      <div class="mx-auto grid max-w-4xl gap-14">
+        {page.sections.map(section => (
+          <article>
+            <h2 class="mb-5 text-2xl font-bold md:text-3xl">{section.title}</h2>
+            <div class="space-y-4 leading-relaxed text-secondary-700">
+              {section.paragraphs.map(paragraph => <p>{paragraph}</p>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-secondary-950 py-16 text-white md:py-24">
+    <div class="section-container">
+      <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+        <article class="rounded-2xl bg-white p-6 text-secondary-900 md:p-8">
+          <h2 class="mb-5 text-2xl font-bold">Was Sie dafür brauchen</h2>
+          <ul class="space-y-4 text-sm leading-relaxed text-secondary-700">
+            {page.requirements.map(item => <li>{item}</li>)}
+          </ul>
+        </article>
+        <article class="rounded-2xl border border-white/20 bg-white/10 p-6 md:p-8">
+          <h2 class="mb-5 text-2xl font-bold text-white">Was Zimmero hier nicht kann</h2>
+          <ul class="space-y-4 text-sm leading-relaxed text-secondary-200">
+            {page.limitations.map(item => <li>{item}</li>)}
+          </ul>
+        </article>
+      </div>
+
+      {page.sources && (
+        <div class="mx-auto mt-8 max-w-5xl rounded-xl border border-white/20 p-5 text-sm text-secondary-200">
+          <p class="mb-3 font-semibold text-white">Offizielle Grundlagen</p>
+          <ul class="space-y-2">
+            {page.sources.map(source => (
+              <li><a href={source.url} target="_blank" rel="noopener" class="text-primary-200 hover:underline">{source.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="section-container">
+      <div class="mx-auto max-w-4xl">
+        <div class="mb-8 text-center">
+          <h2 class="mb-3 text-2xl font-bold md:text-3xl">Häufige Fragen zu {page.eyebrow}</h2>
+          <p class="text-secondary-600">Antworten auf die Fragen, die vor einer Einführung meistens geklärt werden.</p>
+        </div>
+        <FaqAccordion faqs={page.faqs} />
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface py-16 md:py-20">
+    <div class="section-container">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="mb-7 text-center text-2xl font-bold md:text-3xl">Passende Themen</h2>
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+          {relatedPages.map(related => (
+            <a href={`/${related.slug}/`} class="rounded-xl border border-secondary-200 bg-white p-5 shadow-sm transition hover:border-primary-300 hover:shadow-md">
+              <span class="font-semibold text-secondary-900">{related.eyebrow}</span>
+              <span class="mt-2 block text-sm leading-relaxed text-secondary-600">{related.description}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-primary-500 py-16 text-center md:py-20">
+    <div class="section-container">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="mb-4 text-2xl font-bold text-white md:text-3xl">Passt dieser Ablauf zu Ihrem Betrieb?</h2>
+        <p class="mb-7 leading-relaxed text-primary-100">Öffnen Sie die Demo oder beschreiben Sie kurz Ihre Häuser und Ihren bisherigen Ablauf. Andreas Huber antwortet innerhalb von 24 Stunden.</p>
+        <div class="flex flex-col justify-center gap-3 sm:flex-row">
+          <a href={DEMO_URL} target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-700 transition hover:bg-primary-50">Demo öffnen</a>
+          <a href="/kontakt/" class="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-600">Zimmero anfragen</a>
+        </div>
+        <p class="mt-5 text-sm text-primary-100">Oder schreiben Sie direkt an <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%20zu%20Zimmero`} class="font-semibold text-white hover:underline">{CONTACT_EMAIL}</a>.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

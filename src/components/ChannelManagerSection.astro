@@ -1,6 +1,4 @@
 ---
-import { CONTACT_EMAIL } from '../config';
-
 const syncItems = ['Verfügbarkeiten', 'Preise', 'Restriktionen', 'Reservierungen'];
 ---
 
@@ -33,10 +31,10 @@ const syncItems = ['Verfügbarkeiten', 'Preise', 'Restriktionen', 'Reservierunge
         </div>
 
         <a
-          href={`mailto:${CONTACT_EMAIL}?subject=Booking.com%20mit%20Zimmero%20verbinden`}
+          href="/channel-manager-booking-com/"
           class="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-center text-sm font-semibold text-secondary-950 shadow-lg transition-colors hover:bg-primary-50 focus:outline-none focus:ring-4 focus:ring-white/20 sm:w-auto"
         >
-          Booking.com mit Zimmero verbinden
+          Channel Manager im Detail
           <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
