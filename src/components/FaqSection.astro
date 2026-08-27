@@ -1,4 +1,5 @@
 ---
+import FaqAccordion from './FaqAccordion.astro';
 import { homeFaqs } from '../data/homeFaqs';
 ---
 
@@ -9,21 +10,7 @@ import { homeFaqs } from '../data/homeFaqs';
         Häufig gestellte Fragen
       </h2>
 
-      <div class="space-y-4">
-        {homeFaqs.map(faq => (
-          <details class="group bg-white rounded-xl border border-secondary-200 shadow-sm overflow-hidden">
-            <summary class="flex items-center justify-between cursor-pointer p-5 text-left font-medium text-secondary-900 hover:bg-secondary-50 transition-colors">
-              <span>{faq.q}</span>
-              <svg class="w-5 h-5 text-secondary-400 shrink-0 ml-4 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-              </svg>
-            </summary>
-            <div class="px-5 pb-5 text-secondary-600 leading-relaxed text-sm">
-              {faq.a}
-            </div>
-          </details>
-        ))}
-      </div>
+      <FaqAccordion faqs={homeFaqs} />
     </div>
   </div>
 </section>

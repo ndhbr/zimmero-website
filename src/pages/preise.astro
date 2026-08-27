@@ -1,191 +1,244 @@
 ---
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
 import Layout from '../layouts/Layout.astro';
-import { CONTACT_EMAIL, SOFTWARE_APPLICATION_SCHEMA } from '../config';
+import { CONTACT_EMAIL, DEMO_URL, SOFTWARE_APPLICATION_SCHEMA } from '../config';
 
 const plans = [
   {
     name: 'Starter',
     current: '79',
     regular: '99',
-    target: '1 Haus bis 20 Zimmer',
-    suited: 'Pensionen, kleine Hotels, Garni-Hotels',
-    features: [
-      'Zimmerplan',
-      'Buchungen und Angebote',
-      'Mailversand mit Vorlagen direkt aus Zimmero',
-      'Preischeck',
-      'Rechnungen & DATEV-EXTF Export',
-      'Housekeeping',
-      'Online-Buchungsstrecke',
-      'Direktbuchungen: 0 € Buchungsgebühr und 0 % Provision',
-      'Meldescheinmodul',
-      'Gästekommunikation',
-      'Automatische Mails (Check-in, Bewertungsmails, …)',
-      'Demo- und Onboarding-Unterstützung',
-      'Support per E-Mail',
-    ],
+    houses: '1 Haus',
+    units: 'bis 20 Zimmer oder Einheiten',
+    addons: 'Zusatzmodule bei Bedarf zubuchbar',
     highlighted: false,
   },
   {
     name: 'Professional',
     current: '149',
     regular: '199',
-    target: 'Mehrere Häuser oder bis 50 Zimmer',
-    suited: 'Familienhotels, Aparthotels, kleinere Gruppen',
-    features: [
-      'Alles aus Starter',
-      'Multi-Property Verwaltung',
-      'Erweiterte Rollen',
-      'Eigentümerabrechnung',
-      'Mehr operative Workflows',
-      '3 Zusatzmodule ohne monatlichen Aufpreis',
-      'Support per E-Mail und Telefon',
-    ],
+    houses: 'bis 2 Häuser',
+    units: 'insgesamt bis 50 Zimmer oder Einheiten',
+    addons: '3 Zusatzmodule ohne monatlichen Aufpreis',
     highlighted: true,
   },
   {
     name: 'Multi Property',
     current: '249',
     regular: '299',
-    target: 'Bis 100 Zimmer',
-    suited: 'Hotelgruppen, Appartementhäuser, komplexere Betriebe',
-    features: [
-      'Alles aus Professional',
-      'Mehrere Häuser und größere Strukturen',
-      'Eigentümergemeinschaften',
-      'Erweiterte Abrechnungsszenarien',
-      'Priorisierte Betreuung und Entwicklung zugeschnittener Features',
-      'Alle Zusatzmodule ohne monatlichen Aufpreis (auch zukünftige)',
-    ],
+    houses: 'bis 5 Häuser',
+    units: 'insgesamt bis 100 Zimmer oder Einheiten',
+    addons: 'alle derzeitigen Zusatzmodule ohne monatlichen Aufpreis',
     highlighted: false,
   },
+];
+
+const comparisonRows = [
+  { label: 'Aktionspreis pro Monat', values: ['79 €', '149 €', '249 €'] },
+  { label: 'Regulärer Preis für spätere Neukunden', values: ['99 €', '199 €', '299 €'] },
+  { label: 'Häuser', values: ['1', 'bis 2', 'bis 5'] },
+  { label: 'Zimmer oder Einheiten', values: ['bis 20', 'insgesamt bis 50', 'insgesamt bis 100'] },
+  { label: 'Mitarbeiterkonten', values: ['unbegrenzt', 'unbegrenzt', 'unbegrenzt'] },
+  { label: 'Einmalige Einrichtung im Aktionsangebot', values: ['enthalten', 'enthalten', 'enthalten'] },
+  { label: 'Halbtägige Schulung im Aktionsangebot', values: ['enthalten', 'enthalten', 'enthalten'] },
+  { label: 'Datenübernahme', values: ['derzeit kostenlos', 'derzeit kostenlos', 'derzeit kostenlos'] },
+  { label: 'Direktbuchungen über Ihre Website', values: ['0 €', '0 €', '0 €'] },
+  { label: 'Zusatzmodule ohne monatlichen Aufpreis', values: ['keine', '3', 'alle derzeitigen'] },
+  { label: 'Portalbuchung über den Channel Manager', values: ['1,50 €', '1,50 €', '1,50 €'] },
+];
+
+const priceFaqs = [
+  {
+    q: 'Sind die Preise netto oder brutto?',
+    a: 'Alle Preise sind Nettopreise und verstehen sich zuzüglich der gesetzlichen Umsatzsteuer.',
+  },
+  {
+    q: 'Für wen gilt das Aktionsangebot?',
+    a: 'Das Aktionsangebot gilt für die ersten zehn Hotelbetriebe. Es umfasst den reduzierten Monatspreis, die einmalige Einrichtung und eine halbtägige Schulung.',
+  },
+  {
+    q: 'Bleibt der Aktionspreis dauerhaft bestehen?',
+    a: 'Ja. Wer Zimmero im Aktionsangebot bucht, behält den vereinbarten Aktionspreis dauerhaft. Die regulären Preise gelten für spätere Neukunden.',
+  },
+  {
+    q: 'Wie lange läuft der Vertrag?',
+    a: 'Der Vertrag ist monatlich kündbar. Eine Kündigung wird jeweils zum 1. eines Monats wirksam.',
+  },
+  {
+    q: 'Gibt es eine Begrenzung für Mitarbeiterkonten?',
+    a: 'Nein. In allen drei Tarifen können Sie unbegrenzt Mitarbeiterkonten anlegen.',
+  },
+  {
+    q: 'Was kostet die Übernahme vorhandener Daten?',
+    a: 'Die Datenübernahme ist derzeit kostenlos. Erprobt ist die Übernahme von Gäste- und Buchungsdaten aus H3S und Pensionsprogramm.',
+  },
+  {
+    q: 'Gibt es eine kostenlose Testphase?',
+    a: 'Nein. Statt einer zeitlich begrenzten Testphase gibt es eine öffentliche Demo mit Beispieldaten. Sie lässt sich ohne Anmeldung öffnen und setzt sich selbst zurück.',
+  },
+  {
+    q: 'Welche Kosten können zusätzlich entstehen?',
+    a: 'Portalbuchungen über den Channel Manager kosten 1,50 Euro je Buchung. Direktbuchungen über Ihre eigene Website bleiben ohne Provision und ohne Buchungsgebühr. Je nach Tarif können außerdem Kosten für Zusatzmodule oder externe Anbieter entstehen.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: priceFaqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+
+const breadcrumbs = [
+  { name: 'Startseite', href: '/' },
+  { name: 'Preise', href: '/preise/' },
 ];
 ---
 
 <Layout
-  title="Preise für Hotelsoftware | Zimmero"
-  description="Hotelsoftware ab 79 Euro monatlich. Direktbuchungen bleiben provisionsfrei, der Channel Manager kostet nur je Portalbuchung. Preise ansehen."
-  structuredData={SOFTWARE_APPLICATION_SCHEMA}
+  title="Zimmero Preise | Hotelsoftware ab 79 Euro netto"
+  description="Zimmero kostet ab 79 Euro netto im Monat. Preise nach Häusern und Zimmern, unbegrenzte Mitarbeiterkonten und provisionsfreie Direktbuchungen."
+  structuredData={[SOFTWARE_APPLICATION_SCHEMA, faqSchema]}
 >
-  <section class="py-16 md:py-24">
+  <section class="py-12 md:py-20">
     <div class="section-container">
-      <div class="max-w-3xl mx-auto text-center mb-12">
-        <h1 class="text-3xl md:text-4xl font-bold mb-4">
-          Transparente Preise für Hotels.
-        </h1>
-        <p class="text-secondary-600 leading-relaxed mb-4">
-          Klare monatliche Tarife ohne komplizierte Pakete. Die aktuell rabattierten Preise sichern Sie sich bei einem Einstieg dauerhaft.
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="mx-auto mb-12 max-w-3xl text-center">
+        <p class="mb-3 text-sm font-semibold text-primary-700">Preise ohne Kleingedrucktes</p>
+        <h1 class="mb-4 text-3xl font-bold md:text-4xl">Der passende Tarif richtet sich nach Ihren Häusern und Zimmern.</h1>
+        <p class="mb-6 leading-relaxed text-secondary-600">
+          Alle Tarife enthalten unbegrenzt viele Mitarbeiterkonten. Die Aktionspreise gelten für die ersten zehn Hotelbetriebe und bleiben für diese Kunden dauerhaft bestehen.
         </p>
-        <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-4 py-2">
-          <svg class="w-4 h-4 text-green-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-          </svg>
-          <span class="text-sm font-medium text-green-700">Wer jetzt einsteigt, behält den Aktionspreis dauerhaft. Der reguläre Preis gilt nur für spätere Neukunden.</span>
-        </div>
-        <div class="inline-flex items-center gap-2 bg-primary-50 border border-primary-200 rounded-full px-4 py-2 mt-3">
-          <svg class="w-4 h-4 text-primary-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-          <span class="text-sm font-medium text-primary-700">Einrichtung und Schulung kostenlos inklusive.</span>
+        <div class="rounded-xl border border-success-200 bg-success-50 p-5 text-left text-sm leading-relaxed text-success-900">
+          <strong>Im Aktionsangebot enthalten:</strong> die einmalige Einrichtung und eine halbtägige Schulung. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit ebenfalls kostenlos.
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-8">
+      <div class="mx-auto mb-10 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
         {plans.map(plan => (
-          <div class={`rounded-xl p-6 border shadow-sm flex flex-col ${plan.highlighted ? 'border-primary-300 bg-primary-50 ring-1 ring-primary-200' : 'border-secondary-200 bg-white'}`}>
-            <div class="mb-4">
-              <h2 class="text-lg font-semibold text-secondary-900">{plan.name}</h2>
-              <p class="text-sm text-secondary-500 mt-1">{plan.suited}</p>
+          <article class={`flex flex-col rounded-xl border p-6 shadow-sm ${plan.highlighted ? 'border-primary-300 bg-primary-50 ring-1 ring-primary-200' : 'border-secondary-200 bg-white'}`}>
+            <div class="mb-5">
+              <h2 class="text-xl font-semibold text-secondary-900">{plan.name}</h2>
+              <p class="mt-2 text-sm text-secondary-600">{plan.houses}, {plan.units}</p>
             </div>
-            <div class="mb-4">
+
+            <div class="mb-5 border-b border-secondary-200 pb-5">
               <div class="flex items-baseline gap-1">
-                <span class="text-3xl font-bold text-secondary-900">{plan.current} &euro;</span>
-                <span class="text-sm text-secondary-500">/ Monat</span>
+                <span class="text-3xl font-bold text-secondary-900">{plan.current} €</span>
+                <span class="text-sm text-secondary-600">netto pro Monat</span>
               </div>
-              <p class="text-xs text-green-600 font-medium mt-1">Ihr dauerhaft gesicherter Aktionspreis</p>
-              <p class="text-xs text-secondary-400 mt-0.5">Für spätere Neukunden: {plan.regular} &euro; / Monat</p>
+              <p class="mt-2 text-sm font-medium text-success-800">Aktionspreis dauerhaft gesichert</p>
+              <p class="mt-1 text-sm text-secondary-600">Regulär später {plan.regular} € netto pro Monat</p>
             </div>
-            <p class="text-sm text-secondary-600 mb-4 pb-4 border-b border-secondary-200">{plan.target}</p>
-            <ul class="space-y-2 flex-1">
-              {plan.features.map(f => (
-                <li class="flex items-start gap-2 text-sm text-secondary-700">
-                  <svg class="w-4 h-4 text-primary-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  {f}
-                </li>
-              ))}
+
+            <ul class="mb-6 flex-1 space-y-3 text-sm text-secondary-700">
+              <li>Unbegrenzt viele Mitarbeiterkonten</li>
+              <li>Einrichtung und halbtägige Schulung im Aktionsangebot enthalten</li>
+              <li>{plan.addons}</li>
             </ul>
-            <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%3A%20Zimmero%20bekommen`} class={`mt-6 text-center py-2.5 rounded-full font-semibold text-sm transition-colors ${plan.highlighted ? 'bg-primary-500 text-white shadow-[0_10px_24px_rgba(74,111,227,0.35)] hover:bg-primary-500/90' : 'border border-secondary-300 text-secondary-700 hover:bg-secondary-50'}`}>
-              Zimmero anfragen
+
+            <a href="/kontakt/" class={plan.highlighted ? 'btn-primary text-center' : 'btn-secondary text-center'}>
+              {plan.name} anfragen
             </a>
-          </div>
+          </article>
         ))}
       </div>
 
-      <div class="max-w-5xl mx-auto mb-8 rounded-xl border border-primary-200 bg-primary-50 p-6 shadow-sm md:p-8">
-        <div class="grid grid-cols-1 items-center gap-6 lg:grid-cols-[1fr_auto]">
+      <div class="grid gap-16">
+      <div class="mx-auto w-full max-w-5xl rounded-xl border border-secondary-200 bg-white p-6 shadow-sm md:p-8">
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 class="mb-2 text-xl font-semibold text-secondary-900">Channel Manager ohne monatliche Grundgebühr</h2>
-            <p class="text-sm leading-relaxed text-secondary-600">
-              Booking.com und weitere Portale werden automatisch mit Zimmero synchronisiert. Portalbuchungen kosten 1,50 € pro Buchung. Direktbuchungen über Ihre eigene Hotelwebsite bleiben gebührenfrei.
-            </p>
+            <h2 class="text-xl font-semibold text-secondary-900">Mehr als fünf Häuser oder mehr als 100 Einheiten?</h2>
+            <p class="mt-2 text-sm leading-relaxed text-secondary-600">Für größere Betriebe und besondere Schnittstellen erhalten Sie ein individuelles Angebot.</p>
           </div>
-          <div class="grid grid-cols-2 gap-3 text-center">
-            <div class="rounded-lg border border-primary-200 bg-white px-5 py-4">
-              <p class="text-xs font-medium text-secondary-500">Booking.com & Co.</p>
-              <p class="mt-1 text-xl font-bold text-secondary-900">1,50 €</p>
-              <p class="text-xs text-secondary-500">pro Buchung</p>
-            </div>
-            <div class="rounded-lg border border-success-200 bg-success-50 px-5 py-4">
-              <p class="text-xs font-medium text-success-700">Eigene Website</p>
-              <p class="mt-1 text-xl font-bold text-success-700">0 €</p>
-              <p class="text-xs text-success-700">pro Buchung</p>
-            </div>
-          </div>
+          <a href="/kontakt/" class="btn-secondary shrink-0">Angebot anfragen</a>
         </div>
       </div>
 
-      <!-- Individual plan -->
-      <div class="max-w-5xl mx-auto">
-        <div class="rounded-xl p-6 border border-secondary-200 bg-white shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
-          <div>
-            <h2 class="text-lg font-semibold text-secondary-900">Individuell</h2>
-            <p class="text-sm text-secondary-600 mt-1">
-              Für größere Hotels ab 100 Zimmer, besondere Schnittstellen oder individuelle Prozesse erstellen wir ein passendes Angebot.
-            </p>
-          </div>
-          <a href={`mailto:${CONTACT_EMAIL}?subject=Individuelles%20Angebot`} class="btn-secondary shrink-0">
-            Angebot anfragen
-          </a>
+      <section aria-labelledby="comparison-heading" class="mx-auto w-full max-w-6xl">
+        <div class="mx-auto mb-7 max-w-3xl text-center">
+          <h2 id="comparison-heading" class="mb-3 text-2xl font-bold md:text-3xl">Was ist enthalten, was kostet extra?</h2>
+          <p class="leading-relaxed text-secondary-600">Die Tabelle zeigt die bestätigten Grenzen und Kosten. Bei der Datenübernahme sind H3S und Pensionsprogramm bereits erprobt.</p>
         </div>
-      </div>
 
-      <!-- Add-ons note -->
-      <div class="max-w-5xl mx-auto mt-6">
-        <div class="rounded-xl border border-secondary-200 bg-white shadow-sm p-6 flex flex-col md:flex-row md:items-center gap-4">
-          <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center shrink-0">
-            <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-            </svg>
-          </div>
-          <div class="flex-1">
-            <p class="font-semibold text-secondary-900 text-sm mb-1">Zusatzmodule</p>
-            <p class="text-sm text-secondary-600 leading-relaxed">
-              Optionale Erweiterungen wie <strong>Zimmero Bell KI-Assistent</strong>, <strong>Gastronomie per Tablet</strong>, <strong>TSE-Kassen-Anbindung</strong>, <strong>SumUp Bezahlterminal</strong>, <strong>myOBS-Anbindung</strong> oder der <strong>Channel Manager mit 50+ OTAs für 1,50 € pro Portalbuchung</strong> können flexibel zum jeweiligen Plan hinzugebucht werden.
-            </p>
-          </div>
-          <a href="/#zusatzmodule" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-secondary-300 text-secondary-700 font-semibold text-sm hover:bg-secondary-50 transition-colors shrink-0">
-            Zu den Modulen
-          </a>
+        <div class="overflow-x-auto rounded-xl border border-secondary-200 bg-white shadow-sm">
+          <table class="w-full min-w-[760px] border-collapse text-left text-sm" aria-label="Vergleich der Zimmero Tarife Starter, Professional und Multi Property">
+            <thead class="bg-secondary-50 text-secondary-900">
+              <tr>
+                <th scope="col" class="p-4 font-semibold">Leistung</th>
+                {plans.map(plan => <th scope="col" class="p-4 font-semibold">{plan.name}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map(row => (
+                <tr class="border-t border-secondary-200">
+                  <th scope="row" class="p-4 font-medium text-secondary-900">{row.label}</th>
+                  {row.values.map(value => <td class="p-4 text-secondary-700">{value}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </div>
-
-      <div class="max-w-3xl mx-auto mt-6 text-center">
-        <p class="text-sm text-secondary-500 leading-relaxed">
-          Alle genannten Preise zzgl. MwSt. Externe Schnittstellen und Add-ons können zusätzliche Kosten durch externe Anbieter verursachen.
+        <p class="mt-4 text-sm leading-relaxed text-secondary-600">
+          Die 1,50 € gelten je Buchung über ein angeschlossenes Buchungsportal. Es gibt keine zusätzliche monatliche Grundgebühr für den Channel Manager. <a href="/#zusatzmodule" class="font-medium text-primary-700 hover:underline">Alle Zusatzmodule ansehen</a>.
         </p>
+      </section>
+
+      <section aria-labelledby="direct-booking-heading" class="mx-auto w-full max-w-5xl rounded-2xl bg-secondary-950 p-6 text-white md:p-10">
+        <div class="mx-auto mb-8 max-w-3xl text-center">
+          <p class="mb-3 text-sm font-semibold text-primary-200">Eine einfache Beispielrechnung</p>
+          <h2 id="direct-booking-heading" class="mb-4 text-2xl font-bold text-white md:text-3xl">Direktbuchungen kosten bei Zimmero keine Buchungsgebühr.</h2>
+          <p class="leading-relaxed text-secondary-200">Die folgende Rechnung vergleicht nur die Buchungsgebühr. Der monatliche Zimmero Tarif fällt weiterhin an.</p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-4 text-center md:grid-cols-3">
+          <div class="rounded-xl bg-white/10 p-5">
+            <p class="text-sm text-secondary-200">30 Buchungen zu je 400 €</p>
+            <p class="mt-2 text-2xl font-bold">12.000 € Umsatz</p>
+          </div>
+          <div class="rounded-xl bg-white/10 p-5">
+            <p class="text-sm text-secondary-200">Beispielanbieter mit 3 %</p>
+            <p class="mt-2 text-2xl font-bold">360 € Buchungsgebühr</p>
+          </div>
+          <div class="rounded-xl bg-success-700 p-5">
+            <p class="text-sm text-success-100">Zimmero Direktbuchung</p>
+            <p class="mt-2 text-2xl font-bold">0 € Buchungsgebühr</p>
+          </div>
+        </div>
+        <p class="mt-5 text-center text-sm text-secondary-300">Rechnung: 30 × 400 € × 3 % = 360 €. Die angenommenen 3 % dienen nur diesem Rechenbeispiel.</p>
+      </section>
+
+      <section aria-labelledby="price-faq-heading" class="mx-auto w-full max-w-4xl">
+        <div class="mb-7 text-center">
+          <h2 id="price-faq-heading" class="mb-3 text-2xl font-bold md:text-3xl">Häufige Fragen zu Preisen und Vertrag</h2>
+          <p class="text-secondary-600">Die wichtigsten Bedingungen auf einen Blick.</p>
+        </div>
+
+        <FaqAccordion faqs={priceFaqs} />
+      </section>
+
+      <div class="mx-auto w-full max-w-4xl rounded-xl border border-primary-200 bg-primary-50 p-6 text-center md:p-8">
+        <h2 class="mb-3 text-2xl font-bold text-secondary-900">Sie möchten Zimmero zuerst ansehen?</h2>
+        <p class="mb-6 leading-relaxed text-secondary-600">Die öffentliche Demo funktioniert ohne Anmeldung. Für Fragen zu Ihrem Betrieb antwortet Andreas Huber innerhalb von 24 Stunden.</p>
+        <div class="flex flex-col justify-center gap-3 sm:flex-row">
+          <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary">Demo öffnen</a>
+          <a href="/kontakt/" class="btn-secondary">Zimmero anfragen</a>
+        </div>
+        <p class="mt-5 text-sm text-secondary-600">Oder schreiben Sie direkt an <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%20zu%20Zimmero`} class="font-medium text-primary-700 hover:underline">{CONTACT_EMAIL}</a>.</p>
       </div>
+      </div>
+
+      <p class="mx-auto mt-7 max-w-3xl text-center text-sm leading-relaxed text-secondary-600">
+        Alle Preise verstehen sich zuzüglich der gesetzlichen Umsatzsteuer. Kosten externer Anbieter sind nicht enthalten.
+      </p>
     </div>
   </section>
 </Layout>
