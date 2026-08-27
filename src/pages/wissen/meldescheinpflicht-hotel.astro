@@ -1,0 +1,240 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'Meldescheinpflicht im Hotel: Was gilt 2026? | Zimmero';
+const description = 'Meldescheinpflicht 2026: Wer einen Meldeschein ausfüllen muss, welche Daten nötig sind und wie lange Hotels ihn aufbewahren müssen.';
+const canonical = '/wissen/meldescheinpflicht-hotel/';
+const ogImage = '/assets/og/wissen-meldescheinpflicht-hotel.png';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Meldescheinpflicht im Hotel: Wer muss was wie lange aufbewahren?',
+  description,
+  image: `https://zimmero.app${ogImage}`,
+  datePublished: '2026-08-27',
+  dateModified: '2026-08-27',
+  inLanguage: 'de-DE',
+  author: {
+    '@type': 'Person',
+    name: 'Andreas Huber',
+  },
+  publisher: { '@id': 'https://zimmero.app/#organization' },
+  mainEntityOfPage: `https://zimmero.app${canonical}`,
+};
+
+const breadcrumbs = [
+  { name: 'Startseite', href: '/' },
+  { name: 'Wissen', href: '/wissen/' },
+  { name: 'Meldescheinpflicht im Hotel', href: canonical },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Meldescheinpflicht im Hotel, Fachbeitrag von Zimmero"
+  ogType="article"
+  structuredData={articleSchema}
+>
+  <article>
+    <header class="py-12 md:py-20">
+      <div class="section-container">
+        <Breadcrumbs items={breadcrumbs} />
+
+        <div class="mx-auto max-w-4xl">
+          <p class="mb-3 text-sm font-semibold text-primary-700">Meldeschein und Hotelbetrieb</p>
+          <h1 class="mb-6 text-3xl font-bold md:text-5xl">Meldescheinpflicht im Hotel: Wer muss was wie lange aufbewahren?</h1>
+          <p class="mb-6 text-xl leading-relaxed text-secondary-600">
+            Nicht jeder Gast muss nach dem Bundesmeldegesetz einen besonderen Meldeschein ausfüllen. Für beherbergte ausländische Personen gelten jedoch klare Vorgaben zu Unterschrift, Identitätsprüfung, Daten und Aufbewahrung.
+          </p>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-secondary-600">
+            <span>Von Andreas Huber</span>
+            <time datetime="2026-08-27">Veröffentlicht am 27. August 2026</time>
+            <span>Etwa 9 Minuten Lesezeit</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="section-container">
+      <figure class="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-secondary-200 bg-white shadow-sm">
+        <img src="/assets/meldescheine.webp" alt="Meldeschein einer Hotelbuchung mit fehlenden Pflichtangaben in Zimmero" width="1600" height="900" class="aspect-video h-auto w-full object-cover object-top" loading="eager" />
+        <figcaption class="border-t border-secondary-200 px-5 py-4 text-sm leading-relaxed text-secondary-600">
+          Bei einem digitalen Ablauf sollten fehlende Pflichtangaben sichtbar sein, bevor der Vorgang abgeschlossen wird.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="section-container py-16 md:py-24">
+      <div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,1fr)_280px]">
+        <div class="min-w-0">
+          <div class="mb-10 rounded-xl border border-warning-200 bg-warning-50 p-5 text-sm leading-relaxed text-warning-900">
+            <strong>Stand dieses Beitrags: 27. August 2026.</strong> Der Text gibt einen praktischen Überblick und ersetzt keine rechtliche Beratung. Für besondere Betriebsarten und örtliche Kurbeiträge sollten Sie die zuständige Behörde oder fachliche Beratung einbeziehen.
+          </div>
+
+          <div class="grid gap-12 leading-relaxed text-secondary-700">
+            <section id="kurzantwort" aria-labelledby="kurzantwort-heading">
+              <h2 id="kurzantwort-heading" class="mb-5 text-2xl font-bold md:text-3xl">Die kurze Antwort</h2>
+              <p>
+                Nach Paragraf 29 des Bundesmeldegesetzes müssen beherbergte ausländische Personen am Tag der Ankunft einen besonderen Meldeschein handschriftlich unterschreiben. Stattdessen kann ein gesetzlich vorgesehenes elektronisches Verfahren verwendet werden, wenn die beherbergte Person zustimmt und die Richtigkeit sowie Vollständigkeit der Daten auf einem zulässigen Weg bestätigt.
+              </p>
+              <p class="mt-4">
+                Der Hotelbetrieb hält die Meldescheine bereit, vergleicht die Angaben der betroffenen Person mit einem gültigen Pass oder Passersatz und bewahrt den ausgefüllten Meldeschein ab dem Tag der Abreise ein Jahr auf. Nach Ende dieser Frist muss der Betrieb ihn innerhalb von drei Monaten vernichten. Für ordnungsgemäß elektronisch erhobene Daten gelten dieselben Speicher- und Löschfristen.
+              </p>
+            </section>
+
+            <section id="wer" aria-labelledby="wer-heading">
+              <h2 id="wer-heading" class="mb-5 text-2xl font-bold md:text-3xl">Wer muss einen besonderen Meldeschein ausfüllen?</h2>
+              <p>
+                Die bundesrechtliche Pflicht betrifft nicht pauschal jeden Menschen, der in einem Hotel, Gasthof oder einer Pension übernachtet. Paragraf 29 Absatz 2 BMG nennt beherbergte ausländische Personen. Sie müssen den besonderen Meldeschein am Tag der Ankunft unterschreiben oder ein zulässiges elektronisches Verfahren nutzen.
+              </p>
+              <p class="mt-4">
+                Mitreisende ausländische Ehegatten, Lebenspartner und minderjährige Kinder werden auf dem Meldeschein nur der Zahl nach angegeben. Bei Reisegesellschaften mit mehr als zehn Personen betrifft die namentliche Verpflichtung nur den Reiseleiter. Er gibt außerdem die Anzahl und Staatsangehörigkeit der ausländischen Mitreisenden an.
+              </p>
+              <p class="mt-4">
+                Für bestimmte Einrichtungen enthält das Gesetz Ausnahmen. Dazu gehören unter den jeweils genannten Voraussetzungen Einrichtungen der Jugend- und Erwachsenenbildung, bestimmte Betriebs- und Vereinsheime, Jugendherbergen, Berghütten und Einrichtungen öffentlich-rechtlicher Religionsgesellschaften. Ein gewöhnliches Hotel sollte nicht allein wegen einer ähnlichen Bezeichnung davon ausgehen, unter eine Ausnahme zu fallen.
+              </p>
+              <div class="mt-6 rounded-xl bg-primary-50 p-5 text-sm text-primary-900">
+                <strong>Wichtig:</strong> Ein örtlicher Gästeschein für Kurbeitrag, Fremdenverkehrsbeitrag oder Gästekarte ist nicht automatisch dasselbe wie der besondere Meldeschein nach Bundesrecht. Landesrecht darf für diese Zwecke weitere Daten vorsehen.
+              </div>
+            </section>
+
+            <section id="daten" aria-labelledby="daten-heading">
+              <h2 id="daten-heading" class="mb-5 text-2xl font-bold md:text-3xl">Welche Daten stehen auf dem Meldeschein?</h2>
+              <p>
+                Paragraf 30 Absatz 2 BMG begrenzt die bundesrechtlichen Angaben. Vorbehaltlich zusätzlicher landesrechtlicher Regeln für Fremdenverkehrs- und Kurbeiträge gehören folgende Daten auf den Meldeschein:
+              </p>
+              <ol class="mt-5 list-decimal space-y-3 pl-6">
+                <li>Datum der Ankunft und der voraussichtlichen Abreise</li>
+                <li>Familienname</li>
+                <li>Vornamen</li>
+                <li>Geburtsdatum</li>
+                <li>Staatsangehörigkeiten</li>
+                <li>Anschrift</li>
+                <li>Zahl der ausländischen Mitreisenden und ihre Staatsangehörigkeit</li>
+                <li>Seriennummer des anerkannten und gültigen Passes oder Passersatzpapiers</li>
+              </ol>
+              <p class="mt-5">
+                Der Leiter der Beherbergungsstätte muss die Angaben mit dem Identitätsdokument vergleichen. Weichen Angaben ab, wird dies auf dem Meldeschein vermerkt. Liegt kein gültiges Dokument vor, ist auch das zu vermerken. Das Gesetz verlangt damit mehr als das bloße Einsammeln eines ausgefüllten Formulars.
+              </p>
+            </section>
+
+            <section id="elektronisch" aria-labelledby="elektronisch-heading">
+              <h2 id="elektronisch-heading" class="mb-5 text-2xl font-bold md:text-3xl">Wann ist ein elektronischer Meldeschein zulässig?</h2>
+              <p>
+                Ein Online Formular vor der Anreise ist nicht automatisch ein vollständiger elektronischer Meldeschein im Sinne des Bundesmeldegesetzes. Es kann die Datenerfassung vorbereiten. Für die elektronische Erfüllung der besonderen Meldepflicht verlangt Paragraf 29 Absatz 5 aber zusätzlich die Zustimmung der beherbergten Person und eine gesetzlich vorgesehene Bestätigung am Tag der Ankunft.
+              </p>
+              <p class="mt-4">
+                Das Gesetz nennt dafür einen kartengebundenen Zahlungsvorgang mit starker Kundenauthentifizierung und einer zweckgebundenen Zuordnungsnummer, den elektronischen Identitätsnachweis oder das Vor-Ort-Auslesen einer eID-Karte beziehungsweise eines Aufenthaltstitels. Weitere elektronische Verfahren können im Rahmen einer befristeten Erprobung durch das Bundesamt für Sicherheit in der Informationstechnik zugelassen werden.
+              </p>
+              <p class="mt-4">
+                Wer ein Gästeportal verwendet, sollte deshalb zwei Fragen trennen. Erstens: Sind die benötigten Daten vor der Anreise vollständig? Zweitens: Wurde die Richtigkeit am Ankunftstag auf einem rechtlich zulässigen Weg bestätigt? Die erste Frage erleichtert den Empfang. Sie beantwortet die zweite noch nicht automatisch.
+              </p>
+              <p class="mt-4">
+                Für elektronisch gespeicherte Meldedaten enthält die Beherbergungsmeldedatenverordnung zusätzliche technische Vorgaben. Sie beschreibt unter anderem einen strukturierten, maschinenlesbaren XML Datensatz und die Bereitstellung für berechtigte Behörden. Das ist etwas anderes als eine beliebige PDF Datei oder eine normale Tabellenzeile.
+              </p>
+            </section>
+
+            <section id="aufbewahrung" aria-labelledby="aufbewahrung-heading">
+              <h2 id="aufbewahrung-heading" class="mb-5 text-2xl font-bold md:text-3xl">Wie lange muss das Hotel Meldescheine aufbewahren?</h2>
+              <p>
+                Die Frist beginnt am Tag der Abreise. Ab diesem Tag muss der Betrieb den Meldeschein ein Jahr aufbewahren. Nach Ablauf des Jahres bleiben höchstens drei Monate, um den Meldeschein zu vernichten. Für Daten aus einem zulässigen elektronischen Verfahren gelten dieselben Fristen für Speicherung und Löschung.
+              </p>
+              <div class="my-6 rounded-xl border border-secondary-200 bg-secondary-50 p-5">
+                <p class="font-semibold text-secondary-900">Beispiel</p>
+                <p class="mt-2 text-sm">
+                  Reist die betroffene Person am 10. August 2026 ab, läuft die einjährige Aufbewahrungszeit bis zum 10. August 2027. Spätestens innerhalb der folgenden drei Monate muss der Betrieb den Meldeschein vernichten beziehungsweise die elektronischen Meldedaten löschen.
+                </p>
+              </div>
+              <p>
+                Eine längere Aufbewahrung nur aus Bequemlichkeit passt nicht zu dieser Regel. Der Meldeschein ist kein beliebig nutzbarer Gästestamm. Andere Daten des Aufenthalts können aufgrund anderer gesetzlicher oder vertraglicher Gründe abweichende Fristen haben. Diese Zwecke müssen getrennt betrachtet werden.
+              </p>
+            </section>
+
+            <section id="datenschutz" aria-labelledby="datenschutz-heading">
+              <h2 id="datenschutz-heading" class="mb-5 text-2xl font-bold md:text-3xl">Was bedeutet das für Datenschutz und Zugriff?</h2>
+              <p>
+                Meldescheine enthalten Anschrift, Geburtsdatum, Staatsangehörigkeit und bei betroffenen Personen die Seriennummer eines Identitätsdokuments. Diese Angaben gehören nicht in einen offen zugänglichen Ablagekorb. Papierunterlagen brauchen einen geschützten Aufbewahrungsort. Bei elektronischen Verfahren verlangt Paragraf 30 Absatz 5 geeignete technische und organisatorische Maßnahmen.
+              </p>
+              <p class="mt-4">
+                Praktisch bedeutet das: Mitarbeiter erhalten nur die Zugriffe, die sie für ihre Aufgabe brauchen. Übertragungen sollten verschlüsselt sein. Der Betrieb braucht ein festes Löschverfahren, das sich am Abreisedatum orientiert. Außerdem sollte nachvollziehbar sein, wer einen Datensatz geändert, storniert oder bereitgestellt hat.
+              </p>
+              <p class="mt-4">
+                Daten aus dem Meldeschein dürfen nicht automatisch für jede andere Aufgabe verwendet werden. Soll eine E-Mail-Adresse später für Werbung genutzt werden, braucht dieser Zweck eine eigene Grundlage. Die gesetzliche Meldepflicht liefert keine allgemeine Werbeeinwilligung.
+              </p>
+            </section>
+
+            <section id="checkliste" aria-labelledby="checkliste-heading">
+              <h2 id="checkliste-heading" class="mb-5 text-2xl font-bold md:text-3xl">Eine praktische Checkliste für den Betrieb</h2>
+              <ol class="list-decimal space-y-4 pl-6">
+                <li><strong class="text-secondary-900">Zuständigkeit klären.</strong> Legen Sie fest, wer bei der Anreise prüft, ob ein besonderer Meldeschein erforderlich ist.</li>
+                <li><strong class="text-secondary-900">Bundesrecht und örtliche Angaben trennen.</strong> Prüfen Sie, welche Daten aus dem BMG kommen und welche Ihre Gemeinde für Kurbeitrag oder Gästekarte verlangt.</li>
+                <li><strong class="text-secondary-900">Identitätsprüfung einplanen.</strong> Die Angaben betroffener ausländischer Personen werden mit einem gültigen Pass oder Passersatz verglichen.</li>
+                <li><strong class="text-secondary-900">Elektronischen Ablauf genau prüfen.</strong> Eine Dateneingabe vor Anreise ersetzt nicht automatisch die gesetzlich verlangte Bestätigung am Ankunftstag.</li>
+                <li><strong class="text-secondary-900">Abreisedatum als Fristbeginn verwenden.</strong> Die einjährige Aufbewahrung beginnt nicht mit der Buchung und nicht mit der Anreise.</li>
+                <li><strong class="text-secondary-900">Vernichtung fest einplanen.</strong> Nach Ende der Aufbewahrungszeit bleiben drei Monate für Vernichtung oder Löschung.</li>
+                <li><strong class="text-secondary-900">Zugriffe begrenzen.</strong> Meldedaten sollten nur für berechtigte Mitarbeiter und die vorgesehenen Zwecke erreichbar sein.</li>
+                <li><strong class="text-secondary-900">Sonderfälle nachfragen.</strong> Reisegruppen, besondere Einrichtungen und örtliche Verfahren sollten nicht nach Gefühl behandelt werden.</li>
+              </ol>
+            </section>
+
+            <section id="zimmero" aria-labelledby="zimmero-heading">
+              <h2 id="zimmero-heading" class="mb-5 text-2xl font-bold md:text-3xl">Wie Zimmero den betrieblichen Ablauf unterstützt</h2>
+              <p>
+                Zimmero verbindet den Meldeschein mit Buchung und Aufenthalt. Vorhandene Gastdaten können übernommen werden, fehlende Pflichtangaben werden sichtbar und der Status einer Meldung bleibt am Vorgang. Änderung und Stornierung sind ebenfalls vorgesehen. Welche örtliche Konfiguration ein Haus braucht, wird bei der Einrichtung geklärt.
+              </p>
+              <p class="mt-4">
+                Das Gästeportal kann Daten aller mitreisenden Personen schon vor der Anreise erfassen. Damit wird der Empfang kürzer. Die Rezeption muss trotzdem prüfen, welche gesetzliche oder örtliche Bestätigung am Ankunftstag erforderlich bleibt.
+              </p>
+              <p class="mt-4">
+                Eine ausführliche Beschreibung mit Produktoberfläche finden Sie auf der Seite <a href="/meldeschein-software/" class="font-medium text-primary-700 hover:underline">so funktioniert der digitale Meldeschein in Zimmero</a>.
+              </p>
+            </section>
+
+            <section id="quellen" aria-labelledby="quellen-heading">
+              <h2 id="quellen-heading" class="mb-5 text-2xl font-bold md:text-3xl">Offizielle Quellen</h2>
+              <ul class="space-y-3">
+                <li><a href="https://www.gesetze-im-internet.de/bmg/__29.html" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">Bundesmeldegesetz, Paragraf 29</a></li>
+                <li><a href="https://www.gesetze-im-internet.de/bmg/__30.html" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">Bundesmeldegesetz, Paragraf 30</a></li>
+                <li><a href="https://www.gesetze-im-internet.de/beherbmeldv/BJNR121800020.html" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">Beherbergungsmeldedatenverordnung</a></li>
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <aside class="lg:sticky lg:top-32 lg:self-start">
+          <nav aria-label="Inhalt des Beitrags" class="rounded-xl border border-secondary-200 bg-secondary-50 p-5 text-sm">
+            <p class="mb-4 font-semibold text-secondary-900">In diesem Beitrag</p>
+            <ol class="space-y-3 text-secondary-700">
+              <li><a href="#kurzantwort" class="hover:text-primary-700">Die kurze Antwort</a></li>
+              <li><a href="#wer" class="hover:text-primary-700">Wer ist betroffen?</a></li>
+              <li><a href="#daten" class="hover:text-primary-700">Welche Daten?</a></li>
+              <li><a href="#elektronisch" class="hover:text-primary-700">Elektronischer Ablauf</a></li>
+              <li><a href="#aufbewahrung" class="hover:text-primary-700">Aufbewahrung</a></li>
+              <li><a href="#datenschutz" class="hover:text-primary-700">Datenschutz</a></li>
+              <li><a href="#checkliste" class="hover:text-primary-700">Checkliste</a></li>
+              <li><a href="#zimmero" class="hover:text-primary-700">Zimmero im Ablauf</a></li>
+            </ol>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  <section class="bg-primary-500 py-16 text-center md:py-20">
+    <div class="section-container">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="mb-4 text-2xl font-bold text-white md:text-3xl">Meldescheine direkt an der Buchung bearbeiten.</h2>
+        <p class="mb-7 leading-relaxed text-primary-100">Sehen Sie in der Demo, wie Zimmero fehlende Angaben und den Meldestatus am Aufenthalt zeigt.</p>
+        <div class="flex flex-col justify-center gap-3 sm:flex-row">
+          <a href="https://dashboard.zimmero.app/demo" target="_blank" rel="noopener" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-700 transition hover:bg-primary-50">Demo öffnen</a>
+          <a href="/kontakt/" class="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-600">Frage stellen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

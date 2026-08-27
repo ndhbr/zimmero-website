@@ -1,0 +1,48 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const breadcrumbs = [
+  { name: 'Startseite', href: '/' },
+  { name: 'Wissen', href: '/wissen/' },
+];
+---
+
+<Layout
+  title="Hotelwissen für inhabergeführte Betriebe | Zimmero"
+  description="Sachliche Beiträge zu Meldeschein, Kurbeitrag, Tourismusstatistik, Direktbuchungen, Channel Manager und dem Wechsel der Hotelsoftware."
+>
+  <section class="py-12 md:py-20">
+    <div class="section-container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="mx-auto max-w-4xl text-center">
+        <p class="mb-3 text-sm font-semibold text-primary-700">Zimmero Wissen</p>
+        <h1 class="mb-5 text-3xl font-bold md:text-5xl">Betriebswissen für den Hotelalltag.</h1>
+        <p class="mx-auto max-w-3xl text-lg leading-relaxed text-secondary-600">
+          Hier geht es um Meldepflichten, Abrechnung und Vertrieb. Die Beiträge erklären erst den betrieblichen Ablauf. Wenn Zimmero dabei helfen kann, wird das getrennt und konkret genannt.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-12 max-w-4xl">
+        <article class="overflow-hidden rounded-2xl border border-secondary-200 bg-white shadow-sm">
+          <img src="/assets/meldescheine.webp" alt="Digitaler Meldeschein an einer Buchung in Zimmero" width="1600" height="900" class="aspect-video h-auto w-full object-cover object-top" loading="eager" />
+          <div class="p-6 md:p-8">
+            <p class="mb-3 text-sm text-secondary-600"><time datetime="2026-08-27">27. August 2026</time> · Andreas Huber</p>
+            <h2 class="mb-3 text-2xl font-bold md:text-3xl">
+              <a href="/wissen/meldescheinpflicht-hotel/" class="hover:text-primary-700">Meldescheinpflicht im Hotel: Wer muss was wie lange aufbewahren?</a>
+            </h2>
+            <p class="mb-6 leading-relaxed text-secondary-600">
+              Nicht jeder Hotelgast muss nach Bundesrecht einen besonderen Meldeschein ausfüllen. Der Beitrag erklärt, für wen die Pflicht gilt, welche Daten verlangt werden und wann die Unterlagen wieder gelöscht werden müssen.
+            </p>
+            <a href="/wissen/meldescheinpflicht-hotel/" class="btn-secondary">Beitrag lesen</a>
+          </div>
+        </article>
+
+        <div class="mt-8 rounded-xl bg-secondary-50 p-6 text-sm leading-relaxed text-secondary-700">
+          Neue Beiträge erscheinen schrittweise. Als Nächstes folgen Kurbeitrag, Beherbergungsstatistik, Direktbuchungen, Softwarewechsel und Channel Manager.
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
