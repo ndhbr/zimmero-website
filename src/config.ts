@@ -11,6 +11,15 @@ export const CONTACT_PHONE_DISPLAY = '+49 1511 7815136';
 export const CONTACT_PHONE_HREF = '+4915117815136';
 export const CONTACT_HOURS = 'Montag bis Freitag, 8 bis 17 Uhr';
 
+export const SOLUTION_LINKS = [
+  { label: 'Meldeschein', href: '/meldeschein-software/' },
+  { label: 'Kurtaxe und Ortstaxe', href: '/kurtaxe-ortstaxe-software/' },
+  { label: 'Channel Manager', href: '/channel-manager-booking-com/' },
+  { label: 'Eigentümerabrechnung', href: '/eigentuemerabrechnung/' },
+  { label: 'Online Buchung', href: '/online-buchungssystem-hotelwebsite/' },
+  { label: 'Tourismusstatistik', href: '/tourismusstatistik-bayern/' },
+] as const;
+
 export const SOFTWARE_APPLICATION_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',

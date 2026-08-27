@@ -1,6 +1,12 @@
 ---
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Layout from '../layouts/Layout.astro';
 import { CONTACT_EMAIL, DEMO_URL } from '../config';
+
+const breadcrumbs = [
+  { name: 'Startseite', href: '/' },
+  { name: 'Demo', href: '/demo/' },
+];
 ---
 
 <Layout
@@ -9,6 +15,8 @@ import { CONTACT_EMAIL, DEMO_URL } from '../config';
 >
   <section class="pt-16 md:pt-24 pb-16 md:pb-24">
     <div class="section-container">
+      <Breadcrumbs items={breadcrumbs} />
+
       <div class="max-w-2xl mx-auto text-center">
         <h1 class="text-3xl md:text-4xl font-bold mb-4">
           Zimmero selbst ausprobieren.

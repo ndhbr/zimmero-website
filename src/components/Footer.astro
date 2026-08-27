@@ -1,12 +1,12 @@
 ---
-import { CONTACT_EMAIL, DEMO_URL } from '../config';
+import { CONTACT_EMAIL, DEMO_URL, SOLUTION_LINKS } from '../config';
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="bg-secondary-50 border-t border-secondary-200 text-secondary-600">
   <div class="section-container py-12 md:py-16">
-    <div class="grid grid-cols-1 gap-8 md:grid-cols-6 md:gap-8">
-      <div class="md:col-span-2">
+    <div class="border-b border-secondary-200 pb-8">
+      <div>
         <a href="/" class="flex items-center gap-2 mb-4">
           <img src="/logo.svg" alt="Zimmero Logo" width="28" height="28" class="w-7 h-7" />
           <span class="text-lg font-semibold text-secondary-900">Zimmero</span>
@@ -15,56 +15,53 @@ const currentYear = new Date().getFullYear();
           Moderne Hotelsoftware mit Channel Manager und gebührenfreien Direktbuchungen über Ihre eigene Website.
         </p>
       </div>
+    </div>
 
+    <div class="grid grid-cols-1 gap-8 pt-8 sm:grid-cols-2 lg:grid-cols-4">
       <div>
-        <p class="text-secondary-900 font-medium text-sm mb-4">Produkt</p>
+        <p class="text-secondary-900 font-medium text-sm mb-4">Funktionen</p>
         <ul class="space-y-2 text-sm">
-          <li><a href="/#funktionen" class="hover:text-secondary-900 transition-colors">Funktionen</a></li>
-          <li><a href="/#channel-manager" class="hover:text-secondary-900 transition-colors">Channel Manager</a></li>
-          <li><a href="/#zielgruppe" class="hover:text-secondary-900 transition-colors">Für wen</a></li>
           <li><a href="/preise/" class="hover:text-secondary-900 transition-colors">Preise</a></li>
-          <li><a href="/wissen/" class="hover:text-secondary-900 transition-colors">Wissen</a></li>
           <li><a href={DEMO_URL} target="_blank" rel="noopener" class="hover:text-secondary-900 transition-colors">Demo</a></li>
-          <li><a href="/#faq" class="hover:text-secondary-900 transition-colors">FAQ</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="text-secondary-900 font-medium text-sm mb-4">Fachthemen</p>
-        <ul class="space-y-2 text-sm">
-          <li><a href="/meldeschein-software/" class="hover:text-secondary-900 transition-colors">Meldeschein</a></li>
-          <li><a href="/kurtaxe-ortstaxe-software/" class="hover:text-secondary-900 transition-colors">Kurtaxe und Ortstaxe</a></li>
-          <li><a href="/tourismusstatistik-bayern/" class="hover:text-secondary-900 transition-colors">Tourismusstatistik</a></li>
-          <li><a href="/channel-manager-booking-com/" class="hover:text-secondary-900 transition-colors">Channel Manager</a></li>
-          <li><a href="/online-buchungssystem-hotelwebsite/" class="hover:text-secondary-900 transition-colors">Buchungssystem</a></li>
+          {SOLUTION_LINKS.map(link => (
+            <li><a href={link.href} class="hover:text-secondary-900 transition-colors">{link.label}</a></li>
+          ))}
           <li><a href="/datev-export-hotel/" class="hover:text-secondary-900 transition-colors">DATEV Export</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="text-secondary-900 font-medium text-sm mb-4">Für Betriebe</p>
-        <ul class="space-y-2 text-sm">
-          <li><a href="/hotelsoftware-bayern/" class="hover:text-secondary-900 transition-colors">Hotelsoftware Bayern</a></li>
-          <li><a href="/hotelsoftware-pension/" class="hover:text-secondary-900 transition-colors">Pensionen</a></li>
-          <li><a href="/aparthotel-software/" class="hover:text-secondary-900 transition-colors">Aparthotels</a></li>
-          <li><a href="/eigentuemerabrechnung/" class="hover:text-secondary-900 transition-colors">Eigentümerabrechnung</a></li>
           <li><a href="/online-check-in-hotel/" class="hover:text-secondary-900 transition-colors">Online Check-in</a></li>
         </ul>
       </div>
 
       <div>
-        <p class="text-secondary-900 font-medium text-sm mb-4">Rechtliches</p>
+        <p class="text-secondary-900 font-medium text-sm mb-4">Für wen</p>
         <ul class="space-y-2 text-sm">
+          <li><a href="/hotelsoftware-bayern/" class="hover:text-secondary-900 transition-colors">Hotelsoftware Bayern</a></li>
+          <li><a href="/hotelsoftware-pension/" class="hover:text-secondary-900 transition-colors">Pensionen</a></li>
+          <li><a href="/aparthotel-software/" class="hover:text-secondary-900 transition-colors">Aparthotels</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-secondary-900 font-medium text-sm mb-4">Wissen</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/wissen/" class="hover:text-secondary-900 transition-colors">Alle Beiträge</a></li>
+          <li><a href="/wissen/meldescheinpflicht-hotel/" class="hover:text-secondary-900 transition-colors">Meldescheinpflicht im Hotel</a></li>
+          <li><a href="/#faq" class="hover:text-secondary-900 transition-colors">Häufige Fragen</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-secondary-900 font-medium text-sm mb-4">Unternehmen</p>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/kontakt/" class="hover:text-secondary-900 transition-colors">Kontakt</a></li>
+          <li><a href="/sicherheit-und-datenschutz/" class="hover:text-secondary-900 transition-colors">Sicherheit und Datenschutz</a></li>
           <li><a href="/impressum/" class="hover:text-secondary-900 transition-colors">Impressum</a></li>
           <li><a href="/datenschutz/" class="hover:text-secondary-900 transition-colors">Datenschutz</a></li>
-          <li><a href="/sicherheit-und-datenschutz/" class="hover:text-secondary-900 transition-colors">Sicherheit und Datenschutz</a></li>
-          <li><a href="/kontakt/" class="hover:text-secondary-900 transition-colors">Kontakt</a></li>
           <li><a href={`mailto:${CONTACT_EMAIL}`} class="hover:text-secondary-900 transition-colors">{CONTACT_EMAIL}</a></li>
         </ul>
       </div>
     </div>
 
-    <div class="mt-12 pt-8 border-t border-secondary-200 text-sm text-secondary-600 text-center">
+    <div class="mt-12 border-t border-secondary-200 pt-8 text-center text-sm text-secondary-600">
       &copy; {currentYear} Zimmero. Alle Rechte vorbehalten.
     </div>
   </div>

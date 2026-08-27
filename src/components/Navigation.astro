@@ -1,5 +1,5 @@
 ---
-import { CONTACT_EMAIL, CONTACT_HOURS, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_HREF, DASHBOARD_URL } from '../config';
+import { CONTACT_EMAIL, CONTACT_HOURS, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_HREF, DASHBOARD_URL, SOLUTION_LINKS } from '../config';
 ---
 
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-secondary-100">
@@ -19,7 +19,19 @@ import { CONTACT_EMAIL, CONTACT_HOURS, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_HREF
 
     <div class="hidden xl:flex items-center gap-8">
       <a href="/#funktionen" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Funktionen</a>
-      <a href="/#channel-manager" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Channel Manager</a>
+      <details class="group relative">
+        <summary class="inline-flex cursor-pointer list-none items-center gap-1 text-sm font-medium text-secondary-600 transition-colors hover:text-primary-600 [&::-webkit-details-marker]:hidden">
+          Lösungen
+          <svg class="h-4 w-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="absolute left-1/2 top-full mt-3 w-64 -translate-x-1/2 rounded-xl border border-secondary-200 bg-white p-2 shadow-xl">
+          {SOLUTION_LINKS.map(link => (
+            <a href={link.href} class="block rounded-lg px-4 py-3 text-sm font-medium text-secondary-700 transition-colors hover:bg-primary-50 hover:text-primary-700">{link.label}</a>
+          ))}
+        </div>
+      </details>
       <a href="/#zielgruppe" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Für wen</a>
       <a href="/preise/" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">Preise</a>
       <a href="/#faq" class="text-sm font-medium text-secondary-600 hover:text-primary-600 transition-colors">FAQ</a>
@@ -45,7 +57,19 @@ import { CONTACT_EMAIL, CONTACT_HOURS, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_HREF
   <div id="mobile-menu" class="hidden xl:hidden border-t border-secondary-100 bg-white">
     <div class="section-container py-4 space-y-3">
       <a href="/#funktionen" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Funktionen</a>
-      <a href="/#channel-manager" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Channel Manager</a>
+      <details class="group">
+        <summary class="flex cursor-pointer list-none items-center justify-between py-2 text-sm font-medium text-secondary-600 hover:text-primary-600 [&::-webkit-details-marker]:hidden">
+          Lösungen
+          <svg class="h-4 w-4 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m6 9 6 6 6-6" />
+          </svg>
+        </summary>
+        <div class="mt-1 space-y-1 border-l border-secondary-200 pl-4">
+          {SOLUTION_LINKS.map(link => (
+            <a href={link.href} class="block py-2 text-sm text-secondary-600 hover:text-primary-700">{link.label}</a>
+          ))}
+        </div>
+      </details>
       <a href="/#zielgruppe" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Für wen</a>
       <a href="/preise/" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">Preise</a>
       <a href="/#faq" class="block text-sm font-medium text-secondary-600 hover:text-primary-600 py-2">FAQ</a>
