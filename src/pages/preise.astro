@@ -5,7 +5,7 @@ import { CONTACT_EMAIL } from '../config';
 const plans = [
   {
     name: 'Starter',
-    pilot: '79',
+    current: '79',
     regular: '99',
     target: '1 Haus bis 20 Zimmer',
     suited: 'Pensionen, kleine Hotels, Garni-Hotels',
@@ -28,7 +28,7 @@ const plans = [
   },
   {
     name: 'Professional',
-    pilot: '149',
+    current: '149',
     regular: '199',
     target: 'Mehrere Häuser oder bis 50 Zimmer',
     suited: 'Familienhotels, Aparthotels, kleinere Gruppen',
@@ -45,7 +45,7 @@ const plans = [
   },
   {
     name: 'Multi Property',
-    pilot: '249',
+    current: '249',
     regular: '299',
     target: 'Bis 100 Zimmer',
     suited: 'Hotelgruppen, Appartementhäuser, komplexere Betriebe',
@@ -63,29 +63,29 @@ const plans = [
 ---
 
 <Layout
-  title="Zimmero Preise | Hotelsoftware ab 79 € in der Pilotphase"
+  title="Zimmero Preise | Hotelsoftware ab 79 €"
   description="Transparente Preise für Zimmero Hotelsoftware. Der Channel Manager kostet 1,50 € pro Portalbuchung ohne zusätzliche monatliche Grundgebühr. Direktbuchungen bleiben gebührenfrei."
 >
   <section class="py-16 md:py-24">
     <div class="section-container">
       <div class="max-w-3xl mx-auto text-center mb-12">
         <h1 class="text-3xl md:text-4xl font-bold mb-4">
-          Transparente Pilotpreise für die ersten Hotels.
+          Transparente Preise für Hotels.
         </h1>
         <p class="text-secondary-600 leading-relaxed mb-4">
-          Zimmero startet mit einer begleiteten Pilotphase für ausgewählte Hotels. Pilotkunden erhalten direkten Einfluss auf die Weiterentwicklung.
+          Klare monatliche Tarife ohne komplizierte Pakete. Die aktuell rabattierten Preise sichern Sie sich bei einem Einstieg dauerhaft.
         </p>
         <div class="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-4 py-2">
           <svg class="w-4 h-4 text-green-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
           </svg>
-          <span class="text-sm font-medium text-green-700">Wer jetzt einsteigt, behält den Pilotpreis dauerhaft. Der reguläre Preis gilt nur für spätere Neukunden.</span>
+          <span class="text-sm font-medium text-green-700">Wer jetzt einsteigt, behält den Aktionspreis dauerhaft. Der reguläre Preis gilt nur für spätere Neukunden.</span>
         </div>
         <div class="inline-flex items-center gap-2 bg-primary-50 border border-primary-200 rounded-full px-4 py-2 mt-3">
           <svg class="w-4 h-4 text-primary-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
-          <span class="text-sm font-medium text-primary-700">In der Pilotphase: Einrichtung und Schulung kostenlos inklusive.</span>
+          <span class="text-sm font-medium text-primary-700">Einrichtung und Schulung kostenlos inklusive.</span>
         </div>
       </div>
 
@@ -98,10 +98,10 @@ const plans = [
             </div>
             <div class="mb-4">
               <div class="flex items-baseline gap-1">
-                <span class="text-3xl font-bold text-secondary-900">{plan.pilot} &euro;</span>
+                <span class="text-3xl font-bold text-secondary-900">{plan.current} &euro;</span>
                 <span class="text-sm text-secondary-500">/ Monat</span>
               </div>
-              <p class="text-xs text-green-600 font-medium mt-1">Ihr dauerhafter Preis als Pilotkunde</p>
+              <p class="text-xs text-green-600 font-medium mt-1">Ihr dauerhaft gesicherter Aktionspreis</p>
               <p class="text-xs text-secondary-400 mt-0.5">Für spätere Neukunden: {plan.regular} &euro; / Monat</p>
             </div>
             <p class="text-sm text-secondary-600 mb-4 pb-4 border-b border-secondary-200">{plan.target}</p>
@@ -116,7 +116,7 @@ const plans = [
               ))}
             </ul>
             <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%3A%20Zimmero%20bekommen`} class={`mt-6 text-center py-2.5 rounded-full font-semibold text-sm transition-colors ${plan.highlighted ? 'bg-primary-500 text-white shadow-[0_10px_24px_rgba(74,111,227,0.35)] hover:bg-primary-500/90' : 'border border-secondary-300 text-secondary-700 hover:bg-secondary-50'}`}>
-              Pilotphase anfragen
+              Zimmero anfragen
             </a>
           </div>
         ))}
