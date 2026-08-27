@@ -1,0 +1,54 @@
+---
+import { CONTACT_EMAIL } from '../config';
+
+const points = [
+  {
+    title: 'Betrieb in Bad Gögging',
+    text: 'Die Zimmero Anwendung läuft auf eigener Serverinfrastruktur im Betrieb der BavarianBits GmbH in Bad Gögging.',
+  },
+  {
+    title: 'Jede Nacht gesichert',
+    text: 'Die Daten liegen auf gespiegelten Festplatten. Zusätzlich wird jede Nacht eine Sicherung erstellt und 30 Tage aufbewahrt.',
+  },
+  {
+    title: 'Zugriff nach Aufgabe und Haus',
+    text: 'Die Übertragung ist verschlüsselt. Mitarbeiter erhalten nur die Rechte für die Aufgaben und Häuser, die sie wirklich bearbeiten.',
+  },
+  {
+    title: 'Kein Lock-in',
+    text: 'Ihre Daten gehören Ihnen. Auf Anfrage erhalten Sie einen vollständigen Export als CSV-Datei. Der Vertrag ist monatlich zum Ersten eines Monats kündbar.',
+  },
+];
+---
+
+<section class="py-16 md:py-24" aria-labelledby="data-heading">
+  <div class="section-container">
+    <div class="mx-auto max-w-6xl rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm md:p-10">
+      <div class="mx-auto mb-10 max-w-3xl text-center">
+        <p class="mb-3 text-sm font-semibold text-primary-700">Ihre Daten</p>
+        <h2 id="data-heading" class="mb-4 text-2xl font-bold md:text-3xl">Was passiert mit Ihren Gästedaten?</h2>
+        <p class="leading-relaxed text-secondary-600">
+          Meldescheine, Rechnungen und Buchungen gehören zu Ihrem Betrieb. Deshalb bleibt nachvollziehbar, wo die Daten liegen, wer darauf zugreifen darf und wie Sie sie beim Wechsel wieder mitnehmen.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+        {points.map(point => (
+          <article class="rounded-xl bg-secondary-50 p-5">
+            <h3 class="mb-2 font-semibold text-secondary-900">{point.title}</h3>
+            <p class="text-sm leading-relaxed text-secondary-600">{point.text}</p>
+          </article>
+        ))}
+      </div>
+
+      <p class="mx-auto mt-7 max-w-3xl text-center text-sm leading-relaxed text-secondary-600">
+        Alle von Zimmero erzeugten PDF-Dateien werden zehn Jahre archiviert. Das Änderungsprotokoll zeigt bei Buchungen, Preisen und Stammdaten, wer wann etwas geändert hat.
+      </p>
+
+      <div class="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href="/sicherheit-und-datenschutz/" class="btn-primary">Sicherheit im Detail</a>
+        <a href={`mailto:${CONTACT_EMAIL}?subject=Frage%20zu%20Datenschutz%20und%20Sicherheit`} class="btn-secondary">Frage per E-Mail stellen</a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,97 @@
+---
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Layout from '../layouts/Layout.astro';
+import { CONTACT_EMAIL, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_HREF } from '../config';
+
+const breadcrumbs = [
+  { name: 'Startseite', href: '/' },
+  { name: 'Sicherheit und Datenschutz', href: '/sicherheit-und-datenschutz/' },
+];
+---
+
+<Layout
+  title="Sicherheit und Datenschutz | Zimmero"
+  description="Erfahren Sie, wie Zimmero Gästedaten schützt, sichert und exportierbar hält. Mit Serverstandort Bad Gögging und persönlichem Ansprechpartner."
+>
+  <section class="py-12 md:py-20">
+    <div class="section-container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="mx-auto max-w-4xl">
+        <p class="mb-3 text-sm font-semibold text-primary-700">Ihre Daten</p>
+        <h1 class="mb-6 text-3xl font-bold md:text-4xl">Was mit Ihren Gästedaten passiert.</h1>
+        <p class="mb-12 text-lg leading-relaxed text-secondary-600">
+          Zimmero verarbeitet Buchungen, Meldescheine, Rechnungen und Kontaktdaten Ihrer Gäste. Sie sollen deshalb nicht raten müssen, wo diese Daten liegen, wie sie gesichert werden oder was bei einem späteren Wechsel geschieht.
+        </p>
+
+        <div class="space-y-12">
+          <section aria-labelledby="server-heading">
+            <h2 id="server-heading" class="mb-4 text-2xl font-semibold">Die Anwendung läuft in Bad Gögging.</h2>
+            <p class="leading-relaxed text-secondary-600">
+              Die BavarianBits GmbH betreibt die Server für die Zimmero Anwendung selbst im eigenen Betrieb in Bad Gögging. Diese Angabe bezieht sich auf das Backoffice und das Gästeportal. Die öffentliche Marketingwebsite wird getrennt davon über GitHub Pages bereitgestellt, wie in der Datenschutzerklärung beschrieben.
+            </p>
+          </section>
+
+          <section aria-labelledby="access-heading">
+            <h2 id="access-heading" class="mb-4 text-2xl font-semibold">Nicht jeder Mitarbeiter darf alles sehen.</h2>
+            <p class="mb-5 leading-relaxed text-secondary-600">
+              Die Übertragung zwischen Browser und Zimmero ist verschlüsselt. Zugriffe werden über Mitarbeiterkonten und Berechtigungen beschränkt. Bei mehreren Häusern lassen sich Rechte je Haus vergeben.
+            </p>
+            <p class="leading-relaxed text-secondary-600">
+              So kann eine Reinigungskraft ihren Putzplan bearbeiten, ohne dieselben Zugriffsrechte wie die Geschäftsführung oder Buchhaltung zu erhalten.
+            </p>
+          </section>
+
+          <section aria-labelledby="backup-heading">
+            <h2 id="backup-heading" class="mb-4 text-2xl font-semibold">Sicherung auf zwei Ebenen.</h2>
+            <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+              <article class="rounded-xl border border-secondary-200 bg-secondary-50 p-5">
+                <h3 class="mb-2 font-semibold">Gespiegelte Festplatten</h3>
+                <p class="text-sm leading-relaxed text-secondary-600">
+                  Die laufenden Daten werden auf gespiegelten Festplatten gespeichert. Fällt eine Festplatte aus, liegt derselbe Datenbestand auf der zweiten Festplatte vor.
+                </p>
+              </article>
+              <article class="rounded-xl border border-secondary-200 bg-secondary-50 p-5">
+                <h3 class="mb-2 font-semibold">Nächtliche Sicherung</h3>
+                <p class="text-sm leading-relaxed text-secondary-600">
+                  Jede Nacht wird eine zusätzliche Sicherung erstellt. Diese Sicherungen werden 30 Tage aufbewahrt.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section aria-labelledby="history-heading">
+            <h2 id="history-heading" class="mb-4 text-2xl font-semibold">Buchungen und Belege bleiben nachvollziehbar.</h2>
+            <p class="mb-5 leading-relaxed text-secondary-600">
+              Das Änderungsprotokoll hält für Buchungen, Preise und Stammdaten Zeitpunkt, Person und Statuswechsel fest. Damit lässt sich bei einer Prüfung ebenso wie im Alltag nachvollziehen, wer eine Buchung geändert oder storniert hat.
+            </p>
+            <p class="leading-relaxed text-secondary-600">
+              Jede ausgehende E-Mail wird mit ihrem Zustellstatus protokolliert. Auch fehlgeschlagene Zustellversuche bleiben sichtbar. Alle von Zimmero erzeugten PDF-Dateien werden zehn Jahre archiviert.
+            </p>
+          </section>
+
+          <section aria-labelledby="contract-heading" class="rounded-2xl border border-primary-200 bg-primary-50 p-6 md:p-8">
+            <h2 id="contract-heading" class="mb-4 text-2xl font-semibold">Wenn Sie Zimmero irgendwann nicht mehr nutzen.</h2>
+            <p class="mb-5 leading-relaxed text-secondary-700">
+              Ihre Daten gehören Ihnen. Auf Anfrage erhalten Sie einen vollständigen Export als CSV-Datei. Der Vertrag ist monatlich zum Ersten eines Monats kündbar. Damit bleiben Sie nicht in Zimmero, weil Ihre Daten feststecken oder eine lange Vertragslaufzeit Sie bindet.
+            </p>
+            <p class="leading-relaxed text-secondary-700">
+              Einen Vertrag zur Auftragsverarbeitung nach Artikel 28 DSGVO erhalten Sie auf Anfrage.
+            </p>
+          </section>
+
+          <section aria-labelledby="contact-heading">
+            <h2 id="contact-heading" class="mb-4 text-2xl font-semibold">Fragen Sie direkt bei Andreas Huber nach.</h2>
+            <p class="mb-6 leading-relaxed text-secondary-600">
+              Sie erhalten keine allgemeine Antwort aus einem Callcenter. Schreiben Sie an Andreas Huber oder rufen Sie von Montag bis Freitag zwischen 8 und 17 Uhr an. Bestandskunden nutzen dieselbe Nummer auch für Notfälle.
+            </p>
+            <div class="flex flex-col gap-3 sm:flex-row">
+              <a href={`mailto:${CONTACT_EMAIL}?subject=Frage%20zu%20Datenschutz%20und%20Sicherheit`} class="btn-primary">E-Mail an {CONTACT_EMAIL}</a>
+              <a href={`tel:${CONTACT_PHONE_HREF}`} class="btn-secondary">{CONTACT_PHONE_DISPLAY} anrufen</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

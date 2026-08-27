@@ -2,7 +2,7 @@
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-import { SITE } from '../config';
+import { CONTACT_PHONE_DISPLAY, SITE } from '../config';
 
 interface Props {
   title: string;
@@ -29,7 +29,7 @@ const schemas = [
     image: 'https://zimmero.app/assets/og-default.jpg',
     description: 'Moderne Betriebssoftware für inhabergeführte Hotels inklusive Channel Manager, digitalem Meldeschein und Kurtaxenabrechnung.',
     email: 'info@zimmero.app',
-    telephone: '+49 1511 7815136',
+    telephone: CONTACT_PHONE_DISPLAY,
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Zur Limestherme 4',
