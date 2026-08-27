@@ -5,12 +5,12 @@ const addons = [
   {
     title: 'Zimmero Bell: KI-Assistent',
     price: '10 € / Monat',
-    description: 'Zimmero Bell ist der KI-Assistent für Ihre Rezeption. Verwandeln Sie Telefonnotizen mit wenigen Klicks in fertige Buchungen und finden Sie Buchungen, Gäste oder Firmen per natürlicher Sprache, ohne Menüpfade und ohne langes Suchen.',
+    description: 'Zimmero Bell durchsucht Datensätze im Backoffice, liest Details aus, findet passende Zimmeroptionen und bearbeitet Buchungsanfragen. Wenn es nötig ist, übergibt der Assistent an einen Menschen.',
     bullets: [
-      'Telefonnotizen schnell in fertige Buchungen umwandeln',
-      'Buchungen, Gäste und Firmen per natürlicher Sprache finden',
-      'Natürliche Eingabe statt Klickwege durch Menüs',
-      'Entlastung der Rezeption bei hohem Telefonverkehr',
+      'Datensätze durchsuchen und Details auslesen',
+      'Passende Zimmeroptionen finden',
+      'Buchungsanfragen bearbeiten',
+      'Bei Bedarf an einen Menschen übergeben',
     ],
     image: '/assets/zimmero-bell-icon.svg',
     learnMoreUrl: null,
@@ -31,12 +31,11 @@ const addons = [
   {
     title: 'TSE-Kassen-Anbindung',
     price: '10 € / Monat',
-    description: 'Zimmero stellt REST-Endpoints bereit, über die sich eine TSE-konforme Kasse direkt anbinden lässt. Speisen und Getränke, die an der Kasse erfasst werden, landen automatisch auf der Zimmerrechnung des Gastes. Das ist lückenlos, revisionssicher und ohne manuelle Nacharbeit.',
+    description: 'Die TSE-Anbindung ergänzt die Gastronomiefunktionen von Zimmero. Für die Verbindung mit einem vorhandenen Kassensystem steht eine dokumentierte Kassenschnittstelle bereit.',
     bullets: [
-      'REST-Endpoints zur Kassensystemanbindung',
-      'Speisen und Getränke direkt auf Zimmerrechnung buchen',
-      'TSE-konform und revisionssicher',
-      'Alternative zur Tablet-Gastronomie für bestehende Kassensysteme',
+      'TSE-Anbindung als Zusatzmodul',
+      'Dokumentierte Schnittstelle für Kassensysteme',
+      'Ergänzung zur Gastronomie in Zimmero',
     ],
     icon: 'M9 7H6a2 2 0 00-2 2v9a2 2 0 002 2h9a2 2 0 002-2v-3M9 7V5a2 2 0 012-2h6l3 3v3.5M9 7h6m0 0v3.5m0 0H9m6 0a2 2 0 012 2v3m-8-5v5',
     learnMoreUrl: null,
@@ -57,12 +56,11 @@ const addons = [
   {
     title: 'myOBS-Anbindung',
     price: '5 € / Monat',
-    description: 'Mit dem myOBS-Zusatzmodul verbindet Zimmero Ihre Hotelverwaltung direkt mit dem Online Buchung Service von Ostbayern Tourismus. Verfügbarkeiten, Preise und Buchungsregeln werden aus Zimmero heraus synchronisiert und können so auf regionalen Tourismusseiten sowie bei entsprechender myOBS-Nutzung auch auf Portalen wie Booking.com, Airbnb oder Expedia ausgespielt werden.',
+    description: 'Das Zusatzmodul verbindet Zimmero mit Wintop myOBS. Zimmer werden einander zugeordnet, Reservierungen verknüpft und Bestände abgeglichen.',
     bullets: [
-      'Synchronisation von Verfügbarkeiten',
-      'Preise und Buchungsregeln aus Zimmero übertragen',
-      'Anbindung an OBS und regionale Tourismusseiten',
-      'Optionaler Vertrieb über angeschlossene Portale bei Nutzung von myOBS als Channel Manager',
+      'Zimmerzuordnung zwischen beiden Systemen',
+      'Reservierungen verknüpfen',
+      'Bestände abgleichen',
     ],
     icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
     learnMoreUrl: 'https://online-buchung-service.de/',
@@ -70,9 +68,9 @@ const addons = [
   {
     title: 'Channel Manager mit 50+ OTAs',
     price: 'Nur 1,50 € pro Portalbuchung',
-    description: 'Booking.com & Co. automatisch synchronisieren, ohne teure Channel-Manager-Pakete. Verfügbarkeiten, Preise, Restriktionen und Reservierungen laufen in beide Richtungen. Sie zahlen nur, wenn eine Buchung über ein Portal eingeht. Direktbuchungen über Ihre Website bleiben gebührenfrei.',
+    description: 'Booking.com und weitere Portale automatisch synchronisieren. Verfügbarkeiten, Preise, Verkaufsbeschränkungen und Reservierungen laufen in beide Richtungen. Sie zahlen nur, wenn eine Buchung über ein Portal eingeht. Direktbuchungen über Ihre Website bleiben gebührenfrei.',
     bullets: [
-      'Anbindung an Booking.com, Expedia, Airbnb und 50+ weitere Portale',
+      'Booking.com angebunden, mehr als 50 weitere Portale als Zusatzmodul',
       'Automatische Synchronisation von Verfügbarkeiten, Preisen, Restriktionen und Reservierungen',
       '1,50 € pro Portalbuchung, keine zusätzliche monatliche Channel-Manager-Grundgebühr',
       '0 € Buchungsgebühr und 0 % Provision für Direktbuchungen',
@@ -91,7 +89,7 @@ const addons = [
         Zusatzmodule für noch mehr Möglichkeiten.
       </h2>
       <p class="text-secondary-600 leading-relaxed">
-        Zimmero bleibt schlank im Kern und kann bei Bedarf um zusätzliche Funktionen erweitert werden. Weitere Module sind in Planung.
+        Zimmero bleibt schlank im Kern und kann bei Bedarf um zusätzliche Funktionen erweitert werden.
       </p>
     </div>
 
@@ -101,7 +99,7 @@ const addons = [
           <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-5">
             <div class="flex items-start gap-4">
               {addon.image ? (
-                <img src={addon.image} alt={`Maskottchen ${addon.title}`} class="w-16 h-16 rounded-xl object-contain shrink-0 animate-bell-float" />
+                <img src={addon.image} alt={`Maskottchen ${addon.title}`} width="64" height="64" class="w-16 h-16 rounded-xl object-contain shrink-0 animate-bell-float" loading="lazy" />
               ) : (
                 <div class="w-11 h-11 rounded-lg bg-primary-50 flex items-center justify-center shrink-0">
                   <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -159,8 +157,5 @@ const addons = [
       ))}
     </div>
 
-    <p class="text-center text-sm text-secondary-400 mt-8">
-      Weitere Zusatzmodule sind in Planung und werden laufend ergänzt.
-    </p>
   </div>
 </section>

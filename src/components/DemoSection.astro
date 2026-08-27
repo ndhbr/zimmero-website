@@ -1,0 +1,19 @@
+---
+import { CONTACT_EMAIL, DEMO_URL } from '../config';
+---
+
+<section class="py-12 md:py-16">
+  <div class="section-container">
+    <div class="mx-auto max-w-5xl rounded-2xl border border-primary-200 bg-primary-50 px-6 py-10 text-center shadow-sm md:px-12">
+      <p class="mb-3 text-sm font-semibold text-primary-700">Ohne Anmeldung ausprobieren</p>
+      <h2 class="mb-4 text-2xl font-bold md:text-3xl">Sehen Sie Zimmero an, bevor Sie mit jemandem sprechen.</h2>
+      <p class="mx-auto mb-7 max-w-3xl leading-relaxed text-secondary-700">
+        Die Demo ist mit echten Beispieldaten gefüllt. Sie können alles anklicken und nichts kaputt machen. Ohne Anmeldung, ohne Kreditkarte, ohne Anruf.
+      </p>
+      <div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary px-8 py-3.5">Demo mit Beispieldaten öffnen</a>
+        <a href={`mailto:${CONTACT_EMAIL}?subject=Frage%20zu%20Zimmero`} class="btn-secondary px-8 py-3.5">Frage per E-Mail stellen</a>
+      </div>
+    </div>
+  </div>
+</section>

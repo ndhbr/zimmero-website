@@ -9,12 +9,52 @@ interface Props {
   description: string;
   canonical?: string;
   ogImage?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, canonical, ogImage = '/assets/og-default.jpg' } = Astro.props;
+const { title, description, canonical, ogImage = '/assets/og-default.jpg', structuredData } = Astro.props;
 const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 const canonicalUrl = new URL(canonical || path, SITE.url).toString();
 const ogImageUrl = new URL(ogImage, SITE.url).toString();
+const pageStructuredData = structuredData ? (Array.isArray(structuredData) ? structuredData : [structuredData]) : [];
+const schemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://zimmero.app/#organization',
+    name: 'Zimmero',
+    legalName: 'BavarianBits GmbH',
+    url: 'https://zimmero.app',
+    logo: 'https://zimmero.app/logo.svg',
+    image: 'https://zimmero.app/assets/og-default.jpg',
+    description: 'Moderne Betriebssoftware für inhabergeführte Hotels inklusive Channel Manager, digitalem Meldeschein und Kurtaxenabrechnung.',
+    email: 'info@zimmero.app',
+    telephone: '+49 1511 7815136',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Zur Limestherme 4',
+      postalCode: '93333',
+      addressLocality: 'Bad Gögging',
+      addressRegion: 'Bayern',
+      addressCountry: 'DE',
+    },
+    areaServed: [
+      { '@type': 'Country', name: 'Deutschland' },
+      { '@type': 'Country', name: 'Österreich' },
+    ],
+    founder: { '@type': 'Person', name: 'Andreas Huber' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://zimmero.app/#website',
+    name: 'Zimmero',
+    url: 'https://zimmero.app',
+    inLanguage: 'de-DE',
+    publisher: { '@id': 'https://zimmero.app/#organization' },
+  },
+  ...pageStructuredData,
+];
 ---
 
 <!doctype html>
@@ -50,14 +90,7 @@ const ogImageUrl = new URL(ogImage, SITE.url).toString();
 
     <script defer data-domain="zimmero.app" src="https://analytics.bavarianbits.de/js/script.js"></script>
 
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Zimmero",
-      "url": SITE.url,
-      "description": SITE.description,
-      "logo": `${SITE.url}/logo.svg`
-    })} />
+    <script type="application/ld+json" set:html={JSON.stringify(schemas)} />
   </head>
   <body class="min-h-screen flex flex-col bg-white">
     <Navigation />

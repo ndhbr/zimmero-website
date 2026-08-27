@@ -1,10 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/HeroSection.astro';
+import DemoSection from '../components/DemoSection.astro';
 import ChannelManagerSection from '../components/ChannelManagerSection.astro';
 import TrustSection from '../components/TrustSection.astro';
 import ProblemSection from '../components/ProblemSection.astro';
 import SolutionSection from '../components/SolutionSection.astro';
+import PriceManagementSection from '../components/PriceManagementSection.astro';
 import FeatureGrid from '../components/FeatureGrid.astro';
 import TargetSection from '../components/TargetSection.astro';
 import MultiPropertySection from '../components/MultiPropertySection.astro';
@@ -12,26 +14,47 @@ import KurortSection from '../components/KurortSection.astro';
 import DirectBookingSection from '../components/DirectBookingSection.astro';
 import AddonsSection from '../components/AddonsSection.astro';
 import ScreenshotSection from '../components/ScreenshotSection.astro';
+import EverydayDetailsSection from '../components/EverydayDetailsSection.astro';
 import FaqSection from '../components/FaqSection.astro';
 import CtaSection from '../components/CtaSection.astro';
+import { homeFaqs } from '../data/homeFaqs';
+import { SOFTWARE_APPLICATION_SCHEMA } from '../config';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: homeFaqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
 ---
 
 <Layout
   title="Zimmero | Hotelsoftware für inhabergeführte Hotels"
   description="Zimmero verbindet Zimmerplan, Buchungen, Channel Manager, Rechnungen, Meldeschein und Housekeeping für inhabergeführte Hotels. Demo ansehen."
+  structuredData={[SOFTWARE_APPLICATION_SCHEMA, faqSchema]}
 >
   <HeroSection />
+  <DemoSection />
   <ChannelManagerSection />
   <TrustSection />
   <ProblemSection />
   <SolutionSection />
+  <PriceManagementSection />
   <FeatureGrid />
   <TargetSection />
   <MultiPropertySection />
   <KurortSection />
   <DirectBookingSection />
   <ScreenshotSection />
+  <EverydayDetailsSection />
   <FaqSection />
   <AddonsSection />
+  <DemoSection />
   <CtaSection />
 </Layout>

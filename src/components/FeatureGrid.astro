@@ -1,136 +1,88 @@
 ---
 const features = [
   {
-    title: 'Zimmerplan & Aufenthalte',
-    text: 'Behalten Sie Anreisen, Abreisen, Zimmerwechsel, gesperrte Zimmer und Belegungen übersichtlich im Blick. Zimmero prüft Konflikte serverseitig und verhindert doppelte Belegungen.',
-    icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z',
+    title: 'Zimmerplan und Aufenthalte',
+    text: 'Anreisen, Abreisen, Zimmerwechsel und gesperrte Zimmer bleiben in einem Plan sichtbar. Die serverseitige Prüfung verhindert widersprüchliche Belegungen.',
   },
   {
-    title: 'Buchungen & Preischeck',
-    text: 'Telefonische Anfragen lassen sich schnell prüfen: Zeitraum, Belegung, Aufenthaltszweck und gewünschte Leistungen eingeben, verfügbare Zimmer und Preise sehen, direkt in eine Buchung übernehmen.',
-    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
+    title: 'Buchungen und Preischeck',
+    text: 'Bei einer telefonischen Anfrage geben Sie Zeitraum, Belegung und gewünschte Leistungen ein. Zimmero zeigt passende Zimmer und Preise und übernimmt das Ergebnis direkt in die Buchung.',
   },
   {
-    title: 'Online-Buchungen für Ihre Website',
-    text: 'Mit der Zimmero Buchungsstrecke buchen Gäste direkt über Ihre Hotelwebsite. Die Buchung landet sofort im Backoffice und kostet 0 € Buchungsgebühr und 0 % Provision an Zimmero.',
-    icon: 'M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9',
+    title: 'Direktbuchungen über Ihre Website',
+    text: 'Gäste buchen über die Buchungsstrecke im Erscheinungsbild Ihres Hauses. Die Reservierung landet direkt in Zimmero und kostet weder Provision noch Buchungsgebühr.',
   },
   {
     title: 'Channel Manager',
-    text: 'Booking.com und weitere Portale direkt anbinden. Zimmero synchronisiert Verfügbarkeiten, Preise, Restriktionen und Reservierungen automatisch. Das kostet nur 1,50 € pro Portalbuchung und keine zusätzliche monatliche Grundgebühr.',
-    icon: 'M4 7h11m0 0l-3-3m3 3l-3 3m8 7H9m0 0l3 3m-3-3l3-3',
+    text: 'Zimmero überträgt Verfügbarkeiten, Preise und Verkaufsbeschränkungen an Booking.com. Neue Portalreservierungen kommen automatisch zurück und fehlgeschlagene Übertragungen werden wiederholt.',
   },
   {
-    title: 'Rechnungen & Split Billing',
-    text: 'Erstellen Sie Rechnungen für Gäste, Firmen oder geteilte Aufenthalte. Zimmero unterstützt Entwürfe, PDF-Archivierung, Steuer-Snapshots und getrennte Abrechnung von Zimmern, Extras und Ortstaxe.',
-    icon: 'M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z',
+    title: 'Rechnungen und Buchhaltung',
+    text: 'Sie teilen Rechnungen nach Empfänger oder Abrechnungskonto auf und versenden sie als PDF. Adresse und Steuerdaten bleiben auf der fertigen Rechnung eingefroren. Für die Buchhaltung gibt es den DATEV-EXTF-Export.',
   },
   {
-    title: 'Gastronomie per Tablet',
-    text: 'Erstellen Sie Speisekarten und Produktkacheln für Frühstück, Bar, Getränke oder Zusatzleistungen. Über eine einfache Tablet-Ansicht wählt Ihr Team ein Zimmer aus, tippt Speisen oder Getränke an und bucht die Leistung direkt auf den aktiven Aufenthalt. Das ist sauber nachvollziehbar und später abrechenbar.',
-    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
+    title: 'Housekeeping und Technik',
+    text: 'Reinigungskräfte sehen Putzpläne, Aufgaben und den Zimmerstatus. Technische Aufgaben und Mängel werden im Facility Management festgehalten.',
   },
   {
-    title: 'Housekeeping',
-    text: 'Nach dem Check-out entstehen automatisch Reinigungsaufgaben. Das Housekeeping sieht offene Zimmer, erledigte Aufgaben und kann den Status direkt zurückmelden.',
-    icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+    title: 'Digitaler Meldeschein',
+    text: 'Der Meldeschein wird elektronisch übermittelt. Unterschrift, Stornierung und Statusverfolgung gehören dazu. Die Vorgaben Ihres Orts sind hinterlegt.',
   },
   {
-    title: 'Facility Management',
-    text: 'Mitarbeiter können Mängel direkt melden, zum Beispiel defekte Lampen, Schäden im Zimmer oder Aufgaben für den Hausmeister. So werden Wartung, Reparaturen und interne Aufgaben nachvollziehbar.',
-    icon: 'M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z',
-    badge: 'In Kürze',
+    title: 'Bayerische Tourismusstatistik',
+    text: 'Die monatliche Meldung an das Landesamt für Statistik erzeugt Zimmero als fertige CSV-Datei zum Hochladen in IDEV. Das erspart die Übertragung von Hand.',
   },
   {
-    title: 'Statistiken & Tourismusauswertung',
-    text: 'Auslastung, Ankünfte, Übernachtungen, Logisumsatz, ADR, RevPAR, Herkunftsländer sowie private und geschäftliche Aufenthalte lassen sich flexibel nach Zeitraum und Haus auswerten. Für die monatliche bayerische Tourismusstatistik kann direkt eine IDEV-kompatible CSV-Datei exportiert werden.',
-    icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z',
+    title: 'Online Check-in ist verfügbar',
+    text: 'Drei Tage vor der Anreise erhalten Gäste automatisch den Zugang zum Gästeportal. Dort erfassen sie die Daten aller Mitreisenden. Bei kurzfristigen Buchungen wird die Nachricht sofort versendet.',
   },
   {
-    title: 'Meldeschein, Kurkarte & Ortstaxe',
-    text: 'Zimmero ist für Kurorte und Tourismusbetriebe vorbereitet. Meldeschein, Kurkarte, Ortstaxe und touristische Meldungen werden sauber in den Buchungsprozess integriert.',
-    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+    title: 'Firmenkunden und Kontingente',
+    text: 'Für Firmen hinterlegen Sie Rechnungsadresse, Umsatzsteuer-ID und eigene Preisvereinbarungen. Zimmer können langfristig für Monteure oder Dauerkontingente geblockt werden.',
   },
   {
     title: 'Eigentümerabrechnung',
-    text: 'Ideal für Appartementhäuser, Ferienappartements und Betriebe mit Eigentümerstruktur. Zimmero unterstützt Eigentümer, provisionsrelevante Umsätze, Belastungen, Abrechnungsperioden und Eigentümergemeinschaften.',
-    icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+    text: 'Bei Appartements und Eigentümerwohnungen verwaltet Zimmero Provisionen und weiterberechnete Kosten. Die Abrechnung wird je Eigentümer mit Einzelpositionen erstellt.',
   },
   {
-    title: 'Online Check-in & Gastportal',
-    text: 'Gäste sollen künftig vor der Anreise Daten online erfassen, Meldedaten ergänzen und ausgewählte Leistungen im Gastportal nutzen können. Auch die Wallbox-Nutzung kann darüber perspektivisch freigeschaltet werden.',
-    icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z',
+    title: 'Änderungen bleiben nachvollziehbar',
+    text: 'Für die Revisionssicherheit erhalten Buchungen, Preise und Stammdaten ein Änderungsprotokoll mit Zeitpunkt, Person und Statuswechsel. Damit lässt sich auch die Alltagsfrage beantworten, wer eine Buchung storniert hat.',
   },
   {
-    title: 'Tagespost für Zimmer',
-    text: 'Zimmero soll automatisch Tagespost für Zimmer und Rezeption generieren, zum Beispiel Anreisen, Abreisen, Aufenthalte, Hinweise, gebuchte Leistungen und operative Informationen für den Tag.',
-    icon: 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z',
-    badge: 'In Vorbereitung',
+    title: 'E-Mails und Belege bleiben erhalten',
+    text: 'Jede versendete E-Mail wird protokolliert, auch wenn die Zustellung fehlschlägt. Alle von Zimmero erzeugten PDF-Dateien werden zehn Jahre archiviert.',
   },
   {
-    title: 'DATEV-EXTF Export',
-    text: 'Mit dem DATEV-EXTF-Export bereiten Sie Ihre Buchhaltungsdaten direkt in Zimmero für die Steuerkanzlei auf. Rechnungen, Zahlungseingänge, Stornos, Gutschriften und Belege können für ausgewählte Zeiträume exportiert und als ZIP-Datei im standardisierten Format für DATEV, Stotax, Lexware und weitere Buchhaltungssysteme heruntergeladen werden.',
-    icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4',
+    title: 'Deutsch oder Englisch je Mitarbeiter',
+    text: 'Jedes Mitarbeiterkonto kann die Oberfläche auf Deutsch oder Englisch verwenden. Das hilft, wenn Rezeption und Housekeeping in unterschiedlichen Sprachen arbeiten.',
   },
   {
-    title: 'Gastronomie-Buchungen per Tablet',
-    text: 'Speisekarten und Produktkacheln für Frühstück, Bar und Getränke frei konfigurieren. Über eine Tablet-Ansicht wählt Ihr Team ein Zimmer aus, tippt Leistungen an und bucht sie direkt auf den aktiven Aufenthalt. Alles bleibt nachvollziehbar und abrechenbar.',
-    icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01',
-    badge: 'Zusatzmodul',
-  },
-  {
-    title: 'TSE-Kassen-Anbindung',
-    text: 'Zimmero stellt REST-Endpoints zur Anbindung einer TSE-konformen Kasse bereit. Speisen und Getränke landen automatisch, lückenlos und revisionssicher auf der Zimmerrechnung. Manuelle Nacharbeit entfällt.',
-    icon: 'M9 7H6a2 2 0 00-2 2v9a2 2 0 002 2h9a2 2 0 002-2v-3M9 7V5a2 2 0 012-2h6l3 3v3.5M9 7h6m0 0v3.5m0 0H9m6 0a2 2 0 012 2v3m-8-5v5',
-    badge: 'Zusatzmodul',
-  },
-  {
-    title: 'SumUp Solo Bezahlterminal',
-    text: 'Rechnungen direkt aus Zimmero ans SumUp Solo Terminal schicken und den Bezahlstatus automatisch zurückerhalten. Manuelle Eingaben und Übertragungsfehler entfallen.',
-    icon: 'M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z',
-    badge: 'Zusatzmodul',
-  },
-  {
-    title: 'myOBS-Anbindung',
-    text: 'Verfügbarkeiten, Preise und Buchungsregeln aus Zimmero direkt mit dem Online Buchung Service von Ostbayern Tourismus synchronisieren und optional über angeschlossene Portale vertreiben.',
-    icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1',
-    badge: 'Zusatzmodul',
-  },
-  {
-    title: 'Zimmero Bell: KI-Assistent',
-    text: 'Telefonnotizen mit wenigen Klicks in fertige Buchungen umwandeln und Buchungen, Gäste oder Firmen per natürlicher Sprache finden. Der KI-Assistent für Ihre Rezeption.',
-    icon: 'M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0',
-    badge: 'Zusatzmodul',
+    title: 'Offene Schnittstellen statt Datensilo',
+    text: 'Eine öffentliche Schnittstelle stellt Zimmertypen für Ihre eigene Website bereit. Für Kassensysteme gibt es eine dokumentierte Schnittstelle.',
   },
 ];
 ---
 
-<section id="funktionen" class="py-16 md:py-24 bg-surface">
+<section id="funktionen" class="bg-surface py-16 md:py-24">
   <div class="section-container">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">
-        Alles, was kleine und mittlere Hotels täglich brauchen.
-      </h2>
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h2 class="mb-4 text-2xl font-bold md:text-3xl">Die täglichen Abläufe in einem System.</h2>
+      <p class="leading-relaxed text-secondary-600">
+        Jede Funktion greift dort, wo an der Rezeption sonst eine Liste, ein zweites Programm oder eine Rückfrage nötig wäre.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {features.map(feature => (
-        <div class="bg-white rounded-xl p-6 border border-secondary-200 shadow-sm hover:shadow-md transition-shadow duration-200">
-          <div class="flex items-start justify-between mb-4">
-            <div class="w-10 h-10 rounded-lg bg-primary-50 flex items-center justify-center">
-              <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={feature.icon} />
-              </svg>
-            </div>
-            {feature.badge && (
-              <span class="text-xs font-medium px-2 py-1 rounded-full bg-accent-100 text-accent-700">
-                {feature.badge}
-              </span>
-            )}
+        <article class="rounded-xl border border-secondary-200 bg-white p-6 shadow-sm">
+          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-50">
+            <svg class="h-5 w-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
+            </svg>
           </div>
-          <h3 class="font-semibold text-secondary-900 mb-2">{feature.title}</h3>
-          <p class="text-sm text-secondary-600 leading-relaxed">{feature.text}</p>
-        </div>
+          <h3 class="mb-2 font-semibold text-secondary-900">{feature.title}</h3>
+          <p class="text-sm leading-relaxed text-secondary-600">{feature.text}</p>
+        </article>
       ))}
     </div>
   </div>

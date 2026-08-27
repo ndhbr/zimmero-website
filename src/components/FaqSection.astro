@@ -1,54 +1,5 @@
 ---
-const faqs = [
-  {
-    q: 'Für welche Hotels ist Zimmero geeignet?',
-    a: 'Zimmero eignet sich besonders für inhabergeführte Hotels, Pensionen, Aparthotels, Kurhotels, Appartementhäuser und kleinere Hotelgruppen mit ungefähr 10 bis 100 Zimmern.',
-  },
-  {
-    q: 'Gibt es eine Booking.com Anbindung?',
-    a: 'Ja. Mit dem Channel Manager verbinden Sie Zimmero direkt mit Booking.com sowie über 50 weiteren Portalen wie Expedia und Airbnb. Verfügbarkeiten, Preise, Restriktionen und Reservierungen werden automatisch in beide Richtungen synchronisiert. Zum gewählten Zimmero-Tarif kommt keine zusätzliche monatliche Channel-Manager-Grundgebühr: Sie zahlen nur 1,50 € je Buchung, die über ein angebundenes Portal eingeht. Direktbuchungen über Ihre eigene Website kosten 0 € Buchungsgebühr und 0 % Provision an Zimmero.',
-  },
-  {
-    q: 'Kann Zimmero mehrere Häuser verwalten?',
-    a: 'Ja. Zimmero ist für mehrere Properties innerhalb einer Organisation ausgelegt. Das ist ideal für Betriebe mit Hotel, Gästehaus, Appartements oder mehreren Standorten.',
-  },
-  {
-    q: 'Unterstützt Zimmero Meldeschein, Kurkarte und Ortstaxe?',
-    a: 'Zimmero ist für Abläufe in Kurorten vorbereitet. Dazu gehören Meldeschein, Kurkarte, Ortstaxe, Gastklassen und touristische Meldungen.',
-  },
-  {
-    q: 'Gibt es Online Check-in?',
-    a: 'Online Check-in und ein Gastportal sind geplant. Gäste sollen künftig vor der Anreise Daten erfassen, Meldedaten ergänzen und ausgewählte Leistungen digital nutzen können.',
-  },
-  {
-    q: 'Kann Zimmero Wallbox-Nutzung abrechnen?',
-    a: 'Die Wallbox-Nutzung ist als Erweiterung über das Gastportal geplant. Gäste sollen perspektivisch eine Wallbox freischalten können, wobei die Nutzung der Buchung beziehungsweise dem Zimmer zugeordnet wird.',
-  },
-  {
-    q: 'Was kostet Zimmero?',
-    a: 'Zimmero startet aktuell zum rabattierten Preis von 79\u00A0\u20AC pro Monat. Wer jetzt einsteigt, behält diesen Preis dauerhaft. Die regulären Preise für spätere Neukunden beginnen bei 99\u00A0\u20AC pro Monat. Der Channel Manager hat keine zusätzliche monatliche Grundgebühr und kostet nur 1,50\u00A0\u20AC je Portalbuchung. Direktbuchungen über Ihre Hotelwebsite bleiben gebührenfrei.',
-  },
-  {
-    q: 'Kann Zimmero Speisen und Getränke aufs Zimmer buchen?',
-    a: 'Ja. Zimmero enthält eine Tablet-Ansicht für Gastronomie-Buchungen. Das Personal kann ein Zimmer auswählen, Speisen, Getränke oder Zusatzleistungen antippen und direkt auf den aktiven Aufenthalt buchen. Die Leistungen bleiben nachvollziehbar und können später auf der Zimmerrechnung erscheinen.',
-  },
-  {
-    q: 'Ist Zimmero eine Restaurantkasse?',
-    a: 'Nein. Zimmero ersetzt keine vollwertige Restaurantkasse oder komplexes POS-System. Das Gastronomie-Feature ist für Hotelbetriebe gedacht, die Frühstück, Barartikel, Getränke oder Zusatzleistungen einfach aufs Zimmer buchen möchten.',
-  },
-  {
-    q: 'Kann ich Zimmero in meine Hotelwebsite integrieren?',
-    a: 'Ja. Zimmero bietet eine Online-Buchungsstrecke, die Hotels über ihre eigene Website nutzen können. Gäste wählen Zeitraum, Belegung und Zimmerkategorie aus und die Buchung landet anschließend im Zimmero Backoffice.',
-  },
-  {
-    q: 'Ist das dasselbe wie ein Channel Manager?',
-    a: 'Nein. Die Online-Buchung über Ihre Hotelwebsite bringt Ihnen gebührenfreie Direktbuchungen. Der Channel Manager verbindet Zimmero zusätzlich mit externen Portalen wie Booking.com und synchronisiert Preise, Verfügbarkeiten, Restriktionen und Reservierungen automatisch in beide Richtungen.',
-  },
-  {
-    q: 'Speichert die Website Anfragen in einer Datenbank?',
-    a: 'Nein. Die Marketing-Website ist als statische Website aufgebaut. Anfragen laufen über E-Mail oder einen später konfigurierbaren externen Formular-Endpunkt.',
-  },
-];
+import { homeFaqs } from '../data/homeFaqs';
 ---
 
 <section id="faq" class="py-16 md:py-24">
@@ -59,7 +10,7 @@ const faqs = [
       </h2>
 
       <div class="space-y-4">
-        {faqs.map((faq, i) => (
+        {homeFaqs.map(faq => (
           <details class="group bg-white rounded-xl border border-secondary-200 shadow-sm overflow-hidden">
             <summary class="flex items-center justify-between cursor-pointer p-5 text-left font-medium text-secondary-900 hover:bg-secondary-50 transition-colors">
               <span>{faq.q}</span>

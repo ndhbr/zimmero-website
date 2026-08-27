@@ -1,0 +1,46 @@
+---
+const pricingFunctions = [
+  'Ratenpläne, Saisons und Preisanpassungen je Ratenplan',
+  'Preise nach Personenanzahl und abweichende Tagespreise',
+  'Pauschalen mit enthaltenen Leistungen und eigenen Preisen',
+  'Mindestaufenthalt bei Anreise und durchgehend, Höchstaufenthalt, Anreisesperre, Abreisesperre und Verkaufsstopp',
+  'Individuelle Preisvereinbarungen für Firmenkunden',
+];
+---
+
+<section class="py-16 md:py-24">
+  <div class="section-container">
+    <div class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
+      <div>
+        <p class="mb-3 text-sm font-semibold text-primary-700">Preise und Raten</p>
+        <h2 class="mb-5 text-2xl font-bold md:text-3xl">Verkaufen Sie jedes Zimmer zum passenden Preis.</h2>
+        <p class="mb-6 leading-relaxed text-secondary-600">
+          Wenn an der Rezeption das Telefon klingelt, muss der richtige Preis sofort feststehen. Zimmero verbindet die langfristige Preisplanung mit dem Preischeck für die konkrete Anfrage. So gelten im Zimmerplan, bei Direktbuchungen und im Channel Manager dieselben Regeln.
+        </p>
+        <ul class="space-y-3">
+          {pricingFunctions.map(item => (
+            <li class="flex items-start gap-3 text-sm text-secondary-700">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <figure class="overflow-hidden rounded-xl border border-secondary-200 bg-white shadow-sm">
+        <img
+          src="/assets/preischeck.webp"
+          alt="Zimmero Preischeck mit Reisezeitraum, Belegung, Häusern und Leistungen"
+          width="3018"
+          height="1628"
+          class="h-auto w-full"
+          loading="lazy"
+        />
+        <figcaption class="px-5 py-4 text-sm text-secondary-600">
+          Der Preischeck wendet die hinterlegten Raten und Regeln auf eine konkrete telefonische Anfrage an.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>

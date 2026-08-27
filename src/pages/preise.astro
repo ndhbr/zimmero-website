@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { CONTACT_EMAIL } from '../config';
+import { CONTACT_EMAIL, SOFTWARE_APPLICATION_SCHEMA } from '../config';
 
 const plans = [
   {
@@ -65,6 +65,7 @@ const plans = [
 <Layout
   title="Preise für Hotelsoftware | Zimmero"
   description="Hotelsoftware ab 79 Euro monatlich. Direktbuchungen bleiben provisionsfrei, der Channel Manager kostet nur je Portalbuchung. Preise ansehen."
+  structuredData={SOFTWARE_APPLICATION_SCHEMA}
 >
   <section class="py-16 md:py-24">
     <div class="section-container">
