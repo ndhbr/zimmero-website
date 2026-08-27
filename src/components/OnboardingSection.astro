@@ -1,0 +1,52 @@
+---
+const steps = [
+  {
+    title: 'Erstgespräch',
+    text: 'Wir sprechen über Ihre Häuser, Zimmer, Preise, das bisherige Programm und besondere Abläufe.',
+  },
+  {
+    title: 'Einrichtung',
+    text: 'Häuser, Zimmertypen, Zimmer und Preise werden in Zimmero eingerichtet. Die einmalige Einrichtung ist im Aktionszeitraum enthalten.',
+  },
+  {
+    title: 'Datenübernahme',
+    text: 'Gäste und Buchungen werden aus dem Altsystem übernommen. Das wurde bereits mit H3S und Pensionsprogramm durchgeführt und ist aktuell kostenlos.',
+  },
+  {
+    title: 'Schulung',
+    text: 'In einer halbtägigen Schulung lernen Sie die Abläufe kennen, die Ihr Team im Alltag wirklich braucht. Die Schulung ist im Aktionszeitraum enthalten.',
+  },
+  {
+    title: 'Start mit Begleitung',
+    text: 'Beim Wechsel in den laufenden Betrieb bleibt Andreas Huber Ihr direkter Ansprechpartner.',
+  },
+];
+---
+
+<section id="umstieg" class="bg-surface py-16 md:py-24">
+  <div class="section-container">
+    <div class="mx-auto max-w-5xl">
+      <div class="mx-auto mb-10 max-w-3xl text-center">
+        <p class="mb-3 text-sm font-semibold text-primary-700">So läuft der Umstieg</p>
+        <h2 class="mb-4 text-2xl font-bold md:text-3xl">Ihre vorhandenen Daten kommen mit.</h2>
+        <p class="leading-relaxed text-secondary-600">
+          Vom Erstgespräch bis zum Start dauert es normalerweise zwei bis drei Wochen, wenn keine Sonderintegrationen nötig sind. Ihre Gäste und Buchungen müssen Sie dabei nicht noch einmal von Hand erfassen.
+        </p>
+      </div>
+
+      <ol class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5">
+        {steps.map((step, index) => (
+          <li class="rounded-xl border border-secondary-200 bg-white p-5 shadow-sm">
+            <span class="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-primary-500 text-sm font-bold text-white" aria-hidden="true">{index + 1}</span>
+            <h3 class="mb-2 font-semibold text-secondary-900">{step.title}</h3>
+            <p class="text-sm leading-relaxed text-secondary-600">{step.text}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div class="mt-8 text-center">
+        <a href="/kontakt/" class="btn-primary">Umstieg besprechen</a>
+      </div>
+    </div>
+  </div>
+</section>

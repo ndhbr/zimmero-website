@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { DEMO_URL, CONTACT_EMAIL } from '../config';
+import { CONTACT_EMAIL, DEMO_URL } from '../config';
 ---
 
 <Layout
@@ -21,13 +21,13 @@ import { DEMO_URL, CONTACT_EMAIL } from '../config';
           <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary px-8 py-3.5">
             Demo öffnen
           </a>
-          <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%3A%20Zimmero%20bekommen`} class="btn-secondary px-8 py-3.5">
+          <a href="/kontakt/" class="btn-secondary px-8 py-3.5">
             Fragen zu Zimmero stellen
           </a>
         </div>
 
         <p class="text-sm text-secondary-500">
-          Die Demo ist eine Testumgebung mit Beispieldaten.
+          Die Demo ist eine Testumgebung mit Beispieldaten. Fragen können Sie auch direkt an <a href={`mailto:${CONTACT_EMAIL}?subject=Frage%20zu%20Zimmero`} class="font-medium text-primary-700 hover:underline">{CONTACT_EMAIL}</a> schicken.
         </p>
       </div>
     </div>

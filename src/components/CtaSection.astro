@@ -1,5 +1,5 @@
 ---
-import { DEMO_URL, CONTACT_EMAIL } from '../config';
+import { CONTACT_EMAIL, DEMO_URL } from '../config';
 ---
 
 <section class="py-16 md:py-24 bg-primary-500">
@@ -17,9 +17,10 @@ import { DEMO_URL, CONTACT_EMAIL } from '../config';
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
         </svg>
       </a>
-      <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%3A%20Zimmero%20bekommen`} class="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/30 text-white font-semibold hover:bg-primary-400 transition-colors">
+      <a href="/kontakt/" class="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-white/30 text-white font-semibold hover:bg-primary-400 transition-colors">
         Zimmero anfragen
       </a>
     </div>
+    <p class="mt-5 text-sm text-primary-100">Oder schreiben Sie direkt an <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%20zu%20Zimmero`} class="font-semibold text-white hover:underline">{CONTACT_EMAIL}</a>.</p>
   </div>
 </section>

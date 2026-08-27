@@ -9,6 +9,7 @@ export const DASHBOARD_URL = 'https://dashboard.zimmero.app';
 export const CONTACT_EMAIL = 'info@zimmero.app';
 export const CONTACT_PHONE_DISPLAY = '+49 1511 7815136';
 export const CONTACT_PHONE_HREF = '+4915117815136';
+export const CONTACT_HOURS = 'Montag bis Freitag, 8 bis 17 Uhr';
 
 export const SOFTWARE_APPLICATION_SCHEMA = {
   '@context': 'https://schema.org',

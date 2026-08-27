@@ -1,0 +1,61 @@
+---
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Layout from '../layouts/Layout.astro';
+import { CONTACT_EMAIL, CONTACT_HOURS, CONTACT_PHONE_DISPLAY, CONTACT_PHONE_HREF } from '../config';
+
+const breadcrumbs = [
+  { name: 'Startseite', href: '/' },
+  { name: 'Kontakt', href: '/kontakt/' },
+];
+---
+
+<Layout
+  title="Kontakt zu Zimmero | Andreas Huber"
+  description="Schreiben Sie Andreas Huber direkt oder rufen Sie werktags an. Sie erhalten innerhalb von 24 Stunden eine persönliche Antwort zu Zimmero."
+>
+  <section class="py-12 md:py-20">
+    <div class="section-container">
+      <Breadcrumbs items={breadcrumbs} />
+
+      <div class="mx-auto max-w-4xl">
+        <div class="mx-auto mb-10 max-w-3xl text-center">
+          <p class="mb-3 text-sm font-semibold text-primary-700">Direkter Kontakt</p>
+          <h1 class="mb-5 text-3xl font-bold md:text-4xl">Sprechen Sie direkt mit Andreas Huber.</h1>
+          <p class="text-lg leading-relaxed text-secondary-600">
+            Sie sprechen nicht mit einem Vertriebsteam oder Callcenter. Schreiben Sie kurz, welche Art von Betrieb Sie führen und wobei Zimmero helfen soll. Wenn Sie lieber telefonieren, rufen Sie an.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <article class="rounded-2xl border border-primary-200 bg-primary-50 p-6 md:p-8">
+            <h2 class="mb-3 text-xl font-semibold">Per E-Mail</h2>
+            <p class="mb-6 text-sm leading-relaxed text-secondary-700">
+              Schreiben Sie am besten dazu, wie viele Häuser und Zimmer Sie verwalten und welches Programm Sie bisher verwenden.
+            </p>
+            <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%20zu%20Zimmero`} class="btn-primary w-full">{CONTACT_EMAIL}</a>
+          </article>
+
+          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm md:p-8">
+            <h2 class="mb-3 text-xl font-semibold">Per Telefon</h2>
+            <p class="mb-1 text-sm leading-relaxed text-secondary-600">{CONTACT_HOURS}</p>
+            <p class="mb-6 text-sm leading-relaxed text-secondary-600">Für Bestandskunden ist dies auch die Notfallnummer.</p>
+            <a href={`tel:${CONTACT_PHONE_HREF}`} class="btn-secondary w-full">{CONTACT_PHONE_DISPLAY}</a>
+          </article>
+        </div>
+
+        <div class="mt-8 rounded-xl border border-success-200 bg-success-50 p-5 text-center">
+          <p class="font-semibold text-success-900">Sie erhalten innerhalb von 24 Stunden eine Antwort.</p>
+          <p class="mt-1 text-sm text-success-800">Von Andreas Huber persönlich, nicht von einem Callcenter.</p>
+        </div>
+
+        <p class="mt-7 text-center text-sm leading-relaxed text-secondary-600">
+          Angaben aus Ihrer Nachricht werden nur zur Bearbeitung Ihrer Anfrage verwendet. Einzelheiten stehen in der <a href="/datenschutz/" class="font-medium text-primary-700 hover:underline">Datenschutzerklärung</a>.
+        </p>
+
+        <p class="mt-5 text-center text-sm text-secondary-600">
+          Ein Wechsel dauert ohne Sonderintegrationen normalerweise zwei bis drei Wochen. <a href="/#umstieg" class="font-medium text-primary-700 hover:underline">So läuft der Umstieg ab</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
