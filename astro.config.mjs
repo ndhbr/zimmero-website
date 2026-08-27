@@ -4,6 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.zimmero.app',
+  site: 'https://zimmero.app',
+  trailingSlash: 'always',
   integrations: [tailwind(), sitemap()],
 });

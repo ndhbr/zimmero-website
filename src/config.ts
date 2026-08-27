@@ -1,6 +1,6 @@
 export const SITE = {
   name: 'Zimmero',
-  url: 'https://www.zimmero.app',
+  url: 'https://zimmero.app',
   description: 'Moderne Betriebssoftware für inhabergeführte Hotels inkl. Channel Manager',
 };
 
