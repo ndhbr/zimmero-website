@@ -98,6 +98,11 @@ const schemas = [
 
     <title>{title}</title>
 
+    <script is:inline>
+      window.plausible = window.plausible || function () {
+        (window.plausible.q = window.plausible.q || []).push(arguments);
+      };
+    </script>
     <script defer data-domain="zimmero.app" src="https://analytics.bavarianbits.de/js/script.js"></script>
 
     <script type="application/ld+json" set:html={JSON.stringify(schemas)} />
@@ -108,5 +113,9 @@ const schemas = [
       <slot />
     </main>
     <Footer />
+    <script>
+      import { installAnalytics } from '../scripts/analytics.js';
+      installAnalytics();
+    </script>
   </body>
 </html>
