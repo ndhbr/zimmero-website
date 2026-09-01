@@ -1,0 +1,283 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const title = 'HS3 Alternative: Wechsel & Datenübernahme | Zimmero';
+const description = 'Wird HS3 eingestellt? Was offizielle Quellen zum Support sagen, worauf es beim HS/3-Nachfolger ankommt und wie Zimmero Ihre Daten übernimmt.';
+const canonical = '/wissen/hs3-alternative/';
+const ogImage = '/assets/og-default.jpg';
+
+const faqs = [
+  {
+    q: 'Wird die HS3 Hotelsoftware eingestellt?',
+    a: 'HS3 ist Stand 1. September 2026 noch in Betrieb. In der offiziellen FAQ zur Übernahme kündigen HS3 und Mews jedoch an, dass die Produkte künftig auslaufen sollen. Dort wird ein voraussichtlicher Unterstützungszeitraum von drei Jahren nach Mai 2024 genannt.',
+  },
+  {
+    q: 'Wann endet der Support für HS3?',
+    a: 'Die offizielle HS3-FAQ nennt kein verbindliches tagesgenaues Supportende. Sie beschreibt einen voraussichtlichen Zeitraum von drei Jahren nach Mai 2024. Das deutet ungefähr auf Mai 2027 hin, ersetzt aber keine individuelle Mitteilung oder vertragliche Auskunft von HS3 beziehungsweise Mews.',
+  },
+  {
+    q: 'Ist Mews der Nachfolger von HS3?',
+    a: 'Mews hat HS3 im Mai 2024 übernommen und bietet HS3-Kunden die Migration zur Mews Hospitality Cloud an. Ein Hotel kann vor dem Wechsel trotzdem andere PMS-Lösungen prüfen und die für den eigenen Betrieb passende HS3-Alternative wählen.',
+  },
+  {
+    q: 'Kann Zimmero den vollständigen HS3-Datenbestand übernehmen?',
+    a: 'Ja. Zimmero beschränkt die Übernahme nicht auf neu anzulegende Buchungen, sondern prüft und importiert den verfügbaren HS3-Datenbestand. Die konkrete Zuordnung aller Felder und Dokumente wird vor dem Wechsel anhand des tatsächlichen Datenbestands festgehalten und mit einem Testimport geprüft.',
+  },
+  {
+    q: 'Kann das Hotel nach dem HS3-Wechsel direkt weiterarbeiten?',
+    a: 'Ja. Vor dem Stichtag werden Zimmero eingerichtet, der Import getestet und die Mitarbeiter geschult. Zum vereinbarten Wechseltermin wird der aktuelle Datenstand übernommen und kontrolliert, damit offene Reservierungen und der laufende Hotelbetrieb in Zimmero fortgeführt werden können.',
+  },
+  {
+    q: 'Wie lange dauert der Wechsel von HS3 zu Zimmero?',
+    a: 'Ohne Sonderintegrationen dauert die Einführung normalerweise zwei bis drei Wochen. Der genaue Termin hängt vom Datenumfang, den angebundenen Systemen und den betrieblichen Anforderungen ab.',
+  },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'HS3 Hotelsoftware wird eingestellt: So gelingt der Wechsel zu einer Alternative',
+  description,
+  image: `https://zimmero.app${ogImage}`,
+  datePublished: '2026-09-01',
+  dateModified: '2026-09-01',
+  inLanguage: 'de-DE',
+  author: {
+    '@type': 'Person',
+    name: 'Andreas Huber',
+  },
+  publisher: { '@id': 'https://zimmero.app/#organization' },
+  mainEntityOfPage: `https://zimmero.app${canonical}`,
+  about: [
+    { '@type': 'SoftwareApplication', name: 'HS3 Hotelsoftware' },
+    { '@type': 'Thing', name: 'Wechsel der Hotelsoftware' },
+    { '@type': 'Thing', name: 'Datenmigration' },
+  ],
+  keywords: ['HS3 Alternative', 'HS/3 Nachfolger', 'HS3 eingestellt', 'HS3 Support Ende', 'HS3 wechseln', 'HS3 Datenübernahme'],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.a,
+    },
+  })),
+};
+
+const breadcrumbs = [
+  { name: 'Startseite', href: '/' },
+  { name: 'Wissen', href: '/wissen/' },
+  { name: 'HS3 Alternative', href: canonical },
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt="Zimmero als Alternative zur HS3 Hotelsoftware"
+  ogType="article"
+  structuredData={[articleSchema, faqSchema]}
+>
+  <article>
+    <header class="py-12 md:py-20">
+      <div class="section-container">
+        <Breadcrumbs items={breadcrumbs} />
+
+        <div class="mx-auto max-w-4xl">
+          <p class="mb-3 text-sm font-semibold text-primary-700">HS3 Alternative und Softwarewechsel</p>
+          <h1 class="mb-6 text-3xl font-bold md:text-5xl">HS3 Hotelsoftware wird eingestellt: So gelingt der Wechsel zu einer Alternative.</h1>
+          <p class="mb-6 text-xl leading-relaxed text-secondary-600">
+            HS3 läuft noch, soll nach der Übernahme durch Mews aber künftig auslaufen. Wer jetzt einen HS/3-Nachfolger prüft, kann den Wechsel geplant durchführen. Zimmero übernimmt den vollständigen verfügbaren Datenbestand und führt den laufenden Hotelbetrieb ohne manuelle Neuerfassung weiter.
+          </p>
+          <div class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-secondary-600">
+            <span>Von Andreas Huber</span>
+            <time datetime="2026-09-01">Veröffentlicht am 1. September 2026</time>
+            <span>Etwa 10 Minuten Lesezeit</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="section-container">
+      <figure class="mx-auto max-w-5xl overflow-hidden rounded-2xl border border-secondary-200 bg-white shadow-sm">
+        <img src="/assets/zimmerplan.webp" alt="Zimmerplan der Zimmero Hotelsoftware nach einer HS3-Datenübernahme" width="1600" height="900" class="aspect-video h-auto w-full object-cover object-top" loading="eager" />
+        <figcaption class="border-t border-secondary-200 px-5 py-4 text-sm leading-relaxed text-secondary-600">
+          Nach der Datenübernahme werden offene Buchungen und Aufenthalte im Zimmerplan von Zimmero weitergeführt.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="section-container py-16 md:py-24">
+      <div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[minmax(0,1fr)_280px]">
+        <div class="min-w-0">
+          <div class="mb-10 rounded-xl border border-warning-200 bg-warning-50 p-5 text-sm leading-relaxed text-warning-900">
+            <strong>Stand dieses Beitrags: 1. September 2026.</strong> Maßgeblich für Ihren Betrieb bleiben individuelle Vertragsinformationen und aktuelle Mitteilungen von HS3 beziehungsweise Mews. Der Beitrag wird aktualisiert, sobald eine neue offizielle Aussage zum Zeitplan veröffentlicht wird.
+          </div>
+
+          <div class="grid gap-12 leading-relaxed text-secondary-700">
+            <section id="kurzantwort" aria-labelledby="kurzantwort-heading">
+              <h2 id="kurzantwort-heading" class="mb-5 text-2xl font-bold md:text-3xl">Die kurze Antwort: Wird HS3 eingestellt?</h2>
+              <p>
+                <strong class="text-secondary-900">Ja, HS3 ist zum Auslaufen vorgesehen – aber die Hotelsoftware ist heute noch nicht abgeschaltet.</strong> Mews hat HS3 im Mai 2024 übernommen. In der offiziellen FAQ steht, dass die HS3-Produkte bis zu ihrem künftigen Auslaufen funktionsfähig und unterstützt bleiben sollen. Als voraussichtlicher Zeitraum werden die drei Jahre nach Mai 2024 genannt. Daraus lässt sich ungefähr Mai 2027 ableiten; ein verbindliches tagesgenaues Enddatum nennt die FAQ nicht.
+              </p>
+              <p class="mt-4">
+                Gleichzeitig schreibt HS3, dass Kunden vorerst weiter unterstützt werden und bestehende Vereinbarungen eingehalten werden. Die sachlich richtige Formulierung lautet deshalb nicht „HS3 ist bereits eingestellt“, sondern: <strong class="text-secondary-900">HS3 soll auslaufen, befindet sich aber noch im Übergang.</strong>
+              </p>
+              <div class="mt-6 rounded-xl bg-primary-50 p-5 text-sm text-primary-900">
+                <strong>Was das praktisch bedeutet:</strong> Es besteht kein Grund für einen ungeprüften Schnellwechsel. Es ist aber sinnvoll, Datenbestand, Schnittstellen und Nachfolgesystem jetzt zu klären, solange HS3 noch verfügbar ist und ein geordneter Testimport möglich bleibt.
+              </div>
+            </section>
+
+            <section id="zeitplan" aria-labelledby="zeitplan-heading">
+              <h2 id="zeitplan-heading" class="mb-5 text-2xl font-bold md:text-3xl">Was ist offiziell über Übernahme, Support und Ende bekannt?</h2>
+              <ol class="space-y-5 border-l-2 border-primary-200 pl-6">
+                <li>
+                  <p class="font-semibold text-secondary-900">April und Mai 2024: Vereinbarung und Übernahme</p>
+                  <p class="mt-1">HS3 und Mews vereinbarten die Übernahme im April 2024. Mews gab ihren Abschluss im Mai 2024 bekannt.</p>
+                </li>
+                <li>
+                  <p class="font-semibold text-secondary-900">Übergangsphase: HS3 bleibt zunächst nutzbar</p>
+                  <p class="mt-1">Laut HS3 bleiben Produkte vorerst funktionsfähig und werden unterstützt. Auch der HS3-Support bleibt während der möglichen Migration Ansprechpartner.</p>
+                </li>
+                <li>
+                  <p class="font-semibold text-secondary-900">Vorgesehener Nachfolger: Mews Hospitality Cloud</p>
+                  <p class="mt-1">HS3-Kunden wird ein Wechsel zu Mews angeboten. Die Übernahme macht Mews damit zur vorgesehenen Migrationslösung des Herstellers, nicht automatisch zur einzigen Wahl für jeden Betrieb.</p>
+                </li>
+                <li>
+                  <p class="font-semibold text-secondary-900">Voraussichtliches Auslaufen: etwa drei Jahre nach Mai 2024</p>
+                  <p class="mt-1">Die offizielle FAQ nennt diesen Zeitraum als Erwartung. Weil dort kein festes Enddatum steht, sollte ein Betrieb seine konkrete Support- und Vertragslage direkt bestätigen lassen.</p>
+                </li>
+              </ol>
+            </section>
+
+            <section id="nachfolger" aria-labelledby="nachfolger-heading">
+              <h2 id="nachfolger-heading" class="mb-5 text-2xl font-bold md:text-3xl">Muss Mews der HS3-Nachfolger sein?</h2>
+              <p>
+                Mews ist die von HS3 angebotene Migrationslösung. Trotzdem sollte die Auswahl einer HS3-Alternative von den tatsächlichen Abläufen Ihres Hauses ausgehen. Ein inhabergeführtes Hotel, eine Pension oder ein Aparthotel braucht möglicherweise eine andere Kombination aus Funktionsumfang, Betreuung und Kosten als eine internationale Hotelgruppe.
+              </p>
+              <p class="mt-4">
+                Vergleichen Sie nicht nur Startseiten und Funktionslisten. Lassen Sie sich Ihren eigenen Ablauf zeigen: eine telefonische Buchung anlegen, einen Aufenthalt verschieben, eine Rechnung teilen, eine Portalbuchung verarbeiten und eine örtliche Abgabe abrechnen. So erkennen Sie schneller, ob eine Software im täglichen Betrieb passt.
+              </p>
+              <h3 class="mb-4 mt-7 text-xl font-semibold text-secondary-900">Diese Punkte sollte eine HS3-Alternative verbindlich beantworten</h3>
+              <ul class="list-disc space-y-3 pl-6">
+                <li>Welche HS3-Daten werden übernommen und wie wird die Vollständigkeit geprüft?</li>
+                <li>Wie werden offene Buchungen am Wechseltermin weitergeführt?</li>
+                <li>Welche Funktionen sind im Grundpreis enthalten und welche kosten zusätzlich?</li>
+                <li>Funktionieren Channel Manager, Direktbuchung, Rechnungen und Housekeeping im benötigten Ablauf?</li>
+                <li>Wer richtet Meldeschein, Kurtaxe, Tourismusstatistik und weitere regionale Besonderheiten ein?</li>
+                <li>Wo liegen die Daten, wie werden sie gesichert und wie lassen sie sich später exportieren?</li>
+                <li>Wer ist bei Einführung und im laufenden Betrieb erreichbar?</li>
+              </ul>
+            </section>
+
+            <section id="datenuebernahme" aria-labelledby="datenuebernahme-heading">
+              <h2 id="datenuebernahme-heading" class="mb-5 text-2xl font-bold md:text-3xl">Vollständige HS3-Datenübernahme zu Zimmero</h2>
+              <p>
+                Ein Softwarewechsel ist nur dann gelungen, wenn der Betrieb anschließend weiterarbeiten kann. Zimmero beschränkt die HS3-Migration deshalb nicht auf das Abtippen einiger Gastadressen oder das manuelle Anlegen zukünftiger Reservierungen. Wir übernehmen den vollständigen verfügbaren HS3-Datenbestand und ordnen ihn der neuen Struktur zu.
+              </p>
+              <p class="mt-4">
+                Dazu werden der tatsächliche Datenbestand und die im Haus verwendeten Funktionen vorab geprüft. Gäste, Firmen, Reservierungen, Aufenthalte, Zimmerbezüge, Preise, Leistungen, Notizen, historische Angaben und vorhandene Dokumentverweise werden nicht pauschal behandelt, sondern technisch zugeordnet und durch einen Testimport kontrolliert. Was als unveränderbarer Originalbeleg aufbewahrt werden muss, bleibt als solcher erhalten und wird nicht als neue Rechnung ausgegeben.
+              </p>
+              <p class="mt-4">
+                Vor dem Wechsel erhalten Sie eine klare Zuordnung: welche Daten direkt in Zimmero weiterbearbeitet werden, welche Informationen historisch sichtbar bleiben und welche Originaldateien zusätzlich archiviert werden. So bedeutet „alle Daten“ nicht nur eine große Exportdatei, sondern einen nachprüfbaren Bestand, mit dem Ihr Team arbeiten kann.
+              </p>
+            </section>
+
+            <section id="ablauf" aria-labelledby="ablauf-heading">
+              <h2 id="ablauf-heading" class="mb-5 text-2xl font-bold md:text-3xl">So läuft der Wechsel von HS3 zu Zimmero ab</h2>
+              <ol class="list-decimal space-y-4 pl-6">
+                <li><strong class="text-secondary-900">Bestand aufnehmen.</strong> Wir klären Häuser, Zimmer, verwendete HS3-Module, Schnittstellen und den gewünschten Wechseltermin.</li>
+                <li><strong class="text-secondary-900">Daten sichern und zuordnen.</strong> Der verfügbare HS3-Datenbestand wird technisch geprüft. Für jedes relevante Feld wird festgelegt, wo es in Zimmero ankommt.</li>
+                <li><strong class="text-secondary-900">Testimport durchführen.</strong> Noch vor dem Start werden Daten übernommen und gemeinsam stichprobenartig geprüft. Dabei zählen nicht nur Datensätze, sondern auch Anreise, Abreise, Zimmer, Status und Beträge.</li>
+                <li><strong class="text-secondary-900">Zimmero einrichten und Team schulen.</strong> Häuser, Rechte, Preise und benötigte Abläufe werden vorbereitet. Eine halbtägige Schulung konzentriert sich auf den tatsächlichen Hotelalltag.</li>
+                <li><strong class="text-secondary-900">Aktuellen Stand übernehmen.</strong> Zum vereinbarten Stichtag folgt der finale Import. Danach werden offene Reservierungen und die nächsten Anreisen in Zimmero kontrolliert.</li>
+                <li><strong class="text-secondary-900">Im laufenden Betrieb weiterarbeiten.</strong> Andreas Huber begleitet den Start direkt. Ohne Sonderintegrationen dauert die Einführung normalerweise zwei bis drei Wochen.</li>
+              </ol>
+              <div class="mt-6 rounded-xl border border-success-200 bg-success-50 p-5 text-sm text-success-900">
+                <strong>Ziel des Stichtags:</strong> Ihr Team öffnet Zimmero und findet die benötigten Gäste, Buchungen und Aufenthalte bereits vor. Neue Vorgänge werden ab dann im neuen System bearbeitet, statt parallel in zwei Programmen gepflegt zu werden.
+              </div>
+            </section>
+
+            <section id="zimmero" aria-labelledby="zimmero-heading">
+              <h2 id="zimmero-heading" class="mb-5 text-2xl font-bold md:text-3xl">Für wen Zimmero als HS3-Alternative gedacht ist</h2>
+              <p>
+                Zimmero richtet sich an inhabergeführte Hotels, Pensionen und Aparthotels. Die Software verbindet Zimmerplan, Buchungen, Gäste, Rechnungen, Housekeeping, Channel Manager, provisionsfreie Direktbuchungen, Online Check-in sowie regionale Abläufe in einer Webanwendung.
+              </p>
+              <p class="mt-4">
+                Für bayerische Betriebe gehören der <a href="/meldeschein-software/" class="font-medium text-primary-700 hover:underline">digitale Meldeschein</a>, die <a href="/kurtaxe-ortstaxe-software/" class="font-medium text-primary-700 hover:underline">Kurtaxen- und Ortstaxenabrechnung</a> sowie der Export für die <a href="/tourismusstatistik-bayern/" class="font-medium text-primary-700 hover:underline">bayerische Tourismusstatistik</a> zum verfügbaren Funktionsumfang. Zimmero wird in Bad Gögging entwickelt und betrieben. Bei Einführung und Fragen sprechen Sie direkt mit Andreas Huber.
+              </p>
+              <p class="mt-4">
+                Ob Zimmero zu Ihrem Haus passt, lässt sich am schnellsten mit einem Blick auf Ihre heutigen HS3-Abläufe und den Datenbestand klären. Die <a href="/demo/" class="font-medium text-primary-700 hover:underline">öffentliche Demo</a> zeigt die Bedienung; für die Datenübernahme ist anschließend ein konkreter Blick auf Ihr System sinnvoll.
+              </p>
+            </section>
+
+            <section id="checkliste" aria-labelledby="checkliste-heading">
+              <h2 id="checkliste-heading" class="mb-5 text-2xl font-bold md:text-3xl">Checkliste vor dem HS3-Wechsel</h2>
+              <ul class="space-y-4">
+                <li><strong class="text-secondary-900">Vertragslage bestätigen:</strong> Lassen Sie sich Supportzeitraum, Kündigungsfrist und Zugriff auf Ihre Daten schriftlich bestätigen.</li>
+                <li><strong class="text-secondary-900">Schnittstellen notieren:</strong> Erfassen Sie Buchungsportale, Kasse, Schließsystem, Telefon, Zahlungsanbieter, Buchhaltung und alle weiteren angebundenen Systeme.</li>
+                <li><strong class="text-secondary-900">Datenumfang festhalten:</strong> Definieren Sie, welche laufenden und historischen Informationen nach dem Wechsel benötigt werden.</li>
+                <li><strong class="text-secondary-900">Testfälle auswählen:</strong> Prüfen Sie normale Buchungen ebenso wie Gruppen, Zimmerwechsel, Stornos, Firmenrechnungen und besondere Preise.</li>
+                <li><strong class="text-secondary-900">Ruhigen Stichtag wählen:</strong> Planen Sie den finalen Import möglichst außerhalb einer starken An- oder Abreisewelle.</li>
+                <li><strong class="text-secondary-900">Team rechtzeitig einbeziehen:</strong> Wer täglich mit dem System arbeitet, sollte Testimport und Schulung nicht erst am Starttag sehen.</li>
+              </ul>
+            </section>
+
+            <section id="quellen" aria-labelledby="quellen-heading">
+              <h2 id="quellen-heading" class="mb-5 text-2xl font-bold md:text-3xl">Offizielle Quellen</h2>
+              <ul class="space-y-3">
+                <li><a href="https://hs3-hotelsoftware.de/kundenbereich/faq/" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">HS3: FAQ zur Übernahme durch Mews</a></li>
+                <li><a href="https://hs3-hotelsoftware.de/kundenbereich/aktuelle-nachrichten-fuer-sie/" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">HS3: Aktuelle Nachrichten zur Übernahme und zum Support</a></li>
+                <li><a href="https://www.mews.com/de/presse/mews-treibt-mit-hs3-hotelsoftware-die-expansion-in-deutschland-voran" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">Mews: Mitteilung zur Übernahme von HS3 vom 13. Mai 2024</a></li>
+              </ul>
+            </section>
+          </div>
+
+          <section id="fragen" aria-labelledby="fragen-heading" class="mt-16 border-t border-secondary-200 pt-12">
+            <h2 id="fragen-heading" class="mb-3 text-2xl font-bold md:text-3xl">Häufige Fragen zur HS3-Alternative</h2>
+            <p class="mb-8 text-secondary-600">Kurze Antworten zum Auslaufen von HS3, dem Nachfolger und der Datenmigration.</p>
+            <FaqAccordion faqs={faqs} />
+          </section>
+        </div>
+
+        <aside class="lg:sticky lg:top-32 lg:self-start">
+          <nav aria-label="Inhalt des Beitrags" class="rounded-xl border border-secondary-200 bg-secondary-50 p-5 text-sm">
+            <p class="mb-4 font-semibold text-secondary-900">In diesem Beitrag</p>
+            <ol class="space-y-3 text-secondary-700">
+              <li><a href="#kurzantwort" class="hover:text-primary-700">Wird HS3 eingestellt?</a></li>
+              <li><a href="#zeitplan" class="hover:text-primary-700">Offizieller Zeitplan</a></li>
+              <li><a href="#nachfolger" class="hover:text-primary-700">HS3-Nachfolger wählen</a></li>
+              <li><a href="#datenuebernahme" class="hover:text-primary-700">Datenübernahme</a></li>
+              <li><a href="#ablauf" class="hover:text-primary-700">Ablauf des Wechsels</a></li>
+              <li><a href="#zimmero" class="hover:text-primary-700">Zimmero als Alternative</a></li>
+              <li><a href="#checkliste" class="hover:text-primary-700">Checkliste</a></li>
+              <li><a href="#fragen" class="hover:text-primary-700">Häufige Fragen</a></li>
+            </ol>
+          </nav>
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  <section class="bg-primary-500 py-16 text-center md:py-20">
+    <div class="section-container">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="mb-4 text-2xl font-bold text-white md:text-3xl">Ihren HS3-Wechsel mit echten Daten prüfen.</h2>
+        <p class="mb-7 leading-relaxed text-primary-100">Beschreiben Sie kurz Ihren Betrieb und die verwendeten HS3-Module. Andreas Huber klärt mit Ihnen Datenübernahme, Testimport und Wechseltermin.</p>
+        <div class="flex flex-col justify-center gap-3 sm:flex-row">
+          <a href="/kontakt/" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-primary-700 transition hover:bg-primary-50">HS3-Wechsel besprechen</a>
+          <a href="/demo/" class="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-sm font-semibold text-white transition hover:bg-primary-600">Zimmero Demo ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

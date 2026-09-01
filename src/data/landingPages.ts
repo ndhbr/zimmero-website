@@ -272,7 +272,7 @@ export const landingPages: LandingPage[] = [
     steps: [
       { title: 'Betrieb im Erstgespräch erfassen', text: 'Besprochen werden Häuser, Einheiten, bisheriges Programm und regionale Abläufe. Dazu gehören auch vorhandene Schnittstellen und besondere Anforderungen des Standorts.' },
       { title: 'Häuser und Regeln einrichten', text: 'Zimmertypen, Zimmer, Preise und Rechte werden angelegt. Bei Bedarf kommen ortsspezifische Meldescheinregeln sowie Kurtaxe mit Gästeklassen und Gültigkeitszeiträumen hinzu.' },
-      { title: 'Bestandsdaten übernehmen', text: 'Gäste und Buchungen werden aus dem bisherigen Programm übernommen. Erprobt ist dieser Schritt mit H3S und Pensionsprogramm. Die Übernahme ist derzeit kostenlos.' },
+      { title: 'Bestandsdaten übernehmen', text: 'Gäste und Buchungen werden aus dem bisherigen Programm übernommen. Erprobt ist dieser Schritt mit HS3 und Pensionsprogramm. Die Übernahme ist derzeit kostenlos.' },
       { title: 'Team einen halben Tag schulen', text: 'Die Schulung konzentriert sich auf die Abläufe, die Rezeption und Betrieb tatsächlich brauchen. Im aktuellen Aktionsangebot ist sie enthalten.' },
       { title: 'Mit direkter Begleitung starten', text: 'Beim Wechsel in den laufenden Betrieb bleibt Andreas Huber Ansprechpartner. Ohne Sonderintegration dauert der Weg vom Erstgespräch bis zum Start normalerweise zwei bis drei Wochen.' },
     ],
@@ -611,7 +611,7 @@ export const landingPages: LandingPage[] = [
         title: 'Der Wechsel muss neben dem laufenden Betrieb möglich sein.',
         paragraphs: [
           'Vom Erstgespräch bis zum Start dauert die Einführung normalerweise zwei bis drei Wochen, wenn keine Sonderintegration erforderlich ist. Häuser, Zimmertypen, Zimmer und Preise werden eingerichtet. Eine halbtägige Schulung führt durch die wichtigsten Abläufe.',
-          'Gäste und Buchungen aus H3S und Pensionsprogramm wurden bereits übernommen. Die Datenübernahme ist derzeit kostenlos. Im Aktionsangebot sind außerdem die einmalige Einrichtung und die Schulung enthalten.',
+          'Gäste und Buchungen aus HS3 und Pensionsprogramm wurden bereits übernommen. Die Datenübernahme ist derzeit kostenlos. Im Aktionsangebot sind außerdem die einmalige Einrichtung und die Schulung enthalten.',
         ],
       },
     ],
@@ -630,7 +630,7 @@ export const landingPages: LandingPage[] = [
       { q: 'Kann Zimmero Booking.com anbinden?', a: 'Ja. Verfügbarkeiten, Preise und Einschränkungen werden übertragen, Reservierungen kommen automatisch herein. Die Kosten betragen 1,50 Euro je Portalbuchung.' },
       { q: 'Gibt es eine Buchungsstrecke für die eigene Website?', a: 'Ja. Sie lässt sich in WordPress, Jimdo und Squarespace einbinden. Direktbuchungen kosten keine Provision und keine Buchungsgebühr an Zimmero.' },
       { q: 'Hilft Zimmero bei Meldeschein und Kurtaxe?', a: 'Ja. Meldescheine können elektronisch übermittelt und im Status verfolgt werden. Kurtaxe wird nach den je Haus eingerichteten Gästeklassen, Altersstufen und Gültigkeitszeiträumen berechnet.' },
-      { q: 'Kann eine bestehende Pension Daten übernehmen?', a: 'Ja. Die Übernahme von Gästen und Buchungen aus H3S und Pensionsprogramm ist erprobt und derzeit kostenlos.' },
+      { q: 'Kann eine bestehende Pension Daten übernehmen?', a: 'Ja. Die Übernahme von Gästen und Buchungen aus HS3 und Pensionsprogramm ist erprobt und derzeit kostenlos.' },
     ],
     related: ['online-buchungssystem-hotelwebsite', 'meldeschein-software', 'hotelsoftware-bayern'],
   },
