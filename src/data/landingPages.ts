@@ -563,13 +563,13 @@ export const landingPages: LandingPage[] = [
   },
   {
     slug: 'hotelsoftware-pension',
-    title: 'Hotelsoftware für Pensionen | Zimmero',
-    description: 'Zimmerplan, Buchungen, Rechnungen, Meldeschein und Direktbuchungen für inhabergeführte Pensionen mit persönlicher Betreuung.',
-    eyebrow: 'Hotelsoftware für Pensionen',
-    heading: 'Ein Hotelprogramm, das den Alltag einer Pension übersichtlich hält.',
+    title: 'Hotelsoftware für Pensionen und kleine Hotels | Zimmero',
+    description: 'Zimmero ist Hotelsoftware für Pensionen und kleine Hotels: Zimmerplan, Buchungen, Channel Manager, Rechnungen, Meldeschein und Direktbuchungen.',
+    eyebrow: 'Hotelsoftware für Pensionen und kleine Hotels',
+    heading: 'Hotelsoftware für kleine Hotels und Pensionen, die im Alltag einfach bleibt.',
     intro: [
-      'In einer Pension übernimmt oft dieselbe Person Telefon, Frühstück, Anreise und Rechnung. Die Software muss deshalb schnell verständlich sein und darf keine zusätzliche Verwaltungsstelle erzeugen.',
-      'Zimmero verbindet Zimmerplan, Buchungen, Preise, Gäste, Rechnungen und regionale Pflichten. Der Tarif Starter ist für ein Haus mit bis zu 20 Zimmern oder Einheiten vorgesehen.',
+      'Zimmero ist eine browserbasierte Hotelsoftware für kleine Hotels und Pensionen mit etwa 10 bis 100 Zimmern. Sie verbindet Zimmerplan, Buchungen, Preise, Rechnungen, Channel Manager, Meldeschein und Housekeeping in einem System.',
+      'In einem inhabergeführten Haus übernimmt oft dieselbe Person Telefon, Frühstück, Anreise und Rechnung. Die Software muss deshalb schnell verständlich sein und darf keine zusätzliche Verwaltungsstelle erzeugen. Der Tarif Starter ist für ein Haus mit bis zu 20 Zimmern oder Einheiten vorgesehen.',
     ],
     benefits: [
       { title: 'Alles am Aufenthalt', text: 'Gast, Zimmer, Leistungen, Meldeschein und Rechnung bleiben miteinander verbunden.' },
@@ -578,9 +578,9 @@ export const landingPages: LandingPage[] = [
     ],
     problemTitle: 'Kleine Betriebe haben weniger Personal, aber nicht weniger Aufgaben.',
     problem: [
-      'Eine Pension mit zwölf oder zwanzig Zimmern braucht keine Software, die nur mit einer eigenen Verwaltungsabteilung verständlich bleibt. Gleichzeitig fallen fast dieselben Arbeiten wie in einem größeren Hotel an. Anfragen werden beantwortet, Zimmer vergeben, Gäste gemeldet, Rechnungen geschrieben und Portale aktuell gehalten.',
+      'Ein kleines Hotel oder eine Pension mit zwölf oder zwanzig Zimmern braucht keine Software, die nur mit einer eigenen Verwaltungsabteilung verständlich bleibt. Gleichzeitig fallen fast dieselben Arbeiten wie in einem größeren Hotel an. Anfragen werden beantwortet, Zimmer vergeben, Gäste gemeldet, Rechnungen geschrieben und Portale aktuell gehalten.',
       'Papierkalender und einzelne Tabellen wirken zunächst einfacher. Schwierig wird es, sobald eine Buchung mehrere Zimmer umfasst, ein Gast umzieht, ein Zimmer wegen Wartung gesperrt ist oder Booking.com gleichzeitig neue Verfügbarkeit erwartet.',
-      'Zimmero ist für inhabergeführte Betriebe mit ungefähr zehn bis 100 Zimmern ausgerichtet. Eine Pension kann klein starten, ohne für jeden zusätzlichen Arbeitsbereich ein eigenes Programm einzuführen.',
+      'Zimmero ist für inhabergeführte Betriebe mit ungefähr zehn bis 100 Zimmern ausgerichtet. Ein kleines Hotel oder eine Pension kann mit den benötigten Abläufen starten, ohne für jeden Arbeitsbereich ein eigenes Programm einzuführen.',
     ],
     steps: [
       { title: 'Anfrage und Preis prüfen', text: 'Bei einem Anruf zeigt der Preischeck passende Zimmer und Preise. Eine unverbindliche Anfrage kann bearbeitet werden, bevor daraus eine feste Buchung entsteht.' },
@@ -590,9 +590,16 @@ export const landingPages: LandingPage[] = [
       { title: 'Rechnung und Abreise abschließen', text: 'Rechnungspositionen, Zahlungen und Empfänger werden in Zimmero geführt. Die Rechnung kann als PDF erstellt und per E-Mail versendet werden.' },
     ],
     image: '/assets/zimmerplan.webp',
-    imageAlt: 'Zimmero Zimmerplan für eine Pension mit Buchungen und gesperrten Zimmern',
+    imageAlt: 'Zimmero Hotelsoftware mit Zimmerplan für kleine Hotels und Pensionen',
     imageCaption: 'Der Zimmerplan zeigt auf einen Blick, welche Zimmer belegt, frei oder gesperrt sind.',
     sections: [
+      {
+        title: 'Welche Hotelsoftware passt zu kleinen Hotels und Pensionen?',
+        paragraphs: [
+          'Eine passende Hotelsoftware bildet die wiederkehrenden Abläufe des Hauses ohne doppelte Dateneingabe ab: Anfrage, Preis, Buchung, Aufenthalt, Rechnung und Verfügbarkeit auf den Buchungsportalen. Für kleine Teams sind außerdem eine verständliche Oberfläche, erreichbare Betreuung und kalkulierbare Gesamtkosten wichtiger als möglichst viele getrennte Module.',
+          'Zimmero passt zu inhabergeführten Häusern, die diese Abläufe in einem browserbasierten System führen und Meldeschein, Kurtaxe oder Direktbuchungen gleich mit abdecken möchten. Für einen einzelnen privaten Ferienwohnungsvermieter oder eine internationale Hotelkette ist die Software nicht ausgerichtet.',
+        ],
+      },
       {
         title: 'Telefonische Anfragen brauchen schnell einen verlässlichen Preis.',
         paragraphs: [
@@ -633,7 +640,9 @@ export const landingPages: LandingPage[] = [
       'Schlüsselausgabe und Vorabzahlung sind im derzeitigen Online Check-in noch nicht enthalten.',
     ],
     faqs: [
-      { q: 'Welcher Tarif passt zu einer kleinen Pension?', a: 'Starter kostet im Aktionsangebot 79 Euro netto pro Monat und gilt für ein Haus mit bis zu 20 Zimmern oder Einheiten. Mitarbeiterkonten sind unbegrenzt.' },
+      { q: 'Welche Hotelsoftware eignet sich für kleine Hotels?', a: 'Zimmero eignet sich für inhabergeführte kleine Hotels mit etwa 10 bis 100 Zimmern, die Zimmerplan, Buchungen, Preise, Rechnungen, Channel Manager, Housekeeping und regionale Pflichten in einem browserbasierten System bearbeiten möchten.' },
+      { q: 'Ist Zimmero für Pensionen geeignet?', a: 'Ja. Zimmero ist auf die Abläufe von Pensionen und kleinen Hotels ausgerichtet. Gast, Zimmer, Leistungen, Meldeschein und Rechnung bleiben verbunden; Direktbuchungen und Portalreservierungen laufen in denselben Zimmerplan.' },
+      { q: 'Welcher Tarif passt zu einer kleinen Pension oder einem kleinen Hotel?', a: 'Starter kostet im Aktionsangebot 79 Euro netto pro Monat und gilt für ein Haus mit bis zu 20 Zimmern oder Einheiten. Mitarbeiterkonten sind unbegrenzt.' },
       { q: 'Kann Zimmero Booking.com anbinden?', a: 'Ja. Verfügbarkeiten, Preise und Einschränkungen werden übertragen, Reservierungen kommen automatisch herein. Die Kosten betragen 1,50 Euro je Portalbuchung.' },
       { q: 'Gibt es eine Buchungsstrecke für die eigene Website?', a: 'Ja. Sie lässt sich in WordPress, Jimdo und Squarespace einbinden. Direktbuchungen kosten keine Provision und keine Buchungsgebühr an Zimmero.' },
       { q: 'Hilft Zimmero bei Meldeschein und Kurtaxe?', a: 'Ja. Meldescheine können elektronisch übermittelt und im Status verfolgt werden. Kurtaxe wird nach den je Haus eingerichteten Gästeklassen, Altersstufen und Gültigkeitszeiträumen berechnet.' },

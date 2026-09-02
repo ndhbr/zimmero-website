@@ -1,7 +1,7 @@
 export const homeFaqs = [
   {
     q: 'Für welche Hotels ist Zimmero geeignet?',
-    a: 'Zimmero eignet sich besonders für inhabergeführte Hotels, Pensionen, Aparthotels, Kurhotels, Appartementhäuser und kleinere Hotelgruppen mit ungefähr 10 bis 100 Zimmern.',
+    a: 'Zimmero ist Hotelsoftware für kleine Hotels und Pensionen mit ungefähr 10 bis 100 Zimmern. Sie eignet sich außerdem für inhabergeführte Aparthotels, Kurhotels, Appartementhäuser und kleinere Hotelgruppen.',
   },
   {
     q: 'Gibt es eine Booking.com Anbindung?',

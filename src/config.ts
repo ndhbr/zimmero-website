@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Zimmero',
   url: 'https://zimmero.app',
-  description: 'Moderne Betriebssoftware für inhabergeführte Hotels inkl. Channel Manager',
+  description: 'Hotelsoftware für kleine Hotels und Pensionen inklusive Channel Manager',
 };
 
 export const DEMO_URL = 'https://dashboard.zimmero.app/demo';
@@ -31,7 +31,11 @@ export const SOFTWARE_APPLICATION_SCHEMA = {
   operatingSystem: 'Webbrowser',
   url: 'https://zimmero.app',
   publisher: { '@id': 'https://zimmero.app/#organization' },
-  description: 'Hotelsoftware für inhabergeführte Hotels: Zimmerplan, Buchungen, Channel Manager, Rechnungen, Housekeeping, digitaler Meldeschein, Kurtaxe und Eigentümerabrechnung in einem System.',
+  description: 'Hotelsoftware für kleine Hotels und Pensionen: Zimmerplan, Buchungen, Channel Manager, Rechnungen, Housekeeping, digitaler Meldeschein und Kurtaxe in einem System.',
+  audience: [
+    { '@type': 'Audience', audienceType: 'Pensionen' },
+    { '@type': 'Audience', audienceType: 'Kleine inhabergeführte Hotels' },
+  ],
   featureList: [
     'Zimmerplan mit Aufenthalten und Sperrzeiten',
     'Buchungen mit mehreren Zimmern und Gästen',
