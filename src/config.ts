@@ -17,6 +17,7 @@ export const SOLUTION_LINKS = [
   { label: 'Channel Manager', href: '/channel-manager-booking-com/' },
   { label: 'Eigentümerabrechnung', href: '/eigentuemerabrechnung/' },
   { label: 'Online Buchung', href: '/online-buchungssystem-hotelwebsite/' },
+  { label: 'Tagespost', href: '/hotel-tagespost/' },
   { label: 'Tourismusstatistik', href: '/tourismusstatistik-bayern/' },
 ] as const;
 
@@ -43,6 +44,7 @@ export const SOFTWARE_APPLICATION_SCHEMA = {
     'Housekeeping und Facility Management',
     'Eigentümerabrechnung',
     'Online Check-in und Gästeportal',
+    'Hotel-Tagespost mit Wetter, Veranstaltungen und PDF-Ausgabe',
     'Bayerische Tourismusstatistik als IDEV Export',
   ],
   offers: {

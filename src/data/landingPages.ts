@@ -2,6 +2,7 @@ export interface LandingPage {
   slug: string;
   title: string;
   description: string;
+  ogImage?: string;
   eyebrow: string;
   heading: string;
   intro: string[];
@@ -18,6 +19,12 @@ export interface LandingPage {
   faqs: { q: string; a: string }[];
   related: string[];
   sources?: { label: string; url: string }[];
+  sampleDocument?: {
+    title: string;
+    description: string;
+    href: string;
+    label: string;
+  };
 }
 
 export const landingPages: LandingPage[] = [
@@ -872,6 +879,95 @@ export const landingPages: LandingPage[] = [
       { q: 'Öffnet Zimmero automatisch die Zimmertür?', a: 'Nein. Eine digitale Schlüsselausgabe gehört derzeit nicht zum Online Check-in Stufe 1.' },
       { q: 'Kann der Gast vorab bezahlen?', a: 'Nein. Vorabzahlung ist in der derzeit verfügbaren Stufe noch nicht enthalten.' },
     ],
-    related: ['meldeschein-software', 'online-buchungssystem-hotelwebsite', 'hotelsoftware-pension'],
+    related: ['meldeschein-software', 'online-buchungssystem-hotelwebsite', 'hotel-tagespost'],
+  },
+  {
+    slug: 'hotel-tagespost',
+    title: 'Hotel-Tagespost erstellen | Zimmero',
+    description: 'Hotel-Tagespost mit Wetter, Veranstaltungen und Mitteilungen als PDF erstellen, drucken und im Zimmero-Gästeportal bereitstellen.',
+    ogImage: '/assets/og-default.jpg',
+    eyebrow: 'Hotel-Tagespost und Morgenpost',
+    heading: 'Die digitale und gedruckte Hotel-Tagespost, die sich fast von selbst erstellt.',
+    intro: [
+      'Mit Zimmero erstellen Hotels in wenigen Minuten eine professionelle Tagespost für ihre Gäste. Wetter, Sonnenzeiten, Veranstaltungen, Mitteilungen des Hauses und wechselnde Inhalte landen automatisch in einem festen A4-Layout.',
+      'Die fertige Hotelzeitung steht als PDF für den digitalen Abruf bereit und kann mit oder ohne Hotel-Hintergrund gedruckt werden. Die Tagespost ist in allen Zimmero-Paketen enthalten.',
+    ],
+    benefits: [
+      { title: 'Layoutarbeit sparen', text: 'Zimmero verteilt die gewählten Inhalte automatisch auf die vorgesehenen Flächen.' },
+      { title: 'Gäste aktuell informieren', text: 'Wetter, Sonnenzeiten, Hausmitteilungen und Tagesprogramm stehen in einer Ausgabe.' },
+      { title: 'Drucken und digital teilen', text: 'Zwei PDF-Varianten werden archiviert; die heutige Ausgabe erscheint zusätzlich im Gästeportal.' },
+    ],
+    problemTitle: 'Eine neue Hotelzeitung sollte nicht jeden Morgen bei null beginnen.',
+    problem: [
+      'Viele Hotels erstellen ihre Morgenpost in Word, einem Layoutprogramm oder einer alten Vorlage. Texte werden verschoben, Wetterwerte kopiert und Veranstaltungen erneut formatiert. Schon eine längere Mitteilung kann das gesamte Seitenlayout verändern.',
+      'Dabei wiederholt sich der Ablauf täglich. Gäste möchten wissen, wie das Wetter wird, wann die Sonne auf- und untergeht, was im Hotel angeboten wird und welche Veranstaltungen in der Umgebung stattfinden. Die Rezeption muss diese Informationen aktuell halten, ohne einen großen Teil des Morgens mit Gestaltung zu verbringen.',
+      'Zimmero trennt Inhalt und Layout. Das Hotel entscheidet, was in die Tagespost gehört. Das feste Design verteilt die aktivierten Module auf die verfügbaren Flächen und erzeugt daraus eine konsistente A4-Ausgabe.',
+    ],
+    steps: [
+      { title: 'Tag auswählen', text: 'Das Hotel bereitet die Ausgabe für heute, morgen oder übermorgen vor. Wetter und Sonnenzeiten werden für den gewählten Tag geladen.' },
+      { title: 'Eigene Mitteilung ergänzen', text: 'Hinweise zu Frühstück, Wellness, Restaurant, Abreise oder einem besonderen Angebot können als Mitteilung des Hauses eingetragen werden.' },
+      { title: 'Veranstaltungen übernehmen', text: 'Programmpunkte werden manuell angelegt oder mit „Mit KI finden“ recherchiert und anschließend vom Hotel geprüft und bearbeitet.' },
+      { title: 'Module auswählen', text: 'Wetter, Sonnenzeiten, Veranstaltungen, Witz, Tipp und Wissenswertes lassen sich je Ausgabe aktivieren oder weglassen.' },
+      { title: 'PDF erzeugen und teilen', text: 'Zimmero archiviert eine vollständige und eine druckoptimierte PDF. Die Tagespost kann heruntergeladen, gedruckt und im Gästeportal geöffnet werden.' },
+    ],
+    image: '/assets/tagespost-backoffice.png',
+    imageAlt: 'Zimmero Tagespost mit Wetter, Sonnenzeiten, Modulauswahl und KI-gestützter Veranstaltungssuche',
+    imageCaption: 'Heute, morgen oder übermorgen auswählen, Inhalte prüfen und die fertige Tagespost erzeugen.',
+    sections: [
+      {
+        title: 'Wetter und Sonnenzeiten kommen automatisch in die Ausgabe.',
+        paragraphs: [
+          'Für den ausgewählten Tag lädt Zimmero die Wettervorhersage mit Wetter-Icon, Temperatur und Regenwahrscheinlichkeit. Sonnenaufgang und Sonnenuntergang werden ebenfalls ermittelt. Das Team muss diese Werte nicht aus einer anderen Seite kopieren.',
+          'Jedes Inhaltsmodul bleibt optional. Ein Hotel kann beispielsweise Wetter, Tagesprogramm und eine eigene Mitteilung verwenden, aber Witz oder Tipp für eine bestimmte Ausgabe abwählen. Zimmero berücksichtigt dabei die Grenzen des festgelegten Layouts.',
+        ],
+      },
+      {
+        title: 'Die KI hilft bei der Veranstaltungssuche, entscheidet aber nicht.',
+        paragraphs: [
+          'Über „Mit KI finden“ sucht Zimmero gezielt nach Veranstaltungen am gewählten Tag und am Ort des Hotels. Bevorzugt werden offizielle und lokale Quellen wie Gemeinden, Tourist-Informationen, Kurhäuser, Museen und Veranstalter.',
+          'Die gefundenen Vorschläge erscheinen als bearbeitbare Einträge im Formular. Titel, Uhrzeit, Ort, Beschreibung und Quellenlink können kontrolliert, angepasst oder gelöscht werden. Ohne Freigabe durch das Hotel wird keine Veranstaltung automatisch veröffentlicht.',
+        ],
+      },
+      {
+        title: 'Die Gestaltung bleibt individuell, das Layout verlässlich.',
+        paragraphs: [
+          'Das Hotel hinterlegt einen eigenen A4-Hintergrund als PNG sowie Primär- und Sekundärfarbe. Damit übernimmt die Gästezeitung das Erscheinungsbild des Hauses, ohne dass Mitarbeitende täglich einzelne Elemente in einem Layoutprogramm verschieben.',
+          'Zimmero erzeugt zwei PDF-Versionen. Die vollständige Datei enthält den Hotel-Hintergrund und eignet sich für Download und Gästeportal. Die Druckversion lässt den Hintergrund weg, damit sie auf bereits vorgedrucktem Briefpapier ausgegeben werden kann. Beim Drucken kann der Hintergrund auf Wunsch trotzdem verwendet werden.',
+        ],
+      },
+      {
+        title: 'Rotierende Inhalte und archivierte Ausgaben verhindern Wiederholungsarbeit.',
+        paragraphs: [
+          'Witze, Tipps und Wissenswertes lassen sich über CSV-Dateien importieren. Zimmero rotiert diese Inhalte so, dass sich Einträge möglichst nicht wiederholen. Tipps können immer gelten oder gezielt für sonniges, trockenes beziehungsweise regnerisches Wetter vorgesehen werden.',
+          'Beim Erzeugen wird die gewählte Ausgabe als unveränderlicher Stand archiviert. Spätere Änderungen an Vorlagen oder Inhaltslisten verändern eine bereits ausgegebene Tagespost nicht. Angemeldete Gäste finden die aktuelle Ausgabe direkt in ihrer digitalen Gästemappe.',
+        ],
+      },
+    ],
+    requirements: [
+      'Für die Aktivierung wird ein A4-Hintergrund im PNG-Format benötigt; Primär- und Sekundärfarbe werden je Hotel eingerichtet.',
+      'Automatisch gefundene Veranstaltungen sollten vor dem Erzeugen auf Datum, Uhrzeit, Ort und Quelle geprüft werden.',
+      'Eigene rotierende Witze, Tipps und Wissenswertes werden als passende CSV-Dateien bereitgestellt.',
+    ],
+    limitations: [
+      'Die KI veröffentlicht keine Veranstaltung selbstständig. Auswahl, Prüfung und Freigabe bleiben beim Hotel.',
+      'Das feste A4-Layout ist bewusst kein frei verschiebbares Grafikprogramm und begrenzt die Textmenge je Modul.',
+      'Im Gästeportal wird die aktuelle Tagespost angemeldeten Gästen angezeigt; ältere Ausgaben bleiben im Archiv des Hotels.',
+    ],
+    faqs: [
+      { q: 'Ist die Zimmero Tagespost in allen Paketen enthalten?', a: 'Ja. Die Tagespost gehört zu Starter, Professional und Multi Property und kostet keinen zusätzlichen monatlichen Modulpreis.' },
+      { q: 'Welche Inhalte kann eine Hotel-Tagespost enthalten?', a: 'Je nach Auswahl enthält sie eine Mitteilung des Hauses, Wetter, Sonnenaufgang und Sonnenuntergang, Veranstaltungen, einen Witz, einen Tipp und Wissenswertes.' },
+      { q: 'Veröffentlicht die KI gefundene Veranstaltungen automatisch?', a: 'Nein. Zimmero übernimmt Vorschläge als bearbeitbare Einträge. Das Hotel prüft Titel, Zeit, Ort, Beschreibung und Quelle und entscheidet selbst, was in der Ausgabe erscheint.' },
+      { q: 'Kann die Tagespost auf vorgedrucktem Briefpapier gedruckt werden?', a: 'Ja. Zimmero erzeugt neben der vollständigen PDF eine Druckversion ohne Hintergrund. Optional kann der Hotel-Hintergrund beim Drucken trotzdem ausgegeben werden.' },
+      { q: 'Können Gäste die Tagespost digital lesen?', a: 'Ja. Angemeldete Gäste finden die aktuelle Tagespost direkt in der digitalen Gästemappe im Zimmero-Gästeportal.' },
+      { q: 'Kann eine Ausgabe im Voraus vorbereitet werden?', a: 'Ja. Tagesausgaben können für heute, morgen und übermorgen vorbereitet werden.' },
+      { q: 'Werden bereits erzeugte Tagespost-PDFs später verändert?', a: 'Nein. Beide PDF-Varianten werden beim Erzeugen als unveränderliche Ausgabe archiviert.' },
+    ],
+    related: ['online-check-in-hotel', 'hotelsoftware-bayern', 'hotelsoftware-pension'],
+    sampleDocument: {
+      title: 'So sieht eine fertige Zimmero Tagespost aus.',
+      description: 'Die Beispielausgabe zeigt Wetter, Sonnenzeiten, Tagesprogramm und rotierende Inhalte im individuellen Design eines Hotels.',
+      href: '/assets/zimmero-tagespost-beispiel.pdf',
+      label: 'Beispiel-Tagespost als PDF öffnen',
+    },
   },
 ];

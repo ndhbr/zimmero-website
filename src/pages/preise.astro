@@ -43,6 +43,7 @@ const comparisonRows = [
   { label: 'Einmalige Einrichtung im Aktionsangebot', values: ['enthalten', 'enthalten', 'enthalten'] },
   { label: 'Halbtägige Schulung im Aktionsangebot', values: ['enthalten', 'enthalten', 'enthalten'] },
   { label: 'Datenübernahme', values: ['derzeit kostenlos', 'derzeit kostenlos', 'derzeit kostenlos'] },
+  { label: 'Tagespost für Druck und Gästeportal', values: ['enthalten', 'enthalten', 'enthalten'] },
   { label: 'Direktbuchungen über Ihre Website', values: ['0 €', '0 €', '0 €'] },
   { label: 'Zusatzmodule ohne monatlichen Aufpreis', values: ['keine', '3', 'alle derzeitigen'] },
   { label: 'Portalbuchung über den Channel Manager', values: ['1,50 €', '1,50 €', '1,50 €'] },
@@ -68,6 +69,10 @@ const priceFaqs = [
   {
     q: 'Gibt es eine Begrenzung für Mitarbeiterkonten?',
     a: 'Nein. In allen drei Tarifen können Sie unbegrenzt Mitarbeiterkonten anlegen.',
+  },
+  {
+    q: 'Ist die Tagespost in allen Paketen enthalten?',
+    a: 'Ja. Die Tagespost für Druck, PDF-Download und Gästeportal ist in Starter, Professional und Multi Property ohne zusätzlichen monatlichen Modulpreis enthalten.',
   },
   {
     q: 'Was kostet die Übernahme vorhandener Daten?',
@@ -141,6 +146,7 @@ const breadcrumbs = [
 
             <ul class="mb-6 flex-1 space-y-3 text-sm text-secondary-700">
               <li>Unbegrenzt viele Mitarbeiterkonten</li>
+              <li>Tagespost für Druck und Gästeportal</li>
               <li>Einrichtung und halbtägige Schulung im Aktionsangebot enthalten</li>
               <li>{plan.addons}</li>
             </ul>

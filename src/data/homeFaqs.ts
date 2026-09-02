@@ -20,6 +20,10 @@ export const homeFaqs = [
     a: 'Ja. Online Check-in Stufe 1 ist verfügbar. Drei Tage vor der Anreise erhalten Gäste automatisch einen Zugang zum Gästeportal. Bei kurzfristigen Buchungen wird die Nachricht sofort versendet. Das Portal verwendet Adresse, Farbe und Logo Ihres Hauses. Der Gast meldet sich mit Buchungsnummer und Nachname an, sieht den Aufenthalt und erfasst die Daten aller Mitreisenden. Die Daten stehen anschließend an der Rezeption bereit. Schlüsselausgabe und Vorabzahlung sind noch nicht enthalten. Der Ausbau folgt.',
   },
   {
+    q: 'Kann Zimmero eine Hotel-Tagespost erstellen?',
+    a: 'Ja. Zimmero erstellt aus Wetter, Sonnenzeiten, Veranstaltungen, Hausmitteilungen und rotierenden Inhalten eine gestaltete A4-Tagespost. Die PDF kann gedruckt und angemeldeten Gästen im Gästeportal bereitgestellt werden. Die Tagespost ist in allen Paketen enthalten.',
+  },
+  {
     q: 'Hilft Zimmero bei der bayerischen Tourismusstatistik?',
     a: 'Ja. Zimmero erzeugt die monatliche Meldung an das Bayerische Landesamt für Statistik als fertige CSV-Datei. Sie laden diese Datei in IDEV hoch, statt die Angaben von Hand zu übertragen.',
   },
