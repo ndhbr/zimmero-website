@@ -1,12 +1,13 @@
 const DEMO_URL = 'https://dashboard.zimmero.app/demo';
 
-export function eventsForLink(href, moduleName) {
+export function eventsForLink(href, moduleName, eventName) {
   const events = [];
 
   if (href === DEMO_URL) events.push({ name: 'Demo geoeffnet' });
   if (href.startsWith('tel:')) events.push({ name: 'Telefon geklickt' });
   if (href.startsWith('mailto:')) events.push({ name: 'E-Mail geklickt' });
   if (moduleName) events.push({ name: 'Modul angefragt', props: { modul: moduleName } });
+  if (eventName) events.push({ name: eventName });
 
   return events;
 }
@@ -27,7 +28,7 @@ export function installAnalytics() {
     if (!link) return;
 
     const href = link.getAttribute('href') || '';
-    eventsForLink(href, link.dataset.module).forEach(track);
+    eventsForLink(href, link.dataset.module, link.dataset.event).forEach(track);
   });
 
   const pageEvent = eventForPage(window.location.pathname);

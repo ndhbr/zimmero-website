@@ -8,6 +8,10 @@ assert.deepEqual(eventsForLink('mailto:info@zimmero.app', 'Zimmero Bell'), [
   { name: 'E-Mail geklickt' },
   { name: 'Modul angefragt', props: { modul: 'Zimmero Bell' } },
 ]);
+assert.deepEqual(eventsForLink('mailto:info@zimmero.app', undefined, 'HS3 Datenuebernahme angefragt'), [
+  { name: 'E-Mail geklickt' },
+  { name: 'HS3 Datenuebernahme angefragt' },
+]);
 assert.deepEqual(eventForPage('/preise/'), { name: 'Preisseite besucht' });
 assert.equal(eventForPage('/kontakt/'), null);
 
