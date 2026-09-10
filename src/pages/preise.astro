@@ -12,6 +12,7 @@ const plans = [
     houses: '1 Haus',
     units: 'bis 20 Zimmer oder Einheiten',
     addons: 'Zusatzmodule bei Bedarf zubuchbar',
+    support: ['Ein telefonischer Notfalleinsatz pro Monat inklusive'],
     highlighted: false,
   },
   {
@@ -21,6 +22,10 @@ const plans = [
     houses: 'bis 2 Häuser',
     units: 'insgesamt bis 50 Zimmer oder Einheiten',
     addons: '3 Zusatzmodule ohne monatlichen Aufpreis',
+    support: [
+      'Telefonischer Support an Werktagen von 8 bis 17 Uhr',
+      'Telefonischer Notfallsupport rund um die Uhr',
+    ],
     highlighted: true,
   },
   {
@@ -30,6 +35,10 @@ const plans = [
     houses: 'bis 5 Häuser',
     units: 'insgesamt bis 100 Zimmer oder Einheiten',
     addons: 'alle derzeitigen Zusatzmodule ohne monatlichen Aufpreis',
+    support: [
+      'Telefonischer Support an Werktagen von 8 bis 17 Uhr',
+      'Telefonischer Notfallsupport rund um die Uhr',
+    ],
     highlighted: false,
   },
 ];
@@ -44,6 +53,9 @@ const comparisonRows = [
   { label: 'Halbtägige Schulung im Aktionsangebot', values: ['enthalten', 'enthalten', 'enthalten'] },
   { label: 'Datenübernahme', values: ['derzeit kostenlos', 'derzeit kostenlos', 'derzeit kostenlos'] },
   { label: 'Tagespost für Druck und Gästeportal', values: ['enthalten', 'enthalten', 'enthalten'] },
+  { label: 'E-Mail- und WhatsApp-Support', values: ['rund um die Uhr · Antwort innerhalb von 24 Stunden', 'rund um die Uhr · Antwort innerhalb von 24 Stunden', 'rund um die Uhr · Antwort innerhalb von 24 Stunden'] },
+  { label: 'Telefonischer Support', values: ['nur im Notfall', 'werktags von 8 bis 17 Uhr', 'werktags von 8 bis 17 Uhr'] },
+  { label: 'Telefonischer Notfallsupport', values: ['ein Einsatz pro Monat inklusive', 'rund um die Uhr', 'rund um die Uhr'] },
   { label: 'Direktbuchungen über Ihre Website', values: ['0 €', '0 €', '0 €'] },
   { label: 'Zusatzmodule ohne monatlichen Aufpreis', values: ['keine', '3', 'alle derzeitigen'] },
   { label: 'Portalbuchung über den Channel Manager', values: ['1,50 €', '1,50 €', '1,50 €'] },
@@ -149,6 +161,8 @@ const breadcrumbs = [
               <li>Tagespost für Druck und Gästeportal</li>
               <li>Einrichtung und halbtägige Schulung im Aktionsangebot enthalten</li>
               <li>{plan.addons}</li>
+              <li>E-Mail- und WhatsApp-Support rund um die Uhr – Antwort innerhalb von 24 Stunden</li>
+              {plan.support.map(service => <li>{service}</li>)}
             </ul>
 
             <a href="/kontakt/" class={plan.highlighted ? 'btn-primary text-center' : 'btn-secondary text-center'}>
