@@ -7,21 +7,23 @@ import { CONTACT_EMAIL, DEMO_URL, SOFTWARE_APPLICATION_SCHEMA } from '../config'
 const plans = [
   {
     name: 'Starter',
+    audience: 'Für kleine Hotels und Pensionen',
     current: '79',
     regular: '99',
     houses: '1 Haus',
     units: 'bis 20 Zimmer oder Einheiten',
-    addons: 'Zusatzmodule bei Bedarf zubuchbar',
+    extensions: 'Optionale Erweiterungen bei Bedarf einzeln zubuchbar',
     support: ['Ein telefonischer Notfalleinsatz pro Monat inklusive'],
     highlighted: false,
   },
   {
     name: 'Professional',
+    audience: 'Für wachsende Betriebe',
     current: '149',
     regular: '199',
     houses: 'bis 2 Häuser',
     units: 'insgesamt bis 50 Zimmer oder Einheiten',
-    addons: '3 Zusatzmodule ohne monatlichen Aufpreis',
+    extensions: '3 optionale Erweiterungen nach Wahl inklusive',
     support: [
       'Telefonischer Support an Werktagen von 8 bis 17 Uhr',
       'Telefonischer Notfallsupport rund um die Uhr',
@@ -30,11 +32,12 @@ const plans = [
   },
   {
     name: 'Multi Property',
+    audience: 'Für Hotelgruppen und Verwalter',
     current: '249',
     regular: '299',
     houses: 'bis 5 Häuser',
     units: 'insgesamt bis 100 Zimmer oder Einheiten',
-    addons: 'alle derzeitigen Zusatzmodule ohne monatlichen Aufpreis',
+    extensions: 'Alle derzeitigen optionalen Erweiterungen inklusive',
     support: [
       'Telefonischer Support an Werktagen von 8 bis 17 Uhr',
       'Telefonischer Notfallsupport rund um die Uhr',
@@ -43,7 +46,58 @@ const plans = [
   },
 ];
 
+const includedFeatures = [
+  'Dashboard, digitaler Zimmerplan und Buchungsverwaltung',
+  'Gäste- und Firmenkartei, Preise, Tarife und Pauschalen',
+  'Eigene Buchungsstrecke ohne Provision und Gästeportal mit Online-Check-in',
+  'Rechnungen, Angebote, E-Mails und Push-Nachrichten',
+  'Meldescheine, Statistiken und Buchhaltungsexport',
+  'Housekeeping, Tagespost, Eigentümer- und Benutzerverwaltung',
+];
+
+const featureGroups = [
+  {
+    title: 'Reservieren und steuern',
+    items: [
+      'Dashboard und Auslastungsüberblick',
+      'Digitaler Zimmerplan',
+      'Buchungsverwaltung',
+      'Gäste- und Firmenverwaltung',
+      'Preise, Tarife und Arrangements',
+    ],
+  },
+  {
+    title: 'Direkt verkaufen und Gäste begleiten',
+    items: [
+      'Eigenes Online-Buchungsportal',
+      'Gästeportal und Online-Check-in',
+      'Angebote und Zusatzleistungen',
+      'E-Mail-Kommunikation',
+      'Push-Benachrichtigungen',
+    ],
+  },
+  {
+    title: 'Abrechnen und auswerten',
+    items: [
+      'Abrechnung, Folios und Rechnungen',
+      'Meldescheine und Archiv',
+      'Statistiken mit ADR und RevPAR',
+      'DATEV-/Stotax-Buchhaltungsexport',
+      'Eigentümerverwaltung und -abrechnung',
+    ],
+  },
+  {
+    title: 'Den Hotelalltag organisieren',
+    items: [
+      'Putzpläne und mobile Housekeeping-Aufgaben',
+      'Digitale Tagespost für Druck und Gästeportal',
+      'Mehrere Häuser, Rollen und individuelle Gestaltung',
+    ],
+  },
+];
+
 const comparisonRows = [
+  { label: 'Zimmero-Grundtarif mit 18 Funktionsbereichen', values: ['komplett enthalten', 'komplett enthalten', 'komplett enthalten'], emphasized: true },
   { label: 'Aktionspreis pro Monat', values: ['79 €', '149 €', '249 €'] },
   { label: 'Regulärer Preis für spätere Neukunden', values: ['99 €', '199 €', '299 €'] },
   { label: 'Häuser', values: ['1', 'bis 2', 'bis 5'] },
@@ -57,7 +111,7 @@ const comparisonRows = [
   { label: 'Telefonischer Support', values: ['nur im Notfall', 'werktags von 8 bis 17 Uhr', 'werktags von 8 bis 17 Uhr'] },
   { label: 'Telefonischer Notfallsupport', values: ['ein Einsatz pro Monat inklusive', 'rund um die Uhr', 'rund um die Uhr'] },
   { label: 'Direktbuchungen über Ihre Website', values: ['0 €', '0 €', '0 €'] },
-  { label: 'Zusatzmodule ohne monatlichen Aufpreis', values: ['keine', '3', 'alle derzeitigen'] },
+  { label: 'Optionale Erweiterungen ohne monatlichen Aufpreis', values: ['bei Bedarf zubuchbar', '3 nach Wahl', 'alle derzeitigen'] },
   { label: 'Portalbuchung über den Channel Manager', values: ['1,50 €', '1,50 €', '1,50 €'] },
 ];
 
@@ -83,8 +137,12 @@ const priceFaqs = [
     a: 'Nein. In allen drei Tarifen können Sie unbegrenzt Mitarbeiterkonten anlegen.',
   },
   {
-    q: 'Ist die Tagespost in allen Paketen enthalten?',
-    a: 'Ja. Die Tagespost für Druck, PDF-Download und Gästeportal ist in Starter, Professional und Multi Property ohne zusätzlichen monatlichen Modulpreis enthalten.',
+    q: 'Was ist im Zimmero-Grundtarif enthalten?',
+    a: 'In jedem Tarif steckt das komplette Hotelmanagement: unter anderem Dashboard, Zimmerplan, Buchungs- und Gästeverwaltung, Preise, eine eigene Buchungsstrecke, Gästeportal und Online-Check-in, Rechnungen, Meldescheine, Statistiken, Housekeeping, Buchhaltungsexport und Tagespost.',
+  },
+  {
+    q: 'Was meint Zimmero mit optionalen Erweiterungen?',
+    a: 'Das sind Ergänzungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, TSE-Kassen, myOBS/WinTOP und der Channel Manager. Sie sind nicht nötig, um die vollständige Hotelverwaltung mit Zimmero zu nutzen.',
   },
   {
     q: 'Was kostet die Übernahme vorhandener Daten?',
@@ -96,7 +154,7 @@ const priceFaqs = [
   },
   {
     q: 'Welche Kosten können zusätzlich entstehen?',
-    a: 'Portalbuchungen über den Channel Manager kosten 1,50 Euro je Buchung. Direktbuchungen über Ihre eigene Website bleiben ohne Provision und ohne Buchungsgebühr. Je nach Tarif können außerdem Kosten für Zusatzmodule oder externe Anbieter entstehen.',
+    a: 'Der komplette Zimmero-Grundtarif ist im Monatspreis enthalten. Zusätzliche Kosten entstehen nur für optional gebuchte Erweiterungen, mögliche Gebühren externer Anbieter und Portalbuchungen über den Channel Manager mit 1,50 Euro je Buchung. Direktbuchungen über Ihre eigene Website bleiben provisions- und gebührenfrei.',
   },
 ];
 
@@ -120,31 +178,38 @@ const breadcrumbs = [
 ---
 
 <Layout
-  title="Zimmero Preise | Hotelsoftware ab 79 Euro netto"
-  description="Zimmero kostet ab 79 Euro netto im Monat. Preise nach Häusern und Zimmern, unbegrenzte Mitarbeiterkonten und provisionsfreie Direktbuchungen."
+  title="Zimmero Preise | All-in-One-Hotelsoftware ab 79 Euro"
+  description="Das komplette Zimmero Hotelmanagement ist ab 79 Euro netto im Monat enthalten: 18 Funktionsbereiche, unbegrenzte Mitarbeiter und provisionsfreie Direktbuchungen."
   structuredData={[SOFTWARE_APPLICATION_SCHEMA, faqSchema]}
 >
   <section class="py-12 md:py-20">
     <div class="section-container">
       <Breadcrumbs items={breadcrumbs} />
 
-      <div class="mx-auto mb-12 max-w-3xl text-center">
-        <p class="mb-3 text-sm font-semibold text-primary-700">Preise ohne Kleingedrucktes</p>
-        <h1 class="mb-4 text-3xl font-bold md:text-4xl">Der passende Tarif richtet sich nach Ihren Häusern und Zimmern.</h1>
-        <p class="mb-6 leading-relaxed text-secondary-600">
-          Alle Tarife enthalten unbegrenzt viele Mitarbeiterkonten. Die Aktionspreise gelten für die ersten zehn Hotelbetriebe und bleiben für diese Kunden dauerhaft bestehen.
+      <div class="mx-auto mb-12 max-w-4xl text-center">
+        <p class="mb-3 text-sm font-semibold text-primary-700">All-in-One statt Baukastensystem</p>
+        <h1 class="mb-4 text-3xl font-bold md:text-5xl">Das komplette Hotelmanagement ist in jedem Tarif enthalten.</h1>
+        <p class="mx-auto mb-6 max-w-3xl text-lg leading-relaxed text-secondary-600">
+          Vom Zimmerplan bis zur Rechnung: Sie erhalten alle 18 Funktionsbereiche im Grundtarif. Die Pakete unterscheiden sich nur bei Betriebsgröße, Support und optionalen Erweiterungen.
         </p>
+        <div class="mb-6 flex flex-wrap justify-center gap-2 text-sm font-medium text-secondary-700">
+          <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">18 Funktionsbereiche inklusive</span>
+          <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">Unbegrenzt viele Mitarbeiter</span>
+          <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">0 € Gebühr für Direktbuchungen</span>
+        </div>
         <div class="rounded-xl border border-success-200 bg-success-50 p-5 text-left text-sm leading-relaxed text-success-900">
-          <strong>Im Aktionsangebot enthalten:</strong> die einmalige Einrichtung und eine halbtägige Schulung. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit ebenfalls kostenlos.
+          <strong>Aktionsangebot für die ersten zehn Hotelbetriebe:</strong> dauerhaft reduzierter Monatspreis, einmalige Einrichtung und halbtägige Schulung inklusive. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit ebenfalls kostenlos.
         </div>
       </div>
 
-      <div class="mx-auto mb-10 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
+      <div class="mx-auto mb-16 grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-3">
         {plans.map(plan => (
-          <article class={`flex flex-col rounded-xl border p-6 shadow-sm ${plan.highlighted ? 'border-primary-300 bg-primary-50 ring-1 ring-primary-200' : 'border-secondary-200 bg-white'}`}>
+          <article class={`relative flex flex-col rounded-2xl border p-6 shadow-sm ${plan.highlighted ? 'border-primary-400 bg-primary-50 ring-2 ring-primary-200' : 'border-secondary-200 bg-white'}`}>
+            {plan.highlighted && <span class="absolute right-5 top-0 -translate-y-1/2 rounded-full bg-primary-600 px-3 py-1 text-xs font-semibold text-white">Beliebteste Wahl</span>}
             <div class="mb-5">
               <h2 class="text-xl font-semibold text-secondary-900">{plan.name}</h2>
-              <p class="mt-2 text-sm text-secondary-600">{plan.houses}, {plan.units}</p>
+              <p class="mt-1 text-sm text-secondary-600">{plan.audience}</p>
+              <p class="mt-3 font-medium text-secondary-900">{plan.houses} · {plan.units}</p>
             </div>
 
             <div class="mb-5 border-b border-secondary-200 pb-5">
@@ -156,23 +221,59 @@ const breadcrumbs = [
               <p class="mt-1 text-sm text-secondary-600">Regulär später {plan.regular} € netto pro Monat</p>
             </div>
 
-            <ul class="mb-6 flex-1 space-y-3 text-sm text-secondary-700">
-              <li>Unbegrenzt viele Mitarbeiterkonten</li>
-              <li>Tagespost für Druck und Gästeportal</li>
-              <li>Einrichtung und halbtägige Schulung im Aktionsangebot enthalten</li>
-              <li>{plan.addons}</li>
-              <li>E-Mail- und WhatsApp-Support rund um die Uhr – Antwort innerhalb von 24 Stunden</li>
-              {plan.support.map(service => <li>{service}</li>)}
+            <p class="mb-3 text-sm font-semibold text-secondary-900">Der komplette Grundtarif:</p>
+            <ul class="mb-6 flex-1 space-y-3 text-sm leading-relaxed text-secondary-700">
+              {includedFeatures.map(feature => (
+                <li class="flex gap-2.5">
+                  <span class="mt-0.5 font-bold text-success-600" aria-hidden="true">✓</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
             </ul>
 
+            <div class="mb-6 rounded-xl border border-secondary-200 bg-white/80 p-4 text-sm text-secondary-700">
+              <p class="flex gap-2.5 font-semibold text-secondary-900"><span class="text-primary-600" aria-hidden="true">+</span><span>{plan.extensions}</span></p>
+              <p class="mt-3">E-Mail- und WhatsApp-Support rund um die Uhr · Antwort innerhalb von 24 Stunden</p>
+              {plan.support.map(service => <p class="mt-1">{service}</p>)}
+            </div>
+
             <a href="/kontakt/" class={plan.highlighted ? 'btn-primary text-center' : 'btn-secondary text-center'}>
-              {plan.name} anfragen
+              {plan.name} unverbindlich anfragen
             </a>
           </article>
         ))}
       </div>
 
       <div class="grid gap-16">
+      <section aria-labelledby="included-heading" class="mx-auto w-full max-w-6xl">
+        <div class="mx-auto mb-8 max-w-3xl text-center">
+          <p class="mb-3 text-sm font-semibold text-primary-700">Alles im Grundtarif</p>
+          <h2 id="included-heading" class="mb-3 text-2xl font-bold md:text-3xl">18 Funktionsbereiche. In jedem Paket.</h2>
+          <p class="leading-relaxed text-secondary-600">Keine abgespeckte Einstiegsversion: Starter, Professional und Multi Property enthalten dieselben Funktionen für Ihr Hotelmanagement.</p>
+        </div>
+
+        <div class="grid gap-5 md:grid-cols-2">
+          {featureGroups.map(group => (
+            <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
+              <h3 class="mb-4 text-lg font-semibold text-secondary-900">{group.title}</h3>
+              <ul class="grid gap-3 text-sm text-secondary-700 sm:grid-cols-2">
+                {group.items.map(item => (
+                  <li class="flex gap-2.5">
+                    <span class="mt-0.5 font-bold text-success-600" aria-hidden="true">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div class="mt-6 rounded-xl border border-primary-200 bg-primary-50 p-5 text-sm leading-relaxed text-secondary-700 md:flex md:items-start md:gap-4">
+          <strong class="block shrink-0 text-secondary-900">Was ist dann ein Zusatzmodul?</strong>
+          <span>Optionale Erweiterungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, TSE-Kassen, myOBS/WinTOP und Channel Manager. Die vollständige Hotelverwaltung funktioniert ohne diese Erweiterungen.</span>
+        </div>
+      </section>
+
       <div class="mx-auto w-full max-w-5xl rounded-xl border border-secondary-200 bg-white p-6 shadow-sm md:p-8">
         <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <div>
@@ -185,8 +286,8 @@ const breadcrumbs = [
 
       <section aria-labelledby="comparison-heading" class="mx-auto w-full max-w-6xl">
         <div class="mx-auto mb-7 max-w-3xl text-center">
-          <h2 id="comparison-heading" class="mb-3 text-2xl font-bold md:text-3xl">Was ist enthalten, was kostet extra?</h2>
-          <p class="leading-relaxed text-secondary-600">Die Tabelle zeigt die bestätigten Grenzen und Kosten. Bei der Datenübernahme sind HS3 und Pensionsprogramm bereits erprobt.</p>
+          <h2 id="comparison-heading" class="mb-3 text-2xl font-bold md:text-3xl">Welcher Tarif passt zu Ihrem Betrieb?</h2>
+          <p class="leading-relaxed text-secondary-600">Die Funktionen sind gleich. Vergleichen Sie nur noch Größe, Support und die enthaltenen optionalen Erweiterungen.</p>
         </div>
 
         <div class="overflow-x-auto rounded-xl border border-secondary-200 bg-white shadow-sm">
@@ -199,16 +300,16 @@ const breadcrumbs = [
             </thead>
             <tbody>
               {comparisonRows.map(row => (
-                <tr class="border-t border-secondary-200">
+                <tr class={`border-t border-secondary-200 ${row.emphasized ? 'bg-success-50' : ''}`}>
                   <th scope="row" class="p-4 font-medium text-secondary-900">{row.label}</th>
-                  {row.values.map(value => <td class="p-4 text-secondary-700">{value}</td>)}
+                  {row.values.map(value => <td class={`p-4 ${row.emphasized ? 'font-semibold text-success-800' : 'text-secondary-700'}`}>{row.emphasized && <span aria-hidden="true">✓ </span>}{value}</td>)}
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
         <p class="mt-4 text-sm leading-relaxed text-secondary-600">
-          Die 1,50 € gelten je Buchung über ein angeschlossenes Buchungsportal. Es gibt keine zusätzliche monatliche Grundgebühr für den Channel Manager. <a href="/#zusatzmodule" class="font-medium text-primary-700 hover:underline">Alle Zusatzmodule ansehen</a>.
+          Die 1,50 € gelten je Buchung über ein angeschlossenes Buchungsportal. Es gibt keine zusätzliche monatliche Grundgebühr für den Channel Manager. Bei der Datenübernahme sind HS3 und Pensionsprogramm bereits erprobt. <a href="/#zusatzmodule" class="font-medium text-primary-700 hover:underline">Alle optionalen Erweiterungen ansehen</a>.
         </p>
       </section>
 
