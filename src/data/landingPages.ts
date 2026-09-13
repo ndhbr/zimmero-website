@@ -283,7 +283,7 @@ export const landingPages: LandingPage[] = [
       { title: 'Team einen halben Tag schulen', text: 'Die Schulung konzentriert sich auf die Abläufe, die Rezeption und Betrieb tatsächlich brauchen. Im aktuellen Aktionsangebot ist sie enthalten.' },
       { title: 'Mit direkter Begleitung starten', text: 'Beim Wechsel in den laufenden Betrieb bleibt Andreas Huber Ansprechpartner. Ohne Sonderintegration dauert der Weg vom Erstgespräch bis zum Start normalerweise zwei bis drei Wochen.' },
     ],
-    image: '/assets/zimmerplan.webp',
+    image: '/assets/zimmerplan-v2.webp',
     imageAlt: 'Zimmerplan der Zimmero Hotelsoftware mit Buchungen, Aufenthalten und gesperrten Zimmern',
     imageCaption: 'Der Zimmerplan zeigt den laufenden Betrieb. Von dort führen die Wege zu Buchung, Gast, Rechnung und weiteren Aufgaben.',
     sections: [
@@ -436,7 +436,7 @@ export const landingPages: LandingPage[] = [
       { title: 'Kosten weiterberechnen', text: 'Kosten, die laut Vereinbarung den Eigentümer betreffen, können als eigene Positionen in die Abrechnung aufgenommen werden.' },
       { title: 'Abrechnung mit Einzelpositionen erstellen', text: 'Zimmero erstellt eine Abrechnung, auf der die Bestandteile getrennt erscheinen. Der Eigentümer kann dadurch sehen, wie sich das Ergebnis zusammensetzt.' },
     ],
-    image: '/assets/zimmerplan.webp',
+    image: '/assets/zimmerplan-v2.webp',
     imageAlt: 'Zimmero Zimmerplan mit belegten und freien Einheiten für einen Beherbergungsbetrieb',
     imageCaption: 'Die Belegung der einzelnen Einheiten ist der betriebliche Ausgangspunkt für die spätere Eigentümerabrechnung.',
     sections: [
@@ -589,7 +589,7 @@ export const landingPages: LandingPage[] = [
       { title: 'Aufenthalt bearbeiten', text: 'Check-in, Zimmerwechsel, zusätzliche Leistungen und Informationen zur späten Anreise bleiben direkt an Buchung und Aufenthalt.' },
       { title: 'Rechnung und Abreise abschließen', text: 'Rechnungspositionen, Zahlungen und Empfänger werden in Zimmero geführt. Die Rechnung kann als PDF erstellt und per E-Mail versendet werden.' },
     ],
-    image: '/assets/zimmerplan.webp',
+    image: '/assets/zimmerplan-v2.webp',
     imageAlt: 'Zimmero Hotelsoftware mit Zimmerplan für kleine Hotels und Pensionen',
     imageCaption: 'Der Zimmerplan zeigt auf einen Blick, welche Zimmer belegt, frei oder gesperrt sind.',
     sections: [
