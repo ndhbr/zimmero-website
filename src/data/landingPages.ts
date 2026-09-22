@@ -348,7 +348,7 @@ export const landingPages: LandingPage[] = [
     benefits: [
       { title: 'Bestand hinaus', text: 'Verfügbarkeiten werden aus Zimmero an das angebundene Portal übertragen.' },
       { title: 'Buchung herein', text: 'Portalreservierungen kommen automatisch als Buchung in Zimmero an.' },
-      { title: 'Preis nach Nutzung', text: 'Es gibt keine monatliche Grundgebühr. Berechnet werden 1,50 Euro je Portalbuchung.' },
+      { title: 'Preis nach Nutzung', text: 'Es gibt keine monatliche Grundgebühr. Berechnet werden 1,50 Euro je Portalbuchung, maximal 59 Euro pro Monat.' },
     ],
     problemTitle: 'Ein freies Zimmer darf nicht gleichzeitig auf zwei Wegen verkauft werden.',
     problem: [
@@ -385,7 +385,7 @@ export const landingPages: LandingPage[] = [
         title: 'Direktbuchung und Portalbuchung bleiben zwei verschiedene Wege.',
         paragraphs: [
           'Der Channel Manager verbindet externe Buchungsportale. Die eigene Buchungsstrecke bringt Reservierungen von Ihrer Hotelwebsite direkt in Zimmero. Beide Wege verwenden denselben Bestand, haben aber ein unterschiedliches Preismodell.',
-          'Für Portalbuchungen berechnet Zimmero 1,50 Euro je Buchung und keine monatliche Grundgebühr. Direktbuchungen über Ihre eigene Website kosten bei Zimmero weder Provision noch Buchungsgebühr. Gebühren des jeweiligen Portals oder anderer externer Anbieter bleiben davon unberührt.',
+          'Für Portalbuchungen berechnet Zimmero 1,50 Euro je Buchung, maximal 59 Euro pro Monat. Eine monatliche Grundgebühr fällt nicht an. Direktbuchungen über Ihre eigene Website kosten bei Zimmero weder Provision noch Buchungsgebühr. Gebühren des jeweiligen Portals oder anderer externer Anbieter bleiben davon unberührt.',
         ],
       },
     ],
@@ -402,7 +402,7 @@ export const landingPages: LandingPage[] = [
     faqs: [
       { q: 'Ist Booking.com direkt mit Zimmero verbunden?', a: 'Ja. Verfügbarkeiten, Preise und Einschränkungen werden übertragen. Reservierungen kommen automatisch in Zimmero an und werden dem Hotelbestand zugeordnet.' },
       { q: 'Welche weiteren Portale sind möglich?', a: 'Mehr als 50 weitere Portale sind über Channex als Zusatzmodul erreichbar. Ob ein bestimmtes Portal dazugehört, sollte vor der Einrichtung geprüft werden.' },
-      { q: 'Was kostet der Channel Manager?', a: 'Zimmero berechnet 1,50 Euro je Portalbuchung. Es gibt keine zusätzliche monatliche Grundgebühr. Gebühren des Portals oder anderer externer Anbieter sind nicht enthalten.' },
+      { q: 'Was kostet der Channel Manager?', a: 'Zimmero berechnet 1,50 Euro je Portalbuchung, maximal 59 Euro pro Monat. Es gibt keine zusätzliche monatliche Grundgebühr. Gebühren des Portals oder anderer externer Anbieter sind nicht enthalten.' },
       { q: 'Werden Mindestaufenthalte und Verkaufsstopps übertragen?', a: 'Ja. Zimmero unterstützt Mindestaufenthalte, Höchstaufenthalte, Anreise- und Abreisesperren sowie Verkaufsstopps und überträgt die zugeordneten Einschränkungen.' },
       { q: 'Sind Direktbuchungen ebenfalls kostenpflichtig?', a: 'Nein. Buchungen über die eigene Zimmero Buchungsstrecke kosten weder Provision noch Buchungsgebühr an Zimmero.' },
     ],
@@ -611,7 +611,7 @@ export const landingPages: LandingPage[] = [
         title: 'Direktbuchungen entlasten das Telefon, ohne es abzuschaffen.',
         paragraphs: [
           'Viele Stammgäste rufen weiterhin gern an. Andere möchten abends auf der Website buchen. Die Zimmero Buchungsstrecke ergänzt den persönlichen Kontakt und übernimmt Reservierungen direkt in das Backoffice.',
-          'Für Direktbuchungen berechnet Zimmero weder Provision noch Buchungsgebühr. Booking.com kann über den Channel Manager in beide Richtungen angebunden werden. Portalbuchungen kosten 1,50 Euro je Buchung, ohne zusätzliche monatliche Grundgebühr.',
+          'Für Direktbuchungen berechnet Zimmero weder Provision noch Buchungsgebühr. Booking.com kann über den Channel Manager in beide Richtungen angebunden werden. Portalbuchungen kosten 1,50 Euro je Buchung, maximal 59 Euro pro Monat. Eine zusätzliche monatliche Grundgebühr fällt nicht an.',
         ],
       },
       {
@@ -642,8 +642,8 @@ export const landingPages: LandingPage[] = [
     faqs: [
       { q: 'Welche Hotelsoftware eignet sich für kleine Hotels?', a: 'Zimmero eignet sich für inhabergeführte kleine Hotels mit etwa 10 bis 100 Zimmern, die Zimmerplan, Buchungen, Preise, Rechnungen, Channel Manager, Housekeeping und regionale Pflichten in einem browserbasierten System bearbeiten möchten.' },
       { q: 'Ist Zimmero für Pensionen geeignet?', a: 'Ja. Zimmero ist auf die Abläufe von Pensionen und kleinen Hotels ausgerichtet. Gast, Zimmer, Leistungen, Meldeschein und Rechnung bleiben verbunden; Direktbuchungen und Portalreservierungen laufen in denselben Zimmerplan.' },
-      { q: 'Welcher Tarif passt zu einer kleinen Pension oder einem kleinen Hotel?', a: 'Starter kostet im Aktionsangebot 79 Euro netto pro Monat und gilt für ein Haus mit bis zu 20 Zimmern oder Einheiten. Mitarbeiterkonten sind unbegrenzt.' },
-      { q: 'Kann Zimmero Booking.com anbinden?', a: 'Ja. Verfügbarkeiten, Preise und Einschränkungen werden übertragen, Reservierungen kommen automatisch herein. Die Kosten betragen 1,50 Euro je Portalbuchung.' },
+      { q: 'Welcher Tarif passt zu einer kleinen Pension oder einem kleinen Hotel?', a: 'Bei Abschluss bis einschließlich 31.12.2026 kostet Starter dauerhaft 79 Euro netto pro Monat. Der Tarif gilt für ein Haus mit bis zu 20 Zimmern oder Einheiten. Mitarbeiterkonten sind unbegrenzt.' },
+      { q: 'Kann Zimmero Booking.com anbinden?', a: 'Ja. Verfügbarkeiten, Preise und Einschränkungen werden übertragen, Reservierungen kommen automatisch herein. Die Kosten betragen 1,50 Euro je Portalbuchung, maximal 59 Euro pro Monat.' },
       { q: 'Gibt es eine Buchungsstrecke für die eigene Website?', a: 'Ja. Sie lässt sich in WordPress, Jimdo und Squarespace einbinden. Direktbuchungen kosten keine Provision und keine Buchungsgebühr an Zimmero.' },
       { q: 'Hilft Zimmero bei Meldeschein und Kurtaxe?', a: 'Ja. Meldescheine können elektronisch übermittelt und im Status verfolgt werden. Kurtaxe wird nach den je Haus eingerichteten Gästeklassen, Altersstufen und Gültigkeitszeiträumen berechnet.' },
       { q: 'Kann eine bestehende Pension Daten übernehmen?', a: 'Ja. Die Übernahme von Gästen und Buchungen aus HS3 und Pensionsprogramm ist erprobt und derzeit kostenlos.' },

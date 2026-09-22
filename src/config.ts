@@ -55,6 +55,8 @@ export const SOFTWARE_APPLICATION_SCHEMA = {
     '@type': 'Offer',
     price: '79.00',
     priceCurrency: 'EUR',
+    validThrough: '2026-12-31T23:59:59+01:00',
+    description: 'Bei Abschluss bis einschließlich 31.12.2026 dauerhaft 79 Euro netto pro Monat.',
     priceSpecification: {
       '@type': 'UnitPriceSpecification',
       price: '79.00',

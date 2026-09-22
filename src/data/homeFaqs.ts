@@ -5,7 +5,7 @@ export const homeFaqs = [
   },
   {
     q: 'Gibt es eine Booking.com Anbindung?',
-    a: 'Ja. Zimmero verbindet sich in beide Richtungen mit Booking.com. Verfügbarkeiten, Preise und Einschränkungen werden übertragen, Reservierungen kommen automatisch in Zimmero an. Mehr als 50 weitere Portale sind als Zusatzmodul erreichbar. Es gibt keine monatliche Grundgebühr. Sie zahlen 1,50 Euro je Portalbuchung.',
+    a: 'Ja. Zimmero verbindet sich in beide Richtungen mit Booking.com. Verfügbarkeiten, Preise und Einschränkungen werden übertragen, Reservierungen kommen automatisch in Zimmero an. Mehr als 50 weitere Portale sind als Zusatzmodul erreichbar. Es gibt keine monatliche Grundgebühr. Sie zahlen 1,50 Euro je Portalbuchung, maximal 59 Euro pro Monat.',
   },
   {
     q: 'Kann Zimmero mehrere Häuser verwalten?',
@@ -29,7 +29,7 @@ export const homeFaqs = [
   },
   {
     q: 'Was kostet Zimmero?',
-    a: 'Der Tarif Starter kostet im Aktionszeitraum 79 Euro netto pro Monat für ein Haus mit bis zu 20 Zimmern oder Einheiten. Direktbuchungen kosten keine Provision und keine Buchungsgebühr. Der Channel Manager kostet 1,50 Euro je Portalbuchung.',
+    a: 'Bei Abschluss bis einschließlich 31.12.2026 gelten die Aktionspreise aller drei Pakete dauerhaft. Starter kostet 79 Euro netto pro Monat für ein Haus mit bis zu 20 Zimmern oder Einheiten. Direktbuchungen kosten keine Provision und keine Buchungsgebühr. Der Channel Manager kostet 1,50 Euro je Portalbuchung, maximal 59 Euro pro Monat.',
   },
   {
     q: 'Kann Zimmero Speisen und Getränke aufs Zimmer buchen?',

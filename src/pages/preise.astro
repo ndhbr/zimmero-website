@@ -98,7 +98,7 @@ const featureGroups = [
 
 const comparisonRows = [
   { label: 'Zimmero-Grundtarif mit 18 Funktionsbereichen', values: ['komplett enthalten', 'komplett enthalten', 'komplett enthalten'], emphasized: true },
-  { label: 'Aktionspreis pro Monat', values: ['79 €', '149 €', '249 €'] },
+  { label: 'Dauerhafter Aktionspreis pro Monat bei Abschluss bis 31.12.2026', values: ['79 €', '149 €', '249 €'] },
   { label: 'Regulärer Preis für spätere Neukunden', values: ['99 €', '199 €', '299 €'] },
   { label: 'Häuser', values: ['1', 'bis 2', 'bis 5'] },
   { label: 'Zimmer oder Einheiten', values: ['bis 20', 'insgesamt bis 50', 'insgesamt bis 100'] },
@@ -112,7 +112,7 @@ const comparisonRows = [
   { label: 'Telefonischer Notfallsupport', values: ['ein Einsatz pro Monat inklusive', 'rund um die Uhr', 'rund um die Uhr'] },
   { label: 'Direktbuchungen über Ihre Website', values: ['0 €', '0 €', '0 €'] },
   { label: 'Optionale Erweiterungen ohne monatlichen Aufpreis', values: ['bei Bedarf zubuchbar', '3 nach Wahl', 'alle derzeitigen'] },
-  { label: 'Portalbuchung über den Channel Manager', values: ['1,50 €', '1,50 €', '1,50 €'] },
+  { label: 'Portalbuchung über den Channel Manager', values: ['1,50 €, maximal 59 € pro Monat', '1,50 €, maximal 59 € pro Monat', '1,50 €, maximal 59 € pro Monat'] },
 ];
 
 const priceFaqs = [
@@ -121,12 +121,12 @@ const priceFaqs = [
     a: 'Alle Preise sind Nettopreise und verstehen sich zuzüglich der gesetzlichen Umsatzsteuer.',
   },
   {
-    q: 'Für wen gilt das Aktionsangebot?',
-    a: 'Das Aktionsangebot gilt für die ersten zehn Hotelbetriebe. Es umfasst den reduzierten Monatspreis, die einmalige Einrichtung und eine halbtägige Schulung.',
+    q: 'Was umfasst das Aktionsangebot?',
+    a: 'Das Aktionsangebot umfasst den reduzierten Monatspreis, die einmalige Einrichtung und eine halbtägige Schulung.',
   },
   {
     q: 'Bleibt der Aktionspreis dauerhaft bestehen?',
-    a: 'Ja. Wer Zimmero im Aktionsangebot bucht, behält den vereinbarten Aktionspreis dauerhaft. Die regulären Preise gelten für spätere Neukunden.',
+    a: 'Ja. Bei Abschluss bis einschließlich 31.12.2026 bleibt der vereinbarte Aktionspreis in allen drei Paketen dauerhaft bestehen. Die regulären Preise gelten für spätere Neukunden.',
   },
   {
     q: 'Wie lange läuft der Vertrag?',
@@ -154,7 +154,7 @@ const priceFaqs = [
   },
   {
     q: 'Welche Kosten können zusätzlich entstehen?',
-    a: 'Der komplette Zimmero-Grundtarif ist im Monatspreis enthalten. Zusätzliche Kosten entstehen nur für optional gebuchte Erweiterungen, mögliche Gebühren externer Anbieter und Portalbuchungen über den Channel Manager mit 1,50 Euro je Buchung. Direktbuchungen über Ihre eigene Website bleiben provisions- und gebührenfrei.',
+    a: 'Der komplette Zimmero-Grundtarif ist im Monatspreis enthalten. Zusätzliche Kosten entstehen nur für optional gebuchte Erweiterungen, mögliche Gebühren externer Anbieter und Portalbuchungen über den Channel Manager mit 1,50 Euro je Buchung, maximal 59 Euro pro Monat. Direktbuchungen über Ihre eigene Website bleiben provisions- und gebührenfrei.',
   },
 ];
 
@@ -179,7 +179,7 @@ const breadcrumbs = [
 
 <Layout
   title="Zimmero Preise | All-in-One-Hotelsoftware ab 79 Euro"
-  description="Das komplette Zimmero Hotelmanagement ist ab 79 Euro netto im Monat enthalten: 18 Funktionsbereiche, unbegrenzte Mitarbeiter und provisionsfreie Direktbuchungen."
+  description="Zimmero ab 79 Euro netto pro Monat: Bei Abschluss bis einschließlich 31.12.2026 bleibt der Aktionspreis in allen drei Paketen dauerhaft gesichert."
   structuredData={[SOFTWARE_APPLICATION_SCHEMA, faqSchema]}
 >
   <section class="py-12 md:py-20">
@@ -198,7 +198,7 @@ const breadcrumbs = [
           <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">0 € Gebühr für Direktbuchungen</span>
         </div>
         <div class="rounded-xl border border-success-200 bg-success-50 p-5 text-left text-sm leading-relaxed text-success-900">
-          <strong>Aktionsangebot für die ersten zehn Hotelbetriebe:</strong> dauerhaft reduzierter Monatspreis, einmalige Einrichtung und halbtägige Schulung inklusive. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit ebenfalls kostenlos.
+          <strong>Bis einschließlich 31.12.2026 abschließen und den Aktionspreis dauerhaft sichern – in allen drei Paketen.</strong> Im Aktionsangebot sind die einmalige Einrichtung und eine halbtägige Schulung inklusive. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit ebenfalls kostenlos.
         </div>
       </div>
 
@@ -217,7 +217,7 @@ const breadcrumbs = [
                 <span class="text-3xl font-bold text-secondary-900">{plan.current} €</span>
                 <span class="text-sm text-secondary-600">netto pro Monat</span>
               </div>
-              <p class="mt-2 text-sm font-medium text-success-800">Aktionspreis dauerhaft gesichert</p>
+              <p class="mt-2 text-sm font-medium text-success-800">Dauerhaft bei Abschluss bis 31.12.2026</p>
               <p class="mt-1 text-sm text-secondary-600">Regulär später {plan.regular} € netto pro Monat</p>
             </div>
 
@@ -318,7 +318,7 @@ const breadcrumbs = [
           </table>
         </div>
         <p class="mt-4 text-sm leading-relaxed text-secondary-600">
-          Die 1,50 € gelten je Buchung über ein angeschlossenes Buchungsportal. Es gibt keine zusätzliche monatliche Grundgebühr für den Channel Manager. Bei der Datenübernahme sind HS3 und Pensionsprogramm bereits erprobt. <a href="/#zusatzmodule" class="font-medium text-primary-700 hover:underline">Alle optionalen Erweiterungen ansehen</a>.
+          Pro Buchung über ein angeschlossenes Buchungsportal fallen 1,50 € an, maximal 59 € pro Monat. Es gibt keine zusätzliche monatliche Grundgebühr für den Channel Manager. Bei der Datenübernahme sind HS3 und Pensionsprogramm bereits erprobt. <a href="/#zusatzmodule" class="font-medium text-primary-700 hover:underline">Alle optionalen Erweiterungen ansehen</a>.
         </p>
       </section>
 
