@@ -13,7 +13,10 @@ const plans = [
     houses: '1 Haus',
     units: 'bis 20 Zimmer oder Einheiten',
     extensions: 'Optionale Erweiterungen bei Bedarf einzeln zubuchbar',
-    support: ['Ein telefonischer Notfalleinsatz pro Monat inklusive'],
+    support: [
+      'E-Mail für konkrete Nutzungsfragen und technische Probleme. Nachrichten sind jederzeit möglich. Bearbeitung Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen.',
+      'Ein telefonisches Notfallgespräch pro Monat bis 30 Minuten innerhalb der Servicezeiten inklusive',
+    ],
     highlighted: false,
   },
   {
@@ -25,8 +28,9 @@ const plans = [
     units: 'insgesamt bis 50 Zimmer oder Einheiten',
     extensions: '3 optionale Erweiterungen nach Wahl inklusive',
     support: [
-      'Telefonischer Support an Werktagen von 8 bis 17 Uhr',
-      'Telefonischer Notfallsupport rund um die Uhr',
+      'E-Mail- und WhatsApp-Support',
+      'Telefonischer Support Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen',
+      'Drei telefonische Notfallgespräche pro Monat bis zu je 30 Minuten inklusive, auch außerhalb der Servicezeiten nach Verfügbarkeit',
     ],
     highlighted: true,
   },
@@ -39,7 +43,8 @@ const plans = [
     units: 'insgesamt bis 100 Zimmer oder Einheiten',
     extensions: 'Alle derzeitigen optionalen Erweiterungen inklusive',
     support: [
-      'Telefonischer Support an Werktagen von 8 bis 17 Uhr',
+      'E-Mail- und WhatsApp-Support',
+      'Telefonischer Support Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen',
       'Telefonischer Notfallsupport rund um die Uhr',
     ],
     highlighted: false,
@@ -98,8 +103,8 @@ const featureGroups = [
 
 const comparisonRows = [
   { label: 'Zimmero-Grundtarif mit 18 Funktionsbereichen', values: ['komplett enthalten', 'komplett enthalten', 'komplett enthalten'], emphasized: true },
-  { label: 'Dauerhafter Aktionspreis pro Monat bei Abschluss bis 31.12.2026', values: ['79 €', '149 €', '249 €'] },
-  { label: 'Regulärer Preis für spätere Neukunden', values: ['99 €', '199 €', '299 €'] },
+  { label: 'Dauerhafter Aktionspreis netto pro Monat bei Abschluss bis 31.12.2026', values: ['79 €', '149 €', '249 €'] },
+  { label: 'Regulärer Preis netto pro Monat für spätere Neukunden', values: ['99 €', '199 €', '299 €'] },
   { label: 'Häuser', values: ['1', 'bis 2', 'bis 5'] },
   { label: 'Zimmer oder Einheiten', values: ['bis 20', 'insgesamt bis 50', 'insgesamt bis 100'] },
   { label: 'Mitarbeiterkonten', values: ['unbegrenzt', 'unbegrenzt', 'unbegrenzt'] },
@@ -107,12 +112,15 @@ const comparisonRows = [
   { label: 'Halbtägige Schulung im Aktionsangebot', values: ['enthalten', 'enthalten', 'enthalten'] },
   { label: 'Datenübernahme', values: ['derzeit kostenlos', 'derzeit kostenlos', 'derzeit kostenlos'] },
   { label: 'Tagespost für Druck und Gästeportal', values: ['enthalten', 'enthalten', 'enthalten'] },
-  { label: 'E-Mail- und WhatsApp-Support', values: ['rund um die Uhr · Antwort innerhalb von 24 Stunden', 'rund um die Uhr · Antwort innerhalb von 24 Stunden', 'rund um die Uhr · Antwort innerhalb von 24 Stunden'] },
-  { label: 'Telefonischer Support', values: ['nur im Notfall', 'werktags von 8 bis 17 Uhr', 'werktags von 8 bis 17 Uhr'] },
-  { label: 'Telefonischer Notfallsupport', values: ['ein Einsatz pro Monat inklusive', 'rund um die Uhr', 'rund um die Uhr'] },
-  { label: 'Direktbuchungen über Ihre Website', values: ['0 €', '0 €', '0 €'] },
-  { label: 'Optionale Erweiterungen ohne monatlichen Aufpreis', values: ['bei Bedarf zubuchbar', '3 nach Wahl', 'alle derzeitigen'] },
-  { label: 'Portalbuchung über den Channel Manager', values: ['1,50 €, maximal 59 € pro Monat', '1,50 €, maximal 59 € pro Monat', '1,50 €, maximal 59 € pro Monat'] },
+  { label: 'E-Mail-Support', values: ['Nutzungsfragen und technische Probleme. Bearbeitung Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen.', 'enthalten', 'enthalten'] },
+  { label: 'WhatsApp-Support', values: ['nicht enthalten', 'enthalten', 'enthalten'] },
+  { label: 'Telefonischer Support', values: ['ein Notfallgespräch bis 30 Minuten pro Monat innerhalb der Servicezeiten', 'Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen', 'Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen'] },
+  { label: 'Telefonischer Notfallsupport', values: ['ein Gespräch pro Monat bis 30 Minuten während der Servicezeiten inklusive', 'drei Gespräche pro Monat bis zu je 30 Minuten, auch außerhalb der Servicezeiten nach Verfügbarkeit', 'rund um die Uhr inklusive'] },
+  { label: 'Zusätzliche telefonische Bedienhilfe innerhalb der Servicezeiten', values: ['70 € netto pro Stunde. Mindestens 30 Minuten, danach 15-Minuten-Schritte.', 'telefonischer Support enthalten', 'telefonischer Support enthalten'] },
+  { label: 'Weitere akute Einsätze außerhalb der Servicezeiten', values: ['120 € netto pro Stunde. Mindestens 1 Stunde, danach 15-Minuten-Schritte. Nur nach Verfügbarkeit.', '120 € netto pro Stunde nach den drei enthaltenen Gesprächen. Mindestens 1 Stunde, danach 15-Minuten-Schritte. Nur nach Verfügbarkeit.', 'Notfallsupport rund um die Uhr inklusive'] },
+  { label: 'Zimmero-Gebühr und -Provision je Direktbuchung über Ihre Website', values: ['0 € / 0 %', '0 € / 0 %', '0 € / 0 %'] },
+  { label: 'Optionale Erweiterungen ohne monatlichen Aufpreis', values: ['keine. Einzeln zubuchbar.', '3 nach Wahl', 'alle derzeitigen'] },
+  { label: 'Portalbuchungen über den Zimmero Channel Manager (optional)', values: ['1,50 €, maximal 59 € pro Monat', '1,50 €, maximal 59 € pro Monat', '1,50 €, maximal 59 € pro Monat'] },
 ];
 
 const priceFaqs = [
@@ -142,7 +150,7 @@ const priceFaqs = [
   },
   {
     q: 'Was meint Zimmero mit optionalen Erweiterungen?',
-    a: 'Das sind Ergänzungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, TSE-Kassen, myOBS/WinTOP und der Channel Manager. Sie sind nicht nötig, um die vollständige Hotelverwaltung mit Zimmero zu nutzen.',
+    a: 'Das sind Ergänzungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, TSE-Kassen, myOBS/WinTOP und der Channel Manager. Die Buchungsgebühr für Portalbuchungen gilt auch dann, wenn die Erweiterung im Paket enthalten ist.',
   },
   {
     q: 'Was kostet die Übernahme vorhandener Daten?',
@@ -154,7 +162,7 @@ const priceFaqs = [
   },
   {
     q: 'Welche Kosten können zusätzlich entstehen?',
-    a: 'Der komplette Zimmero-Grundtarif ist im Monatspreis enthalten. Zusätzliche Kosten entstehen nur für optional gebuchte Erweiterungen, mögliche Gebühren externer Anbieter und Portalbuchungen über den Channel Manager mit 1,50 Euro je Buchung, maximal 59 Euro pro Monat. Direktbuchungen über Ihre eigene Website bleiben provisions- und gebührenfrei.',
+    a: 'Zusätzlich zum monatlichen Grundpreis können 1,50 Euro je Portalbuchung anfallen, höchstens 59 Euro pro Monat. Eine zusätzliche monatliche Channel-Manager-Grundgebühr gibt es nicht. Optionale Erweiterungen können monatlich kosten, sofern sie nicht im Paket enthalten sind. Bei Starter kostet zusätzliche telefonische Bedienhilfe 70 Euro netto pro Stunde. Es werden mindestens 30 Minuten berechnet, danach in 15-Minuten-Schritten. Akute Einsätze außerhalb der Servicezeiten kosten bei Starter 120 Euro netto pro Stunde. Bei Professional sind drei telefonische Notfallgespräche pro Monat bis zu je 30 Minuten auch außerhalb der Servicezeiten enthalten. Weitere akute Einsätze außerhalb der Servicezeiten kosten ebenfalls 120 Euro netto pro Stunde. Es wird mindestens eine Stunde berechnet, danach in 15-Minuten-Schritten. Einsätze erfolgen nur nach Verfügbarkeit. Zusätzliche Schulungen und individuelle Arbeiten werden vor Beauftragung gesondert angeboten. Die einmalige Einrichtung und eine halbtägige Einführungsschulung sind im Aktionsangebot enthalten. Die Datenübernahme ist derzeit kostenlos. Gebühren externer Anbieter, etwa von Buchungsportalen, Zahlungs- oder Website-Anbietern, können hinzukommen. Direktbuchungen über Ihre Hotelwebsite kosten bei Zimmero weder Buchungsgebühr noch Provision.',
   },
 ];
 
@@ -198,7 +206,7 @@ const breadcrumbs = [
           <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">0 € Gebühr für Direktbuchungen</span>
         </div>
         <div class="rounded-xl border border-success-200 bg-success-50 p-5 text-left text-sm leading-relaxed text-success-900">
-          <strong>Bis einschließlich 31.12.2026 abschließen und den Aktionspreis dauerhaft sichern – in allen drei Paketen.</strong> Im Aktionsangebot sind die einmalige Einrichtung und eine halbtägige Schulung inklusive. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit ebenfalls kostenlos.
+          <strong>Bis einschließlich 31.12.2026 abschließen und den Aktionspreis in allen drei Paketen dauerhaft sichern.</strong> Im Aktionsangebot sind die einmalige Einrichtung und eine halbtägige Schulung inklusive. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit ebenfalls kostenlos.
         </div>
       </div>
 
@@ -240,7 +248,6 @@ const breadcrumbs = [
               <div class="rounded-xl border border-secondary-200 bg-white/80 p-4">
                 <p class="text-xs font-semibold uppercase tracking-wide text-secondary-500">Support inklusive</p>
                 <ul class="mt-2 space-y-2 text-secondary-700">
-                  <li class="flex gap-2.5"><span class="font-bold text-success-600" aria-hidden="true">✓</span><span>E-Mail- und WhatsApp-Support rund um die Uhr · Antwort innerhalb von 24 Stunden</span></li>
                   {plan.support.map(service => <li class="flex gap-2.5"><span class="font-bold text-success-600" aria-hidden="true">✓</span><span>{service}</span></li>)}
                 </ul>
               </div>
@@ -254,6 +261,37 @@ const breadcrumbs = [
       </div>
 
       <div class="grid min-w-0 gap-16">
+      <section aria-labelledby="costs-heading" class="mx-auto w-full max-w-6xl">
+        <div class="mb-7 max-w-3xl">
+          <h2 id="costs-heading" class="mb-3 text-2xl font-bold md:text-3xl">Welche Kosten kommen zum Grundpreis hinzu?</h2>
+          <p class="leading-relaxed text-secondary-600">Alle Beträge sind netto und verstehen sich zuzüglich gesetzlicher Umsatzsteuer. Ob eine Erweiterung bereits enthalten ist, hängt vom Tarif ab.</p>
+        </div>
+        <div class="grid gap-5 md:grid-cols-2">
+          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
+            <h3 class="mb-3 text-lg font-semibold">Nutzungsabhängige Gebühren</h3>
+            <p class="text-sm leading-relaxed text-secondary-700"><strong>Portalbuchungen über den Zimmero Channel Manager (optional): 1,50 € je Buchung, höchstens 59 € pro Monat.</strong> Es gibt keine zusätzliche monatliche Channel-Manager-Grundgebühr. Direktbuchungen über Ihre Hotelwebsite kosten bei Zimmero weder Buchungsgebühr noch Provision.</p>
+          </article>
+          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
+            <h3 class="mb-3 text-lg font-semibold">Optionale Erweiterungen</h3>
+            <p class="text-sm leading-relaxed text-secondary-700">Zimmero Bell, Gastronomie-Tablet und TSE-Kassen-Anbindung: jeweils 10 € pro Monat. SumUp-Solo- und myOBS-Anbindung: jeweils 5 € pro Monat. Bei Professional sind drei Erweiterungen nach Wahl, bei Multi Property alle derzeitigen Erweiterungen ohne monatlichen Modulaufpreis enthalten. Die Gebühr je Portalbuchung bleibt bestehen.</p>
+          </article>
+          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
+            <h3 class="mb-3 text-lg font-semibold">Einmalige Leistungen und weitere Schulungen</h3>
+            <p class="text-sm leading-relaxed text-secondary-700">Im Aktionsangebot sind die einmalige Einrichtung und eine halbtägige Einführungsschulung enthalten. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit kostenlos. Für spätere Abschlüsse sind Kosten für Einrichtung und Schulung vor Beauftragung zu klären. Zusätzliche Schulungen und individuelle Arbeiten werden ebenfalls vor Beauftragung gesondert angeboten. Dafür gibt es hier keinen pauschalen Preis.</p>
+          </article>
+          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
+            <h3 class="mb-3 text-lg font-semibold">Zusätzlicher Support und Notfälle</h3>
+            <p class="mb-3 text-sm leading-relaxed text-secondary-700">Ein Notfall ist eine akute technische Störung, die den laufenden Hotelbetrieb unmittelbar beeinträchtigt. Starter enthält ein telefonisches Notfallgespräch bis 30 Minuten pro Monat während der Servicezeiten. Professional enthält drei Gespräche pro Monat bis zu je 30 Minuten, auch außerhalb der Servicezeiten nach Verfügbarkeit.</p>
+            <p class="mb-3 text-sm leading-relaxed text-secondary-700"><strong>Zusätzliche telefonische Bedienhilfe für Starter: 70 € netto pro Stunde</strong> innerhalb der Servicezeiten, mindestens 30 Minuten, danach Abrechnung in 15-Minuten-Schritten.</p>
+            <p class="text-sm leading-relaxed text-secondary-700"><strong>Weitere akute Einsätze außerhalb der Servicezeiten für Starter und Professional: 120 € netto pro Stunde</strong>, auch am Wochenende und an Feiertagen. Für Professional gilt dieser Preis nach den drei enthaltenen Gesprächen. Mindestens eine Stunde, danach Abrechnung in 15-Minuten-Schritten. Nur nach Verfügbarkeit, ohne garantierte Rufbereitschaft.</p>
+          </article>
+          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm md:col-span-2">
+            <h3 class="mb-3 text-lg font-semibold">Mögliche Kosten externer Anbieter</h3>
+            <p class="text-sm leading-relaxed text-secondary-700">Gebühren von Buchungsportalen, Zahlungsanbietern, Website-Anbietern oder anderen externen Diensten sind nicht im Zimmero-Preis enthalten. Die tatsächlichen Kosten richten sich nach Ihren Verträgen mit diesen Anbietern.</p>
+          </article>
+        </div>
+      </section>
+
       <section aria-labelledby="included-heading" class="mx-auto w-full max-w-6xl">
         <div class="mx-auto mb-8 max-w-3xl text-center">
           <p class="mb-3 text-sm font-semibold text-primary-700">Alles im Grundtarif</p>
@@ -279,7 +317,7 @@ const breadcrumbs = [
 
         <div class="mt-6 rounded-xl border border-primary-200 bg-primary-50 p-5 text-sm leading-relaxed text-secondary-700 md:flex md:items-start md:gap-4">
           <strong class="block shrink-0 text-secondary-900">Was ist dann ein Zusatzmodul?</strong>
-          <span>Optionale Erweiterungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, TSE-Kassen, myOBS/WinTOP und Channel Manager. Die vollständige Hotelverwaltung funktioniert ohne diese Erweiterungen.</span>
+          <span>Optionale Erweiterungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, TSE-Kassen, myOBS/WinTOP und Channel Manager. Die vollständige Hotelverwaltung funktioniert ohne diese Erweiterungen. Portalbuchungen bleiben auch bei enthaltenem Modul nutzungsabhängig kostenpflichtig.</span>
         </div>
       </section>
 
@@ -357,7 +395,7 @@ const breadcrumbs = [
 
       <div class="mx-auto w-full max-w-4xl rounded-xl border border-primary-200 bg-primary-50 p-6 text-center md:p-8">
         <h2 class="mb-3 text-2xl font-bold text-secondary-900">Sie möchten Zimmero zuerst ansehen?</h2>
-        <p class="mb-6 leading-relaxed text-secondary-600">Die öffentliche Demo funktioniert ohne Anmeldung. Für Fragen zu Ihrem Betrieb antwortet Andreas Huber innerhalb von 24 Stunden.</p>
+        <p class="mb-6 leading-relaxed text-secondary-600">Die öffentliche Demo funktioniert ohne Anmeldung. Fragen zu Ihrem Betrieb können Sie Andreas Huber per E-Mail senden.</p>
         <div class="flex flex-col justify-center gap-3 sm:flex-row">
           <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary">Demo öffnen</a>
           <a href="/kontakt/" class="btn-secondary">Zimmero anfragen</a>
@@ -365,6 +403,8 @@ const breadcrumbs = [
         <p class="mt-5 text-sm text-secondary-600">Oder schreiben Sie direkt an <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%20zu%20Zimmero`} class="font-medium text-primary-700 hover:underline">{CONTACT_EMAIL}</a>.</p>
       </div>
       </div>
+
+      <p class="mx-auto mt-7 max-w-3xl text-center text-sm leading-relaxed text-secondary-600">Individuell vereinbarte Konditionen gelten gemäß der jeweiligen Vereinbarung.</p>
 
       <p class="mx-auto mt-7 max-w-3xl text-center text-sm leading-relaxed text-secondary-600">
         Alle Preise verstehen sich zuzüglich der gesetzlichen Umsatzsteuer. Kosten externer Anbieter sind nicht enthalten.

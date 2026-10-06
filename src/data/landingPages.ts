@@ -304,7 +304,7 @@ export const landingPages: LandingPage[] = [
       {
         title: 'Persönliche Betreuung ist Teil des Produkts.',
         paragraphs: [
-          'Zimmero ist ein Produkt der BavarianBits GmbH und wird von Andreas Huber entwickelt. Während der Geschäftszeiten von Montag bis Freitag zwischen 8 und 17 Uhr erreichen Interessenten und Kunden den direkten Ansprechpartner. Für Bestandskunden dient dieselbe Nummer auch als Notfallnummer.',
+          'Zimmero ist ein Produkt der BavarianBits GmbH und wird von Andreas Huber entwickelt. Die regulären Servicezeiten sind Montag bis Freitag von 8 bis 17 Uhr, ausgenommen gesetzliche Feiertage. Für Bestandskunden dient dieselbe Nummer auch als Notfallnummer. Umfang und Kosten richten sich nach dem Tarif und der individuellen Vereinbarung.',
           'Was Kunden aus dem Hotelalltag melden, kann unmittelbar in die Weiterentwicklung einfließen. Produktneuerungen werden im System veröffentlicht. Damit ist sichtbar, dass das Programm laufend weiterarbeitet und nicht nach der Einführung stehen bleibt.',
         ],
       },
@@ -331,7 +331,7 @@ export const landingPages: LandingPage[] = [
       { q: 'Unterstützt Zimmero die bayerische Tourismusstatistik?', a: 'Ja. Zimmero erstellt aus den vorhandenen Aufenthaltsdaten eine Bayern CSV. Der Betrieb prüft die Datei und lädt sie anschließend selbst in IDEV hoch.' },
       { q: 'Kann Zimmero unterschiedliche Kurtaxen je Haus berechnen?', a: 'Ja. Regelwerke werden je Haus mit Gästeklassen, Kinderaltersstufen und Gültigkeitszeiträumen eingerichtet. Der berechnete Betrag kommt automatisch auf die Rechnung.' },
       { q: 'Wie lange dauert die Einführung?', a: 'Ohne Sonderintegrationen dauert es vom Erstgespräch bis zum Start normalerweise zwei bis drei Wochen. Einrichtung, halbtägige Schulung und derzeit auch die Datenübernahme sind im Aktionsangebot enthalten.' },
-      { q: 'Wer hilft bei Fragen?', a: 'Sie sprechen direkt mit Andreas Huber. Die reguläre Erreichbarkeit ist Montag bis Freitag von 8 bis 17 Uhr. Für Bestandskunden ist die Telefonnummer zugleich die Notfallnummer.' },
+      { q: 'Wer hilft bei Fragen?', a: 'Sie sprechen direkt mit Andreas Huber. Die regulären Servicezeiten sind Montag bis Freitag von 8 bis 17 Uhr, ausgenommen gesetzliche Feiertage. Für Bestandskunden ist die Telefonnummer zugleich die Notfallnummer. Umfang und Kosten richten sich nach dem Tarif und der individuellen Vereinbarung.' },
     ],
     related: ['meldeschein-software', 'kurtaxe-ortstaxe-software', 'tourismusstatistik-bayern'],
   },
@@ -641,7 +641,7 @@ export const landingPages: LandingPage[] = [
     ],
     faqs: [
       { q: 'Welche Hotelsoftware eignet sich für kleine Hotels?', a: 'Zimmero eignet sich für inhabergeführte kleine Hotels mit etwa 10 bis 100 Zimmern, die Zimmerplan, Buchungen, Preise, Rechnungen, Channel Manager, Housekeeping und regionale Pflichten in einem browserbasierten System bearbeiten möchten.' },
-      { q: 'Ist Zimmero für Pensionen geeignet?', a: 'Ja. Zimmero ist auf die Abläufe von Pensionen und kleinen Hotels ausgerichtet. Gast, Zimmer, Leistungen, Meldeschein und Rechnung bleiben verbunden; Direktbuchungen und Portalreservierungen laufen in denselben Zimmerplan.' },
+      { q: 'Ist Zimmero für Pensionen geeignet?', a: 'Ja. Zimmero ist auf die Abläufe von Pensionen und kleinen Hotels ausgerichtet. Gast, Zimmer, Leistungen, Meldeschein und Rechnung bleiben verbunden. Direktbuchungen und Portalreservierungen laufen in denselben Zimmerplan.' },
       { q: 'Welcher Tarif passt zu einer kleinen Pension oder einem kleinen Hotel?', a: 'Bei Abschluss bis einschließlich 31.12.2026 kostet Starter dauerhaft 79 Euro netto pro Monat. Der Tarif gilt für ein Haus mit bis zu 20 Zimmern oder Einheiten. Mitarbeiterkonten sind unbegrenzt.' },
       { q: 'Kann Zimmero Booking.com anbinden?', a: 'Ja. Verfügbarkeiten, Preise und Einschränkungen werden übertragen, Reservierungen kommen automatisch herein. Die Kosten betragen 1,50 Euro je Portalbuchung, maximal 59 Euro pro Monat.' },
       { q: 'Gibt es eine Buchungsstrecke für die eigene Website?', a: 'Ja. Sie lässt sich in WordPress, Jimdo und Squarespace einbinden. Direktbuchungen kosten keine Provision und keine Buchungsgebühr an Zimmero.' },
@@ -904,7 +904,7 @@ export const landingPages: LandingPage[] = [
     benefits: [
       { title: 'Layoutarbeit sparen', text: 'Zimmero verteilt die gewählten Inhalte automatisch auf die vorgesehenen Flächen.' },
       { title: 'Gäste aktuell informieren', text: 'Wetter, Sonnenzeiten, Hausmitteilungen und Tagesprogramm stehen in einer Ausgabe.' },
-      { title: 'Drucken und digital teilen', text: 'Zwei PDF-Varianten werden archiviert; die heutige Ausgabe erscheint zusätzlich im Gästeportal.' },
+      { title: 'Drucken und digital teilen', text: 'Zwei PDF-Varianten werden archiviert. Die heutige Ausgabe erscheint zusätzlich im Gästeportal.' },
     ],
     problemTitle: 'Eine neue Hotelzeitung sollte nicht jeden Morgen bei null beginnen.',
     problem: [
@@ -953,14 +953,14 @@ export const landingPages: LandingPage[] = [
       },
     ],
     requirements: [
-      'Für die Aktivierung wird ein A4-Hintergrund im PNG-Format benötigt; Primär- und Sekundärfarbe werden je Hotel eingerichtet.',
+      'Für die Aktivierung wird ein A4-Hintergrund im PNG-Format benötigt. Primär- und Sekundärfarbe werden je Hotel eingerichtet.',
       'Automatisch gefundene Veranstaltungen sollten vor dem Erzeugen auf Datum, Uhrzeit, Ort und Quelle geprüft werden.',
       'Eigene rotierende Witze, Tipps und Wissenswertes werden als passende CSV-Dateien bereitgestellt.',
     ],
     limitations: [
       'Die KI veröffentlicht keine Veranstaltung selbstständig. Auswahl, Prüfung und Freigabe bleiben beim Hotel.',
       'Das feste A4-Layout ist bewusst kein frei verschiebbares Grafikprogramm und begrenzt die Textmenge je Modul.',
-      'Im Gästeportal wird die aktuelle Tagespost angemeldeten Gästen angezeigt; ältere Ausgaben bleiben im Archiv des Hotels.',
+      'Im Gästeportal wird die aktuelle Tagespost angemeldeten Gästen angezeigt. Ältere Ausgaben bleiben im Archiv des Hotels.',
     ],
     faqs: [
       { q: 'Ist die Zimmero Tagespost in allen Paketen enthalten?', a: 'Ja. Die Tagespost gehört zu Starter, Professional und Multi Property und kostet keinen zusätzlichen monatlichen Modulpreis.' },
