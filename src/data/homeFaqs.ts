@@ -28,6 +28,10 @@ export const homeFaqs = [
     a: 'Ja. Zimmero erzeugt die monatliche Meldung an das Bayerische Landesamt für Statistik als fertige CSV-Datei. Sie laden diese Datei in IDEV hoch, statt die Angaben von Hand zu übertragen.',
   },
   {
+    q: 'Ist Zimmero TSE- und GoBD-konform?',
+    a: 'Zimmero unterstützt die Anforderungen an die TSE-Absicherung von Kassenvorgängen. Bar- und Kartenzahlungen werden über eine zertifizierte Cloud-TSE abgesichert. Die TSE-Daten werden 11 Jahre manipulationsgeschützt archiviert und können für Steuerprüfungen im DSFinV-K-Format exportiert werden. Alles ohne Aufpreis in jedem Paket.',
+  },
+  {
     q: 'Was kostet Zimmero?',
     a: 'Bei Abschluss bis einschließlich 31.12.2026 gelten die Aktionspreise dauerhaft: Starter 79 Euro netto pro Monat (regulär 99 Euro) für ein Haus und bis zu 20 Einheiten, Professional 149 Euro (regulär 199 Euro) für bis zu zwei Häuser und 50 Einheiten, Multi Property 249 Euro (regulär 299 Euro) für bis zu fünf Häuser und 100 Einheiten. Direktbuchungen kosten bei Zimmero weder Provision noch Buchungsgebühr. Portalbuchungen kosten 1,50 Euro je Buchung, maximal 59 Euro pro Monat. Eine zusätzliche monatliche Channel-Manager-Grundgebühr gibt es nicht. Weitere mögliche Kosten stehen auf der Preisseite.',
   },

@@ -55,6 +55,7 @@ const includedFeatures = [
   'Gäste- und Firmenkartei, Preise, Tarife und Pauschalen',
   'Eigene Buchungsstrecke ohne Provision und Gästeportal mit Online-Check-in',
   'Rechnungen, Angebote, E-Mails und Push-Nachrichten',
+  'TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export inklusive',
   'Meldescheine, Statistiken und Buchhaltungsexport',
   'Housekeeping, Tagespost, Eigentümer- und Benutzerverwaltung',
 ];
@@ -84,6 +85,7 @@ const featureGroups = [
     title: 'Abrechnen und auswerten',
     items: [
       'Abrechnung, Folios und Rechnungen',
+      'TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export inklusive',
       'Meldescheine und Archiv',
       'Statistiken mit ADR und RevPAR',
       'DATEV-/Stotax-Buchhaltungsexport',
@@ -111,6 +113,7 @@ const comparisonRows = [
   { label: 'Halbtägige Schulung im Aktionsangebot', values: ['enthalten', 'enthalten', 'enthalten'] },
   { label: 'Datenübernahme', values: ['derzeit kostenlos', 'derzeit kostenlos', 'derzeit kostenlos'] },
   { label: 'Tagespost für Druck und Gästeportal', values: ['enthalten', 'enthalten', 'enthalten'] },
+  { label: 'TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export', values: ['enthalten', 'enthalten', 'enthalten'] },
   { label: 'E-Mail-Support', values: ['Nutzungsfragen und technische Probleme. Bearbeitung Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen.', 'enthalten', 'enthalten'] },
   { label: 'WhatsApp-Support', values: ['nicht enthalten', 'enthalten', 'enthalten'] },
   { label: 'Enthaltene Telefonate pro Monat', values: ['ein Notfalltelefonat bis 30 Minuten innerhalb der Servicezeiten', 'insgesamt drei Telefonate bis je 30 Minuten', 'telefonischer Support innerhalb der Servicezeiten enthalten'] },
@@ -145,11 +148,11 @@ const priceFaqs = [
   },
   {
     q: 'Was ist im Zimmero-Grundtarif enthalten?',
-    a: 'In jedem Tarif steckt das komplette Hotelmanagement: unter anderem Dashboard, Zimmerplan, Buchungs- und Gästeverwaltung, Preise, eine eigene Buchungsstrecke, Gästeportal und Online-Check-in, Rechnungen, Meldescheine, Statistiken, Housekeeping, Buchhaltungsexport und Tagespost.',
+    a: 'In jedem Tarif steckt das komplette Hotelmanagement: unter anderem Dashboard, Zimmerplan, Buchungs- und Gästeverwaltung, Preise, eine eigene Buchungsstrecke, Gästeportal und Online-Check-in, Rechnungen, Meldescheine, Statistiken, Housekeeping, Buchhaltungsexport und Tagespost. TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export sind ebenfalls ohne Aufpreis enthalten.',
   },
   {
     q: 'Was meint Zimmero mit optionalen Erweiterungen?',
-    a: 'Das sind Ergänzungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, TSE-Kassen, myOBS/WinTOP und der Channel Manager. Die Buchungsgebühr für Portalbuchungen gilt auch dann, wenn die Erweiterung im Paket enthalten ist.',
+    a: 'Das sind Ergänzungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, Anbindung externer Kassensysteme, myOBS/WinTOP und der Channel Manager. Die Buchungsgebühr für Portalbuchungen gilt auch dann, wenn die Erweiterung im Paket enthalten ist.',
   },
   {
     q: 'Was kostet die Übernahme vorhandener Daten?',
@@ -204,6 +207,9 @@ const breadcrumbs = [
           <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">Unbegrenzt viele Mitarbeiter</span>
           <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">0 € Gebühr für Direktbuchungen</span>
         </div>
+        <p class="mb-6 text-sm font-medium leading-relaxed text-primary-700">
+          TSE-gesicherte Bar- und Kartenzahlungen, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export – in jedem Paket inklusive.
+        </p>
         <div class="rounded-xl border border-success-200 bg-success-50 p-5 text-left text-sm leading-relaxed text-success-900">
           <strong>Bis einschließlich 31.12.2026 abschließen und den Aktionspreis in allen drei Paketen dauerhaft sichern.</strong> Im Aktionsangebot sind die einmalige Einrichtung und eine halbtägige Schulung inklusive. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit ebenfalls kostenlos.
         </div>
@@ -272,7 +278,7 @@ const breadcrumbs = [
           </article>
           <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
             <h3 class="mb-3 text-lg font-semibold">Optionale Erweiterungen</h3>
-            <p class="text-sm leading-relaxed text-secondary-700">Zimmero Bell, Gastronomie-Tablet und TSE-Kassen-Anbindung: jeweils 10 € pro Monat. SumUp-Solo- und myOBS-Anbindung: jeweils 5 € pro Monat. Bei Professional sind drei Erweiterungen nach Wahl, bei Multi Property alle derzeitigen Erweiterungen ohne monatlichen Modulaufpreis enthalten. Die Gebühr je Portalbuchung bleibt bestehen.</p>
+            <p class="text-sm leading-relaxed text-secondary-700">Zimmero Bell, Gastronomie-Tablet und Anbindung externer Kassensysteme: jeweils 10 € pro Monat. SumUp-Solo- und myOBS-Anbindung: jeweils 5 € pro Monat. Bei Professional sind drei Erweiterungen nach Wahl, bei Multi Property alle derzeitigen Erweiterungen ohne monatlichen Modulaufpreis enthalten. Die Gebühr je Portalbuchung bleibt bestehen.</p>
           </article>
           <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
             <h3 class="mb-3 text-lg font-semibold">Einmalige Leistungen und weitere Schulungen</h3>
@@ -318,7 +324,7 @@ const breadcrumbs = [
 
         <div class="mt-6 rounded-xl border border-primary-200 bg-primary-50 p-5 text-sm leading-relaxed text-secondary-700 md:flex md:items-start md:gap-4">
           <strong class="block shrink-0 text-secondary-900">Was ist dann ein Zusatzmodul?</strong>
-          <span>Optionale Erweiterungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, TSE-Kassen, myOBS/WinTOP und Channel Manager. Die vollständige Hotelverwaltung funktioniert ohne diese Erweiterungen. Portalbuchungen bleiben auch bei enthaltenem Modul nutzungsabhängig kostenpflichtig.</span>
+          <span>Optionale Erweiterungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, Anbindung externer Kassensysteme, myOBS/WinTOP und Channel Manager. Die vollständige Hotelverwaltung funktioniert ohne diese Erweiterungen. Portalbuchungen bleiben auch bei enthaltenem Modul nutzungsabhängig kostenpflichtig.</span>
         </div>
       </section>
 

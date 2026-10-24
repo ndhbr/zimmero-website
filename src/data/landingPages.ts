@@ -636,7 +636,7 @@ export const landingPages: LandingPage[] = [
     ],
     limitations: [
       'Zimmero ist keine einfache Ferienwohnungsanzeige für einen einzelnen privaten Vermieter, sondern Betriebssoftware für Beherbergungsbetriebe.',
-      'Eine Restaurantkasse wird nicht vollständig ersetzt. Gastronomieleistungen können jedoch per Tablet aufs Zimmer gebucht und um eine TSE Anbindung ergänzt werden.',
+      'Eine Restaurantkasse wird nicht vollständig ersetzt. Gastronomieleistungen können jedoch per Tablet aufs Zimmer gebucht werden. Die Anbindung externer Kassensysteme ist als Zusatzmodul verfügbar. Die TSE-Absicherung von Bar- und Kartenzahlungen ist in jedem Paket inklusive.',
       'Schlüsselausgabe und Vorabzahlung sind im derzeitigen Online Check-in noch nicht enthalten.',
     ],
     faqs: [
@@ -718,7 +718,7 @@ export const landingPages: LandingPage[] = [
     ],
     limitations: [
       'Zimmero ist keine vollständige Verwaltung nach dem Wohnungseigentumsrecht und ersetzt keine Steuerberatung.',
-      'Eine vollwertige Restaurantkasse gehört nicht zum Kern. Gastronomieleistungen und eine TSE Anbindung sind als Zusatzmodule verfügbar.',
+      'Eine vollwertige Restaurantkasse gehört nicht zum Kern. Gastronomieleistungen und die Anbindung externer Kassensysteme sind als Zusatzmodule verfügbar. Die TSE-Absicherung von Bar- und Kartenzahlungen ist in jedem Paket inklusive.',
       'Individuelle Sonderintegrationen müssen vor der Einführung geprüft werden und können die übliche Einführungszeit verlängern.',
     ],
     faqs: [
