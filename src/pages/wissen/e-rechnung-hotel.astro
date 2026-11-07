@@ -1,0 +1,236 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import Layout from '../../layouts/Layout.astro';
+import { CONTACT_EMAIL, DEMO_URL, SOFTWARE_APPLICATION_SCHEMA } from '../../config';
+
+const title = 'E-Rechnung Hotel 2027: Jetzt mit ZUGFeRD umstellen | Zimmero';
+const headline = 'E-Rechnung im Hotel: Die Uhr tickt. Jetzt rechtzeitig umstellen.';
+const description = 'E-Rechnungspflicht im Hotel: Jetzt mit ZUGFeRD EN 16931 direkt aus der Hotelsoftware umstellen. Fristen 2027 und 2028 erklärt. In jedem Zimmero-Paket inklusive.';
+const canonical = '/wissen/e-rechnung-hotel/';
+const contactMail = `mailto:${CONTACT_EMAIL}?subject=E-Rechnungen%20mit%20Zimmero%20einrichten`;
+
+const deadlines = [
+  { date: 'Seit 01.01.2025', title: 'E-Rechnungen empfangen', text: 'Inländische Unternehmen müssen E-Rechnungen empfangen können. Das gilt auch für Hotels und Kleinunternehmer. Für den Empfang genügt grundsätzlich ein E-Mail-Postfach.' },
+  { date: 'Ab 01.01.2027', title: 'Ausstellen bei mehr als 800.000 €', text: 'Für Rechnungsaussteller mit mehr als 800.000 Euro Gesamtumsatz im Vorjahr endet die allgemeine Übergangsfrist. Betroffen sind grundsätzlich steuerpflichtige Umsätze zwischen inländischen Unternehmen.' },
+  { date: 'Ab 01.01.2028', title: 'Ausstellen unabhängig vom Umsatz', text: 'Dann endet auch die umsatzabhängige Übergangsfrist. Für betroffene B2B-Umsätze wird die E-Rechnung unabhängig vom Umsatz erforderlich. Gesetzliche Ausnahmen bleiben bestehen.' },
+];
+
+const setupSteps = [
+  { title: 'Betreiberdaten vervollständigen', text: 'Name, Geschäftsanschrift, Ländercode, Steuerstatus und Steuernummer oder USt-ID des rechtlichen Betreibers werden in den Unternehmensdaten gepflegt.' },
+  { title: 'E-Rechnungen je Haus aktivieren', text: 'Unter Hauseinstellungen bei Briefpapier & PDF-Export wählen Sie automatisch bei B2B-Rechnungen oder standardmäßig bei allen geeigneten Rechnungen.' },
+  { title: 'Rechnungsempfänger prüfen', text: 'Die automatische B2B-Zuordnung erfolgt über den Rechnungsempfänger Firma. Bei Bedarf lässt sich die Kundeneinordnung im Rechnungseditor überschreiben.' },
+  { title: 'Erste Firmenrechnung prüfen', text: 'Kontrollieren Sie Empfänger, Leistungen und Steuerangaben. Stimmen Sie den ersten ZUGFeRD-Beleg und die weitere Aufbewahrung mit Ihrer Buchhaltung ab.' },
+];
+
+const faqs = [
+  { q: 'Ab wann gilt die E-Rechnungspflicht für Hotels?', a: 'E-Rechnungen empfangen müssen inländische Unternehmen bereits seit dem 1. Januar 2025. Beim Ausstellen endet die allgemeine Übergangsfrist für Unternehmen mit mehr als 800.000 Euro Vorjahresgesamtumsatz zum Jahresende 2026. Bei höchstens 800.000 Euro läuft die umsatzabhängige Übergangsfrist bis Ende 2027. Die Pflicht betrifft grundsätzlich steuerpflichtige B2B-Umsätze im Inland. Ausnahmen gelten unter anderem für Kleinbetragsrechnungen und Leistungen von Kleinunternehmern.' },
+  { q: 'Ist eine Hotelrechnung als PDF per E-Mail schon eine E-Rechnung?', a: 'Ein gewöhnliches PDF enthält keine strukturierten Rechnungsdaten und gilt deshalb als sonstige Rechnung. Eine ZUGFeRD-Rechnung verbindet die lesbare PDF mit eingebetteten XML-Daten. Zimmero unterstützt dafür das Profil EN 16931.' },
+  { q: 'Was bedeutet ZUGFeRD EN 16931 in der Hotelsoftware?', a: 'ZUGFeRD ist ein hybrides Rechnungsformat aus PDF und eingebetteten XML-Rechnungsdaten. EN 16931 ist die europäische Norm für strukturierte Rechnungsdaten und zugleich die Bezeichnung des hier verwendeten ZUGFeRD-Profils. So können Menschen die Rechnung lesen und geeignete Buchhaltungssysteme die Daten verarbeiten.' },
+  { q: 'Muss ich auch privaten Hotelgästen eine E-Rechnung ausstellen?', a: 'Die deutsche B2B-E-Rechnungspflicht gilt nicht für Rechnungen an private Endverbraucher. Bei einer Geschäftsreise ist entscheidend, wer die Leistung bezieht. Allein die berufliche Reise macht eine Rechnung an eine Privatperson nicht automatisch zur B2B-Rechnung.' },
+  { q: 'Sind E-Rechnungen in jedem Zimmero-Paket enthalten?', a: 'Ja. ZUGFeRD-E-Rechnungen im Profil EN 16931 sind in Starter, Professional und Multi Property ohne Aufpreis enthalten. Starter kostet 99 Euro, Professional 199 Euro und Multi Property 299 Euro netto pro Monat. Einrichtung, Datenübernahme und eine halbtägige Schulung über Microsoft Teams sind kostenlos.' },
+  { q: 'Kann Zimmero ZUGFeRD automatisch für B2B-Rechnungen aktivieren?', a: 'Ja. Je Haus lässt sich die automatische Ausgabe bei B2B-Rechnungen einstellen. Alternativ kann ZUGFeRD standardmäßig bei allen geeigneten Rechnungen verwendet werden. Die B2B-Erkennung nutzt den Rechnungsempfänger Firma. Die Kundeneinordnung lässt sich bei Bedarf im Rechnungseditor überschreiben.' },
+  { q: 'Sind ZUGFeRD und XRechnung dasselbe?', a: 'Beide können auf EN 16931 beruhen. ZUGFeRD kombiniert in seiner hybriden Form eine PDF mit XML-Daten. XRechnung ist ein strukturierter XML-Standard mit zusätzlichen Vorgaben. Die hier beschriebene Zimmero-Funktion erzeugt ZUGFeRD im Profil EN 16931. Bei Behördenrechnungen müssen Sie das verlangte Format, Pflichtangaben und den Übermittlungsweg gesondert prüfen.' },
+  { q: 'Macht die Aktivierung meine Rechnungen automatisch rechtssicher?', a: 'Das Format ist ein Baustein. Betreiberdaten, Rechnungsempfänger, Pflichtangaben, steuerliche Behandlung und Aufbewahrung müssen ebenfalls stimmen. Zimmero unterstützt die Erstellung im ZUGFeRD-Profil EN 16931. Ob für einen konkreten Vorgang eine E-Rechnung erforderlich und vollständig ist, muss der Betrieb prüfen.' },
+];
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline,
+  description,
+  image: 'https://zimmero.app/assets/og-default.jpg',
+  datePublished: '2026-11-07',
+  dateModified: '2026-11-07',
+  inLanguage: 'de-DE',
+  author: { '@type': 'Person', name: 'Andreas Huber' },
+  publisher: { '@id': 'https://zimmero.app/#organization' },
+  mainEntityOfPage: `https://zimmero.app${canonical}`,
+  keywords: ['E-Rechnung Hotel', 'E-Rechnungspflicht Hotel 2027', 'Hotelsoftware mit E-Rechnung', 'PMS E-Rechnung', 'ZUGFeRD EN 16931', 'B2B Hotelrechnung'],
+};
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
+};
+const breadcrumbs = [
+  { name: 'Startseite', href: '/' },
+  { name: 'Wissen', href: '/wissen/' },
+  { name: 'E-Rechnung im Hotel', href: canonical },
+];
+---
+
+<Layout title={title} description={description} canonical={canonical} ogType="article" structuredData={[articleSchema, faqSchema, SOFTWARE_APPLICATION_SCHEMA]}>
+  <article>
+    <header class="overflow-hidden bg-primary-50 py-10 md:py-16 lg:py-20">
+      <div class="section-container">
+        <Breadcrumbs items={breadcrumbs} />
+        <div class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-14">
+          <div>
+            <p class="mb-4 text-sm font-semibold text-primary-700">Hotelsoftware mit E-Rechnung · ZUGFeRD EN 16931</p>
+            <h1 class="mb-6 text-3xl font-bold tracking-tight md:text-5xl lg:text-[3.4rem]">E-Rechnung im Hotel: Die Uhr tickt. <span class="text-primary-700">Jetzt rechtzeitig umstellen.</span></h1>
+            <p class="text-lg leading-relaxed text-secondary-700 md:text-xl">Ab 2027 reicht die gewöhnliche PDF für viele Firmenrechnungen nicht mehr. Erstellen Sie E-Rechnungen mit ZUGFeRD EN 16931 direkt in Ihrem PMS. Mit Zimmero ist die Funktion in jedem Paket enthalten.</p>
+            <p class="mt-5 border-l-4 border-warning-500 pl-4 text-sm leading-relaxed text-secondary-700">Die Frist 2027 betrifft grundsätzlich Rechnungsaussteller mit mehr als 800.000 Euro Vorjahresgesamtumsatz bei steuerpflichtigen B2B-Umsätzen im Inland. Für kleinere Betriebe läuft die umsatzabhängige Übergangsfrist bis Ende 2027.</p>
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href={contactMail} data-event="E-Rechnung Einrichtung angefragt" class="btn-primary px-7 py-3.5">Jetzt E-Rechnungen einrichten</a>
+              <a href="#fristen" class="btn-secondary bg-white px-7 py-3.5">Fristen für mein Hotel prüfen</a>
+            </div>
+            <p class="mt-5 text-sm text-secondary-600">Einrichtung, Datenübernahme und halbtägige Teams-Schulung kostenlos.</p>
+          </div>
+
+          <figure class="rounded-2xl border border-primary-200 bg-white p-6 shadow-xl shadow-primary-900/10 md:p-8">
+            <div class="mb-8 flex items-center justify-between gap-3 border-b border-secondary-200 pb-5">
+              <span class="text-lg font-bold text-secondary-900">Eine Rechnung. Zwei Lesarten.</span>
+              <span class="shrink-0 rounded-full bg-success-50 px-3 py-1 text-xs font-semibold text-success-800">Inklusive</span>
+            </div>
+            <div class="rounded-xl border border-secondary-200 bg-secondary-50 p-5">
+              <span class="mb-3 inline-block rounded bg-white px-2.5 py-1 text-xs font-bold text-primary-700">PDF</span>
+              <p class="font-semibold text-secondary-900">Für Menschen lesbar</p>
+              <p class="mt-2 text-sm leading-relaxed text-secondary-600">Die vertraute Rechnungsansicht für Ihren Firmenkunden.</p>
+            </div>
+            <p class="py-3 text-center text-2xl font-medium text-primary-500" aria-hidden="true">+</p>
+            <div class="rounded-xl border border-primary-200 bg-primary-50 p-5">
+              <span class="mb-3 inline-block rounded bg-white px-2.5 py-1 text-xs font-bold text-primary-700">XML</span>
+              <p class="font-semibold text-secondary-900">Für Software auswertbar</p>
+              <p class="mt-2 text-sm leading-relaxed text-secondary-600">Strukturierte Rechnungsdaten, direkt in der PDF eingebettet.</p>
+            </div>
+            <figcaption class="mt-6 text-center text-sm font-semibold text-primary-800">ZUGFeRD im Profil EN 16931</figcaption>
+          </figure>
+        </div>
+        <p class="mt-10 text-sm text-secondary-600">Von Andreas Huber · Stand <time datetime="2026-11-07">7. November 2026</time></p>
+      </div>
+    </header>
+
+    <section id="fristen" class="scroll-mt-32 py-16 md:py-24" aria-labelledby="fristen-heading">
+      <div class="section-container">
+        <div class="mb-10 max-w-3xl">
+          <p class="mb-3 text-sm font-semibold text-primary-700">E-Rechnungspflicht im Hotel 2027 und 2028</p>
+          <h2 id="fristen-heading" class="mb-5 text-2xl font-bold md:text-4xl">Die Übergangsfrist läuft. Warten kostet Vorbereitungszeit.</h2>
+          <p class="text-lg leading-relaxed text-secondary-600">Empfangen und Ausstellen haben unterschiedliche Fristen. Prüfen Sie den Gesamtumsatz des rechnungsausstellenden Unternehmens und Ihre Firmenkundenumsätze, bevor die nächste Rechnung fällig wird.</p>
+        </div>
+        <ol class="grid gap-6 md:grid-cols-3">
+          {deadlines.map(deadline => (
+            <li class="border-t-4 border-primary-400 pt-5">
+              <p class="mb-3 text-lg font-bold text-primary-700">{deadline.date}</p>
+              <h3 class="mb-3 text-xl font-semibold">{deadline.title}</h3>
+              <p class="text-sm leading-relaxed text-secondary-600">{deadline.text}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="mt-8 rounded-xl border border-secondary-200 bg-secondary-50 p-5 text-sm leading-relaxed text-secondary-700">
+          <p><strong>Ausnahmen bleiben bestehen.</strong> Private Endverbraucher fallen nicht unter die B2B-Pflicht. Unter anderem sind Kleinbetragsrechnungen bis 250 Euro brutto sowie Leistungen von Kleinunternehmern nach § 19 UStG ausgenommen. Für bestimmte EDI-Verfahren gilt noch eine Sonderregelung bis Ende 2027.</p>
+          <p class="mt-3">Bis Ende der jeweils anwendbaren Übergangsfrist sind Papierrechnungen und mit Zustimmung des Empfängers auch gewöhnliche PDF-Rechnungen möglich. <a href="https://www.gesetze-im-internet.de/ustg_1980/__27.html" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">Grundlage: § 27 Absatz 38 UStG.</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16 md:py-24" aria-labelledby="format-heading">
+      <div class="section-container">
+        <div class="mx-auto max-w-4xl">
+          <p class="mb-3 text-sm font-semibold text-primary-700">ZUGFeRD statt bloßer PDF-Ausgabe</p>
+          <h2 id="format-heading" class="mb-5 text-2xl font-bold md:text-4xl">Eine PDF per E-Mail ist noch keine E-Rechnung.</h2>
+          <p class="mb-5 text-lg leading-relaxed text-secondary-600">Eine echte E-Rechnung enthält strukturierte Daten. ZUGFeRD verbindet dafür die sichtbare Rechnung im PDF/A-3-Format mit eingebetteten XML-Daten. Ihr Firmenkunde kann die Rechnung lesen und ein geeignetes Buchhaltungssystem kann die Daten übernehmen.</p>
+          <p class="leading-relaxed text-secondary-700">Zimmero verwendet das ZUGFeRD-Profil EN 16931. Die Bezeichnung steht für die europäische Norm, auf der die strukturierten Rechnungsdaten beruhen. Das Format unterstützt die E-Rechnungspflicht, während korrekte Inhalte und die passende steuerliche Behandlung weiterhin zum Rechnungsprozess gehören.</p>
+          <div class="mt-8 overflow-x-auto rounded-xl border border-secondary-200 bg-white">
+            <table class="w-full min-w-[560px] border-collapse text-left text-sm">
+              <caption class="sr-only">Unterschiede zwischen PDF, ZUGFeRD und XRechnung</caption>
+              <thead class="bg-secondary-50"><tr><th scope="col" class="p-4">Format</th><th scope="col" class="p-4">Was steckt darin?</th><th scope="col" class="p-4">Einordnung</th></tr></thead>
+              <tbody class="text-secondary-700">
+                <tr class="border-t border-secondary-200"><th scope="row" class="p-4 font-medium">Gewöhnliche PDF</th><td class="p-4">Lesbare Darstellung ohne strukturierte Rechnungsdaten</td><td class="p-4">Sonstige Rechnung</td></tr>
+                <tr class="border-t border-primary-200 bg-primary-50"><th scope="row" class="p-4 font-semibold text-primary-800">ZUGFeRD EN 16931</th><td class="p-4">PDF mit eingebetteten XML-Rechnungsdaten</td><td class="p-4">In Zimmero enthalten</td></tr>
+                <tr class="border-t border-secondary-200"><th scope="row" class="p-4 font-medium">XRechnung</th><td class="p-4">Strukturierte XML mit zusätzlichen Vorgaben</td><td class="p-4">Häufig bei öffentlichen Auftraggebern</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="mt-4 text-sm leading-relaxed text-secondary-600">Bei Behördenrechnungen prüfen Sie das geforderte Format, zusätzliche Angaben wie eine Leitweg-ID und den Übermittlungsweg gesondert. ZUGFeRD EN 16931 und XRechnung sind unterschiedliche Formate. <a href="https://www.ferd-net.de/standards/zugferd-faq" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">Mehr zu den Formaten bei FeRD.</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24" aria-labelledby="b2b-heading">
+      <div class="section-container">
+        <div class="mx-auto max-w-4xl">
+          <h2 id="b2b-heading" class="mb-6 text-2xl font-bold md:text-3xl">Firmenrechnung oder Privatrechnung: Der Empfänger zählt.</h2>
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="rounded-xl border border-primary-200 bg-primary-50 p-6">
+              <h3 class="mb-3 text-lg font-semibold">Die Firma bucht und erhält die Rechnung</h3>
+              <p class="text-sm leading-relaxed text-secondary-700">Bezieht ein inländisches Unternehmen die Hotelleistung für seinen Betrieb, handelt es sich grundsätzlich um einen B2B-Umsatz. Bei anwendbarer Pflicht und ohne Ausnahme braucht die Abrechnung eine E-Rechnung.</p>
+            </div>
+            <div class="rounded-xl border border-secondary-200 bg-secondary-50 p-6">
+              <h3 class="mb-3 text-lg font-semibold">Der Gast bucht als Privatperson</h3>
+              <p class="text-sm leading-relaxed text-secondary-700">Eine Rechnung an einen privaten Endverbraucher fällt nicht unter diese B2B-Pflicht. Auch eine berufliche Reise macht den Arbeitgeber nicht automatisch zum Leistungsempfänger.</p>
+            </div>
+          </div>
+          <p class="mt-5 text-sm leading-relaxed text-secondary-600">Prüfen Sie deshalb vor dem Abschluss den tatsächlichen Leistungsempfänger und seine Rechnungsanschrift. Eine saubere Firmenkartei hilft Ihrem Team, diese Zuordnung im Alltag konsequent vorzunehmen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="einrichten" class="scroll-mt-32 bg-secondary-950 py-16 text-white md:py-24" aria-labelledby="einrichten-heading">
+      <div class="section-container">
+        <div class="mb-10 max-w-3xl">
+          <p class="mb-3 text-sm font-semibold text-primary-300">E-Rechnungen direkt aus dem PMS</p>
+          <h2 id="einrichten-heading" class="mb-5 text-2xl font-bold text-white md:text-4xl">So aktivieren Sie ZUGFeRD in Zimmero.</h2>
+          <p class="text-lg leading-relaxed text-secondary-300">Ihre Rezeption arbeitet weiter mit Buchung, Firma und Rechnung in einer Hotelsoftware. Ein zusätzliches Rechnungsprogramm ist für die ZUGFeRD-Ausgabe nicht erforderlich.</p>
+        </div>
+        <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {setupSteps.map((step, index) => (
+            <li class="border-t border-secondary-700 pt-5">
+              <p class="mb-3 text-sm font-bold text-primary-300">Schritt {index + 1}</p>
+              <h3 class="mb-3 text-lg font-semibold text-white">{step.title}</h3>
+              <p class="text-sm leading-relaxed text-secondary-300">{step.text}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="mt-10 rounded-xl border border-secondary-700 p-5 text-sm leading-relaxed text-secondary-300"><strong class="text-white">Für jedes Haus passend einstellen.</strong> Die E-Rechnungsfunktion kann je Haus deaktiviert, automatisch für B2B-Rechnungen oder standardmäßig für alle geeigneten Rechnungen aktiviert werden. Der Betrieb bleibt für die Wahl des zulässigen Formats verantwortlich.</div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24" aria-labelledby="pakete-heading">
+      <div class="section-container">
+        <div class="mx-auto max-w-4xl text-center">
+          <p class="mb-3 text-sm font-semibold text-primary-700">Starter · Professional · Multi Property</p>
+          <h2 id="pakete-heading" class="mb-5 text-2xl font-bold md:text-4xl">E-Rechnungen gehören in jedes Paket.</h2>
+          <p class="text-lg leading-relaxed text-secondary-600">ZUGFeRD EN 16931 ist in allen drei Zimmero-Paketen ohne Aufpreis enthalten.</p>
+          <div class="mt-7 flex flex-col justify-center gap-3 sm:flex-row"><a href="/preise/" class="btn-primary">Pakete und Leistungen vergleichen</a><a href={DEMO_URL} target="_blank" rel="noopener" class="btn-secondary">Zimmero Demo öffnen</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface py-16 md:py-24" aria-labelledby="faq-heading">
+      <div class="section-container">
+        <div class="mx-auto max-w-4xl">
+          <h2 id="faq-heading" class="mb-8 text-2xl font-bold md:text-3xl">Häufige Fragen zu E-Rechnungen im Hotel</h2>
+          <FaqAccordion faqs={faqs} />
+          <div class="mt-12 border-t border-secondary-200 pt-8 text-sm leading-relaxed text-secondary-600">
+            <h3 class="mb-4 text-lg font-semibold">Quellen und rechtliche Einordnung</h3>
+            <p class="mb-4">Stand: 7. November 2026. Die Fristen und Beispiele beziehen sich auf Deutschland. Für die Beurteilung einzelner Umsätze und betrieblicher Sonderfälle beziehen Sie Ihre Steuerberatung ein.</p>
+            <ul class="space-y-3">
+              <li><a href="https://www.bundesfinanzministerium.de/Content/DE/FAQ/e-rechnung.html" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">Bundesfinanzministerium: Fragen und Antworten zur E-Rechnung</a></li>
+              <li><a href="https://www.gesetze-im-internet.de/ustg_1980/__27.html" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">§ 27 Absatz 38 UStG: Übergangsregelungen</a></li>
+              <li><a href="https://www.finanzamt-passau.de/steuerinfos/weitere-themen/e-rechnung" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">Bayerische Finanzverwaltung: Fristen, Ausnahmen und Aufbewahrung</a></li>
+              <li><a href="https://www.ferd-net.de/standards/zugferd" target="_blank" rel="noopener" class="font-medium text-primary-700 hover:underline">FeRD: ZUGFeRD als hybrides Rechnungsformat</a></li>
+            </ul>
+            <p class="mt-5">Bei der Aufbewahrung muss der strukturierte Rechnungsteil in seiner ursprünglichen Form erhalten bleiben. Ein Papierausdruck allein genügt dafür nicht.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary-500 py-16 text-center md:py-20" aria-labelledby="start-heading">
+      <div class="section-container">
+        <div class="mx-auto max-w-3xl">
+          <h2 id="start-heading" class="mb-5 text-2xl font-bold text-white md:text-4xl">Stellen Sie um, bevor die Frist Ihren Alltag bestimmt.</h2>
+          <p class="mb-8 text-lg leading-relaxed text-primary-100">Wir richten Zimmero mit Ihnen ein und zeigen Ihrem Team den Ablauf für E-Rechnungen. Bringen Sie Ihre Firmenrechnungen jetzt auf ZUGFeRD EN 16931.</p>
+          <a href={contactMail} data-event="E-Rechnung Einrichtung angefragt" class="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-primary-700 transition hover:bg-primary-50">E-Rechnungen jetzt besprechen</a>
+          <p class="mt-6 text-sm text-primary-100">Sie wechseln von HS3? <a href="/wissen/hs3-alternative/" class="font-semibold text-white underline underline-offset-4">So übernehmen wir Ihre vorhandenen Daten.</a></p>
+          <p class="mt-3 text-sm text-primary-100">Für die Buchhaltung: <a href="/datev-export-hotel/" class="font-semibold text-white underline underline-offset-4">DATEV-Export aus Zimmero ansehen.</a></p>
+        </div>
+      </div>
+    </section>
+  </article>
+</Layout>

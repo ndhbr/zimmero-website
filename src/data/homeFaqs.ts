@@ -33,7 +33,7 @@ export const homeFaqs = [
   },
   {
     q: 'Was kostet Zimmero?',
-    a: 'Bei Abschluss bis einschließlich 31.12.2026 gelten die Aktionspreise dauerhaft: Starter 79 Euro netto pro Monat (regulär 99 Euro) für ein Haus und bis zu 20 Einheiten, Professional 149 Euro (regulär 199 Euro) für bis zu zwei Häuser und 50 Einheiten, Multi Property 249 Euro (regulär 299 Euro) für bis zu fünf Häuser und 100 Einheiten. Direktbuchungen kosten bei Zimmero weder Provision noch Buchungsgebühr. Portalbuchungen kosten 1,50 Euro je Buchung, maximal 59 Euro pro Monat. Eine zusätzliche monatliche Channel-Manager-Grundgebühr gibt es nicht. Weitere mögliche Kosten stehen auf der Preisseite.',
+    a: 'Starter kostet 99 Euro netto pro Monat für ein Haus und bis zu 20 Einheiten, Professional 199 Euro für bis zu zwei Häuser und 50 Einheiten, Multi Property 299 Euro für bis zu fünf Häuser und 100 Einheiten. Einrichtung, Datenübernahme und eine halbtägige Schulung über Microsoft Teams sind kostenlos. Direktbuchungen kosten bei Zimmero weder Provision noch Buchungsgebühr. Portalbuchungen kosten 1,50 Euro je Buchung, maximal 59 Euro pro Monat. Eine zusätzliche monatliche Channel-Manager-Grundgebühr gibt es nicht. Weitere mögliche Kosten stehen auf der Preisseite.',
   },
   {
     q: 'Kann Zimmero Speisen und Getränke aufs Zimmer buchen?',

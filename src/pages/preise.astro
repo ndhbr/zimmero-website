@@ -8,8 +8,7 @@ const plans = [
   {
     name: 'Starter',
     audience: 'Für kleine Hotels und Pensionen',
-    current: '79',
-    regular: '99',
+    price: '99',
     houses: '1 Haus',
     units: 'bis 20 Zimmer oder Einheiten',
     extensions: 'Optionale Erweiterungen bei Bedarf einzeln zubuchbar',
@@ -22,8 +21,7 @@ const plans = [
   {
     name: 'Professional',
     audience: 'Für wachsende Betriebe',
-    current: '149',
-    regular: '199',
+    price: '199',
     houses: 'bis 2 Häuser',
     units: 'insgesamt bis 50 Zimmer oder Einheiten',
     extensions: '3 optionale Erweiterungen nach Wahl inklusive',
@@ -36,8 +34,7 @@ const plans = [
   {
     name: 'Multi Property',
     audience: 'Für Hotelgruppen und Verwalter',
-    current: '249',
-    regular: '299',
+    price: '299',
     houses: 'bis 5 Häuser',
     units: 'insgesamt bis 100 Zimmer oder Einheiten',
     extensions: 'Alle derzeitigen optionalen Erweiterungen inklusive',
@@ -55,6 +52,7 @@ const includedFeatures = [
   'Gäste- und Firmenkartei, Preise, Tarife und Pauschalen',
   'Eigene Buchungsstrecke ohne Provision und Gästeportal mit Online-Check-in',
   'Rechnungen, Angebote, E-Mails und Push-Nachrichten',
+  'E-Rechnungen mit ZUGFeRD EN 16931',
   'TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export inklusive',
   'Meldescheine, Statistiken und Buchhaltungsexport',
   'Housekeeping, Tagespost, Eigentümer- und Benutzerverwaltung',
@@ -85,6 +83,7 @@ const featureGroups = [
     title: 'Abrechnen und auswerten',
     items: [
       'Abrechnung, Folios und Rechnungen',
+      'E-Rechnungen mit ZUGFeRD EN 16931',
       'TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export inklusive',
       'Meldescheine und Archiv',
       'Statistiken mit ADR und RevPAR',
@@ -104,14 +103,14 @@ const featureGroups = [
 
 const comparisonRows = [
   { label: 'Zimmero-Grundtarif mit 18 Funktionsbereichen', values: ['komplett enthalten', 'komplett enthalten', 'komplett enthalten'], emphasized: true },
-  { label: 'Dauerhafter Aktionspreis netto pro Monat bei Abschluss bis 31.12.2026', values: ['79 €', '149 €', '249 €'] },
-  { label: 'Regulärer Preis netto pro Monat für spätere Neukunden', values: ['99 €', '199 €', '299 €'] },
+  { label: 'Preis netto pro Monat', values: plans.map(plan => `${plan.price} €`) },
   { label: 'Häuser', values: ['1', 'bis 2', 'bis 5'] },
   { label: 'Zimmer oder Einheiten', values: ['bis 20', 'insgesamt bis 50', 'insgesamt bis 100'] },
   { label: 'Mitarbeiterkonten', values: ['unbegrenzt', 'unbegrenzt', 'unbegrenzt'] },
-  { label: 'Einmalige Einrichtung im Aktionsangebot', values: ['enthalten', 'enthalten', 'enthalten'] },
-  { label: 'Halbtägige Schulung im Aktionsangebot', values: ['enthalten', 'enthalten', 'enthalten'] },
-  { label: 'Datenübernahme', values: ['derzeit kostenlos', 'derzeit kostenlos', 'derzeit kostenlos'] },
+  { label: 'Einmalige Einrichtung', values: ['kostenlos', 'kostenlos', 'kostenlos'] },
+  { label: 'Halbtägige Schulung über Microsoft Teams', values: ['kostenlos', 'kostenlos', 'kostenlos'] },
+  { label: 'Datenübernahme', values: ['kostenlos', 'kostenlos', 'kostenlos'] },
+  { label: 'E-Rechnungen mit ZUGFeRD EN 16931', values: ['enthalten', 'enthalten', 'enthalten'] },
   { label: 'Tagespost für Druck und Gästeportal', values: ['enthalten', 'enthalten', 'enthalten'] },
   { label: 'TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export', values: ['enthalten', 'enthalten', 'enthalten'] },
   { label: 'E-Mail-Support', values: ['Nutzungsfragen und technische Probleme. Bearbeitung Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen.', 'enthalten', 'enthalten'] },
@@ -131,12 +130,12 @@ const priceFaqs = [
     a: 'Alle Preise sind Nettopreise und verstehen sich zuzüglich der gesetzlichen Umsatzsteuer.',
   },
   {
-    q: 'Was umfasst das Aktionsangebot?',
-    a: 'Das Aktionsangebot umfasst den reduzierten Monatspreis, die einmalige Einrichtung und eine halbtägige Schulung.',
+    q: 'Was kosten Einrichtung, Datenübernahme und Schulung?',
+    a: 'Die einmalige Einrichtung, die Datenübernahme und eine halbtägige Schulung über Microsoft Teams sind in allen drei Paketen kostenlos. Zusätzliche Schulungen und individuelle Arbeiten werden vor Beauftragung gesondert angeboten.',
   },
   {
-    q: 'Bleibt der Aktionspreis dauerhaft bestehen?',
-    a: 'Ja. Bei Abschluss bis einschließlich 31.12.2026 bleibt der vereinbarte Aktionspreis in allen drei Paketen dauerhaft bestehen. Die regulären Preise gelten für spätere Neukunden.',
+    q: 'Sind E-Rechnungen in jedem Paket enthalten?',
+    a: 'Ja. E-Rechnungen mit ZUGFeRD im Profil EN 16931 sind bei Starter, Professional und Multi Property ohne Aufpreis enthalten. Die Ausgabe lässt sich je Haus automatisch für B2B-Rechnungen oder standardmäßig für alle geeigneten Rechnungen aktivieren.',
   },
   {
     q: 'Wie lange läuft der Vertrag?',
@@ -148,7 +147,7 @@ const priceFaqs = [
   },
   {
     q: 'Was ist im Zimmero-Grundtarif enthalten?',
-    a: 'In jedem Tarif steckt das komplette Hotelmanagement: unter anderem Dashboard, Zimmerplan, Buchungs- und Gästeverwaltung, Preise, eine eigene Buchungsstrecke, Gästeportal und Online-Check-in, Rechnungen, Meldescheine, Statistiken, Housekeeping, Buchhaltungsexport und Tagespost. TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export sind ebenfalls ohne Aufpreis enthalten.',
+    a: 'In jedem Tarif steckt das komplette Hotelmanagement: unter anderem Dashboard, Zimmerplan, Buchungs- und Gästeverwaltung, Preise, eine eigene Buchungsstrecke, Gästeportal und Online-Check-in, Rechnungen einschließlich E-Rechnungen mit ZUGFeRD EN 16931, Meldescheine, Statistiken, Housekeeping, Buchhaltungsexport und Tagespost. TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export sind ebenfalls ohne Aufpreis enthalten.',
   },
   {
     q: 'Was meint Zimmero mit optionalen Erweiterungen?',
@@ -156,7 +155,7 @@ const priceFaqs = [
   },
   {
     q: 'Was kostet die Übernahme vorhandener Daten?',
-    a: 'Die Datenübernahme ist derzeit kostenlos. Erprobt ist die Übernahme von Gäste- und Buchungsdaten aus HS3 und Pensionsprogramm.',
+    a: 'Die Datenübernahme ist in allen Paketen kostenlos. Erprobt ist die Übernahme von Gäste- und Buchungsdaten aus HS3 und Pensionsprogramm.',
   },
   {
     q: 'Gibt es eine kostenlose Testphase?',
@@ -188,8 +187,8 @@ const breadcrumbs = [
 ---
 
 <Layout
-  title="Zimmero Preise | All-in-One-Hotelsoftware ab 79 Euro"
-  description="Zimmero ab 79 Euro netto pro Monat: Bei Abschluss bis einschließlich 31.12.2026 bleibt der Aktionspreis in allen drei Paketen dauerhaft gesichert."
+  title="Zimmero Preise | All-in-One-Hotelsoftware ab 99 Euro"
+  description="Zimmero ab 99 Euro netto pro Monat: E-Rechnungen mit ZUGFeRD EN 16931 in jedem Paket. Einrichtung, Datenübernahme und halbtägige Teams-Schulung kostenlos."
   structuredData={[SOFTWARE_APPLICATION_SCHEMA, faqSchema]}
 >
   <section class="py-12 md:py-20">
@@ -207,11 +206,8 @@ const breadcrumbs = [
           <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">Unbegrenzt viele Mitarbeiter</span>
           <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">0 € Gebühr für Direktbuchungen</span>
         </div>
-        <p class="mb-6 text-sm font-medium leading-relaxed text-primary-700">
-          TSE-gesicherte Bar- und Kartenzahlungen, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export – in jedem Paket inklusive.
-        </p>
         <div class="rounded-xl border border-success-200 bg-success-50 p-5 text-left text-sm leading-relaxed text-success-900">
-          <strong>Bis einschließlich 31.12.2026 abschließen und den Aktionspreis in allen drei Paketen dauerhaft sichern.</strong> Im Aktionsangebot sind die einmalige Einrichtung und eine halbtägige Schulung inklusive. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit ebenfalls kostenlos.
+          <strong>Ihr Einstieg bleibt kostenlos:</strong> Die einmalige Einrichtung, die Übernahme vorhandener Gäste- und Buchungsdaten und eine halbtägige Schulung über Microsoft Teams sind in allen Paketen inklusive.
         </div>
       </div>
 
@@ -227,11 +223,9 @@ const breadcrumbs = [
 
             <div class="mb-5 border-b border-secondary-200 pb-5">
               <div class="flex items-baseline gap-1">
-                <span class="text-3xl font-bold text-secondary-900">{plan.current} €</span>
+                <span class="text-3xl font-bold text-secondary-900">{plan.price} €</span>
                 <span class="text-sm text-secondary-600">netto pro Monat</span>
               </div>
-              <p class="mt-2 text-sm font-medium text-success-800">Dauerhaft bei Abschluss bis 31.12.2026</p>
-              <p class="mt-1 text-sm text-secondary-600">Regulär später {plan.regular} € netto pro Monat</p>
             </div>
 
             <p class="mb-3 text-sm font-semibold text-secondary-900">Der komplette Grundtarif:</p>
@@ -282,7 +276,7 @@ const breadcrumbs = [
           </article>
           <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
             <h3 class="mb-3 text-lg font-semibold">Einmalige Leistungen und weitere Schulungen</h3>
-            <p class="text-sm leading-relaxed text-secondary-700">Im Aktionsangebot sind die einmalige Einrichtung und eine halbtägige Einführungsschulung enthalten. Die Übernahme vorhandener Gäste- und Buchungsdaten ist derzeit kostenlos. Für spätere Abschlüsse sind Kosten für Einrichtung und Schulung vor Beauftragung zu klären. Zusätzliche Schulungen und individuelle Arbeiten werden ebenfalls vor Beauftragung gesondert angeboten. Dafür gibt es hier keinen pauschalen Preis.</p>
+            <p class="text-sm leading-relaxed text-secondary-700">Die einmalige Einrichtung, die Übernahme vorhandener Gäste- und Buchungsdaten und eine halbtägige Einführungsschulung über Microsoft Teams sind in allen Paketen kostenlos. Zusätzliche Schulungen und individuelle Arbeiten werden vor Beauftragung gesondert angeboten.</p>
           </article>
           <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
             <h3 class="mb-3 text-lg font-semibold">Zusätzlicher Support und Notfälle</h3>

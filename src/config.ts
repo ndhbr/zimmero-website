@@ -12,6 +12,7 @@ export const CONTACT_PHONE_HREF = '+4915117815136';
 export const CONTACT_HOURS = 'Montag bis Freitag, 8 bis 17 Uhr, außer an gesetzlichen Feiertagen';
 
 export const SOLUTION_LINKS = [
+  { label: 'E-Rechnungen mit ZUGFeRD', href: '/wissen/e-rechnung-hotel/' },
   { label: 'Meldeschein', href: '/meldeschein-software/' },
   { label: 'Kurtaxe und Ortstaxe', href: '/kurtaxe-ortstaxe-software/' },
   { label: 'Channel Manager', href: '/channel-manager-booking-com/' },
@@ -42,6 +43,7 @@ export const SOFTWARE_APPLICATION_SCHEMA = {
     'Channel Manager mit Booking.com Anbindung',
     'Eigene Online Buchungsstrecke ohne Provision',
     'Rechnungen mit Split Billing und PDF Archiv',
+    'E-Rechnungen mit ZUGFeRD EN 16931 in jedem Paket',
     'DATEV EXTF Export',
     'Digitaler Meldeschein mit elektronischer Übermittlung',
     'Kurtaxen und Ortstaxenabrechnung',
@@ -53,13 +55,12 @@ export const SOFTWARE_APPLICATION_SCHEMA = {
   ],
   offers: {
     '@type': 'Offer',
-    price: '79.00',
+    price: '99.00',
     priceCurrency: 'EUR',
-    validThrough: '2026-12-31T23:59:59+01:00',
-    description: 'Bei Abschluss bis einschließlich 31.12.2026 dauerhaft 79 Euro netto pro Monat.',
+    description: 'Starter ab 99 Euro netto pro Monat inklusive ZUGFeRD EN 16931. Einrichtung, Datenübernahme und halbtägige Teams-Schulung kostenlos.',
     priceSpecification: {
       '@type': 'UnitPriceSpecification',
-      price: '79.00',
+      price: '99.00',
       priceCurrency: 'EUR',
       unitText: 'MONTH',
       billingIncrement: 1,
