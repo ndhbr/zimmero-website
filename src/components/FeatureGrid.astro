@@ -1,93 +1,34 @@
 ---
-const features = [
-  {
-    title: 'Zimmerplan und Aufenthalte',
-    text: 'Anreisen, Abreisen, Zimmerwechsel und gesperrte Zimmer bleiben in einem Plan sichtbar. Die serverseitige Prüfung verhindert widersprüchliche Belegungen.',
-  },
-  {
-    title: 'Buchungen und Preischeck',
-    text: 'Bei einer telefonischen Anfrage geben Sie Zeitraum, Belegung und gewünschte Leistungen ein. Zimmero zeigt passende Zimmer und Preise und übernimmt das Ergebnis direkt in die Buchung.',
-  },
-  {
-    title: 'Direktbuchungen über Ihre Website',
-    text: 'Gäste buchen über die Buchungsstrecke im Erscheinungsbild Ihres Hauses. Die Reservierung landet direkt in Zimmero und kostet weder Provision noch Buchungsgebühr.',
-  },
-  {
-    title: 'Channel Manager',
-    text: 'Zimmero überträgt Verfügbarkeiten, Preise und Verkaufsbeschränkungen an Booking.com. Neue Portalreservierungen kommen automatisch zurück und fehlgeschlagene Übertragungen werden wiederholt.',
-  },
-  {
-    title: 'Rechnungen und Buchhaltung',
-    text: 'Sie teilen Rechnungen nach Empfänger oder Abrechnungskonto auf und erstellen E-Rechnungen mit ZUGFeRD EN 16931 direkt in Zimmero. Die E-Rechnungsfunktion ist in jedem Paket inklusive. Adresse und Steuerdaten bleiben auf der fertigen Rechnung eingefroren. Für die Buchhaltung gibt es den DATEV-EXTF-Export. Bar- und Kartenzahlungen werden über eine zertifizierte Cloud-TSE abgesichert. Die Kassendaten werden automatisch 11 Jahre manipulationsgeschützt archiviert. Ein DSFinV-K-Export für Steuerprüfungen ist inklusive.',
-  },
-  {
-    title: 'Housekeeping und Technik',
-    text: 'Reinigungskräfte sehen Putzpläne, Aufgaben und den Zimmerstatus. Technische Aufgaben und Mängel werden im Facility Management festgehalten.',
-  },
-  {
-    title: 'Digitaler Meldeschein',
-    text: 'Der Meldeschein wird elektronisch übermittelt. Unterschrift, Stornierung und Statusverfolgung gehören dazu. Die Vorgaben Ihres Orts sind hinterlegt.',
-  },
-  {
-    title: 'Bayerische Tourismusstatistik',
-    text: 'Die monatliche Meldung an das Landesamt für Statistik erzeugt Zimmero als fertige CSV-Datei zum Hochladen in IDEV. Das erspart die Übertragung von Hand.',
-  },
-  {
-    title: 'Online Check-in ist verfügbar',
-    text: 'Drei Tage vor der Anreise erhalten Gäste automatisch den Zugang zum Gästeportal. Dort erfassen sie die Daten aller Mitreisenden. Bei kurzfristigen Buchungen wird die Nachricht sofort versendet.',
-  },
-  {
-    title: 'Hotel-Tagespost',
-    text: 'Wetter, Sonnenzeiten, Veranstaltungen und Mitteilungen werden als gestaltete A4-Tagespost erzeugt. Die PDF lässt sich drucken und steht angemeldeten Gästen im Gästeportal bereit.',
-  },
-  {
-    title: 'Firmenkunden und Kontingente',
-    text: 'Für Firmen hinterlegen Sie Rechnungsadresse, Umsatzsteuer-ID und eigene Preisvereinbarungen. Zimmer können langfristig für Monteure oder Dauerkontingente geblockt werden.',
-  },
-  {
-    title: 'Eigentümerabrechnung',
-    text: 'Bei Appartements und Eigentümerwohnungen verwaltet Zimmero Provisionen und weiterberechnete Kosten. Die Abrechnung wird je Eigentümer mit Einzelpositionen erstellt.',
-  },
-  {
-    title: 'Änderungen bleiben nachvollziehbar',
-    text: 'Für die Revisionssicherheit erhalten Buchungen, Preise und Stammdaten ein Änderungsprotokoll mit Zeitpunkt, Person und Statuswechsel. Damit lässt sich auch die Alltagsfrage beantworten, wer eine Buchung storniert hat.',
-  },
-  {
-    title: 'E-Mails und Belege bleiben erhalten',
-    text: 'Jede versendete E-Mail wird protokolliert, auch wenn die Zustellung fehlschlägt. Alle von Zimmero erzeugten PDF-Dateien werden zehn Jahre archiviert.',
-  },
-  {
-    title: 'Deutsch oder Englisch je Mitarbeiter',
-    text: 'Jedes Mitarbeiterkonto kann die Oberfläche auf Deutsch oder Englisch verwenden. Das hilft, wenn Rezeption und Housekeeping in unterschiedlichen Sprachen arbeiten.',
-  },
-  {
-    title: 'Offene Schnittstellen statt Datensilo',
-    text: 'Eine öffentliche Schnittstelle stellt Zimmertypen für Ihre eigene Website bereit. Für Kassensysteme gibt es eine dokumentierte Schnittstelle.',
-  },
-];
+import { featureGroups } from '../data/features';
+
+interface Props {
+  complete?: boolean;
+}
+
+const { complete = false } = Astro.props;
 ---
 
-<section id="funktionen" class="bg-surface py-16 md:py-24">
-  <div class="section-container">
-    <div class="mx-auto mb-12 max-w-3xl text-center">
-      <h2 class="mb-4 text-2xl font-bold md:text-3xl">Die täglichen Abläufe in einem System.</h2>
-      <p class="leading-relaxed text-secondary-600">
-        Jede Funktion greift dort, wo an der Rezeption sonst eine Liste, ein zweites Programm oder eine Rückfrage nötig wäre.
-      </p>
-    </div>
-
-    <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {features.map(feature => (
-        <article class="rounded-xl border border-secondary-200 bg-white p-6 shadow-sm">
-          <div class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary-50">
-            <svg class="h-5 w-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <h3 class="mb-2 font-semibold text-secondary-900">{feature.title}</h3>
-          <p class="text-sm leading-relaxed text-secondary-600">{feature.text}</p>
-        </article>
-      ))}
-    </div>
-  </div>
-</section>
+<div class="grid gap-px overflow-hidden rounded-2xl border border-secondary-200 bg-secondary-200 sm:grid-cols-2 lg:grid-cols-3">
+  {featureGroups.map(group => (
+    <article class="min-w-0 bg-white p-5 sm:p-6 lg:p-7">
+      <span class="product-icon mb-4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d={group.icon} />
+        </svg>
+      </span>
+      <h3 class="mb-3 text-lg font-semibold">{group.title}</h3>
+      <ul class="product-list">
+        {group.summary.map(item => <li>{item}</li>)}
+      </ul>
+      {complete && (
+        <details class="mt-4 border-t border-secondary-100 pt-3 text-sm">
+          <summary class="cursor-pointer font-semibold text-primary-700">Weitere Funktionen</summary>
+          <ul class="product-list mt-3">
+            {group.details.map(item => <li>{item}</li>)}
+          </ul>
+          {group.link && <a class="product-link mt-3" href={group.link.href}>{group.link.label}<span aria-hidden="true">↗</span></a>}
+        </details>
+      )}
+    </article>
+  ))}
+</div>

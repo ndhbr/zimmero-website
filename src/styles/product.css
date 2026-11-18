@@ -1,0 +1,81 @@
+.product-container {
+  @apply mx-auto w-full max-w-[1264px] px-5 sm:px-8 lg:px-10;
+}
+
+.product-section {
+  @apply py-12 md:py-[4.5rem];
+}
+
+.product-title {
+  @apply text-[clamp(2.55rem,5.5vw,4.75rem)] font-semibold leading-[1.03] tracking-[-0.06em] text-secondary-950;
+  text-wrap: balance;
+}
+
+.product-heading {
+  @apply text-[clamp(1.85rem,3.6vw,2.85rem)] font-semibold leading-[1.12] tracking-[-0.045em] text-secondary-950;
+  text-wrap: balance;
+}
+
+.product-link {
+  @apply inline-flex max-w-full items-baseline gap-1.5 text-sm font-semibold text-primary-700 hover:underline underline-offset-4;
+}
+
+.product-icon {
+  @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-700;
+}
+
+.product-icon svg {
+  @apply h-5 w-5;
+}
+
+.product-list {
+  @apply space-y-2 text-sm leading-relaxed text-secondary-700;
+}
+
+.product-list li {
+  @apply relative pl-4;
+}
+
+.product-list li::before {
+  content: '';
+  @apply absolute left-0 top-[0.62em] h-1 w-1 rounded-full bg-primary-600;
+}
+
+.product-frame {
+  @apply overflow-hidden rounded-xl border border-secondary-200 bg-white shadow-[0_18px_40px_-18px_rgba(15,23,42,.28)];
+}
+
+.product-frame img {
+  @apply block h-auto w-full;
+}
+
+.product-card {
+  @apply rounded-2xl border border-secondary-200 bg-white p-5 sm:p-6;
+}
+
+.product-kicker {
+  @apply text-sm font-semibold text-primary-700;
+}
+
+.product-hero-stage {
+  background-color: #edf2fd;
+  background-image: radial-gradient(#a9bcee 1px, transparent 1px), linear-gradient(140deg, #f5f7ff, #dfe8ff);
+  background-size: 15px 15px, 100% 100%;
+}
+
+.product-cta {
+  background-color: #111d3c;
+  background-image: radial-gradient(ellipse at 100% 0%, #314c9c, transparent 63%);
+}
+
+.product-cta h2 {
+  color: white;
+}
+
+.product-cta .btn-primary {
+  @apply bg-white text-primary-800 shadow-none hover:bg-primary-50;
+}
+
+.product-cta .btn-secondary {
+  @apply border-white/35 text-white hover:border-white hover:bg-white/10;
+}

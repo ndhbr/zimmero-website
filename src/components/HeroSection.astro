@@ -1,40 +1,47 @@
 ---
-import { CONTACT_EMAIL, DEMO_URL } from '../config';
+import { DEMO_URL } from '../config';
+import { plans } from '../data/pricing';
 ---
 
-<section class="pt-16 md:pt-24 pb-12 md:pb-16">
-  <div class="section-container">
-    <div class="max-w-4xl mx-auto text-center">
-      <p class="text-sm font-medium text-primary-600 mb-4">
-        Für inhabergeführte Hotels, Pensionen und kleine Hotelgruppen
+<section id="zielgruppe" aria-labelledby="willkommen" class="border-b border-secondary-200/80 bg-[#fbfcff] py-12 lg:py-[4.5rem]">
+  <div class="product-container grid items-center gap-10 lg:grid-cols-[.84fr_1.16fr] lg:gap-9">
+    <div>
+      <p class="product-kicker mb-4">Für inhabergeführte Hotels und Pensionen</p>
+      <h1 id="willkommen" class="product-title">All-in-One-<wbr />Hotelsoftware für Ihren Alltag.</h1>
+      <p class="mt-5 max-w-[31rem] text-base leading-relaxed text-secondary-600 sm:text-lg">
+        Zimmero verbindet Zimmerplan, Reservierungen, Vertrieb, Rechnungen und Housekeeping in einem System. Für Gasthöfe und kleine Hotelgruppen ebenso wie für einzelne Häuser.
       </p>
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-secondary-900 mb-6 leading-tight">
-        Die moderne Betriebssoftware für inhabergeführte Hotels
-      </h1>
-      <p class="text-lg md:text-xl text-secondary-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-        Zimmero bringt Zimmerplan, Buchungen, Preise, Rechnungen, Housekeeping, Channel Manager, digitalen Meldeschein, Kurtaxe und Online Check-in in ein System für den Hotelalltag.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">
-        <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary px-8 py-3.5 inline-flex items-center gap-2">
-          Demo öffnen
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary">
+          Demo öffnen <span aria-hidden="true">↗</span>
         </a>
-        <a href="/kontakt/" class="btn-secondary px-8 py-3.5">Zimmero anfragen</a>
+        <a href="/preise/" class="btn-secondary bg-white">Preise ansehen</a>
       </div>
-      <p class="text-sm text-secondary-600">Oder schreiben Sie direkt an <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%20zu%20Zimmero`} class="font-medium text-primary-700 hover:underline">{CONTACT_EMAIL}</a>.</p>
+      <p class="mt-3 text-sm text-secondary-600">Ab <strong class="font-semibold text-secondary-900">{plans[0].price} € netto</strong> pro Monat</p>
+      <p class="mt-6 flex items-center gap-2.5 text-sm font-semibold text-secondary-800">
+        <span class="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-success-100 text-success-800" aria-hidden="true">✓</span>
+        15+ Hotels nutzen bereits Zimmero
+      </p>
     </div>
 
-    <div class="mt-12 md:mt-16 max-w-5xl mx-auto">
-      <img
-        src="/assets/zimmerplan-v2.webp"
-        alt="Zimmero Zimmerplan mit Buchungen, Aufenthalten und blockierten Zimmern"
-        width="2720"
-        height="1402"
-        class="block h-auto w-full rounded-2xl shadow-xl shadow-primary-900/10"
-        loading="eager"
-      />
-    </div>
+    <figure class="product-hero-stage min-w-0 rounded-[1.5rem] border border-primary-100 px-3 py-6 sm:p-8 lg:p-5 xl:p-7">
+      <div class="product-frame">
+        <div class="flex items-center gap-3 border-b border-secondary-200 bg-secondary-50 px-3 py-2.5 text-xs font-medium text-secondary-600">
+          <img src="/logo.svg" alt="" width="16" height="16" class="!w-4 !h-4" />
+          <span>Zimmero · Digitaler Zimmerplan</span>
+        </div>
+        <a href="/assets/zimmerplan-v2.webp" target="_blank" rel="noopener" class="block" aria-label="Zimmerplan in voller Größe öffnen">
+          <img
+            src="/assets/zimmerplan-1360.webp"
+            srcset="/assets/zimmerplan-680.webp 680w, /assets/zimmerplan-1360.webp 1360w, /assets/zimmerplan-v2.webp 2720w"
+            sizes="(min-width: 1264px) 603px, (min-width: 1024px) 53vw, (min-width: 640px) calc(100vw - 130px), calc(100vw - 66px)"
+            alt="Der digitale Zimmerplan von Zimmero zeigt Reservierungen, Aufenthalte und gesperrte Zimmer."
+            width="1360"
+            height="701"
+            fetchpriority="high"
+          />
+        </a>
+      </div>
+    </figure>
   </div>
 </section>

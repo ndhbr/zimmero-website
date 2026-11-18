@@ -1,415 +1,140 @@
 ---
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
 import Layout from '../layouts/Layout.astro';
-import { CONTACT_EMAIL, DEMO_URL, SOFTWARE_APPLICATION_SCHEMA } from '../config';
+import { CONTACT_HOURS, DEMO_URL, SOFTWARE_APPLICATION_SCHEMA } from '../config';
+import { addOns, plans } from '../data/pricing';
 
-const plans = [
+const faqs = [
   {
-    name: 'Starter',
-    audience: 'Für kleine Hotels und Pensionen',
-    price: '99',
-    houses: '1 Haus',
-    units: 'bis 20 Zimmer oder Einheiten',
-    extensions: 'Optionale Erweiterungen bei Bedarf einzeln zubuchbar',
-    support: [
-      'E-Mail für konkrete Nutzungsfragen und technische Probleme. Nachrichten sind jederzeit möglich. Bearbeitung Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen.',
-      'Ein telefonisches Notfallgespräch pro Monat bis 30 Minuten innerhalb der Servicezeiten inklusive',
-    ],
-    highlighted: false,
+    q: 'Wann wird eine Kündigung wirksam?',
+    a: 'Zimmero ist monatlich kündbar. Die Kündigung wird zum Ersten eines Monats wirksam.',
   },
   {
-    name: 'Professional',
-    audience: 'Für wachsende Betriebe',
-    price: '199',
-    houses: 'bis 2 Häuser',
-    units: 'insgesamt bis 50 Zimmer oder Einheiten',
-    extensions: '3 optionale Erweiterungen nach Wahl inklusive',
-    support: [
-      'E-Mail- und WhatsApp-Support',
-      'Insgesamt drei Telefonate pro Monat bis je 30 Minuten inklusive. Reguläre Telefonate innerhalb der Servicezeiten, Notfälle auch außerhalb nach Verfügbarkeit.',
-    ],
-    highlighted: true,
+    q: 'Was kosten zusätzliche Schulungen und individuelle Arbeiten?',
+    a: 'Einrichtung, Datenübernahme und eine halbtägige Schulung über Microsoft Teams sind kostenlos. Weitere Schulungen und individuelle Arbeiten bieten wir vor der Beauftragung gesondert an.',
   },
   {
-    name: 'Multi Property',
-    audience: 'Für Hotelgruppen und Verwalter',
-    price: '299',
-    houses: 'bis 5 Häuser',
-    units: 'insgesamt bis 100 Zimmer oder Einheiten',
-    extensions: 'Alle derzeitigen optionalen Erweiterungen inklusive',
-    support: [
-      'E-Mail- und WhatsApp-Support',
-      'Telefonischer Support Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen',
-      'Telefonischer Notfallsupport außerhalb der Servicezeiten inklusive, nach Verfügbarkeit. Keine garantierte Rufbereitschaft.',
-    ],
-    highlighted: false,
-  },
-];
-
-const includedFeatures = [
-  'Dashboard, digitaler Zimmerplan und Buchungsverwaltung',
-  'Gäste- und Firmenkartei, Preise, Tarife und Pauschalen',
-  'Eigene Buchungsstrecke ohne Provision und Gästeportal mit Online-Check-in',
-  'Rechnungen, Angebote, E-Mails und Push-Nachrichten',
-  'E-Rechnungen mit ZUGFeRD EN 16931',
-  'TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export inklusive',
-  'Meldescheine, Statistiken und Buchhaltungsexport',
-  'Housekeeping, Tagespost, Eigentümer- und Benutzerverwaltung',
-];
-
-const featureGroups = [
-  {
-    title: 'Reservieren und steuern',
-    items: [
-      'Dashboard und Auslastungsüberblick',
-      'Digitaler Zimmerplan',
-      'Buchungsverwaltung',
-      'Gäste- und Firmenverwaltung',
-      'Preise, Tarife und Arrangements',
-    ],
+    q: 'Bietet Zimmero Tarife für mehr als fünf Häuser oder 100 Zimmer an?',
+    a: 'Ja. Für größere Betriebe und besondere Schnittstellen erstellen wir ein individuelles Angebot.',
   },
   {
-    title: 'Direkt verkaufen und Gäste begleiten',
-    items: [
-      'Eigenes Online-Buchungsportal',
-      'Gästeportal und Online-Check-in',
-      'Angebote und Zusatzleistungen',
-      'E-Mail-Kommunikation',
-      'Push-Benachrichtigungen',
-    ],
-  },
-  {
-    title: 'Abrechnen und auswerten',
-    items: [
-      'Abrechnung, Folios und Rechnungen',
-      'E-Rechnungen mit ZUGFeRD EN 16931',
-      'TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export inklusive',
-      'Meldescheine und Archiv',
-      'Statistiken mit ADR und RevPAR',
-      'DATEV-/Stotax-Buchhaltungsexport',
-      'Eigentümerverwaltung und -abrechnung',
-    ],
-  },
-  {
-    title: 'Den Hotelalltag organisieren',
-    items: [
-      'Putzpläne und mobile Housekeeping-Aufgaben',
-      'Digitale Tagespost für Druck und Gästeportal',
-      'Mehrere Häuser, Rollen und individuelle Gestaltung',
-    ],
-  },
-];
-
-const comparisonRows = [
-  { label: 'Zimmero-Grundtarif mit 18 Funktionsbereichen', values: ['komplett enthalten', 'komplett enthalten', 'komplett enthalten'], emphasized: true },
-  { label: 'Preis netto pro Monat', values: plans.map(plan => `${plan.price} €`) },
-  { label: 'Häuser', values: ['1', 'bis 2', 'bis 5'] },
-  { label: 'Zimmer oder Einheiten', values: ['bis 20', 'insgesamt bis 50', 'insgesamt bis 100'] },
-  { label: 'Mitarbeiterkonten', values: ['unbegrenzt', 'unbegrenzt', 'unbegrenzt'] },
-  { label: 'Einmalige Einrichtung', values: ['kostenlos', 'kostenlos', 'kostenlos'] },
-  { label: 'Halbtägige Schulung über Microsoft Teams', values: ['kostenlos', 'kostenlos', 'kostenlos'] },
-  { label: 'Datenübernahme', values: ['kostenlos', 'kostenlos', 'kostenlos'] },
-  { label: 'E-Rechnungen mit ZUGFeRD EN 16931', values: ['enthalten', 'enthalten', 'enthalten'] },
-  { label: 'Tagespost für Druck und Gästeportal', values: ['enthalten', 'enthalten', 'enthalten'] },
-  { label: 'TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export', values: ['enthalten', 'enthalten', 'enthalten'] },
-  { label: 'E-Mail-Support', values: ['Nutzungsfragen und technische Probleme. Bearbeitung Montag bis Freitag von 8 bis 17 Uhr, außer an gesetzlichen Feiertagen.', 'enthalten', 'enthalten'] },
-  { label: 'WhatsApp-Support', values: ['nicht enthalten', 'enthalten', 'enthalten'] },
-  { label: 'Enthaltene Telefonate pro Monat', values: ['ein Notfalltelefonat bis 30 Minuten innerhalb der Servicezeiten', 'insgesamt drei Telefonate bis je 30 Minuten', 'telefonischer Support innerhalb der Servicezeiten enthalten'] },
-  { label: 'Weitere Telefonate innerhalb der Servicezeiten', values: ['70 € netto pro Stunde nach dem enthaltenen Telefonat', '70 € netto pro Stunde nach den drei enthaltenen Telefonaten', 'enthalten'] },
-  { label: 'Akute Einsätze außerhalb der Servicezeiten', values: ['120 € netto pro Stunde, nur nach Verfügbarkeit', 'im Rahmen der drei Telefonate enthalten, danach 120 € netto pro Stunde, jeweils nach Verfügbarkeit', 'inklusive nach Verfügbarkeit, ohne garantierte Rufbereitschaft'] },
-  { label: 'Behebung von Zimmero-Fehlern', values: ['ohne Zusatzkosten, zählt nicht als enthaltenes Telefonat', 'ohne Zusatzkosten, zählt nicht als enthaltenes Telefonat', 'ohne Zusatzkosten, zählt nicht als enthaltenes Telefonat'] },
-  { label: 'Zimmero-Gebühr und -Provision je Direktbuchung über Ihre Website', values: ['0 € / 0 %', '0 € / 0 %', '0 € / 0 %'] },
-  { label: 'Optionale Erweiterungen ohne monatlichen Aufpreis', values: ['keine. Einzeln zubuchbar.', '3 nach Wahl', 'alle derzeitigen'] },
-  { label: 'Portalbuchungen über den Zimmero Channel Manager (optional)', values: ['1,50 €, maximal 59 € pro Monat', '1,50 €, maximal 59 € pro Monat', '1,50 €, maximal 59 € pro Monat'] },
-];
-
-const priceFaqs = [
-  {
-    q: 'Sind die Preise netto oder brutto?',
-    a: 'Alle Preise sind Nettopreise und verstehen sich zuzüglich der gesetzlichen Umsatzsteuer.',
-  },
-  {
-    q: 'Was kosten Einrichtung, Datenübernahme und Schulung?',
-    a: 'Die einmalige Einrichtung, die Datenübernahme und eine halbtägige Schulung über Microsoft Teams sind in allen drei Paketen kostenlos. Zusätzliche Schulungen und individuelle Arbeiten werden vor Beauftragung gesondert angeboten.',
-  },
-  {
-    q: 'Sind E-Rechnungen in jedem Paket enthalten?',
-    a: 'Ja. E-Rechnungen mit ZUGFeRD im Profil EN 16931 sind bei Starter, Professional und Multi Property ohne Aufpreis enthalten. Die Ausgabe lässt sich je Haus automatisch für B2B-Rechnungen oder standardmäßig für alle geeigneten Rechnungen aktivieren.',
-  },
-  {
-    q: 'Wie lange läuft der Vertrag?',
-    a: 'Der Vertrag ist monatlich kündbar. Eine Kündigung wird jeweils zum 1. eines Monats wirksam.',
-  },
-  {
-    q: 'Gibt es eine Begrenzung für Mitarbeiterkonten?',
-    a: 'Nein. In allen drei Tarifen können Sie unbegrenzt Mitarbeiterkonten anlegen.',
-  },
-  {
-    q: 'Was ist im Zimmero-Grundtarif enthalten?',
-    a: 'In jedem Tarif steckt das komplette Hotelmanagement: unter anderem Dashboard, Zimmerplan, Buchungs- und Gästeverwaltung, Preise, eine eigene Buchungsstrecke, Gästeportal und Online-Check-in, Rechnungen einschließlich E-Rechnungen mit ZUGFeRD EN 16931, Meldescheine, Statistiken, Housekeeping, Buchhaltungsexport und Tagespost. TSE-Absicherung, 11 Jahre manipulationsgeschützte Archivierung und DSFinV-K-Export sind ebenfalls ohne Aufpreis enthalten.',
-  },
-  {
-    q: 'Was meint Zimmero mit optionalen Erweiterungen?',
-    a: 'Das sind Ergänzungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, Anbindung externer Kassensysteme, myOBS/WinTOP und der Channel Manager. Die Buchungsgebühr für Portalbuchungen gilt auch dann, wenn die Erweiterung im Paket enthalten ist.',
-  },
-  {
-    q: 'Was kostet die Übernahme vorhandener Daten?',
-    a: 'Die Datenübernahme ist in allen Paketen kostenlos. Erprobt ist die Übernahme von Gäste- und Buchungsdaten aus HS3 und Pensionsprogramm.',
-  },
-  {
-    q: 'Gibt es eine kostenlose Testphase?',
-    a: 'Nein. Statt einer zeitlich begrenzten Testphase gibt es eine öffentliche Demo mit Beispieldaten. Sie lässt sich ohne Anmeldung öffnen und setzt sich selbst zurück.',
-  },
-  {
-    q: 'Welche Kosten können zusätzlich entstehen?',
-    a: 'Zusatzkosten können für Portalbuchungen, optionale Erweiterungen, zusätzliche Telefonate und externe Anbieter anfallen. Beträge und Abrechnungsregeln stehen in der Kostenübersicht weiter oben. Zusätzliche Schulungen und individuelle Arbeiten werden vor Beauftragung gesondert angeboten.',
+    q: 'Welche Kosten können bei externen Anbietern anfallen?',
+    a: 'Gebühren von Buchungsportalen, Zahlungsanbietern, Website-Anbietern und anderen externen Diensten richten sich nach Ihren Verträgen mit den jeweiligen Anbietern.',
   },
 ];
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: priceFaqs.map(faq => ({
+  mainEntity: faqs.map(({ q, a }) => ({
     '@type': 'Question',
-    name: faq.q,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.a,
-    },
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
   })),
 };
-
-const breadcrumbs = [
-  { name: 'Startseite', href: '/' },
-  { name: 'Preise', href: '/preise/' },
-];
 ---
 
 <Layout
-  title="Zimmero Preise | All-in-One-Hotelsoftware ab 99 Euro"
-  description="Zimmero ab 99 Euro netto pro Monat: E-Rechnungen mit ZUGFeRD EN 16931 in jedem Paket. Einrichtung, Datenübernahme und halbtägige Teams-Schulung kostenlos."
+  title="Hotelsoftware Preise ab 99 € netto pro Monat | Zimmero"
+  description="Zimmero Starter 99 €, Professional 199 €, Multi Property 299 € netto monatlich. Alle Grundfunktionen, kostenlose Datenmigration und Teams-Schulung."
   structuredData={[SOFTWARE_APPLICATION_SCHEMA, faqSchema]}
 >
-  <section class="py-12 md:py-20">
-    <div class="section-container">
-      <Breadcrumbs items={breadcrumbs} />
+  <div class="border-b border-secondary-200/80 bg-[#f7f9fe] pb-9 pt-5 md:pb-11">
+    <div class="product-container">
+      <Breadcrumbs items={[{ name: 'Startseite', href: '/' }, { name: 'Preise', href: '/preise/' }]} />
 
-      <div class="mx-auto mb-12 max-w-4xl text-center">
-        <p class="mb-3 text-sm font-semibold text-primary-700">All-in-One statt Baukastensystem</p>
-        <h1 class="mb-4 text-3xl font-bold md:text-5xl">Das komplette Hotelmanagement ist in jedem Tarif enthalten.</h1>
-        <p class="mx-auto mb-6 max-w-3xl text-lg leading-relaxed text-secondary-600">
-          Vom Zimmerplan bis zur Rechnung: Sie erhalten alle 18 Funktionsbereiche im Grundtarif. Die Pakete unterscheiden sich nur bei Betriebsgröße, Support und optionalen Erweiterungen.
-        </p>
-        <div class="mb-6 flex flex-wrap justify-center gap-2 text-sm font-medium text-secondary-700">
-          <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">18 Funktionsbereiche inklusive</span>
-          <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">Unbegrenzt viele Mitarbeiter</span>
-          <span class="rounded-full border border-secondary-200 bg-white px-4 py-2">0 € Gebühr für Direktbuchungen</span>
-        </div>
-        <div class="rounded-xl border border-success-200 bg-success-50 p-5 text-left text-sm leading-relaxed text-success-900">
-          <strong>Ihr Einstieg bleibt kostenlos:</strong> Die einmalige Einrichtung, die Übernahme vorhandener Gäste- und Buchungsdaten und eine halbtägige Schulung über Microsoft Teams sind in allen Paketen inklusive.
-        </div>
+      <div class="mb-7 md:mb-9">
+        <h1 class="product-title !text-[clamp(2.45rem,5vw,3.9rem)]">Preise für Ihre Hotelsoftware</h1>
+        <p class="mt-3 max-w-3xl text-secondary-600 sm:text-lg">Alle Tarife enthalten dieselben Grundfunktionen. Wählen Sie nach Größe, Support und Erweiterungen.</p>
       </div>
 
-      <div class="mx-auto mb-16 grid max-w-6xl grid-cols-1 gap-6 lg:grid-cols-3">
-        {plans.map(plan => (
-          <article class={`relative flex flex-col rounded-2xl border p-6 shadow-sm ${plan.highlighted ? 'border-primary-400 bg-primary-50 ring-2 ring-primary-200' : 'border-secondary-200 bg-white'}`}>
-            {plan.highlighted && <span class="absolute right-5 top-0 -translate-y-1/2 rounded-full bg-primary-600 px-3 py-1 text-xs font-semibold text-white">Beliebteste Wahl</span>}
-            <div class="mb-5">
-              <h2 class="text-xl font-semibold text-secondary-900">{plan.name}</h2>
-              <p class="mt-1 text-sm text-secondary-600">{plan.audience}</p>
-              <p class="mt-3 font-medium text-secondary-900">{plan.houses} · {plan.units}</p>
+      <div class="grid gap-4 lg:grid-cols-3">
+        {plans.map((plan, i) => (
+          <article class:list={['flex flex-col rounded-2xl border bg-white p-5 sm:p-6', i === 1 ? 'border-primary-400 shadow-[0_10px_28px_-19px_rgba(33,51,122,.5)]' : 'border-secondary-200']}>
+            <h2 class="text-xl font-semibold">{plan.name}</h2>
+            <p class="mt-3 flex flex-wrap items-baseline gap-x-2 gap-y-0">
+              <strong class="text-[2.55rem] font-semibold leading-none tracking-[-0.06em] text-secondary-950">{plan.price} €</strong>
+              <span class="text-sm text-secondary-600">netto pro Monat</span>
+            </p>
+            <p class="mt-3 text-sm font-medium text-secondary-800 lg:min-h-10">{plan.capacity}</p>
+            <p class="mt-4 rounded-lg bg-primary-50 px-3 py-2 text-sm font-semibold text-primary-800">{plan.extensions}</p>
+            <div class="mt-4 flex-1 border-t border-secondary-200 pt-4">
+              <h3 class="mb-2 text-sm font-semibold">Support</h3>
+              <ul class="product-list">
+                {plan.support.map(service => <li>{service}</li>)}
+              </ul>
             </div>
-
-            <div class="mb-5 border-b border-secondary-200 pb-5">
-              <div class="flex items-baseline gap-1">
-                <span class="text-3xl font-bold text-secondary-900">{plan.price} €</span>
-                <span class="text-sm text-secondary-600">netto pro Monat</span>
-              </div>
-            </div>
-
-            <p class="mb-3 text-sm font-semibold text-secondary-900">Der komplette Grundtarif:</p>
-            <ul class="mb-6 flex-1 space-y-3 text-sm leading-relaxed text-secondary-700">
-              {includedFeatures.map(feature => (
-                <li class="flex gap-2.5">
-                  <span class="mt-0.5 font-bold text-success-600" aria-hidden="true">✓</span>
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div class="mb-6 space-y-3 text-sm">
-              <div class="rounded-xl border border-primary-200 bg-white/80 p-4">
-                <p class="text-xs font-semibold uppercase tracking-wide text-primary-700">Optionale Erweiterungen</p>
-                <p class="mt-2 font-semibold text-secondary-900">{plan.extensions}</p>
-              </div>
-
-              <div class="rounded-xl border border-secondary-200 bg-white/80 p-4">
-                <p class="text-xs font-semibold uppercase tracking-wide text-secondary-500">Support inklusive</p>
-                <ul class="mt-2 space-y-2 text-secondary-700">
-                  {plan.support.map(service => <li class="flex gap-2.5"><span class="font-bold text-success-600" aria-hidden="true">✓</span><span>{service}</span></li>)}
-                </ul>
-              </div>
-            </div>
-
-            <a href="/kontakt/" class={plan.highlighted ? 'btn-primary text-center' : 'btn-secondary text-center'}>
-              {plan.name} unverbindlich anfragen
-            </a>
+            <a href="/kontakt/" class:list={['mt-5', i === 1 ? 'btn-primary' : 'btn-secondary']} aria-label={`Tarif anfragen für ${plan.name}`}>Tarif anfragen</a>
           </article>
         ))}
       </div>
 
-      <div class="grid min-w-0 gap-16">
-      <section id="tarifregeln" aria-labelledby="costs-heading" class="mx-auto w-full max-w-6xl">
-        <div class="mb-7 max-w-3xl">
-          <h2 id="costs-heading" class="mb-3 text-2xl font-bold md:text-3xl">Welche Kosten kommen zum Grundpreis hinzu?</h2>
-          <p class="leading-relaxed text-secondary-600">Alle Beträge sind netto und verstehen sich zuzüglich gesetzlicher Umsatzsteuer. Ob eine Erweiterung bereits enthalten ist, hängt vom Tarif ab.</p>
-        </div>
-        <div class="grid gap-5 md:grid-cols-2">
-          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
-            <h3 class="mb-3 text-lg font-semibold">Nutzungsabhängige Gebühren</h3>
-            <p class="text-sm leading-relaxed text-secondary-700"><strong>Portalbuchungen über den Zimmero Channel Manager (optional): 1,50 € je Buchung, höchstens 59 € pro Monat.</strong> Es gibt keine zusätzliche monatliche Channel-Manager-Grundgebühr. Direktbuchungen über Ihre Hotelwebsite kosten bei Zimmero weder Buchungsgebühr noch Provision.</p>
-          </article>
-          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
-            <h3 class="mb-3 text-lg font-semibold">Optionale Erweiterungen</h3>
-            <p class="text-sm leading-relaxed text-secondary-700">Zimmero Bell, Gastronomie-Tablet und Anbindung externer Kassensysteme: jeweils 10 € pro Monat. SumUp-Solo- und myOBS-Anbindung: jeweils 5 € pro Monat. Bei Professional sind drei Erweiterungen nach Wahl, bei Multi Property alle derzeitigen Erweiterungen ohne monatlichen Modulaufpreis enthalten. Die Gebühr je Portalbuchung bleibt bestehen.</p>
-          </article>
-          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
-            <h3 class="mb-3 text-lg font-semibold">Einmalige Leistungen und weitere Schulungen</h3>
-            <p class="text-sm leading-relaxed text-secondary-700">Die einmalige Einrichtung, die Übernahme vorhandener Gäste- und Buchungsdaten und eine halbtägige Einführungsschulung über Microsoft Teams sind in allen Paketen kostenlos. Zusätzliche Schulungen und individuelle Arbeiten werden vor Beauftragung gesondert angeboten.</p>
-          </article>
-          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
-            <h3 class="mb-3 text-lg font-semibold">Zusätzlicher Support und Notfälle</h3>
-            <p class="mb-3 text-sm leading-relaxed text-secondary-700">Ein Notfall ist eine akute technische Störung, die den laufenden Hotelbetrieb unmittelbar beeinträchtigt. Starter enthält ein Notfalltelefonat bis 30 Minuten pro Monat innerhalb der Servicezeiten. Professional enthält insgesamt drei Telefonate pro Monat bis je 30 Minuten. Notfälle können bei Professional auch außerhalb der Servicezeiten nach Verfügbarkeit betreut werden.</p>
-            <p class="mb-3 text-sm leading-relaxed text-secondary-700"><strong>Weitere Telefonate bei Starter und Professional: 70 € netto pro Stunde</strong> innerhalb der Servicezeiten, nach dem einen beziehungsweise den drei enthaltenen Telefonaten. Mindestens 30 Minuten, danach Abrechnung in 15-Minuten-Schritten.</p>
-            <p class="mb-3 text-sm leading-relaxed text-secondary-700"><strong>Akute Einsätze außerhalb der Servicezeiten: 120 € netto pro Stunde</strong> bei Starter und bei Professional nach den drei enthaltenen Telefonaten, auch am Wochenende und an Feiertagen. Mindestens eine Stunde, danach Abrechnung in 15-Minuten-Schritten. Einsätze erfolgen nur nach Verfügbarkeit, ohne garantierte Rufbereitschaft.</p>
-            <p class="mb-3 text-sm leading-relaxed text-secondary-700">Bei Multi Property ist telefonischer Notfallsupport außerhalb der Servicezeiten nach Verfügbarkeit inklusive. Eine garantierte Rufbereitschaft besteht nicht.</p>
-            <p class="text-sm leading-relaxed text-secondary-700">Die Behebung von Zimmero-Fehlern kostet nichts zusätzlich. Telefonate zur Behebung dieser Fehler zählen nicht als enthaltenes Telefonat.</p>
-          </article>
-          <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm md:col-span-2">
-            <h3 class="mb-3 text-lg font-semibold">Mögliche Kosten externer Anbieter</h3>
-            <p class="text-sm leading-relaxed text-secondary-700">Gebühren von Buchungsportalen, Zahlungsanbietern, Website-Anbietern oder anderen externen Diensten sind nicht im Zimmero-Preis enthalten. Die tatsächlichen Kosten richten sich nach Ihren Verträgen mit diesen Anbietern.</p>
-          </article>
-        </div>
-      </section>
-
-      <section aria-labelledby="included-heading" class="mx-auto w-full max-w-6xl">
-        <div class="mx-auto mb-8 max-w-3xl text-center">
-          <p class="mb-3 text-sm font-semibold text-primary-700">Alles im Grundtarif</p>
-          <h2 id="included-heading" class="mb-3 text-2xl font-bold md:text-3xl">18 Funktionsbereiche. In jedem Paket.</h2>
-          <p class="leading-relaxed text-secondary-600">Keine abgespeckte Einstiegsversion: Starter, Professional und Multi Property enthalten dieselben Funktionen für Ihr Hotelmanagement.</p>
-        </div>
-
-        <div class="grid gap-5 md:grid-cols-2">
-          {featureGroups.map(group => (
-            <article class="rounded-2xl border border-secondary-200 bg-white p-6 shadow-sm">
-              <h3 class="mb-4 text-lg font-semibold text-secondary-900">{group.title}</h3>
-              <ul class="grid gap-3 text-sm text-secondary-700 sm:grid-cols-2">
-                {group.items.map(item => (
-                  <li class="flex gap-2.5">
-                    <span class="mt-0.5 font-bold text-success-600" aria-hidden="true">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-
-        <div class="mt-6 rounded-xl border border-primary-200 bg-primary-50 p-5 text-sm leading-relaxed text-secondary-700 md:flex md:items-start md:gap-4">
-          <strong class="block shrink-0 text-secondary-900">Was ist dann ein Zusatzmodul?</strong>
-          <span>Optionale Erweiterungen für besondere Einsatzbereiche: Zimmero Bell, Gastronomie-Tablet, SumUp, Anbindung externer Kassensysteme, myOBS/WinTOP und Channel Manager. Die vollständige Hotelverwaltung funktioniert ohne diese Erweiterungen. Portalbuchungen bleiben auch bei enthaltenem Modul nutzungsabhängig kostenpflichtig.</span>
-        </div>
-      </section>
-
-      <div class="mx-auto w-full max-w-5xl rounded-xl border border-secondary-200 bg-white p-6 shadow-sm md:p-8">
-        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <div>
-            <h2 class="text-xl font-semibold text-secondary-900">Mehr als fünf Häuser oder mehr als 100 Einheiten?</h2>
-            <p class="mt-2 text-sm leading-relaxed text-secondary-600">Für größere Betriebe und besondere Schnittstellen erhalten Sie ein individuelles Angebot.</p>
-          </div>
-          <a href="/kontakt/" class="btn-secondary shrink-0">Angebot anfragen</a>
-        </div>
+      <div class="mt-5 grid gap-3 text-sm leading-relaxed text-secondary-700 sm:grid-cols-2 sm:gap-6">
+        <p><strong class="text-secondary-900">Vertrag.</strong> Monatlich kündbar. Zahlung per SEPA-Lastschrift. Alle Preise netto zzgl. Umsatzsteuer.</p>
+        <p><strong class="text-secondary-900">Wechsel.</strong> Einrichtung, Datenmigration und eine halbtägige Schulung über Microsoft Teams sind kostenlos.</p>
       </div>
 
-      <section aria-labelledby="comparison-heading" class="mx-auto w-full min-w-0 max-w-6xl">
-        <div class="mx-auto mb-7 max-w-3xl text-center">
-          <h2 id="comparison-heading" class="mb-3 text-2xl font-bold md:text-3xl">Welcher Tarif passt zu Ihrem Betrieb?</h2>
-          <p class="leading-relaxed text-secondary-600">Die Funktionen sind gleich. Vergleichen Sie nur noch Größe, Support und die enthaltenen optionalen Erweiterungen.</p>
+      <p class="mt-4 text-sm text-secondary-700"><strong>Servicezeiten.</strong> {CONTACT_HOURS}.</p>
+      <details id="tarifregeln" class="mt-5 rounded-xl border border-secondary-200 bg-white px-4 py-3 text-sm">
+        <summary class="cursor-pointer font-semibold text-primary-700">Abrechnung zusätzlicher Einsätze</summary>
+        <div class="mt-3 max-w-4xl space-y-2 leading-relaxed text-secondary-700">
+          <p>E-Mails können jederzeit gesendet werden. WhatsApp-Support ist in Professional und Multi Property enthalten.</p>
+          <p>Weitere Telefonate bei Starter und Professional kosten innerhalb der Servicezeiten 70 € pro Stunde. Die Mindestdauer beträgt 30 Minuten, danach rechnen wir in 15-Minuten-Schritten ab.</p>
+          <p>Ein Notfall ist eine akute technische Störung, die den laufenden Hotelbetrieb unmittelbar beeinträchtigt. Akute Einsätze außerhalb der Servicezeiten kosten bei Starter und bei Professional nach Ausschöpfung des Kontingents 120 € pro Stunde. Die Mindestdauer beträgt eine Stunde, danach rechnen wir in 15-Minuten-Schritten ab. Einsätze außerhalb der Servicezeiten sind auch an Wochenenden und Feiertagen nach Verfügbarkeit möglich. Eine garantierte Rufbereitschaft gibt es in keinem Tarif.</p>
+          <p>Die Behebung von Zimmero-Fehlern ist kostenlos. Entsprechende Telefonate werden beim Kontingent nicht mitgezählt.</p>
         </div>
+      </details>
+    </div>
+  </div>
 
-        <div class="max-w-full overflow-x-auto rounded-xl border border-secondary-200 bg-white shadow-sm">
-          <table class="w-full min-w-[760px] border-collapse text-left text-sm" aria-label="Vergleich der Zimmero Tarife Starter, Professional und Multi Property">
-            <thead class="bg-secondary-50 text-secondary-900">
-              <tr>
-                <th scope="col" class="p-4 font-semibold">Leistung</th>
-                {plans.map(plan => <th scope="col" class="p-4 font-semibold">{plan.name}</th>)}
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonRows.map(row => (
-                <tr class={`border-t border-secondary-200 ${row.emphasized ? 'bg-success-50' : ''}`}>
-                  <th scope="row" class="p-4 font-medium text-secondary-900">{row.label}</th>
-                  {row.values.map(value => <td class={`p-4 ${row.emphasized ? 'font-semibold text-success-800' : 'text-secondary-700'}`}>{row.emphasized && <span aria-hidden="true">✓ </span>}{value}</td>)}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p class="mt-4 text-sm leading-relaxed text-secondary-600">
-          Pro Buchung über ein angeschlossenes Buchungsportal fallen 1,50 € an, maximal 59 € pro Monat. Es gibt keine zusätzliche monatliche Grundgebühr für den Channel Manager. Bei der Datenübernahme sind HS3 und Pensionsprogramm bereits erprobt. <a href="/#zusatzmodule" class="font-medium text-primary-700 hover:underline">Alle optionalen Erweiterungen ansehen</a>.
-        </p>
-      </section>
+  <section id="grundfunktionen" class="product-section" aria-labelledby="grundfunktionen-heading">
+    <div class="product-container">
+      <h2 id="grundfunktionen-heading" class="product-heading">In jedem Tarif enthalten</h2>
+      <p class="mb-7 mt-3 max-w-3xl text-secondary-600">Der vollständige Grundumfang für Rezeption, Vertrieb, Abrechnung und Hotelbetrieb.</p>
+      <FeatureGrid complete />
+    </div>
+  </section>
 
-      <section aria-labelledby="direct-booking-heading" class="mx-auto w-full max-w-5xl rounded-2xl bg-secondary-950 p-6 text-white md:p-10">
-        <div class="mx-auto mb-8 max-w-3xl text-center">
-          <p class="mb-3 text-sm font-semibold text-primary-200">Eine einfache Beispielrechnung</p>
-          <h2 id="direct-booking-heading" class="mb-4 text-2xl font-bold text-white md:text-3xl">Direktbuchungen kosten bei Zimmero keine Buchungsgebühr.</h2>
-          <p class="leading-relaxed text-secondary-200">Die folgende Rechnung vergleicht nur die Buchungsgebühr. Der monatliche Zimmero Tarif fällt weiterhin an.</p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-4 text-center md:grid-cols-3">
-          <div class="rounded-xl bg-white/10 p-5">
-            <p class="text-sm text-secondary-200">30 Buchungen zu je 400 €</p>
-            <p class="mt-2 text-2xl font-bold">12.000 € Umsatz</p>
-          </div>
-          <div class="rounded-xl bg-white/10 p-5">
-            <p class="text-sm text-secondary-200">Beispielanbieter mit 3 %</p>
-            <p class="mt-2 text-2xl font-bold">360 € Buchungsgebühr</p>
-          </div>
-          <div class="rounded-xl bg-success-700 p-5">
-            <p class="text-sm text-success-100">Zimmero Direktbuchung</p>
-            <p class="mt-2 text-2xl font-bold">0 € Buchungsgebühr</p>
-          </div>
-        </div>
-        <p class="mt-5 text-center text-sm text-secondary-300">Rechnung: 30 × 400 € × 3 % = 360 €. Die angenommenen 3 % dienen nur diesem Rechenbeispiel.</p>
-      </section>
-
-      <section aria-labelledby="price-faq-heading" class="mx-auto w-full max-w-4xl">
-        <div class="mb-7 text-center">
-          <h2 id="price-faq-heading" class="mb-3 text-2xl font-bold md:text-3xl">Häufige Fragen zu Preisen und Vertrag</h2>
-          <p class="text-secondary-600">Die wichtigsten Bedingungen auf einen Blick.</p>
-        </div>
-
-        <FaqAccordion faqs={priceFaqs} />
-      </section>
-
-      <div class="mx-auto w-full max-w-4xl rounded-xl border border-primary-200 bg-primary-50 p-6 text-center md:p-8">
-        <h2 class="mb-3 text-2xl font-bold text-secondary-900">Sie möchten Zimmero zuerst ansehen?</h2>
-        <p class="mb-6 leading-relaxed text-secondary-600">Die öffentliche Demo funktioniert ohne Anmeldung. Fragen zu Ihrem Betrieb können Sie Andreas Huber per E-Mail senden.</p>
-        <div class="flex flex-col justify-center gap-3 sm:flex-row">
-          <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary">Demo öffnen</a>
-          <a href="/kontakt/" class="btn-secondary">Zimmero anfragen</a>
-        </div>
-        <p class="mt-5 text-sm text-secondary-600">Oder schreiben Sie direkt an <a href={`mailto:${CONTACT_EMAIL}?subject=Anfrage%20zu%20Zimmero`} class="font-medium text-primary-700 hover:underline">{CONTACT_EMAIL}</a>.</p>
+  <section id="zusatzmodule" class="product-section border-y border-secondary-200/80 bg-secondary-50" aria-labelledby="module-heading">
+    <div class="product-container">
+      <h2 id="module-heading" class="product-heading">Optionale Zusatzmodule</h2>
+      <div class="mb-7 mt-3 max-w-4xl space-y-2 text-secondary-600">
+        <p>Professional enthält drei reguläre Erweiterungen nach Wahl, Multi Property alle regulären Erweiterungen. Das gilt für myOBS, Gastronomie-Tablet, externe Kassensysteme, Zimmero Bell, SumUp Solo und das digitale Kassenbuch.</p>
+        <p>TOMAS ist in allen Tarifen separat buchbar. Der TOMAS-Modulpreis deckt den Channel Manager und neue Portalbuchungen ab. Beim einzelnen Channel Manager gelten sie tarifübergreifend.</p>
       </div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {addOns.map((addOn, index) => (
+          <article class:list={['product-card flex min-w-0 flex-col', index === 0 && '!border-primary-300 !bg-primary-50']}>
+            <h3 class="text-lg">{addOn.name}</h3>
+            <p class="mt-3 flex flex-wrap items-baseline gap-x-1.5 leading-snug">
+              <strong class="text-xl font-semibold text-secondary-950">{addOn.price}</strong>
+              <span class="text-xs text-secondary-600">{addOn.unit}</span>
+            </p>
+            <p class="mt-3 flex-1 text-sm leading-relaxed text-secondary-600">{addOn.description}</p>
+            {addOn.href && <a href={addOn.href} class="product-link mt-4" aria-label={`Details zu ${addOn.name}`}>Details <span aria-hidden="true">→</span></a>}
+          </article>
+        ))}
       </div>
+      <a href="/schnittstellen/" class="product-link mt-6">Alle Schnittstellen und Datenimporte <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 
-      <p class="mx-auto mt-7 max-w-3xl text-center text-sm leading-relaxed text-secondary-600">Individuell vereinbarte Konditionen gelten gemäß der jeweiligen Vereinbarung.</p>
-
-      <p class="mx-auto mt-7 max-w-3xl text-center text-sm leading-relaxed text-secondary-600">
-        Alle Preise verstehen sich zuzüglich der gesetzlichen Umsatzsteuer. Kosten externer Anbieter sind nicht enthalten.
-      </p>
+  <section id="faq" class="product-section" aria-labelledby="faq-heading">
+    <div class="product-container grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-start">
+      <div>
+        <h2 id="faq-heading" class="product-heading mb-5">Häufige Fragen zu den Preisen</h2>
+        <FaqAccordion faqs={faqs} />
+      </div>
+      <div class="product-cta rounded-[1.5rem] p-6 sm:p-8">
+        <h2 class="text-2xl font-semibold tracking-tight">Zimmero selbst ausprobieren</h2>
+        <p class="mt-2 text-sm leading-relaxed text-primary-100">Öffnen Sie die Demo mit Beispieldaten oder fragen Sie uns zu Ihrem Betrieb.</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary">Demo öffnen <span aria-hidden="true">↗</span></a>
+          <a href="/kontakt/" class="btn-secondary">Kontakt</a>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>

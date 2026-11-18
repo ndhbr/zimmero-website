@@ -1,0 +1,78 @@
+---
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Layout from '../layouts/Layout.astro';
+import { addOns } from '../data/pricing';
+
+const cashBook = addOns[0];
+const workflow = [
+  { title: 'Kassenübersicht', image: 'kassenuebersicht.webp', width: 901, height: 414, alt: 'Zimmero Kassenbuch mit Bestandskarte und Schaltflächen für Bewegungen, Abschlüsse und Überträge', description: 'Bargeldbestände und Bewegungen je Barkasse prüfen. Erfassen Sie Einlagen und Entnahmen, übertragen Sie Geld zwischen Kassen und halten Sie Soll- und Istbestand beim Abschluss fest.' },
+  { title: 'Beleg erfassen', image: 'belegerfassung.webp', width: 580, height: 355, alt: 'Belegupload in Zimmero mit den Optionen Smartphone-Scan und Datei auswählen', description: 'Fotografieren Sie den Beleg direkt mit dem Smartphone. Am Desktop können Sie die Kamera auf dem Handy per QR-Code öffnen und das Foto direkt in den geöffneten Vorgang übernehmen.' },
+  { title: 'Belegdaten mit KI erkennen', image: 'ki-belegerkennung.webp', width: 1170, height: 842, alt: 'Ein Musterbeleg neben den von Zimmero ausgefüllten Feldern für Betrag, Datum und Umsatzsteuer', description: 'Bei freigeschalteter KI-Belegerkennung kann Zimmero auf Klick Betrag, Datum, Steuersätze, Belegreferenz und Buchungskategorie vorschlagen. Sie prüfen und ergänzen die Angaben vor dem Speichern.' },
+  { title: 'DATEV-Export mit Belegen', image: 'datev-export.webp', width: 921, height: 427, alt: 'DATEV-Exportmaske mit ausgewählten Optionen Kassenbuch und Belege als ZIP', description: 'Exportieren Sie die Kassenbewegungen für Ihre Steuerkanzlei. Die zugeordneten Belege werden mitgegeben, damit Buchung und Nachweis zusammenbleiben.' },
+];
+---
+
+<Layout
+  title="Digitales Kassenbuch für Hotels mit KI und DATEV | Zimmero"
+  description="Bargeld im Hotel verwalten, Belege per Smartphone erfassen und Belegdaten mit KI erkennen. DATEV-Export mit Belegen. Das Zimmero-Modul kostet 10 € netto monatlich."
+>
+  <div class="border-b border-secondary-200/80 bg-[#f7f9fe] pb-10 pt-5 md:pb-12">
+    <div class="product-container">
+      <Breadcrumbs items={[{ name: 'Startseite', href: '/' }, { name: 'Digitales Kassenbuch', href: '/digitales-kassenbuch-hotel/' }]} />
+      <div class="grid gap-6 md:grid-cols-[1fr_19rem] md:items-end">
+        <div>
+          <p class="product-kicker mb-3">Zusatzmodul für Zimmero</p>
+          <h1 class="product-title !text-[clamp(2.45rem,5vw,3.9rem)]">Digitales Kassenbuch für Hotels mit KI und DATEV</h1>
+          <p class="mt-4 max-w-2xl text-secondary-600 sm:text-lg">Führen Sie Ihre Barkassen in Zimmero. Fotografieren Sie Belege beim Erfassen einer Bewegung und übergeben Sie beides gemeinsam an die Buchhaltung.</p>
+        </div>
+        <div class="product-card">
+          <p class="text-sm text-secondary-600"><strong class="text-3xl font-semibold tracking-tight text-secondary-950">{cashBook.price}</strong> netto pro Monat</p>
+          <a href="/preise/#zusatzmodule" class="product-link mt-3">Tarife und Zusatzmodule <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="product-section" aria-labelledby="ablauf-heading">
+    <div class="product-container">
+      <h2 id="ablauf-heading" class="product-heading mb-6">Vom Beleg zur Buchhaltung</h2>
+      <div class="grid gap-4 sm:grid-cols-2">
+        {workflow.map(step => (
+          <figure class="flex flex-col overflow-hidden rounded-2xl border border-secondary-200 bg-white">
+            <a href={`/assets/kassenbuch/${step.image}`} class="relative block aspect-[16/10] border-b border-secondary-200 bg-[#edf2fd]" target="_blank" rel="noopener" aria-label={`${step.title} in voller Größe öffnen`}>
+              <img src={`/assets/kassenbuch/${step.image}`} alt={step.alt} width={step.width} height={step.height} class="absolute inset-0 h-full w-full object-contain p-3 sm:p-4" loading="lazy" decoding="async" />
+            </a>
+            <figcaption class="p-5 sm:p-6">
+              <h3 class="text-lg">{step.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-secondary-600">{step.description}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="border-y border-secondary-200/80 bg-secondary-50 py-9" aria-labelledby="kasse-heading">
+    <div class="product-container grid gap-5 md:grid-cols-2">
+      <div>
+        <h2 id="kasse-heading" class="text-xl">Kassenbuch und Cloud-TSE</h2>
+        <p class="mt-2 text-sm leading-relaxed text-secondary-600">Für das Kassenbuch braucht Ihr Haus eine aktive Cloud-TSE. Zimmero sichert damit relevante Kassenvorgänge ab, archiviert die TSE-Daten elf Jahre und stellt einen DSFinV-K-Export bereit.</p>
+      </div>
+      <div>
+        <h2 class="text-xl">DATEV für Erlöse und Anzahlungen</h2>
+        <p class="mt-2 text-sm leading-relaxed text-secondary-600">Der DATEV-Export für Erlöse und Anzahlungen ist bereits in jedem Zimmero-Tarif enthalten. Das Kassenbuch ergänzt ihn um Bargeldbewegungen und die zugehörigen Belege.</p>
+        <a href="/datev-export-hotel/" class="product-link mt-3">DATEV-Export in Zimmero <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="product-container product-section">
+    <div class="product-cta flex flex-wrap items-center justify-between gap-5 rounded-2xl p-6 sm:p-8">
+      <div>
+        <h2 class="text-xl">Das Kassenbuch für Ihren Betrieb ansehen</h2>
+        <p class="mt-2 text-sm text-primary-100">Wir zeigen Ihnen den Ablauf von der Belegerfassung bis zum DATEV-Export.</p>
+      </div>
+      <a href="/kontakt/" class="btn-primary" data-module="Digitales Kassenbuch mit KI">Kassenbuch anfragen</a>
+    </div>
+  </div>
+</Layout>

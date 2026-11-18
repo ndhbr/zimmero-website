@@ -1,0 +1,87 @@
+---
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Layout from '../layouts/Layout.astro';
+
+const groups = [
+  {
+    id: 'buchungsportale',
+    title: 'Buchungsportale',
+    items: [
+      { name: 'Zimmero Channel Manager', status: 'Optionales Modul', description: 'Synchronisiert Verfügbarkeit, Preise und Verkaufsregeln mit Booking.com, Expedia, Airbnb und weiteren Portalen. Portalbuchungen landen in Zimmero.', href: '/channel-manager-booking-com/#portale', label: 'Alle Vertriebskanäle' },
+      { name: 'CultSwitch', status: 'Aktive Anbindung', description: 'Bindet den CultSwitch-Vertrieb an Zimmero an und übernimmt darüber eingehende Reservierungen.' },
+    ],
+  },
+  {
+    id: 'tourismus',
+    title: 'Tourismus und Meldewesen',
+    items: [
+      { name: 'TOMAS / Holidu Smart Destination', status: 'Sonderintegration', description: 'Synchronisiert Buchungen, Verfügbarkeit und Preise mit angebundenen Tourismusorganisationen in ganz Deutschland. Der Zimmero Channel Manager ist im Modulpreis enthalten.', href: '/preise/#zusatzmodule', label: 'Konditionen ansehen' },
+      { name: 'OBS OnlineBuchungService', status: 'Optionales Modul', description: 'Über myOBS gleichen Sie Zimmer und Bestände ab und übernehmen Reservierungen des OnlineBuchungService.' },
+      { name: 'WinTOP', status: 'Aktive Anbindung', description: 'Übermittelt digitale Meldescheine an das für Ihr Haus konfigurierte Verfahren.', href: '/meldeschein-software/', label: 'Digitale Meldescheine' },
+      { name: 'AVS', status: 'In Kürze', description: 'Anbindung für die digitale Übermittlung von Meldescheinen.' },
+      { name: 'IDEV', status: 'CSV-Export', description: 'Erstellt die Monatsmeldung für die bayerische Tourismusstatistik als CSV-Datei zum Hochladen in IDEV.', href: '/tourismusstatistik-bayern/', label: 'IDEV-Export im Detail' },
+    ],
+  },
+  {
+    id: 'buchhaltung',
+    title: 'Buchhaltung und Fiskalisierung',
+    items: [
+      { name: 'DATEV', status: 'Buchhaltungsexport', description: 'Exportiert Erlöse und Anzahlungen in allen Tarifen. Mit dem Kassenbuchmodul exportieren Sie zusätzlich Kassenbewegungen inklusive Belegen.', href: '/datev-export-hotel/', label: 'DATEV-Export im Detail' },
+      { name: 'Stotax', status: 'Buchhaltungsexport', description: 'Gibt Buchungsdaten für die weitere Verarbeitung in Stotax aus.' },
+      { name: 'Cloud-TSE und DSFinV-K', status: 'Fiskalisierung und Export', description: 'Sichert relevante Kassenvorgänge ab und archiviert die TSE-Daten elf Jahre. DSFinV-K-Daten stehen als Export bereit.', href: '/sicherheit-und-datenschutz/#tse-heading', label: 'TSE und Archivierung' },
+      { name: 'Externe Kassensysteme', status: 'Optionales Modul', description: 'Verbindet kompatible Kassensysteme über eine dokumentierte Schnittstelle mit Zimmero.' },
+      { name: 'SumUp Solo', status: 'Optionales Modul', description: 'Sendet Rechnungsbeträge direkt ans Terminal und meldet den Status der Zahlung an Zimmero zurück.' },
+    ],
+  },
+  {
+    id: 'datenmigration',
+    title: 'Datenmigration',
+    items: [
+      { name: 'HS3', status: 'Einmaliger Datenimport', description: 'Übernimmt beim Wechsel vorhandene Gäste- und Buchungsdaten aus HS3.', href: '/wissen/hs3-alternative/', label: 'Wechsel von HS3' },
+      { name: 'Provendis', status: 'Einmaliger Datenimport', description: 'Übernimmt beim Wechsel vorhandene Gäste- und Buchungsdaten aus dem Provendis Pensionsprogramm.' },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Schnittstellen für Hotelsoftware | Channel Manager, DATEV und IDEV | Zimmero"
+  description="Zimmero verbindet Buchungsportale, TOMAS, OBS und WinTOP. Mit DATEV- und IDEV-Export, Cloud-TSE sowie Datenübernahme aus HS3 und Provendis."
+>
+  <div class="border-b border-secondary-200/80 bg-[#f7f9fe] pb-10 pt-5 md:pb-12">
+    <div class="product-container">
+      <Breadcrumbs items={[{ name: 'Startseite', href: '/' }, { name: 'Schnittstellen', href: '/schnittstellen/' }]} />
+      <h1 class="product-title !text-[clamp(2.45rem,5vw,3.9rem)]">Schnittstellen für Ihre Hotelsoftware</h1>
+      <p class="mt-4 max-w-2xl text-secondary-600 sm:text-lg">Verbinden Sie Zimmero mit Ihren Buchungsportalen und Tourismuspartnern. Geben Sie Daten an Ihre Steuerkanzlei weiter und übernehmen Sie Ihre Stamm- und Buchungsdaten beim Wechsel.</p>
+      <nav aria-label="Schnittstellen nach Bereich" class="mt-6 flex flex-wrap gap-2">
+        {groups.map(group => <a href={`#${group.id}`} class="rounded-lg border border-secondary-200 bg-white px-3 py-2 text-sm font-medium text-secondary-700 hover:border-primary-300 hover:text-primary-700">{group.title}</a>)}
+      </nav>
+    </div>
+  </div>
+
+  <div class="product-container product-section grid gap-9 md:gap-12">
+    {groups.map(group => (
+      <section id={group.id} aria-labelledby={`${group.id}-heading`}>
+        <h2 id={`${group.id}-heading`} class="product-heading mb-5 !text-[clamp(1.65rem,3.3vw,2.35rem)]">{group.title}</h2>
+        <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {group.items.map(item => (
+            <article class="product-card">
+              <p class:list={['mb-2 text-xs font-semibold', item.status === 'In Kürze' ? 'text-accent-800' : 'text-primary-700']}>{item.status}</p>
+              <h3 class="text-lg">{item.name}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-secondary-600">{item.description}</p>
+              {item.href && <a href={item.href} class="product-link mt-3">{item.label}<span aria-hidden="true">→</span></a>}
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <div class="product-cta flex flex-wrap items-center justify-between gap-5 rounded-2xl p-6 sm:p-8">
+      <div>
+        <h2 class="text-xl">Weitere Anbindungen sind in Entwicklung.</h2>
+        <p class="mt-2 text-sm text-primary-100">Fragen Sie nach, wenn Ihr Betrieb eine besondere Schnittstelle benötigt.</p>
+      </div>
+      <a href="/kontakt/" class="btn-primary">Schnittstelle anfragen</a>
+    </div>
+  </div>
+</Layout>

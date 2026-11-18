@@ -2,6 +2,7 @@
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import '../styles/product.css';
 import { CONTACT_PHONE_DISPLAY, SITE } from '../config';
 
 interface Props {
@@ -37,7 +38,7 @@ const schemas = [
     url: 'https://zimmero.app',
     logo: 'https://zimmero.app/logo.svg',
     image: 'https://zimmero.app/assets/og-default.jpg',
-    description: 'Hotelsoftware für kleine Hotels und Pensionen inklusive Channel Manager, digitalem Meldeschein und Kurtaxenabrechnung.',
+    description: SITE.description,
     email: 'info@zimmero.app',
     telephone: CONTACT_PHONE_DISPLAY,
     address: {
@@ -74,7 +75,7 @@ const schemas = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#4a6fe3" />
+    <meta name="theme-color" content="#3a59c4" />
     <link rel="canonical" href={canonicalUrl} />
 
     <meta property="og:type" content={ogType} />
@@ -108,8 +109,9 @@ const schemas = [
     <script type="application/ld+json" set:html={JSON.stringify(schemas)} />
   </head>
   <body class="min-h-screen flex flex-col bg-white">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[60] focus:rounded-md focus:bg-white focus:p-3">Zum Inhalt</a>
     <Navigation />
-    <main class="flex-1">
+    <main id="main-content" tabindex="-1" class="flex-1">
       <slot />
     </main>
     <Footer />

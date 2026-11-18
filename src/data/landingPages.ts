@@ -1,3 +1,5 @@
+import { channelPricing } from './pricing';
+
 export interface LandingPage {
   slug: string;
   title: string;
@@ -11,6 +13,7 @@ export interface LandingPage {
   problem: string[];
   steps: { title: string; text: string }[];
   image: string;
+  imageSize?: { width: number; height: number };
   imageAlt: string;
   imageCaption: string;
   sections: { title: string; paragraphs: string[] }[];
@@ -337,18 +340,18 @@ export const landingPages: LandingPage[] = [
   },
   {
     slug: 'channel-manager-booking-com',
-    title: 'Channel Manager für Booking.com | Zimmero',
-    description: 'Booking.com mit Zimmero verbinden und Verfügbarkeiten, Preise, Einschränkungen sowie Reservierungen automatisch abgleichen.',
+    title: 'Hotelsoftware mit Channel Manager für Booking.com und weitere Portale | Zimmero',
+    description: 'Booking.com, Expedia, Airbnb und weitere Portale mit Zimmero verbinden. Verfügbarkeiten, Preise und Reservierungen zentral abgleichen. Alle Vertriebskanäle ansehen.',
     eyebrow: 'Channel Manager für kleine Hotels',
-    heading: 'Booking.com anbinden, ohne den Zimmerplan doppelt zu pflegen.',
+    heading: 'Channel Manager für Booking.com und weitere Portale',
     intro: [
       'Eine Portalbuchung darf nicht erst per E-Mail gesucht und anschließend von Hand in den Zimmerplan übertragen werden. Gleichzeitig müssen neue Belegungen zurück an das Portal gelangen.',
-      'Der Zimmero Channel Manager verbindet Booking.com in beide Richtungen. Mehr als 50 weitere Portale sind über ein Zusatzmodul erreichbar.',
+      'Der optionale Zimmero Channel Manager verbindet Ihre Hotelsoftware mit Booking.com und weiteren Portalen. Preise und Verfügbarkeiten werden übertragen. Reservierungen kommen direkt in Zimmero an.',
     ],
     benefits: [
       { title: 'Bestand hinaus', text: 'Verfügbarkeiten werden aus Zimmero an das angebundene Portal übertragen.' },
       { title: 'Buchung herein', text: 'Portalreservierungen kommen automatisch als Buchung in Zimmero an.' },
-      { title: 'Preis nach Nutzung', text: 'Es gibt keine monatliche Grundgebühr. Berechnet werden 1,50 Euro je Portalbuchung, maximal 59 Euro pro Monat.' },
+      { title: 'Preis nach Nutzung', text: channelPricing },
     ],
     problemTitle: 'Ein freies Zimmer darf nicht gleichzeitig auf zwei Wegen verkauft werden.',
     problem: [
@@ -357,15 +360,16 @@ export const landingPages: LandingPage[] = [
       'Der Channel Manager macht Zimmero zum führenden Arbeitsort für Verfügbarkeit und Buchungen. Die Verbindung überträgt nicht wahllos alles, sondern ordnet Zimmertypen, Ratenpläne und Regeln zwischen den beteiligten Systemen zu.',
     ],
     steps: [
-      { title: 'Portalverbindung einrichten', text: 'Booking.com wird mit Zimmero verbunden. Für weitere Portale steht die Anbindung über Channex als Zusatzmodul bereit.' },
+      { title: 'Portalverbindung einrichten', text: 'Verbinden Sie das gewünschte Portal über den Zimmero Channel Manager mit Ihrem Haus.' },
       { title: 'Zimmertypen und Raten zuordnen', text: 'Zimmertypen, Ratenpläne, Steuern und Hausrichtlinien werden zwischen Zimmero und dem Portal abgeglichen. Die Zuordnung muss vor dem laufenden Verkauf stimmen.' },
       { title: 'Preise und Einschränkungen senden', text: 'Verfügbarkeit, Preise und Verkaufsbeschränkungen werden automatisch hinaus übertragen. Dazu gehören Mindestaufenthalte, Anreise- und Abreisesperren sowie Verkaufsstopps.' },
       { title: 'Reservierungen automatisch empfangen', text: 'Neue Portalbuchungen kommen über eine direkte Benachrichtigung in Zimmero an. Eine zusätzliche regelmäßige Absicherung prüft, ob Reservierungen vollständig eingegangen sind.' },
       { title: 'Übertragungen kontrollieren', text: 'Versuche werden protokolliert und bei Bedarf wiederholt. So bleibt erkennbar, wenn ein Portal eine Änderung nicht sofort angenommen hat.' },
     ],
-    image: '/assets/buchungsuebersicht.webp',
-    imageAlt: 'Zimmero Buchungsübersicht mit Reservierungen und Aufenthalten eines Hotels',
-    imageCaption: 'Portalreservierungen landen im selben Buchungsbereich wie direkte und telefonische Buchungen.',
+    image: '/assets/channel-manager.webp',
+    imageSize: { width: 875, height: 446 },
+    imageAlt: 'Channel-Manager-Einstellungen für automatische Synchronisierung von Preisen und Verfügbarkeit sowie den Abruf von Buchungen',
+    imageCaption: 'In Zimmero aktivieren Sie den laufenden Abgleich von Verfügbarkeit und Preisen sowie den automatischen Abruf von Portalbuchungen.',
     sections: [
       {
         title: 'Zwei Wege bedeuten mehr als den Eingang einer E-Mail.',
@@ -385,7 +389,7 @@ export const landingPages: LandingPage[] = [
         title: 'Direktbuchung und Portalbuchung bleiben zwei verschiedene Wege.',
         paragraphs: [
           'Der Channel Manager verbindet externe Buchungsportale. Die eigene Buchungsstrecke bringt Reservierungen von Ihrer Hotelwebsite direkt in Zimmero. Beide Wege verwenden denselben Bestand, haben aber ein unterschiedliches Preismodell.',
-          'Für Portalbuchungen berechnet Zimmero 1,50 Euro je Buchung, maximal 59 Euro pro Monat. Eine monatliche Grundgebühr fällt nicht an. Direktbuchungen über Ihre eigene Website kosten bei Zimmero weder Provision noch Buchungsgebühr. Gebühren des jeweiligen Portals oder anderer externer Anbieter bleiben davon unberührt.',
+          channelPricing + ' Direktbuchungen über Ihre eigene Website kosten bei Zimmero weder Provision noch Buchungsgebühr. Gebühren der Portale richten sich nach Ihren Verträgen mit den Anbietern.',
         ],
       },
     ],
@@ -395,14 +399,14 @@ export const landingPages: LandingPage[] = [
       'Vor der Freischaltung sollten Bestand, Preise und Einschränkungen für einen kontrollierten Zeitraum geprüft werden.',
     ],
     limitations: [
-      'Booking.com ist angebunden. Für andere Portale muss vorab geprüft werden, ob sie über das Zusatzmodul erreichbar sind.',
+      'Je Portal gelten eigene Freischaltbedingungen. Welche Regeln und Funktionen übertragen werden können, hängt vom jeweiligen Portal ab.',
       'Zimmero ersetzt weder den Vertrag mit dem Portal noch dessen Gebühren und Geschäftsbedingungen.',
       'Eine technische Verbindung verhindert keine falschen Preise oder Regeln, wenn die zugrunde liegenden Stammdaten falsch eingerichtet wurden.',
     ],
     faqs: [
       { q: 'Ist Booking.com direkt mit Zimmero verbunden?', a: 'Ja. Verfügbarkeiten, Preise und Einschränkungen werden übertragen. Reservierungen kommen automatisch in Zimmero an und werden dem Hotelbestand zugeordnet.' },
-      { q: 'Welche weiteren Portale sind möglich?', a: 'Mehr als 50 weitere Portale sind über Channex als Zusatzmodul erreichbar. Ob ein bestimmtes Portal dazugehört, sollte vor der Einrichtung geprüft werden.' },
-      { q: 'Was kostet der Channel Manager?', a: 'Zimmero berechnet 1,50 Euro je Portalbuchung, maximal 59 Euro pro Monat. Es gibt keine zusätzliche monatliche Grundgebühr. Gebühren des Portals oder anderer externer Anbieter sind nicht enthalten.' },
+      { q: 'Welche weiteren Portale sind möglich?', a: 'Neben Booking.com kommen unter anderem Expedia, Airbnb, Agoda, Check24 und Trip.com infrage. Die vollständige Liste steht auf dieser Seite unter „Verfügbare Buchungsportale und Vertriebskanäle“.' },
+      { q: 'Was kostet der Channel Manager?', a: channelPricing },
       { q: 'Werden Mindestaufenthalte und Verkaufsstopps übertragen?', a: 'Ja. Zimmero unterstützt Mindestaufenthalte, Höchstaufenthalte, Anreise- und Abreisesperren sowie Verkaufsstopps und überträgt die zugeordneten Einschränkungen.' },
       { q: 'Sind Direktbuchungen ebenfalls kostenpflichtig?', a: 'Nein. Buchungen über die eigene Zimmero Buchungsstrecke kosten weder Provision noch Buchungsgebühr an Zimmero.' },
     ],
@@ -509,7 +513,8 @@ export const landingPages: LandingPage[] = [
       { title: 'Gast wählt und bucht', text: 'Der Gast gibt Reisezeit und Personenzahl ein, sieht verfügbare Zimmertypen und führt die Buchung selbst durch.' },
       { title: 'Buchung im Backoffice bearbeiten', text: 'Nach der Bestätigung landet die Reservierung direkt in Zimmero. Sie wird im selben Arbeitsbereich wie andere Buchungen weiterbearbeitet.' },
     ],
-    image: '/assets/online-direktbuchung.webp',
+    image: '/assets/online-direktbuchung-neu.webp',
+    imageSize: { width: 1327, height: 929 },
     imageAlt: 'Zimmero Buchungsstrecke auf einer Hotelwebsite mit Reisedaten, Zimmerauswahl und Preisen',
     imageCaption: 'Der Gast sieht verfügbare Zimmertypen und Preise auf der Website des Hauses. Die Reservierung landet direkt in Zimmero.',
     sections: [
@@ -611,7 +616,7 @@ export const landingPages: LandingPage[] = [
         title: 'Direktbuchungen entlasten das Telefon, ohne es abzuschaffen.',
         paragraphs: [
           'Viele Stammgäste rufen weiterhin gern an. Andere möchten abends auf der Website buchen. Die Zimmero Buchungsstrecke ergänzt den persönlichen Kontakt und übernimmt Reservierungen direkt in das Backoffice.',
-          'Für Direktbuchungen berechnet Zimmero weder Provision noch Buchungsgebühr. Booking.com kann über den Channel Manager in beide Richtungen angebunden werden. Portalbuchungen kosten 1,50 Euro je Buchung, maximal 59 Euro pro Monat. Eine zusätzliche monatliche Grundgebühr fällt nicht an.',
+          'Für Direktbuchungen berechnet Zimmero weder Provision noch Buchungsgebühr. Booking.com kann über den Channel Manager in beide Richtungen angebunden werden. Für bestätigte Portalbuchungen über den separat gebuchten Channel Manager fallen 1,50 € netto pro Buchung an, maximal 59 € netto pro Monat. Im TOMAS-Modul ist der Channel Manager vollständig enthalten.',
         ],
       },
       {
@@ -643,7 +648,7 @@ export const landingPages: LandingPage[] = [
       { q: 'Welche Hotelsoftware eignet sich für kleine Hotels?', a: 'Zimmero eignet sich für inhabergeführte kleine Hotels mit etwa 10 bis 100 Zimmern, die Zimmerplan, Buchungen, Preise, Rechnungen, Channel Manager, Housekeeping und regionale Pflichten in einem browserbasierten System bearbeiten möchten.' },
       { q: 'Ist Zimmero für Pensionen geeignet?', a: 'Ja. Zimmero ist auf die Abläufe von Pensionen und kleinen Hotels ausgerichtet. Gast, Zimmer, Leistungen, Meldeschein und Rechnung bleiben verbunden. Direktbuchungen und Portalreservierungen laufen in denselben Zimmerplan.' },
       { q: 'Welcher Tarif passt zu einer kleinen Pension oder einem kleinen Hotel?', a: 'Starter kostet 99 Euro netto pro Monat inklusive E-Rechnungen mit ZUGFeRD EN 16931. Der Tarif gilt für ein Haus mit bis zu 20 Zimmern oder Einheiten. Mitarbeiterkonten sind unbegrenzt.' },
-      { q: 'Kann Zimmero Booking.com anbinden?', a: 'Ja. Verfügbarkeiten, Preise und Einschränkungen werden übertragen, Reservierungen kommen automatisch herein. Die Kosten betragen 1,50 Euro je Portalbuchung, maximal 59 Euro pro Monat.' },
+      { q: 'Kann Zimmero Booking.com anbinden?', a: 'Ja. Verfügbarkeiten, Preise und Einschränkungen werden übertragen, Reservierungen kommen automatisch herein. Beim separat gebuchten Channel Manager kostet eine bestätigte Portalbuchung 1,50 € netto, maximal 59 € netto pro Monat. Im TOMAS-Modul ist der Channel Manager vollständig enthalten.' },
       { q: 'Gibt es eine Buchungsstrecke für die eigene Website?', a: 'Ja. Sie lässt sich in WordPress, Jimdo und Squarespace einbinden. Direktbuchungen kosten keine Provision und keine Buchungsgebühr an Zimmero.' },
       { q: 'Hilft Zimmero bei Meldeschein und Kurtaxe?', a: 'Ja. Meldescheine können elektronisch übermittelt und im Status verfolgt werden. Kurtaxe wird nach den je Haus eingerichteten Gästeklassen, Altersstufen und Gültigkeitszeiträumen berechnet.' },
       { q: 'Kann eine bestehende Pension Daten übernehmen?', a: 'Ja. Die Übernahme von Gästen und Buchungen aus HS3 und Pensionsprogramm ist erprobt und in allen Paketen kostenlos.' },

@@ -4,6 +4,7 @@ import FaqAccordion from '../components/FaqAccordion.astro';
 import Layout from '../layouts/Layout.astro';
 import { CONTACT_EMAIL, DEMO_URL } from '../config';
 import { landingPages, type LandingPage } from '../data/landingPages';
+import { bookingChannels } from '../data/bookingChannels';
 
 export function getStaticPaths() {
   return landingPages.map(page => ({
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const { page } = Astro.props;
+const isChannelPage = page.slug === 'channel-manager-booking-com';
 const relatedPages = page.related
   .map(slug => landingPages.find(candidate => candidate.slug === slug))
   .filter((candidate): candidate is LandingPage => Boolean(candidate));
@@ -59,6 +61,7 @@ const breadcrumbs = [
         <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <a href={DEMO_URL} target="_blank" rel="noopener" class="btn-primary">Demo öffnen</a>
           <a href="/kontakt/" class="btn-secondary">Zimmero anfragen</a>
+          {isChannelPage && <a href="#portale" class="btn-secondary">Alle Buchungsportale</a>}
         </div>
       </div>
 
@@ -72,6 +75,22 @@ const breadcrumbs = [
       </div>
     </div>
   </section>
+
+  {isChannelPage && (
+    <section id="portale" class="product-section border-t border-secondary-200" aria-labelledby="portale-heading">
+      <div class="product-container">
+        <h2 id="portale-heading" class="product-heading">Verfügbare Buchungsportale und Vertriebskanäle</h2>
+        <p class="mb-5 mt-3 max-w-3xl text-secondary-600">Diese Kanäle sind über das Vertriebsnetz des Zimmero Channel Managers verfügbar. Die Freischaltung und der Funktionsumfang hängen vom Portal, Ihrem Unterkunftstyp und Ihrem Portalvertrag ab.</p>
+        <ul class="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-secondary-200 bg-secondary-200 text-sm text-secondary-700 sm:grid-cols-3 lg:grid-cols-5">
+          {bookingChannels.map(channel => <li class="bg-secondary-50 px-3 py-2.5 sm:px-4">{channel}</li>)}
+        </ul>
+        <div class="mt-5 flex flex-wrap gap-x-5 gap-y-3">
+          <a href="/schnittstellen/" class="product-link">Alle Zimmero-Schnittstellen <span aria-hidden="true">→</span></a>
+          <a href="/preise/#zusatzmodule" class="product-link">Modulpreise ansehen <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="bg-surface py-16 md:py-24">
     <div class="section-container">
@@ -103,8 +122,8 @@ const breadcrumbs = [
           ))}
         </ol>
 
-        <figure class="mt-10 overflow-hidden rounded-2xl border border-secondary-200 bg-white shadow-sm">
-          <img src={page.image} alt={page.imageAlt} width="1600" height="900" class="aspect-video h-auto w-full object-cover object-top" loading="lazy" />
+        <figure id={isChannelPage ? "produktansicht" : undefined} class="mt-10 overflow-hidden rounded-2xl border border-secondary-200 bg-white shadow-sm">
+          <img src={page.image} alt={page.imageAlt} width={page.imageSize?.width ?? 1600} height={page.imageSize?.height ?? 900} class:list={['h-auto w-full object-cover object-top', !page.imageSize && 'aspect-video']} loading="lazy" />
           <figcaption class="border-t border-secondary-200 px-5 py-4 text-sm leading-relaxed text-secondary-600">{page.imageCaption}</figcaption>
         </figure>
 

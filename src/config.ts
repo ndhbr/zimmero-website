@@ -1,7 +1,9 @@
+import { plans } from './data/pricing';
+
 export const SITE = {
   name: 'Zimmero',
   url: 'https://zimmero.app',
-  description: 'Hotelsoftware für kleine Hotels und Pensionen inklusive Channel Manager',
+  description: 'Hotelsoftware für inhabergeführte Hotels, Pensionen, Gasthöfe und kleine Hotelgruppen mit kostenloser Direktbuchungsstrecke und optionalem Channel Manager.',
 };
 
 export const DEMO_URL = 'https://dashboard.zimmero.app/demo';
@@ -12,6 +14,7 @@ export const CONTACT_PHONE_HREF = '+4915117815136';
 export const CONTACT_HOURS = 'Montag bis Freitag, 8 bis 17 Uhr, außer an gesetzlichen Feiertagen';
 
 export const SOLUTION_LINKS = [
+  { label: 'Digitales Kassenbuch mit KI', href: '/digitales-kassenbuch-hotel/' },
   { label: 'E-Rechnungen mit ZUGFeRD', href: '/wissen/e-rechnung-hotel/' },
   { label: 'Meldeschein', href: '/meldeschein-software/' },
   { label: 'Kurtaxe und Ortstaxe', href: '/kurtaxe-ortstaxe-software/' },
@@ -35,37 +38,38 @@ export const SOFTWARE_APPLICATION_SCHEMA = {
   description: 'Hotelsoftware für kleine Hotels und Pensionen: Zimmerplan, Buchungen, Channel Manager, Rechnungen, Housekeeping, digitaler Meldeschein und Kurtaxe in einem System.',
   audience: [
     { '@type': 'Audience', audienceType: 'Pensionen' },
-    { '@type': 'Audience', audienceType: 'Kleine inhabergeführte Hotels' },
+    { '@type': 'Audience', audienceType: 'Inhabergeführte Hotels, Gasthöfe und kleine Hotelgruppen' },
   ],
   featureList: [
     'Zimmerplan mit Aufenthalten und Sperrzeiten',
     'Buchungen mit mehreren Zimmern und Gästen',
-    'Channel Manager mit Booking.com Anbindung',
+    'Optionaler Zimmero Channel Manager für Booking.com und weitere Portale',
     'Eigene Online Buchungsstrecke ohne Provision',
     'Rechnungen mit Split Billing und PDF Archiv',
     'E-Rechnungen mit ZUGFeRD EN 16931 in jedem Paket',
-    'DATEV EXTF Export',
+    'DATEV-Export für Erlöse und Anzahlungen',
     'Digitaler Meldeschein mit elektronischer Übermittlung',
     'Kurtaxen und Ortstaxenabrechnung',
     'Housekeeping und Facility Management',
     'Eigentümerabrechnung',
     'Online Check-in und Gästeportal',
     'Hotel-Tagespost mit Wetter, Veranstaltungen und PDF-Ausgabe',
-    'Bayerische Tourismusstatistik als IDEV Export',
+    'Bayerische Tourismusstatistik als IDEV-Export',
+    'Cloud-TSE mit elf Jahren Archivierung und DSFinV-K-Export',
   ],
-  offers: {
+  offers: plans.map(plan => ({
     '@type': 'Offer',
-    price: '99.00',
+    name: plan.name,
+    price: plan.price,
     priceCurrency: 'EUR',
-    description: 'Starter ab 99 Euro netto pro Monat inklusive ZUGFeRD EN 16931. Einrichtung, Datenübernahme und halbtägige Teams-Schulung kostenlos.',
+    description: `${plan.capacity}. Monatlich kündbar. Einrichtung, Datenmigration und halbtägige Teams-Schulung kostenlos.`,
     priceSpecification: {
       '@type': 'UnitPriceSpecification',
-      price: '99.00',
+      price: plan.price,
       priceCurrency: 'EUR',
-      unitText: 'MONTH',
-      billingIncrement: 1,
+      unitCode: 'MON',
+      valueAddedTaxIncluded: false,
     },
-    availability: 'https://schema.org/InStock',
     url: 'https://zimmero.app/preise/',
-  },
+  })),
 };
